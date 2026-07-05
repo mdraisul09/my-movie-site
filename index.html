@@ -1,948 +1,569 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Watch HD Movies & TV Shows Online - Premium Streaming</title>
-    <meta name="description" content="Stream high-quality movies and TV shows online for free. No registration required. Fast, safe, and mobile-friendly streaming experience.">
-    
-    <!-- Premium Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- FontAwesome for Premium Icons -->
+    <title>Effort to Earn | Premium Online Earning Platform</title>
+    <meta name="description" content="Start earning real money daily by putting in effort to complete simple tasks, surveys, and referrals. Instant withdrawals via bKash, Nagad, Binance, and more.">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        skyblue: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                        }
+                    },
+                    backdropBlur: {
+                        xs: '2px',
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        /* --- DESIGN SYSTEM & VARIABLES --- */
-        :root {
-            --bg-dark: #0a0a0c;
-            --bg-card: rgba(20, 20, 25, 0.7);
-            --primary-red: #e50914;
-            --primary-glow: #ff1e27;
-            --text-main: #ffffff;
-            --text-muted: #b3b3b3;
-            --glass-border: rgba(255, 255, 255, 0.08);
-            --font-pop: 'Poppins', sans-serif;
-            --font-inter: 'Inter', sans-serif;
-            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        /* --- RESET & BASE STYLES --- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            font-family: var(--font-inter);
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
-
-        /* --- PRELOADER --- */
-        #preloader {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: var(--bg-dark);
-            z-index: 9999;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: opacity 0.5s ease;
-        }
-        .spinner {
-            width: 50px;
-            height: 50px;
-            border: 3px solid transparent;
-            border-top-color: var(--primary-red);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-        @keyframes spin { to { transform: rotate(360deg); } }
-
-        /* --- STICKY NAVIGATION --- */
-        .navbar {
-            position: fixed;
-            top: 0; width: 100%;
-            padding: 20px 5%;
-            background: linear-gradient(to bottom, rgba(10,10,12,0.9) 0%, rgba(10,10,12,0) 100%);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            transition: var(--transition);
-        }
-        .navbar.scrolled {
-            padding: 12px 5%;
-            background: rgba(10, 10, 12, 0.95);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-        .nav-logo {
-            font-family: var(--font-pop);
-            font-weight: 800;
-            font-size: 1.6rem;
-            color: var(--primary-red);
-            text-decoration: none;
-            letter-spacing: 1px;
-            text-shadow: 0 0 10px rgba(229, 9, 20, 0.4);
-        }
-        .nav-links {
-            display: flex;
-            gap: 25px;
-            list-style: none;
-        }
-        .nav-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: var(--transition);
-        }
-        .nav-links a:hover {
-            color: var(--text-main);
-            text-shadow: 0 0 8px rgba(255,255,255,0.5);
-        }
-
-        /* --- HERO SECTION --- */
-        .hero {
-            position: relative;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 120px 20px 80px 20px;
-            background: radial-gradient(circle at 50% 30%, rgba(229, 9, 20, 0.15) 0%, rgba(10, 10, 12, 1) 70%);
-            overflow: hidden;
-        }
-        /* Custom Ambient Glow Effects */
-        .hero::before {
-            content: '';
-            position: absolute;
-            width: 300px; height: 300px;
-            background: var(--primary-glow);
-            filter: blur(150px);
-            opacity: 0.25;
-            top: 20%; left: 50%;
-            transform: translate(-50%, -50%);
-            pointer-events: none;
-        }
-
-        /* Hero Clickable Logo Wrapper */
-        .hero-logo-wrapper {
-            text-decoration: none;
-            display: inline-block;
-            margin-bottom: 25px;
-            cursor: pointer;
-            transition: var(--transition);
-            animation: float 4s ease-in-out infinite;
-        }
-        .hero-logo-wrapper:hover {
-            transform: scale(1.06);
-        }
-        /* Cinematic Dynamic Logo Design */
-        .cinema-logo-box {
-            position: relative;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--glass-border);
-            padding: 30px 40px;
-            border-radius: 24px;
-            backdrop-filter: blur(12px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.1);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-        }
-        .cinema-logo-box::after {
-            content: '';
-            position: absolute;
-            inset: 0; border-radius: 24px;
-            padding: 2px;
-            background: linear-gradient(135deg, rgba(255,255,255,0.2), transparent, rgba(229,9,20,0.5));
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            pointer-events: none;
-        }
-        .logo-icon-stack {
-            position: relative;
-            font-size: 4rem;
-            color: #fff;
-            text-shadow: 0 0 20px rgba(255,255,255,0.3);
-        }
-        .logo-icon-stack .fa-play {
-            position: absolute;
-            top: 50%; left: 54%;
-            transform: translate(-50%, -50%);
-            font-size: 1.6rem;
-            color: var(--primary-red);
-            text-shadow: 0 0 15px var(--primary-glow);
-        }
-        .logo-text-brand {
-            font-family: var(--font-pop);
-            font-weight: 800;
-            font-size: 1.8rem;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            background: linear-gradient(180deg, #ffffff 0%, #a5a5a5 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero h1 {
-            font-family: var(--font-pop);
-            font-size: 3.5rem;
-            font-weight: 800;
-            letter-spacing: -1px;
-            line-height: 1.2;
-            margin-bottom: 15px;
-            max-width: 800px;
-            background: linear-gradient(to right, #fff, #eee, var(--text-muted));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            margin-bottom: 35px;
-            max-width: 600px;
-            font-weight: 300;
-        }
-        
-        /* Glowing CTA Button */
-        .btn-glow {
-            position: relative;
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            padding: 16px 40px;
-            background: var(--primary-red);
-            color: #fff;
-            font-family: var(--font-pop);
-            font-weight: 600;
-            font-size: 1.1rem;
-            text-decoration: none;
-            border-radius: 50px;
-            box-shadow: 0 0 30px rgba(229, 9, 20, 0.5);
-            transition: var(--transition);
-            overflow: hidden;
-            border: none;
-            cursor: pointer;
-        }
-        .btn-glow:hover {
-            background: #ff1e27;
-            box-shadow: 0 0 45px rgba(255, 30, 39, 0.8);
-            transform: translateY(-2px);
-        }
-        .btn-glow i {
-            transition: var(--transition);
-        }
-        .btn-glow:hover i {
-            transform: translateX(4px);
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        /* --- GLOBAL SECTION STYLING --- */
-        section {
-            padding: 100px 5%;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        .section-title {
-            font-family: var(--font-pop);
-            font-size: 2.2rem;
-            font-weight: 700;
-            margin-bottom: 50px;
-            text-align: center;
-            position: relative;
-        }
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -15px; left: 50%;
-            transform: translateX(-50%);
-            width: 60px; height: 4px;
-            background: var(--primary-red);
-            border-radius: 2px;
-            box-shadow: 0 0 10px var(--primary-glow);
-        }
-
-        /* --- GLASSMORPHISM CARDS GRID --- */
-        .glass-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
         .glass-card {
-            background: var(--bg-card);
-            border: 1px solid var(--glass-border);
-            padding: 40px 30px;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            text-align: center;
-            transition: var(--transition);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
         }
-        .glass-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(229, 9, 20, 0.4);
-            box-shadow: 0 20px 40px rgba(229, 9, 20, 0.1);
+        .glow-btn {
+            box-shadow: 0 0 20px rgba(14, 165, 233, 0.4);
+            transition: all 0.3s ease;
         }
-        .glass-card i {
-            font-size: 2.5rem;
-            color: var(--primary-red);
-            margin-bottom: 20px;
-            text-shadow: 0 0 15px rgba(229, 9, 20, 0.3);
+        .glow-btn:hover {
+            box-shadow: 0 0 30px rgba(14, 165, 233, 0.7);
         }
-        .glass-card h3 {
-            font-family: var(--font-pop);
-            font-size: 1.3rem;
-            margin-bottom: 12px;
-        }
-        .glass-card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        /* --- MOVIE POSTERS / CATEGORIES GRID --- */
-        .category-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 25px;
-        }
-        .category-card {
-            position: relative;
-            border-radius: 16px;
-            overflow: hidden;
-            aspect-ratio: 2/3;
-            cursor: pointer;
-            border: 1px solid rgba(255,255,255,0.05);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-        }
-        .category-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-        .category-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(10,10,12,1) 10%, rgba(10,10,12,0.4) 60%, transparent 100%);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 25px 20px;
-            opacity: 0.9;
-            transition: var(--transition);
-        }
-        .category-card:hover img {
-            transform: scale(1.08);
-        }
-        .category-card:hover .category-overlay {
-            background: linear-gradient(to top, var(--primary-red) 5%, rgba(10,10,12,0.6) 70%);
-        }
-        .category-overlay h3 {
-            font-family: var(--font-pop);
-            font-size: 1.4rem;
-            margin-bottom: 5px;
-        }
-        .category-overlay span {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        .category-card:hover .category-overlay span {
-            color: #fff;
-        }
-
-        /* --- HOW IT WORKS (STEPS) --- */
-        .steps-container {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 40px;
-            margin-top: 50px;
-        }
-        .step-item {
-            flex: 1;
-            min-width: 250px;
-            text-align: center;
-            position: relative;
-        }
-        .step-num {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, var(--primary-red), #990007);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: var(--font-pop);
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin: 0 auto 25px auto;
-            box-shadow: 0 0 25px rgba(229, 9, 20, 0.4);
-        }
-        .step-item h3 {
-            font-family: var(--font-pop);
-            font-size: 1.25rem;
-            margin-bottom: 10px;
-        }
-        .step-item p {
-            color: var(--text-muted);
-        }
-
-        /* --- TESTIMONIALS --- */
-        .testimonial-card {
-            background: var(--bg-card);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            padding: 35px;
-            position: relative;
-            backdrop-filter: blur(10px);
-        }
-        .user-rating {
-            color: #ffc107;
-            margin-bottom: 15px;
-            font-size: 0.9rem;
-        }
-        .testimonial-card p {
-            font-style: italic;
-            color: #dddddd;
-            margin-bottom: 20px;
-        }
-        .user-info {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        .user-avatar {
-            width: 45px; height: 45px;
-            border-radius: 50%;
-            background: #252529;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-weight: bold;
-            color: var(--primary-red);
-            border: 1px solid var(--glass-border);
-        }
-
-        /* --- FAQ SECTION --- */
-        .faq-container {
-            max-width: 800px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        .faq-item {
-            background: var(--bg-card);
-            border: 1px solid var(--glass-border);
-            border-radius: 12px;
-            overflow: hidden;
-            backdrop-filter: blur(10px);
-        }
-        .faq-question {
-            padding: 22px 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            font-weight: 600;
-            font-family: var(--font-pop);
-            transition: var(--transition);
-        }
-        .faq-question:hover {
-            background: rgba(255,255,255,0.02);
-        }
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            padding: 0 30px;
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            transition: max-height 0.3s ease, padding 0.3s ease;
-        }
-        .faq-item.active .faq-answer {
-            max-height: 200px;
-            padding-bottom: 22px;
-        }
-        .faq-icon {
-            transition: var(--transition);
-        }
-        .faq-item.active .faq-icon {
-            transform: rotate(180deg);
-            color: var(--primary-red);
-        }
-
-        /* --- PREMIUM FOOTER --- */
-        footer {
-            background: #050507;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 70px 5% 30px 5%;
-        }
-        .footer-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 2fr repeat(2, 1fr);
-            gap: 50px;
-            margin-bottom: 50px;
-        }
-        .footer-brand h2 {
-            font-family: var(--font-pop);
-            color: var(--primary-red);
-            font-weight: 800;
-            margin-bottom: 15px;
-        }
-        .footer-brand p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            max-width: 400px;
-        }
-        .footer-links h3 {
-            font-family: var(--font-pop);
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        .footer-links ul {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-        .footer-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.95rem;
-            transition: var(--transition);
-        }
-        .footer-links a:hover {
-            color: #fff;
-            padding-left: 5px;
-        }
-        .footer-bottom {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
-        /* --- BACK TO TOP BUTTON --- */
-        #backToTop {
-            position: fixed;
-            bottom: 30px; right: 30px;
-            width: 50px; height: 50px;
-            background: var(--primary-red);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition);
-            z-index: 999;
-            box-shadow: 0 5px 15px rgba(229, 9, 20, 0.4);
-        }
-        #backToTop.show {
-            opacity: 1;
-            visibility: visible;
-        }
-        #backToTop:hover {
-            background: #ff1e27;
-            transform: translateY(-3px);
-        }
-
-        /* --- RESPONSIVE DESIGN (MOBILE-FIRST) --- */
-        @media (max-width: 992px) {
-            .hero h1 { font-size: 2.8rem; }
-            .footer-content { grid-template-columns: 1fr; gap: 40px; }
-        }
-        @media (max-width: 768px) {
-            .nav-links { display: none; } /* Simplified for structural brevity */
-            .hero h1 { font-size: 2.2rem; }
-            .hero p { font-size: 1rem; }
-            section { padding: 70px 5%; }
-            .footer-bottom { flex-direction: column; text-align: center; }
+        .bg-gradient-theme {
+            background: linear-gradient(135deg, #e0f2fe 0%, #ffffff 50%, #bae6fd 100%);
         }
     </style>
 </head>
-<body>
+<body class="bg-gradient-theme text-gray-800 font-sans min-h-screen antialiased">
 
-    <!-- Loading Animation -->
-    <div id="preloader">
-        <div class="spinner"></div>
-    </div>
-
-    <!-- Sticky Navigation -->
-    <nav class="navbar">
-        <a href="#" class="nav-logo">CINEFLIX</a>
-        <ul class="nav-links">
-            <li><a href="#features">Features</a></li>
-            <li><a href="#categories">Browse</a></li>
-            <li><a href="#benefits">Why Us</a></li>
-            <li><a href="#workflow">How It Works</a></li>
-            <li><a href="#faqs">FAQ</a></li>
-        </ul>
+    <!-- STICKY NAVIGATION BAR -->
+    <nav class="sticky top-0 z-50 w-full glass-card shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center gap-2">
+                    <div class="bg-sky-500 text-white p-2 rounded-xl shadow-md">
+                        <i class="fas fa-wallet text-xl"></i>
+                    </div>
+                    <span class="text-2xl font-black tracking-tight text-gray-900">Effort<span class="text-sky-500">ToEarn</span></span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8 font-medium">
+                    <a href="#" class="text-sky-500 transition-colors">Home</a>
+                    <a href="#features" class="text-gray-600 hover:text-sky-500 transition-colors">Features</a>
+                    <a href="#how-it-works" class="text-gray-600 hover:text-sky-500 transition-colors">How It Works</a>
+                    <a href="#reviews" class="text-gray-600 hover:text-sky-500 transition-colors">Reviews</a>
+                    <a href="#faq" class="text-gray-600 hover:text-sky-500 transition-colors">FAQ</a>
+                    <a href="#contact" class="text-gray-600 hover:text-sky-500 transition-colors">Contact</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-4">
+                    <button class="px-5 py-2.5 rounded-xl font-semibold text-gray-700 hover:text-sky-500 transition-all">Login</button>
+                    <button class="px-6 py-2.5 rounded-xl font-semibold bg-sky-500 text-white glow-btn hover:bg-sky-600 transition-all">Register</button>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-sky-500 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden glass-card border-t border-gray-200 absolute w-full left-0 px-4 pt-2 pb-6 space-y-3 shadow-lg">
+            <a href="#" class="block px-3 py-2 rounded-lg text-base font-medium text-sky-500">Home</a>
+            <a href="#features" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-600 hover:bg-sky-50">Features</a>
+            <a href="#how-it-works" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-600 hover:bg-sky-50">How It Works</a>
+            <a href="#reviews" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-600 hover:bg-sky-50">Reviews</a>
+            <a href="#faq" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-600 hover:bg-sky-50">FAQ</a>
+            <a href="#contact" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-600 hover:bg-sky-50">Contact</a>
+            <div class="pt-4 flex flex-col gap-2">
+                <button class="w-full py-2.5 rounded-xl font-semibold text-gray-700 bg-gray-100 hover:bg-gray-200">Login</button>
+                <button class="w-full py-2.5 rounded-xl font-semibold bg-sky-500 text-white shadow-md">Register</button>
+            </div>
+        </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="hero">
-        
-        <!-- REQUIRED CLICKABLE LOGO ELEMENT -->
-        <!-- Paste your URL inside the href attribute below -->
-        <a href="https://www.effectivecpmnetwork.com/xv0xyupkue?key=a5ce592a7248e1198d98d17b6e4387ed" target="_blank" class="hero-logo-wrapper" title="Click to Enter Premium Cinema Portal">
-            <div class="cinema-logo-box">
-                <div class="logo-icon-stack">
-                    <i class="fa-solid fa-film"></i>
-                    <i class="fa-solid fa-play"></i>
-                </div>
-                <div class="logo-text-brand">CineStream</div>
+    <!-- AD SLOT 1 (TOP BANNER) -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
+        <a href="https://www.effectivecpmnetwork.com/xv0xyupkue?key=a5ce592a7248e1198d98d17b6e4387ed" target="_blank" rel="noopener noreferrer" class="block group">
+            <div class="w-full py-4 px-6 rounded-2xl glass-card border-dashed border-2 border-sky-400/60 text-center relative overflow-hidden transition-all duration-300 hover:border-sky-500 hover:shadow-md">
+                <div class="absolute inset-0 bg-sky-400/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <span class="absolute top-0 left-0 bg-sky-500 text-[10px] text-white font-bold px-2 py-0.5 rounded-br-lg uppercase tracking-wider shadow-sm">Sponsored Ad</span>
+                <p class="text-sm font-semibold text-sky-600 sm:text-base flex items-center justify-center gap-2">
+                    <i class="fas fa-bolt animate-pulse"></i> Special Offer: Your efforts deserve double! Earn 2x reward points today only.
+                </p>
             </div>
         </a>
+    </div>
 
-        <h1>Watch HD Movies & TV Shows Online</h1>
-        <p>Instant cinema-grade streaming on all your premium devices. Unlimited access, absolute zero subscription, zero interruptions.</p>
-        
-        <!-- Primary Backup CTA Button linking directly to your destination link -->
-        <a href="https://www.effectivecpmnetwork.com/wtcv1apret?key=80c3776acd095682ad4c14a89f4634c0" target="_blank" class="btn-glow">
-            <span>Start Streaming Now</span>
-            <i class="fa-solid fa-arrow-right"></i>
-        </a>
+    <!-- HERO SECTION -->
+    <header class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-20 lg:pt-20">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div data-aos="fade-right" data-aos-duration="1000">
+                <div class="inline-flex items-center gap-2 bg-sky-100 text-sky-600 px-4 py-1.5 rounded-full font-semibold text-sm mb-6 shadow-sm">
+                    <i class="fas fa-sparkles"></i> The Most Trusted Earning Platform of 2026
+                </div>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 tracking-tight leading-tight">
+                    Convert Daily Effort Into <span class="text-sky-500 bg-gradient-to-r from-sky-500 to-sky-600 bg-clip-text text-transparent">Real Cash</span> Instantly.
+                </h1>
+                <p class="mt-6 text-lg text-gray-600 leading-relaxed max-w-xl">
+                    Join over a million active users on Effort to Earn. Complete simple micro-tasks, submit survey responses, and withdraw payouts directly into your personal e-wallets.
+                </p>
+                <div class="mt-8 flex flex-col sm:flex-row gap-4">
+                    <a href="#how-it-works" class="inline-flex justify-center items-center px-8 py-4 rounded-2xl font-bold bg-sky-500 text-white text-lg glow-btn hover:bg-sky-600 transform hover:-translate-y-0.5 transition-all">
+                        Start Earning Now <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                    </a>
+                    <a href="#features" class="inline-flex justify-center items-center px-8 py-4 rounded-2xl font-bold glass-card text-gray-700 text-lg hover:bg-white/80 transform hover:-translate-y-0.5 transition-all shadow-sm">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+            <div data-aos="fade-left" data-aos-duration="1000" class="relative flex justify-center">
+                <div class="absolute -z-10 w-72 h-72 bg-sky-300 rounded-full blur-3xl opacity-30 top-10 right-10 animate-blob"></div>
+                <div class="absolute -z-10 w-72 h-72 bg-sky-200 rounded-full blur-3xl opacity-40 bottom-10 left-10 animate-blob animation-delay-2000"></div>
+                
+                <div class="glass-card p-8 rounded-3xl shadow-xl w-full max-w-md relative overflow-hidden border border-white/80">
+                    <div class="flex justify-between items-center mb-6">
+                        <span class="font-bold text-gray-700">Live Activity Feed</span>
+                        <span class="h-2 w-2 rounded-full bg-emerald-500 animate-ping"></span>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between p-3 bg-white/60 rounded-xl shadow-sm">
+                            <div class="flex items-center gap-3">
+                                <div class="bg-emerald-100 text-emerald-600 p-2.5 rounded-lg"><i class="fas fa-arrow-down"></i></div>
+                                <div><p class="font-bold text-sm">Rahat A.</p><p class="text-xs text-gray-500">Just Withdrew</p></div>
+                            </div>
+                            <span class="font-bold text-emerald-600 text-sm">+$25.50 (bKash)</span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-white/60 rounded-xl shadow-sm">
+                            <div class="flex items-center gap-3">
+                                <div class="bg-sky-100 text-sky-600 p-2.5 rounded-lg"><i class="fas fa-check"></i></div>
+                                <div><p class="font-bold text-sm">Sarah L.</p><p class="text-xs text-gray-500">Completed Survey</p></div>
+                            </div>
+                            <span class="font-bold text-sky-600 text-sm">+$4.20</span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-white/60 rounded-xl shadow-sm">
+                            <div class="flex items-center gap-3">
+                                <div class="bg-amber-100 text-amber-600 p-2.5 rounded-lg"><i class="fas fa-star"></i></div>
+                                <div><p class="font-bold text-sm">Tanvir H.</p><p class="text-xs text-gray-500">Spin Wheel Jackpot</p></div>
+                            </div>
+                            <span class="font-bold text-amber-600 text-sm">+$50.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
 
-    <!-- Features Section -->
-    <section id="features">
-        <h2 class="section-title">Premium Features</h2>
-        <div class="glass-grid">
-            <div class="glass-card">
-                <i class="fa-solid fa-tv"></i>
-                <h3>HD Quality</h3>
-                <p>Enjoy pristine full high-definition visuals up to Ultra HD 4K rendering crisp details flawlessly.</p>
+    <!-- STATISTICS SECTION -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div data-aos="zoom-in" class="glass-card p-6 rounded-2xl text-center shadow-sm">
+                <p class="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">1,240,500</p>
+                <p class="text-sm font-semibold text-gray-500 mt-2 uppercase tracking-wider">Total Users</p>
             </div>
-            <div class="glass-card">
-                <i class="fa-solid fa-bolt"></i>
-                <h3>Fast Streaming</h3>
-                <p>Say goodbye to long loading buffering circles with high-speed, dynamic content delivery servers.</p>
+            <div data-aos="zoom-in" data-aos-delay="100" class="glass-card p-6 rounded-2xl text-center shadow-sm">
+                <p class="text-3xl sm:text-4xl font-extrabold text-sky-500 tracking-tight">$4,850,900</p>
+                <p class="text-sm font-semibold text-gray-500 mt-2 uppercase tracking-wider">Total Paid Out</p>
             </div>
-            <div class="glass-card">
-                <i class="fa-solid fa-layer-group"></i>
-                <h3>Huge Collection</h3>
-                <p>Explore thousands of trending blockbusters, cinematic hits, and continuous TV catalog releases.</p>
+            <div data-aos="zoom-in" data-aos-delay="200" class="glass-card p-6 rounded-2xl text-center shadow-sm">
+                <p class="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">$12,450</p>
+                <p class="text-sm font-semibold text-gray-500 mt-2 uppercase tracking-wider">Daily Earnings</p>
             </div>
-            <div class="glass-card">
-                <i class="fa-solid fa-user-slash"></i>
-                <h3>No Registration</h3>
-                <p>Skip annoying registration logs. No credit card records or hidden profiles requested.</p>
-            </div>
-            <div class="glass-card">
-                <i class="fa-solid fa-mobile-screen-button"></i>
-                <h3>Mobile Friendly</h3>
-                <p>Impeccably coded structure scales to look stunningly elegant on smart laptops and smartphones alike.</p>
-            </div>
-            <div class="glass-card">
-                <i class="fa-solid fa-shield-halved"></i>
-                <h3>Safe & Secure</h3>
-                <p>Built securely to block malicious tracking scripts, ensuring a cleanly protected entertainment session.</p>
+            <div data-aos="zoom-in" data-aos-delay="300" class="glass-card p-6 rounded-2xl text-center shadow-sm">
+                <div class="flex items-center justify-center gap-1.5 text-amber-500 text-2xl font-extrabold">
+                    <span>4.9</span><i class="fas fa-star text-lg"></i>
+                </div>
+                <p class="text-sm font-semibold text-gray-500 mt-3 uppercase tracking-wider">Trust Score</p>
             </div>
         </div>
     </section>
 
-    <!-- Categories Section -->
-    <section id="categories">
-        <h2 class="section-title">Explore Global Genres</h2>
-        <div class="category-grid">
-            <!-- Placeholders dynamically sourced via standard public image APIs for seamless previewing -->
-<a href="https://www.effectivecpmnetwork.com/pgdtigvst?key=9222eaaf8713f8dee74cfcc388f9842e" target="_blank" style="text-decoration: none; color: inherit;">
-            <div class="category-card">
-                <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=400&auto=format&fit=crop" alt="Action">
-                <div class="category-overlay">
-                    <h3>Action</h3>
-                    <span>Browse Titles</span>
+    <!-- FEATURES SECTION -->
+    <section id="features" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+            <h2 class="text-3xl sm:text-4xl font-black text-gray-900">Why Effort to Earn is the Best Choice</h2>
+            <p class="text-gray-600 mt-4 text-lg">We offer maximum payouts for your actions, premium server uptime, and robust processing security for effortless side-income generation.</p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Feature 1 -->
+            <div data-aos="fade-up" class="glass-card p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all group duration-300">
+                <div class="w-12 h-12 rounded-xl bg-sky-100 text-sky-500 flex items-center justify-center text-xl font-bold mb-6 group-hover:bg-sky-500 group-hover:text-white transition-all">
+                    <i class="fas fa-tasks"></i>
                 </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">Daily Tasks</h3>
+                <p class="text-gray-600 leading-relaxed">Access fresh bundles of user-friendly programmatic actions, micro-jobs, and content interactions refreshed every 24 hours.</p>
             </div>
-<a href="https://www.effectivecpmnetwork.com/wj3j553q6?key=b35b60d35da02da124df70a7172a8f9c" target="_blank" style="text-decoration: none; color: inherit;">
-            <div class="category-card">
-                <img src="https://images.unsplash.com/photo-1501555088652-021faa106b9b?q=80&w=400&auto=format&fit=crop" alt="Adventure">
-                <div class="category-overlay">
-                    <h3>Adventure</h3>
-                    <span>Browse Titles</span>
+            <!-- Feature 2 -->
+            <div data-aos="fade-up" data-aos-delay="100" class="glass-card p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all group duration-300">
+                <div class="w-12 h-12 rounded-xl bg-sky-100 text-sky-500 flex items-center justify-center text-xl font-bold mb-6 group-hover:bg-sky-500 group-hover:text-white transition-all">
+                    <i class="fas fa-bolt"></i>
                 </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">Instant Withdraw</h3>
+                <p class="text-gray-600 leading-relaxed">No waiting periods. Once your balance hits the microscopic payout threshold, request a wire to collect your money within minutes.</p>
             </div>
-            <div class="category-card">
-                <img src="https://images.unsplash.com/photo-1514306191717-452ec28c7814?q=80&w=400&auto=format&fit=crop" alt="Comedy">
-                <div class="category-overlay">
-                    <h3>Comedy</h3>
-                    <span>Browse Titles</span>
+            <!-- Feature 3 -->
+            <div data-aos="fade-up" data-aos-delay="200" class="glass-card p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all group duration-300">
+                <div class="w-12 h-12 rounded-xl bg-sky-100 text-sky-500 flex items-center justify-center text-xl font-bold mb-6 group-hover:bg-sky-500 group-hover:text-white transition-all">
+                    <i class="fas fa-users"></i>
                 </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">Referral Income</h3>
+                <p class="text-gray-600 leading-relaxed">Invite your network and earn a reliable lifetime tiered commission of up to 15% on everything they successfully complete.</p>
             </div>
-            <div class="category-card">
-                <img src="https://images.unsplash.com/photo-1505635342531-35241765b458?q=80&w=400&auto=format&fit=crop" alt="Horror">
-                <div class="category-overlay">
-                    <h3>Horror</h3>
-                    <span>Browse Titles</span>
+            <!-- Feature 4 -->
+            <div data-aos="fade-up" data-aos-delay="300" class="glass-card p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all group duration-300">
+                <div class="w-12 h-12 rounded-xl bg-sky-100 text-sky-500 flex items-center justify-center text-xl font-bold mb-6 group-hover:bg-sky-500 group-hover:text-white transition-all">
+                    <i class="fas fa-shield-alt"></i>
                 </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">Secure Platform</h3>
+                <p class="text-gray-600 leading-relaxed">Your account balance and credential sets are heavily guarded using secure end-to-end cloud encryption layers.</p>
             </div>
-            <div class="category-card">
-                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=400&auto=format&fit=crop" alt="Sci-Fi">
-                <div class="category-overlay">
-                    <h3>Sci-Fi</h3>
-                    <span>Browse Titles</span>
+            <!-- Feature 5 -->
+            <div data-aos="fade-up" data-aos-delay="400" class="glass-card p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all group duration-300">
+                <div class="w-12 h-12 rounded-xl bg-sky-100 text-sky-500 flex items-center justify-center text-xl font-bold mb-6 group-hover:bg-sky-500 group-hover:text-white transition-all">
+                    <i class="fas fa-headset"></i>
                 </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">24/7 Support</h3>
+                <p class="text-gray-600 leading-relaxed">Encountering problems with tracking codes or offer verification? Chat directly with active support staff anytime.</p>
             </div>
-            <div class="category-card">
-                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=400&auto=format&fit=crop" alt="Animation">
-                <div class="category-overlay">
-                    <h3>Animation</h3>
-                    <span>Browse Titles</span>
+            <!-- Feature 6 -->
+            <div data-aos="fade-up" data-aos-delay="500" class="glass-card p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all group duration-300">
+                <div class="w-12 h-12 rounded-xl bg-sky-100 text-sky-500 flex items-center justify-center text-xl font-bold mb-6 group-hover:bg-sky-500 group-hover:text-white transition-all">
+                    <i class="fas fa-mobile-alt"></i>
                 </div>
-            </div>
-            <div class="category-card">
-                <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=400&auto=format&fit=crop" alt="Drama">
-                <div class="category-overlay">
-                    <h3>Drama</h3>
-                    <span>Browse Titles</span>
-                </div>
-            </div>
-            <div class="category-card">
-                <img src="https://images.unsplash.com/photo-1509248961158-e54f6934749c?q=80&w=400&auto=format&fit=crop" alt="Thriller">
-                <div class="category-overlay">
-                    <h3>Thriller</h3>
-                    <span>Browse Titles</span>
-                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">Mobile Friendly</h3>
+                <p class="text-gray-600 leading-relaxed">Perfectly tailored for smartphone rendering. Work flexibly at home, on commutes, or during spare intervals.</p>
             </div>
         </div>
     </section>
 
-    <!-- Why Choose Us Section -->
-    <section id="benefits">
-        <h2 class="section-title">Why Choose Us</h2>
-        <div class="glass-grid">
-            <div class="glass-card">
-                <i class="fa-solid fa-gauge-high"></i>
-                <h3>Lightning Fast</h3>
-                <p>Optimized infrastructure pipelines transmit packet data within milliseconds anywhere globally.</p>
-            </div>
-            <div class="glass-card">
-                <i class="fa-solid fa-wand-magic-sparkles"></i>
-                <h3>HD Streaming</h3>
-                <p>Adaptive bitrate encoding engines fine-tune picture density based instantly upon current network bandwidth.</p>
-            </div>
-            <div class="glass-card">
-                <i class="fa-solid fa-calendar-day"></i>
-                <h3>Daily Updated</h3>
-                <p>Automated cloud indexes parse and refresh content channels instantly daily as new media goes global.</p>
-            </div>
-            <div class="glass-card">
-                <i class="fa-solid fa-face-smile"></i>
-                <h3>User Friendly</h3>
-                <p>Minimalistic design engineered carefully to maximize readability without complex cluttered sidebars.</p>
-            </div>
-            <div class="glass-card">
-                <i class="fa-solid fa-crown"></i>
-                <h3>Premium Experience</h3>
-                <p>Immerse completely into a theatrical, dark-mode user layout built to mimic standard home television panels.</p>
-            </div>
-            <div class="glass-card">
-                <i class="fa-solid fa-crop-simple"></i>
-                <h3>Responsive Design</h3>
-                <p>Access your collection interchangeably on tablet variants, portable phones, or desktop monitors.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- How It Works Section -->
-    <section id="workflow" style="background: rgba(229, 9, 20, 0.02); border-radius: 30px; border: 1px solid rgba(229,9,20,0.05);">
-        <h2 class="section-title">How It Works</h2>
-        <div class="steps-container">
-            <div class="step-item">
-                <div class="step-num">1</div>
-                <h3>Click the Movie Logo</h3>
-                <p>Select the glowing cinematic brand emblem inside the primary hero configuration pane above.</p>
-            </div>
-            <div class="step-item">
-                <div class="step-num">2</div>
-                <h3>Redirect Destination Link</h3>
-                <p>A new secure web browser tab launches instantly to process authorization securely.</p>
-            </div>
-            <div class="step-item">
-                <div class="step-num">3</div>
-                <h3>Enjoy Watching</h3>
-                <p>Sit back comfortably, settle in, and begin experiencing smooth home media entertainment.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials">
-        <h2 class="section-title">What Streamers Say</h2>
-        <div class="glass-grid">
-            <div class="testimonial-card">
-                <div class="user-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                <p>"The streaming speed blew me away. I didn't have to fill out single signup card to start enjoying true 1080p playback."</p>
-                <div class="user-info">
-                    <div class="user-avatar">A</div>
-                    <div>
-                        <h4>Alex K.</h4>
-                        <span style="font-size: 0.8rem; color: var(--text-muted);">Verified Viewer</span>
+    <!-- AD SLOT 2 (AFTER FEATURES) -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-10">
+        <a href="https://www.effectivecpmnetwork.com/wtcv1apret?key=80c3776acd095682ad4c14a89f4634c0" target="_blank" rel="noopener noreferrer" class="block group">
+            <div class="w-full py-6 px-8 rounded-2xl glass-card border border-sky-200 shadow-sm text-center relative overflow-hidden transition-all duration-300 hover:shadow-lg hover:border-sky-400">
+                <span class="absolute top-0 left-0 bg-gray-900 text-[10px] text-white font-bold px-2 py-0.5 rounded-br-lg uppercase tracking-wider">Premium Ad</span>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <div class="bg-sky-500 text-white p-3 rounded-xl hidden sm:block"><i class="fas fa-gift text-lg"></i></div>
+                    <div class="text-left text-center sm:text-left">
+                        <h4 class="font-bold text-gray-900">Claim Your Free Entry Voucher Now!</h4>
+                        <p class="text-xs text-gray-500 mt-0.5">Partner Promotion: Complete onboarding verification tasks to receive immediate starting points.</p>
                     </div>
+                    <span class="sm:ml-auto px-5 py-2 rounded-xl bg-gray-900 text-white text-xs font-bold group-hover:bg-sky-500 transition-colors">Claim Now</span>
                 </div>
             </div>
-            <div class="testimonial-card">
-                <div class="user-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                <p>"Finding classic sci-fi series alongside newer theater drops on a clean layout makes this my absolute daily favorite."</p>
-                <div class="user-info">
-                    <div class="user-avatar">M</div>
-                    <div>
-                        <h4>Marcus V.</h4>
-                        <span style="font-size: 0.8rem; color: var(--text-muted);">Cinephile User</span>
-                    </div>
+        </a>
+    </div>
+
+    <!-- HOW IT WORKS SECTION -->
+    <section id="how-it-works" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 bg-white/40 rounded-3xl my-10 border border-white/60 shadow-sm">
+        <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+            <h2 class="text-3xl sm:text-4xl font-black text-gray-900">Four Simple Steps to Payout</h2>
+            <p class="text-gray-600 mt-4 text-lg">No prior specialized skills are needed. Put in the effort and build direct revenue streams immediately.</p>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 relative">
+            <!-- Step 1 -->
+            <div data-aos="fade-up" class="text-center relative group">
+                <div class="w-16 h-16 mx-auto rounded-2xl bg-white text-sky-500 shadow-md flex items-center justify-center text-2xl font-black mb-6 border border-sky-100 group-hover:scale-105 transition-all">1</div>
+                <h3 class="text-lg font-bold text-gray-900 mb-2">Register</h3>
+                <p class="text-sm text-gray-600 px-4">Create your personalized dashboard profile in under 30 seconds for free.</p>
+            </div>
+            <!-- Step 2 -->
+            <div data-aos="fade-up" data-aos-delay="100" class="text-center relative group">
+                <div class="w-16 h-16 mx-auto rounded-2xl bg-white text-sky-500 shadow-md flex items-center justify-center text-2xl font-black mb-6 border border-sky-100 group-hover:scale-105 transition-all">2</div>
+                <h3 class="text-lg font-bold text-gray-900 mb-2">Complete Tasks</h3>
+                <p class="text-sm text-gray-600 px-4">Choose from thousands of available user offers, short video ads, or surveys.</p>
+            </div>
+            <!-- Step 3 -->
+            <div data-aos="fade-up" data-aos-delay="200" class="text-center relative group">
+                <div class="w-16 h-16 mx-auto rounded-2xl bg-white text-sky-500 shadow-md flex items-center justify-center text-2xl font-black mb-6 border border-sky-100 group-hover:scale-105 transition-all">3</div>
+                <h3 class="text-lg font-bold text-gray-900 mb-2">Earn Money</h3>
+                <p class="text-sm text-gray-600 px-4">Watch your balances climb instantly inside our accurate ledger tracking suite.</p>
+            </div>
+            <!-- Step 4 -->
+            <div data-aos="fade-up" data-aos-delay="300" class="text-center relative group">
+                <div class="w-16 h-16 mx-auto rounded-2xl bg-white text-sky-500 shadow-md flex items-center justify-center text-2xl font-black mb-6 border border-sky-100 group-hover:scale-105 transition-all">4</div>
+                <h3 class="text-lg font-bold text-gray-900 mb-2">Withdraw Instantly</h3>
+                <p class="text-sm text-gray-600 px-4">Submit a fast withdrawal request to automatically route funds into real cash.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- EARNING METHODS SECTION -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+            <h2 class="text-3xl sm:text-4xl font-black text-gray-900">Diverse Earning Methods</h2>
+            <p class="text-gray-600 mt-4 text-lg">Pick the specific modules that fit your workflow preferences to scale conversions effortlessly.</p>
+        </div>
+        <div class="grid grid-cols-2 lg:grid-cols-3 gap-6">
+            <div data-aos="zoom-in" class="glass-card p-6 rounded-2xl flex items-center gap-4 border border-white/80">
+                <div class="p-4 bg-orange-100 text-orange-600 rounded-xl text-xl"><i class="fas fa-bullhorn"></i></div>
+                <div><h4 class="font-bold text-gray-900">Referral Program</h4><p class="text-xs text-gray-500">Earn up to 15% lifetime commissions</p></div>
+            </div>
+            <div data-aos="zoom-in" data-aos-delay="50" class="glass-card p-6 rounded-2xl flex items-center gap-4 border border-white/80">
+                <div class="p-4 bg-indigo-100 text-indigo-600 rounded-xl text-xl"><i class="fas fa-calendar-check"></i></div>
+                <div><h4 class="font-bold text-gray-900">Daily Bonus</h4><p class="text-xs text-gray-500">Log in daily to claim free loyalty checkpoints</p></div>
+            </div>
+            <div data-aos="zoom-in" data-aos-delay="100" class="glass-card p-6 rounded-2xl flex items-center gap-4 border border-white/80">
+                <div class="p-4 bg-pink-100 text-pink-600 rounded-xl text-xl"><i class="fas fa-circle-notch fa-spin"></i></div>
+                <div><h4 class="font-bold text-gray-900">Spin Wheel</h4><p class="text-xs text-gray-500">Test your fortune hourly on our reward wheels</p></div>
+            </div>
+            <div data-aos="zoom-in" data-aos-delay="150" class="glass-card p-6 rounded-2xl flex items-center gap-4 border border-white/80">
+                <div class="p-4 bg-red-100 text-red-600 rounded-xl text-xl"><i class="fas fa-play-circle"></i></div>
+                <div><h4 class="font-bold text-gray-900">Watch Ads</h4><p class="text-xs text-gray-500">Earn micro-dollars streaming short promotional ads</p></div>
+            </div>
+            <div data-aos="zoom-in" data-aos-delay="200" class="glass-card p-6 rounded-2xl flex items-center gap-4 border border-white/80">
+                <div class="p-4 bg-emerald-100 text-emerald-600 rounded-xl text-xl"><i class="fas fa-poll-h"></i></div>
+                <div><h4 class="font-bold text-gray-900">Surveys</h4><p class="text-xs text-gray-500">Share your inputs on target enterprise queries</p></div>
+            </div>
+            <div data-aos="zoom-in" data-aos-delay="250" class="glass-card p-6 rounded-2xl flex items-center gap-4 border border-white/80">
+                <div class="p-4 bg-purple-100 text-purple-600 rounded-xl text-xl"><i class="fas fa-layer-group"></i></div>
+                <div><h4 class="font-bold text-gray-900">Offerwalls</h4><p class="text-xs text-gray-500">Download partnered titles or trial client services</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAYMENT METHODS -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-y border-sky-100 bg-white/20">
+        <p class="text-center font-bold text-gray-400 uppercase tracking-widest text-xs mb-8">Supported Instant Payout Channels</p>
+        <div class="flex flex-wrap items-center justify-center gap-8 md:gap-16 opacity-70">
+            <span class="text-lg font-black tracking-tighter text-gray-600 flex items-center gap-2"><i class="fas fa-mobile-button text-pink-500"></i> bKash</span>
+            <span class="text-lg font-black tracking-tighter text-gray-600 flex items-center gap-2"><i class="fas fa-mobile-button text-orange-500"></i> Nagad</span>
+            <span class="text-lg font-black tracking-tighter text-gray-600 flex items-center gap-2"><i class="fas fa-mobile-button text-purple-600"></i> Rocket</span>
+            <span class="text-lg font-black tracking-tighter text-gray-600 flex items-center gap-2"><i class="fab fa-bitcoin text-amber-500"></i> Binance</span>
+            <span class="text-lg font-black tracking-tighter text-gray-600 flex items-center gap-2"><i class="fas fa-credit-card text-blue-500"></i> Payeer</span>
+            <span class="text-lg font-black tracking-tighter text-gray-600 flex items-center gap-2"><i class="fas fa-coins text-emerald-500"></i> USDT</span>
+        </div>
+    </section>
+
+    <!-- USER REVIEWS SECTION -->
+    <section id="reviews" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+            <h2 class="text-3xl sm:text-4xl font-black text-gray-900">Feedback From Successful Earners</h2>
+            <p class="text-gray-600 mt-4 text-lg">Hear exactly how community members put in the effort to claim high-yielding reward sets monthly.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Review 1 -->
+            <div data-aos="fade-up" class="glass-card p-8 rounded-2xl shadow-sm relative border border-white/80">
+                <div class="flex text-amber-500 gap-1 text-sm mb-4"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="text-gray-600 italic">"Effort to Earn is incredibly legit. My initial $15 withdrawal request settled into my Nagad wallet inside exactly 4 minutes flat."</p>
+                <div class="flex items-center gap-4 mt-6">
+                    <div class="w-11 h-11 rounded-full bg-sky-200 font-bold text-sky-700 flex items-center justify-center text-sm shadow-inner">AS</div>
+                    <div><h5 class="font-bold text-gray-900 text-sm">Asif Sheikh</h5><p class="text-xs text-gray-500">Active Member since Jan 2026</p></div>
+                </div>
+            </div>
+            <!-- Review 2 -->
+            <div data-aos="fade-up" data-aos-delay="100" class="glass-card p-8 rounded-2xl shadow-sm relative border border-white/80">
+                <div class="flex text-amber-500 gap-1 text-sm mb-4"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="text-gray-600 italic">"The referral mechanics scale beautifully. I simply focus effort on sharing registration links with friends, and my balances adjust passively."</p>
+                <div class="flex items-center gap-4 mt-6">
+                    <div class="w-11 h-11 rounded-full bg-emerald-200 font-bold text-emerald-700 flex items-center justify-center text-sm shadow-inner">NM</div>
+                    <div><h5 class="font-bold text-gray-900 text-sm">Nadia Mahmud</h5><p class="text-xs text-gray-500">Student, UIU</p></div>
+                </div>
+            </div>
+            <!-- Review 3 -->
+            <div data-aos="fade-up" data-aos-delay="200" class="glass-card p-8 rounded-2xl shadow-sm relative border border-white/80">
+                <div class="flex text-amber-500 gap-1 text-sm mb-4"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="text-gray-600 italic">"Withdrawing through USDT makes processing entirely friction-free. Effort to Earn is easily the fastest loading UI I have discovered this year."</p>
+                <div class="flex items-center gap-4 mt-6">
+                    <div class="w-11 h-11 rounded-full bg-purple-200 font-bold text-purple-700 flex items-center justify-center text-sm shadow-inner">ZK</div>
+                    <div><h5 class="font-bold text-gray-900 text-sm">Zayn Khan</h5><p class="text-xs text-gray-500">Freelancer</p></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section id="faqs">
-        <h2 class="section-title">Frequently Asked Questions</h2>
-        <div class="faq-container">
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>Is this movie streaming platform entirely free?</span>
-                    <i class="fa-solid fa-chevron-down faq-icon"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>Yes. The portal architecture allows immediate access to curated external media connections without recurring premium subscriptions or profile logging hurdles.</p>
+    <!-- AD SLOT 3 (AFTER REVIEWS) -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-10">
+        <a href="https://www.effectivecpmnetwork.com/pgdtigvst?key=9222eaaf8713f8dee74cfcc388f9842e" target="_blank" rel="noopener noreferrer" class="block group">
+            <div class="w-full py-5 px-6 rounded-2xl glass-card border-dashed border-2 border-emerald-400 text-center relative overflow-hidden transition-all duration-300 hover:scale-[1.01]">
+                <span class="absolute top-0 left-0 bg-emerald-500 text-[10px] text-white font-bold px-2 py-0.5 rounded-br-lg uppercase tracking-wider">High Payout Event</span>
+                <p class="text-sm font-bold text-emerald-700 flex items-center justify-center gap-2">
+                    <i class="fas fa-dollar-sign animate-bounce"></i> New High-Paying Financial Survey Tiers Released! Click to match user configurations instantly.
+                </p>
+            </div>
+        </a>
+    </div>
+
+    <!-- FAQ SECTION -->
+    <section id="faq" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div class="text-center mb-12" data-aos="fade-up">
+            <h2 class="text-3xl font-black text-gray-900">Frequently Asked Questions</h2>
+            <p class="text-gray-600 mt-2">Answers to your initial configuration inquiries.</p>
+        </div>
+        <div class="space-y-4">
+            <!-- FAQ 1 -->
+            <div class="glass-card rounded-2xl border border-white/80 overflow-hidden shadow-sm transition-all duration-300">
+                <button class="w-full px-6 py-5 text-left font-bold text-gray-900 flex justify-between items-center focus:outline-none faq-btn">
+                    <span>Is this website completely free to join?</span>
+                    <i class="fas fa-chevron-down text-xs transition-transform duration-300"></i>
+                </button>
+                <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                    <p class="px-6 pb-5 text-sm leading-relaxed text-gray-600">Yes, entirely. Effort to Earn never mandates premium subscription deposits or onboarding packages. Your registration, analytical data sets, and earnings tracking are entirely free indefinitely.</p>
                 </div>
             </div>
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>Do I need to download specialized applications?</span>
-                    <i class="fa-solid fa-chevron-down faq-icon"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>No downloads needed. All media loads over HTML5 playback structures native to modern updated internet browsers.</p>
+            <!-- FAQ 2 -->
+            <div class="glass-card rounded-2xl border border-white/80 overflow-hidden shadow-sm transition-all duration-300">
+                <button class="w-full px-6 py-5 text-left font-bold text-gray-900 flex justify-between items-center focus:outline-none faq-btn">
+                    <span>What is the minimum withdrawal limit?</span>
+                    <i class="fas fa-chevron-down text-xs transition-transform duration-300"></i>
+                </button>
+                <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                    <p class="px-6 pb-5 text-sm leading-relaxed text-gray-600">To preserve user convenience, our baseline payout requirement is configured at an accessible $2.00 limit, which can be reached inside your very first activity session.</p>
                 </div>
             </div>
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>How frequently is the movie database updated?</span>
-                    <i class="fa-solid fa-chevron-down faq-icon"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>The library streams auto-update round-the-clock as digital web master streams release worldwide.</p>
+            <!-- FAQ 3 -->
+            <div class="glass-card rounded-2xl border border-white/80 overflow-hidden shadow-sm transition-all duration-300">
+                <button class="w-full px-6 py-5 text-left font-bold text-gray-900 flex justify-between items-center focus:outline-none faq-btn">
+                    <span>Can I maintain multiple user profiles?</span>
+                    <i class="fas fa-chevron-down text-xs transition-transform duration-300"></i>
+                </button>
+                <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                    <p class="px-6 pb-5 text-sm leading-relaxed text-gray-600">No. Our fraud prevention infrastructure blocks and freezes balances if multiple profiles are caught sharing matching hardware devices or local network routing strings.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Premium Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-brand">
-                <h2>CINEFLIX</h2>
-                <p>The premium structural interface destination for reliable streaming reference indexes without subscription clutter.</p>
+    <!-- AD SLOT 4 (BEFORE FOOTER) -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-10">
+        <a href="https://www.effectivecpmnetwork.com/wj3j553q6?key=b35b60d35da02da124df70a7172a8f9c" target="_blank" rel="noopener noreferrer" class="block group">
+            <div class="w-full py-8 px-6 rounded-3xl bg-gradient-to-r from-sky-500 to-sky-400 text-center relative overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl">
+                <div class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <span class="absolute top-2 right-4 text-[9px] text-white/80 font-bold uppercase tracking-widest">Sponsored Placement</span>
+                <h4 class="text-xl font-extrabold text-white mb-1">Looking for Elite Long-Term Investment Signals?</h4>
+                <p class="text-xs text-white/90 max-w-xl mx-auto">Explore verified macro-trading portfolios with our trusted industrial affiliates. Tap here to examine details.</p>
             </div>
-            <div class="footer-links">
-                <h3>Navigation</h3>
-                <ul>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#categories">Categories</a></li>
-                    <li><a href="#faqs">FAQs</a></li>
+        </a>
+    </div>
+
+    <!-- FINAL CTA BANNER -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center" data-aos="zoom-in">
+        <div class="glass-card rounded-3xl p-10 md:p-16 relative overflow-hidden border border-white/90 shadow-xl">
+            <h2 class="text-3xl sm:text-4xl font-black text-gray-900 max-w-2xl mx-auto leading-tight">Ready to Cash In On Your Spare Effort?</h2>
+            <p class="text-gray-600 mt-4 max-w-md mx-auto">Create an account now to claim your initial registration bonus points pool instantly.</p>
+            <div class="mt-8">
+                <button class="px-10 py-4 text-lg font-bold text-white bg-sky-500 rounded-2xl glow-btn hover:bg-sky-600 transform hover:-translate-y-0.5 transition-all">
+                    Join Now For Free
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="grid md:grid-cols-2 gap-12 glass-card p-8 md:p-12 rounded-3xl border border-white/80 shadow-sm">
+            <div>
+                <h3 class="text-2xl font-black text-gray-900 mb-4">Get In Touch</h3>
+                <p class="text-gray-600 text-sm leading-relaxed mb-6">Have concerns regarding offer metrics or dynamic payment logs? Send our customer support desk a direct support request.</p>
+                <div class="space-y-4 text-sm font-semibold text-gray-700">
+                    <div class="flex items-center gap-3"><i class="fas fa-envelope text-sky-500 text-lg"></i> support@efforttoearn.com</div>
+                    <div class="flex items-center gap-3"><i class="fas fa-location-dot text-sky-500 text-lg"></i> Gulshan Avenue, Dhaka, Bangladesh</div>
+                </div>
+            </div>
+            <form class="space-y-4" onsubmit="event.preventDefault(); alert('Message sent successfully!');">
+                <div class="grid grid-cols-2 gap-4">
+                    <input type="text" placeholder="Your Name" required class="w-full px-4 py-3 rounded-xl bg-white/60 border border-gray-200 text-sm focus:outline-none focus:border-sky-500 transition-colors">
+                    <input type="email" placeholder="Your Email" required class="w-full px-4 py-3 rounded-xl bg-white/60 border border-gray-200 text-sm focus:outline-none focus:border-sky-500 transition-colors">
+                </div>
+                <input type="text" placeholder="Subject" required class="w-full px-4 py-3 rounded-xl bg-white/60 border border-gray-200 text-sm focus:outline-none focus:border-sky-500 transition-colors">
+                <textarea placeholder="Message Details..." rows="4" required class="w-full px-4 py-3 rounded-xl bg-white/60 border border-gray-200 text-sm focus:outline-none focus:border-sky-500 transition-colors"></textarea>
+                <button type="submit" class="w-full py-3 rounded-xl bg-gray-900 text-white font-bold hover:bg-sky-500 transition-colors shadow-sm">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-white/80 border-t border-gray-200 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+            <div class="col-span-2 md:col-span-1">
+                <div class="flex items-center gap-2 mb-4">
+                    <div class="bg-sky-500 text-white p-1.5 rounded-lg"><i class="fas fa-wallet"></i></div>
+                    <span class="text-xl font-black tracking-tight text-gray-900">Effort<span class="text-sky-500">ToEarn</span></span>
+                </div>
+                <p class="text-xs text-gray-500 leading-relaxed">The premier web portal where user effort connects seamlessly with global advertiser rewards for secure side income.</p>
+            </div>
+            <div>
+                <h4 class="font-bold text-gray-900 text-sm mb-4">Navigation</h4>
+                <ul class="space-y-2 text-xs font-semibold text-gray-500">
+                    <li><a href="#" class="hover:text-sky-500 transition-colors">Home</a></li>
+                    <li><a href="#features" class="hover:text-sky-500 transition-colors">Features</a></li>
+                    <li><a href="#how-it-works" class="hover:text-sky-500 transition-colors">How It Works</a></li>
+                    <li><a href="#reviews" class="hover:text-sky-500 transition-colors">Reviews</a></li>
                 </ul>
             </div>
-            <div class="footer-links">
-                <h3>Legal</h3>
-                <ul>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">DMCA Policy</a></li>
-                    <li><a href="#">Terms & Conditions</a></li>
-                    <li><a href="#">Disclaimer</a></li>
+            <div>
+                <h4 class="font-bold text-gray-900 text-sm mb-4">Legal Framework</h4>
+                <ul class="space-y-2 text-xs font-semibold text-gray-500">
+                    <li><a href="#" class="hover:text-sky-500 transition-colors">Privacy Policy</a></li>
+                    <li><a href="#" class="hover:text-sky-500 transition-colors">Terms of Service</a></li>
+                    <li><a href="#" class="hover:text-sky-500 transition-colors">Cookie Policies</a></li>
+                    <li><a href="#" class="hover:text-sky-500 transition-colors">AML Guidelines</a></li>
                 </ul>
             </div>
+            <div>
+                <h4 class="font-bold text-gray-900 text-sm mb-4">Connect With Us</h4>
+                <div class="flex gap-3 text-gray-400 text-lg mb-4">
+                    <a href="#" class="hover:text-sky-500 transition-colors"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="hover:text-sky-500 transition-colors"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="hover:text-sky-500 transition-colors"><i class="fab fa-telegram"></i></a>
+                    <a href="#" class="hover:text-sky-500 transition-colors"><i class="fab fa-youtube"></i></a>
+                </div>
+                <p class="text-[11px] text-gray-400">Official Compliance Registry Verified.</p>
+            </div>
         </div>
-        <div class="footer-bottom">
-            <div>&copy; 2026 CineFlix. All rights reserved. Designed for Premium Cinema Content.</div>
-            <div>Designed with <i class="fa-solid fa-heart" style="color: var(--primary-red)"></i> for Film Enthusiasts</div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-gray-100 pt-6 text-center text-xs font-medium text-gray-400">
+            &copy; 2026 Effort to Earn Ecosystem. All International Rights Reserved.
         </div>
     </footer>
 
-    <!-- Back to Top Button -->
-    <button id="backToTop" aria-label="Scroll back to top button"><i class="fa-solid fa-arrow-up"></i></button>
-
-    <!-- Interactive JavaScript Layer -->
+    <!-- AOS JS Library & Custom Functionality Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Preloader FadeOut Event
-        window.addEventListener('load', () => {
-            const preloader = document.getElementById('preloader');
-            preloader.style.opacity = '0';
-            setTimeout(() => preloader.style.display = 'none', 500);
+        // Initialize AOS animations
+        AOS.init({
+            once: true,
+            duration: 800
         });
 
-        // Dynamic Transparent Sticky Header Transition
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
+        // Mobile Menu Toggle logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
 
-            // Back To Top Display Trigger
-            const btt = document.getElementById('backToTop');
-            if (window.scrollY > 400) {
-                btt.classList.add('show');
-            } else {
-                btt.classList.remove('show');
-            }
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
         });
 
-        // Back to Top Interactive Execution
-        document.getElementById('backToTop').addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+        // Close mobile menu when clicking layout link item
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
         });
 
-        // Accordion FAQ Animation Actions
-        const faqItems = document.querySelectorAll('.faq-item');
-        faqItems.forEach(item => {
-            const question = item.querySelector('.faq-question');
-            question.addEventListener('click', () => {
-                const isActive = item.classList.contains('active');
+        // Accordion functionality for FAQ Section
+        document.querySelectorAll('.faq-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const icon = btn.querySelector('i');
+                const content = btn.nextElementSibling;
                 
-                // Close other open FAQ panels elegantly
-                faqItems.forEach(i => i.classList.remove('active'));
+                icon.classList.toggle('rotate-180');
                 
-                if (!isActive) {
-                    item.classList.add('active');
+                if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+                    content.style.maxHeight = '0px';
+                } else {
+                    content.style.maxHeight = content.scrollHeight + 'px';
                 }
             });
         });

@@ -1,572 +1,421 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Effort to Earn | Premium Online Earning Platform</title>
-    <meta name="description" content="Start earning real money daily by putting in effort to complete simple tasks, surveys, and referrals. Instant withdrawals via bKash, Nagad, Binance, and more.">
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- AOS Animation Library -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        skyblue: {
-                            50: '#f0f9ff',
-                            100: '#e0f2fe',
-                            400: '#38bdf8',
-                            500: '#0ea5e9',
-                        }
-                    },
-                    backdropBlur: {
-                        xs: '2px',
-                    }
-                }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ApexEarn | Premium Online Earning Platform</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              green: '#00FF87',
+              cyan: '#60EFFF',
+              dark: '#080B11',
+              card: '#0F1622',
             }
+          }
         }
-    </script>
-    <style>
-        .glass-card {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-        }
-        .glow-btn {
-            box-shadow: 0 0 20px rgba(14, 165, 233, 0.4);
-            transition: all 0.3s ease;
-        }
-        .glow-btn:hover {
-            box-shadow: 0 0 30px rgba(14, 165, 233, 0.7);
-        }
-        .bg-gradient-theme {
-            background: linear-gradient(135deg, #e0f2fe 0%, #ffffff 50%, #bae6fd 100%);
-        }
-    </style>
+      }
+    }
+  </script>
+
+  <style>
+    .glow-green {
+      box-shadow: 0 0 50px -10px rgba(0, 255, 135, 0.3);
+    }
+    .glass-card {
+      background: rgba(15, 22, 34, 0.7);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, #00FF87 0%, #60EFFF 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .gradient-border {
+      background: linear-gradient(135deg, rgba(0, 255, 135, 0.5), rgba(96, 239, 255, 0.1));
+    }
+  </style>
 </head>
-<body class="bg-gradient-theme text-gray-800 font-sans min-h-screen antialiased">
+<body class="bg-[#080B11] text-gray-100 font-sans antialiased selection:bg-brand-green selection:text-black overflow-x-hidden">
 
-    <!-- STICKY NAVIGATION BAR -->
-    <nav class="sticky top-0 z-50 w-full glass-card shadow-sm transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <div class="flex items-center gap-2">
-                    <div class="bg-sky-500 text-white p-2 rounded-xl shadow-md">
-                        <i class="fas fa-wallet text-xl"></i>
-                    </div>
-                    <span class="text-2xl font-black tracking-tight text-gray-900">Effort<span class="text-sky-500">ToEarn</span></span>
-                </div>
-                <div class="hidden md:flex items-center space-x-8 font-medium">
-                    <a href="#" class="text-sky-500 transition-colors">Home</a>
-                    <a href="#features" class="text-gray-600 hover:text-sky-500 transition-colors">Features</a>
-                    <a href="#how-it-works" class="text-gray-600 hover:text-sky-500 transition-colors">How It Works</a>
-                    <a href="#reviews" class="text-gray-600 hover:text-sky-500 transition-colors">Reviews</a>
-                    <a href="#faq" class="text-gray-600 hover:text-sky-500 transition-colors">FAQ</a>
-                    <a href="#contact" class="text-gray-600 hover:text-sky-500 transition-colors">Contact</a>
-                </div>
-                <div class="hidden md:flex items-center space-x-4">
-                    <button class="px-5 py-2.5 rounded-xl font-semibold text-gray-700 hover:text-sky-500 transition-all">Login</button>
-                    <button class="px-6 py-2.5 rounded-xl font-semibold bg-sky-500 text-white glow-btn hover:bg-sky-600 transition-all">Register</button>
-                </div>
-                <!-- Mobile menu button -->
-                <div class="md:hidden">
-                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-sky-500 focus:outline-none">
-                        <i class="fas fa-bars text-2xl"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <!-- Mobile Menu dropdown -->
-        <div id="mobile-menu" class="hidden md:hidden glass-card border-t border-gray-200 absolute w-full left-0 px-4 pt-2 pb-6 space-y-3 shadow-lg">
-            <a href="#" class="block px-3 py-2 rounded-lg text-base font-medium text-sky-500">Home</a>
-            <a href="#features" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-600 hover:bg-sky-50">Features</a>
-            <a href="#how-it-works" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-600 hover:bg-sky-50">How It Works</a>
-            <a href="#reviews" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-600 hover:bg-sky-50">Reviews</a>
-            <a href="#faq" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-600 hover:bg-sky-50">FAQ</a>
-            <a href="#contact" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-600 hover:bg-sky-50">Contact</a>
-            <div class="pt-4 flex flex-col gap-2">
-                <button class="w-full py-2.5 rounded-xl font-semibold text-gray-700 bg-gray-100 hover:bg-gray-200">Login</button>
-                <button class="w-full py-2.5 rounded-xl font-semibold bg-sky-500 text-white shadow-md">Register</button>
-            </div>
-        </div>
-    </nav>
+  <!-- Background Decorative Glows -->
+  <div class="fixed top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-brand-green/10 blur-[150px] pointer-events-none rounded-full z-0"></div>
+  <div class="fixed bottom-0 right-0 w-[600px] h-[600px] bg-brand-cyan/10 blur-[180px] pointer-events-none rounded-full z-0"></div>
 
-    <!-- AD SLOT 1 (TOP BANNER) -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
-        <a href="https://www.youtube.com/@HijibijiEffect" target="_blank" rel="noopener noreferrer" class="block group">
-            <div class="w-full py-4 px-6 rounded-2xl glass-card border-dashed border-2 border-sky-400/60 text-center relative overflow-hidden transition-all duration-300 hover:border-sky-500 hover:shadow-md">
-                <div class="absolute inset-0 bg-sky-400/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                <span class="absolute top-0 left-0 bg-sky-500 text-[10px] text-white font-bold px-2 py-0.5 rounded-br-lg uppercase tracking-wider shadow-sm">Sponsored Ad</span>
-                <p class="text-sm font-semibold text-sky-600 sm:text-base flex items-center justify-center gap-2">
-                    <i class="fas fa-bolt animate-pulse"></i> Special Offer: Your efforts deserve double! Earn 2x reward points today only.
-                </p>
-            </div>
+  <!-- Navigation -->
+  <header class="sticky top-0 z-50 backdrop-blur-xl bg-[#080B11]/80 border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-green to-brand-cyan p-0.5 flex items-center justify-center shadow-lg shadow-brand-green/20">
+          <div class="w-full h-full bg-[#080B11] rounded-[10px] flex items-center justify-center">
+            <i class="fa-solid fa-bolt text-brand-green text-xl"></i>
+          </div>
+        </div>
+        <span class="text-2xl font-extrabold tracking-tight text-white">Apex<span class="gradient-text">Earn</span></span>
+      </div>
+
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-400">
+        <a href="#features" class="hover:text-brand-green transition">Features</a>
+        <a href="#how-it-works" class="hover:text-brand-green transition">How It Works</a>
+        <a href="#levels" class="hover:text-brand-green transition">Earning Tiers</a>
+        <a href="#payouts" class="hover:text-brand-green transition">Live Payouts</a>
+        <a href="#faq" class="hover:text-brand-green transition">FAQ</a>
+      </nav>
+
+      <div class="flex items-center gap-4">
+        <a href="#" class="hidden sm:inline-block text-sm font-semibold text-gray-300 hover:text-white px-4 py-2 transition">Sign In</a>
+        <a href="#register" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-brand-green to-brand-cyan text-black font-bold text-sm hover:opacity-90 transition transform hover:scale-[1.02] shadow-lg shadow-brand-green/20">
+          Get Started Free
         </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Live Activity Bar -->
+  <div class="bg-brand-card/80 border-b border-white/5 py-2 overflow-hidden text-xs text-gray-400">
+    <div class="max-w-7xl mx-auto px-6 flex items-center gap-6 whitespace-nowrap animate-pulse">
+      <span class="flex items-center gap-2 text-brand-green font-semibold">
+        <span class="w-2 h-2 rounded-full bg-brand-green animate-ping"></span> LIVE PAYOUTS:
+      </span>
+      <span>User <strong class="text-white">@Alex_M</strong> just withdrew <strong class="text-brand-green">$250.00</strong> via Crypto</span>
+      <span class="text-gray-600">•</span>
+      <span>User <strong class="text-white">@Sarah_K</strong> earned <strong class="text-brand-green">$120.50</strong> on Referral Bonus</span>
+      <span class="text-gray-600">•</span>
+      <span>User <strong class="text-white">@Rifat_T</strong> withdrew <strong class="text-brand-green">$45.00</strong> via Bkash</span>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="relative pt-20 pb-32 max-w-7xl mx-auto px-6 text-center z-10">
+    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border border-brand-green/30 text-brand-green text-xs font-bold tracking-wide uppercase mb-8 shadow-inner">
+      <i class="fa-solid fa-shield-halved"></i> Verified & Automated Payout Engine
     </div>
 
-    <!-- HERO SECTION -->
-    <header class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-20 lg:pt-20">
-        <div class="grid lg:grid-cols-2 gap-12 items-center">
-            <div data-aos="fade-right" data-aos-duration="1000">
-                <div class="inline-flex items-center gap-2 bg-sky-100 text-sky-600 px-4 py-1.5 rounded-full font-semibold text-sm mb-6 shadow-sm">
-                    <i class="fas fa-sparkles"></i> The Most Trusted Earning Platform of 2026
-                </div>
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 tracking-tight leading-tight">
-                    Convert Daily Effort Into <span class="text-sky-500 bg-gradient-to-r from-sky-500 to-sky-600 bg-clip-text text-transparent">Real Cash</span> Instantly.
-                </h1>
-                <p class="mt-6 text-lg text-gray-600 leading-relaxed max-w-xl">
-                    Join over a million active users on Effort to Earn. Complete simple micro-tasks, submit survey responses, and withdraw payouts directly into your personal e-wallets.
-                </p>
-                <div class="mt-8 flex flex-col sm:flex-row gap-4">
-                    <a href="#how-it-works" class="inline-flex justify-center items-center px-8 py-4 rounded-2xl font-bold bg-sky-500 text-white text-lg glow-btn hover:bg-sky-600 transform hover:-translate-y-0.5 transition-all">
-                        Start Earning Now <i class="fas fa-arrow-right ml-2 text-sm"></i>
-                    </a>
-                    <a href="#features" class="inline-flex justify-center items-center px-8 py-4 rounded-2xl font-bold glass-card text-gray-700 text-lg hover:bg-white/80 transform hover:-translate-y-0.5 transition-all shadow-sm">
-                        Learn More
-                    </a>
-                </div>
-            </div>
-            <div data-aos="fade-left" data-aos-duration="1000" class="relative flex justify-center">
-                <div class="absolute -z-10 w-72 h-72 bg-sky-300 rounded-full blur-3xl opacity-30 top-10 right-10 animate-blob"></div>
-                <div class="absolute -z-10 w-72 h-72 bg-sky-200 rounded-full blur-3xl opacity-40 bottom-10 left-10 animate-blob animation-delay-2000"></div>
-                
-                <div class="glass-card p-8 rounded-3xl shadow-xl w-full max-w-md relative overflow-hidden border border-white/80">
-                    <div class="flex justify-between items-center mb-6">
-                        <span class="font-bold text-gray-700">Live Activity Feed</span>
-                        <span class="h-2 w-2 rounded-full bg-emerald-500 animate-ping"></span>
-                    </div>
-                    <div class="space-y-4">
-                        <div class="flex items-center justify-between p-3 bg-white/60 rounded-xl shadow-sm">
-                            <div class="flex items-center gap-3">
-                                <div class="bg-emerald-100 text-emerald-600 p-2.5 rounded-lg"><i class="fas fa-arrow-down"></i></div>
-                                <div><p class="font-bold text-sm">Rahat A.</p><p class="text-xs text-gray-500">Just Withdrew</p></div>
-                            </div>
-                            <span class="font-bold text-emerald-600 text-sm">+$25.50 (bKash)</span>
-                        </div>
-                        <div class="flex items-center justify-between p-3 bg-white/60 rounded-xl shadow-sm">
-                            <div class="flex items-center gap-3">
-                                <div class="bg-sky-100 text-sky-600 p-2.5 rounded-lg"><i class="fas fa-check"></i></div>
-                                <div><p class="font-bold text-sm">Sarah L.</p><p class="text-xs text-gray-500">Completed Survey</p></div>
-                            </div>
-                            <span class="font-bold text-sky-600 text-sm">+$4.20</span>
-                        </div>
-                        <div class="flex items-center justify-between p-3 bg-white/60 rounded-xl shadow-sm">
-                            <div class="flex items-center gap-3">
-                                <div class="bg-amber-100 text-amber-600 p-2.5 rounded-lg"><i class="fas fa-star"></i></div>
-                                <div><p class="font-bold text-sm">Tanvir H.</p><p class="text-xs text-gray-500">Spin Wheel Jackpot</p></div>
-                            </div>
-                            <span class="font-bold text-amber-600 text-sm">+$50.00</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
+    <h1 class="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white max-w-5xl mx-auto leading-[1.15]">
+      Monetize Your Time with the World's Most <span class="gradient-text">Lucrative Earning Ecosystem</span>
+    </h1>
 
-    <!-- STATISTICS SECTION -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div data-aos="zoom-in" class="glass-card p-6 rounded-2xl text-center shadow-sm">
-                <p class="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">1,240,500</p>
-                <p class="text-sm font-semibold text-gray-500 mt-2 uppercase tracking-wider">Total Users</p>
-            </div>
-            <div data-aos="zoom-in" data-aos-delay="100" class="glass-card p-6 rounded-2xl text-center shadow-sm">
-                <p class="text-3xl sm:text-4xl font-extrabold text-sky-500 tracking-tight">$4,850,900</p>
-                <p class="text-sm font-semibold text-gray-500 mt-2 uppercase tracking-wider">Total Paid Out</p>
-            </div>
-            <div data-aos="zoom-in" data-aos-delay="200" class="glass-card p-6 rounded-2xl text-center shadow-sm">
-                <p class="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">$12,450</p>
-                <p class="text-sm font-semibold text-gray-500 mt-2 uppercase tracking-wider">Daily Earnings</p>
-            </div>
-            <div data-aos="zoom-in" data-aos-delay="300" class="glass-card p-6 rounded-2xl text-center shadow-sm">
-                <div class="flex items-center justify-center gap-1.5 text-amber-500 text-2xl font-extrabold">
-                    <span>4.9</span><i class="fas fa-star text-lg"></i>
-                </div>
-                <p class="text-sm font-semibold text-gray-500 mt-3 uppercase tracking-wider">Trust Score</p>
-            </div>
-        </div>
-    </section>
+    <p class="mt-6 text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto font-normal leading-relaxed">
+      Complete high-yield tasks, leverage automated affiliate rewards, and participate in daily profit distributions. Withdraw your earnings instantly 24/7.
+    </p>
 
-    <!-- FEATURES SECTION -->
-    <section id="features" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
-            <h2 class="text-3xl sm:text-4xl font-black text-gray-900">Why Effort to Earn is the Best Choice</h2>
-            <p class="text-gray-600 mt-4 text-lg">We offer maximum payouts for your actions, premium server uptime, and robust processing security for effortless side-income generation.</p>
-        </div>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Feature 1 -->
-            <div data-aos="fade-up" class="glass-card p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all group duration-300">
-                <div class="w-12 h-12 rounded-xl bg-sky-100 text-sky-500 flex items-center justify-center text-xl font-bold mb-6 group-hover:bg-sky-500 group-hover:text-white transition-all">
-                    <i class="fas fa-tasks"></i>
-                </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2">Daily Tasks</h3>
-                <p class="text-gray-600 leading-relaxed">Access fresh bundles of user-friendly programmatic actions, micro-jobs, and content interactions refreshed every 24 hours.</p>
-            </div>
-            <!-- Feature 2 -->
-            <div data-aos="fade-up" data-aos-delay="100" class="glass-card p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all group duration-300">
-                <div class="w-12 h-12 rounded-xl bg-sky-100 text-sky-500 flex items-center justify-center text-xl font-bold mb-6 group-hover:bg-sky-500 group-hover:text-white transition-all">
-                    <i class="fas fa-bolt"></i>
-                </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2">Instant Withdraw</h3>
-                <p class="text-gray-600 leading-relaxed">No waiting periods. Once your balance hits the microscopic payout threshold, request a wire to collect your money within minutes.</p>
-            </div>
-            <!-- Feature 3 -->
-            <div data-aos="fade-up" data-aos-delay="200" class="glass-card p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all group duration-300">
-                <div class="w-12 h-12 rounded-xl bg-sky-100 text-sky-500 flex items-center justify-center text-xl font-bold mb-6 group-hover:bg-sky-500 group-hover:text-white transition-all">
-                    <i class="fas fa-users"></i>
-                </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2">Referral Income</h3>
-                <p class="text-gray-600 leading-relaxed">Invite your network and earn a reliable lifetime tiered commission of up to 15% on everything they successfully complete.</p>
-            </div>
-            <!-- Feature 4 -->
-            <div data-aos="fade-up" data-aos-delay="300" class="glass-card p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all group duration-300">
-                <div class="w-12 h-12 rounded-xl bg-sky-100 text-sky-500 flex items-center justify-center text-xl font-bold mb-6 group-hover:bg-sky-500 group-hover:text-white transition-all">
-                    <i class="fas fa-shield-alt"></i>
-                </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2">Secure Platform</h3>
-                <p class="text-gray-600 leading-relaxed">Your account balance and credential sets are heavily guarded using secure end-to-end cloud encryption layers.</p>
-            </div>
-            <!-- Feature 5 -->
-            <div data-aos="fade-up" data-aos-delay="400" class="glass-card p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all group duration-300">
-                <div class="w-12 h-12 rounded-xl bg-sky-100 text-sky-500 flex items-center justify-center text-xl font-bold mb-6 group-hover:bg-sky-500 group-hover:text-white transition-all">
-                    <i class="fas fa-headset"></i>
-                </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2">24/7 Support</h3>
-                <p class="text-gray-600 leading-relaxed">Encountering problems with tracking codes or offer verification? Chat directly with active support staff anytime.</p>
-            </div>
-            <!-- Feature 6 -->
-            <div data-aos="fade-up" data-aos-delay="500" class="glass-card p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all group duration-300">
-                <div class="w-12 h-12 rounded-xl bg-sky-100 text-sky-500 flex items-center justify-center text-xl font-bold mb-6 group-hover:bg-sky-500 group-hover:text-white transition-all">
-                    <i class="fas fa-mobile-alt"></i>
-                </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2">Mobile Friendly</h3>
-                <p class="text-gray-600 leading-relaxed">Perfectly tailored for smartphone rendering. Work flexibly at home, on commutes, or during spare intervals.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- AD SLOT 2 (AFTER FEATURES) -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-10">
-        <a href="https://www.effectivecpmnetwork.com/wtcv1apret?key=80c3776acd095682ad4c14a89f4634c0" target="_blank" rel="noopener noreferrer" class="block group">
-            <div class="w-full py-6 px-8 rounded-2xl glass-card border border-sky-200 shadow-sm text-center relative overflow-hidden transition-all duration-300 hover:shadow-lg hover:border-sky-400">
-                <span class="absolute top-0 left-0 bg-gray-900 text-[10px] text-white font-bold px-2 py-0.5 rounded-br-lg uppercase tracking-wider">Premium Ad</span>
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <div class="bg-sky-500 text-white p-3 rounded-xl hidden sm:block"><i class="fas fa-gift text-lg"></i></div>
-                    <div class="text-left text-center sm:text-left">
-                        <h4 class="font-bold text-gray-900">Claim Your Free Entry Voucher Now!</h4>
-                        <p class="text-xs text-gray-500 mt-0.5">Partner Promotion: Complete onboarding verification tasks to receive immediate starting points.</p>
-                    </div>
-                    <span class="sm:ml-auto px-5 py-2 rounded-xl bg-gray-900 text-white text-xs font-bold group-hover:bg-sky-500 transition-colors">Claim Now</span>
-                </div>
-            </div>
-        </a>
+    <!-- CTAs -->
+    <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a href="#register" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-brand-green to-brand-cyan text-black font-extrabold text-base hover:opacity-90 transition transform hover:-translate-y-0.5 shadow-xl shadow-brand-green/25 flex items-center justify-center gap-3">
+        <span>Start Earning Today</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+      <a href="#how-it-works" class="w-full sm:w-auto px-8 py-4 rounded-xl glass-card text-white font-semibold text-base hover:bg-white/10 transition border border-white/10 flex items-center justify-center gap-2">
+        <i class="fa-regular fa-circle-play text-brand-cyan"></i> Watch Demo
+      </a>
     </div>
 
-    <!-- HOW IT WORKS SECTION -->
-    <section id="how-it-works" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 bg-white/40 rounded-3xl my-10 border border-white/60 shadow-sm">
-        <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
-            <h2 class="text-3xl sm:text-4xl font-black text-gray-900">Four Simple Steps to Payout</h2>
-            <p class="text-gray-600 mt-4 text-lg">No prior specialized skills are needed. Put in the effort and build direct revenue streams immediately.</p>
-        </div>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 relative">
-            <!-- Step 1 -->
-            <div data-aos="fade-up" class="text-center relative group">
-                <div class="w-16 h-16 mx-auto rounded-2xl bg-white text-sky-500 shadow-md flex items-center justify-center text-2xl font-black mb-6 border border-sky-100 group-hover:scale-105 transition-all">1</div>
-                <h3 class="text-lg font-bold text-gray-900 mb-2">Register</h3>
-                <p class="text-sm text-gray-600 px-4">Create your personalized dashboard profile in under 30 seconds for free.</p>
-            </div>
-            <!-- Step 2 -->
-            <div data-aos="fade-up" data-aos-delay="100" class="text-center relative group">
-                <div class="w-16 h-16 mx-auto rounded-2xl bg-white text-sky-500 shadow-md flex items-center justify-center text-2xl font-black mb-6 border border-sky-100 group-hover:scale-105 transition-all">2</div>
-                <h3 class="text-lg font-bold text-gray-900 mb-2">Complete Tasks</h3>
-                <p class="text-sm text-gray-600 px-4">Choose from thousands of available user offers, short video ads, or surveys.</p>
-            </div>
-            <!-- Step 3 -->
-            <div data-aos="fade-up" data-aos-delay="200" class="text-center relative group">
-                <div class="w-16 h-16 mx-auto rounded-2xl bg-white text-sky-500 shadow-md flex items-center justify-center text-2xl font-black mb-6 border border-sky-100 group-hover:scale-105 transition-all">3</div>
-                <h3 class="text-lg font-bold text-gray-900 mb-2">Earn Money</h3>
-                <p class="text-sm text-gray-600 px-4">Watch your balances climb instantly inside our accurate ledger tracking suite.</p>
-            </div>
-            <!-- Step 4 -->
-            <div data-aos="fade-up" data-aos-delay="300" class="text-center relative group">
-                <div class="w-16 h-16 mx-auto rounded-2xl bg-white text-sky-500 shadow-md flex items-center justify-center text-2xl font-black mb-6 border border-sky-100 group-hover:scale-105 transition-all">4</div>
-                <h3 class="text-lg font-bold text-gray-900 mb-2">Withdraw Instantly</h3>
-                <p class="text-sm text-gray-600 px-4">Submit a fast withdrawal request to automatically route funds into real cash.</p>
-            </div>
-        </div>
-    </section>
+    <!-- Trust Stats Grid -->
+    <div class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+      <div class="glass-card p-6 rounded-2xl border border-white/5">
+        <h3 class="text-3xl font-extrabold text-white gradient-text">$2.4M+</h3>
+        <p class="text-xs text-gray-400 mt-1 uppercase font-semibold">Total Paid Out</p>
+      </div>
+      <div class="glass-card p-6 rounded-2xl border border-white/5">
+        <h3 class="text-3xl font-extrabold text-white">150K+</h3>
+        <p class="text-xs text-gray-400 mt-1 uppercase font-semibold">Active Members</p>
+      </div>
+      <div class="glass-card p-6 rounded-2xl border border-white/5">
+        <h3 class="text-3xl font-extrabold text-white gradient-text">&lt; 60s</h3>
+        <p class="text-xs text-gray-400 mt-1 uppercase font-semibold">Instant Cashout</p>
+      </div>
+      <div class="glass-card p-6 rounded-2xl border border-white/5">
+        <h3 class="text-3xl font-extrabold text-white">4.9/5</h3>
+        <p class="text-xs text-gray-400 mt-1 uppercase font-semibold">User Rating</p>
+      </div>
+    </div>
+  </section>
 
-    <!-- EARNING METHODS SECTION -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
-            <h2 class="text-3xl sm:text-4xl font-black text-gray-900">Diverse Earning Methods</h2>
-            <p class="text-gray-600 mt-4 text-lg">Pick the specific modules that fit your workflow preferences to scale conversions effortlessly.</p>
-        </div>
-        <div class="grid grid-cols-2 lg:grid-cols-3 gap-6">
-            <div data-aos="zoom-in" class="glass-card p-6 rounded-2xl flex items-center gap-4 border border-white/80">
-                <div class="p-4 bg-orange-100 text-orange-600 rounded-xl text-xl"><i class="fas fa-bullhorn"></i></div>
-                <div><h4 class="font-bold text-gray-900">Referral Program</h4><p class="text-xs text-gray-500">Earn up to 15% lifetime commissions</p></div>
-            </div>
-            <div data-aos="zoom-in" data-aos-delay="50" class="glass-card p-6 rounded-2xl flex items-center gap-4 border border-white/80">
-                <div class="p-4 bg-indigo-100 text-indigo-600 rounded-xl text-xl"><i class="fas fa-calendar-check"></i></div>
-                <div><h4 class="font-bold text-gray-900">Daily Bonus</h4><p class="text-xs text-gray-500">Log in daily to claim free loyalty checkpoints</p></div>
-            </div>
-            <div data-aos="zoom-in" data-aos-delay="100" class="glass-card p-6 rounded-2xl flex items-center gap-4 border border-white/80">
-                <div class="p-4 bg-pink-100 text-pink-600 rounded-xl text-xl"><i class="fas fa-circle-notch fa-spin"></i></div>
-                <div><h4 class="font-bold text-gray-900">Spin Wheel</h4><p class="text-xs text-gray-500">Test your fortune hourly on our reward wheels</p></div>
-            </div>
-            <div data-aos="zoom-in" data-aos-delay="150" class="glass-card p-6 rounded-2xl flex items-center gap-4 border border-white/80">
-                <div class="p-4 bg-red-100 text-red-600 rounded-xl text-xl"><i class="fas fa-play-circle"></i></div>
-                <div><h4 class="font-bold text-gray-900">Watch Ads</h4><p class="text-xs text-gray-500">Earn micro-dollars streaming short promotional ads</p></div>
-            </div>
-            <div data-aos="zoom-in" data-aos-delay="200" class="glass-card p-6 rounded-2xl flex items-center gap-4 border border-white/80">
-                <div class="p-4 bg-emerald-100 text-emerald-600 rounded-xl text-xl"><i class="fas fa-poll-h"></i></div>
-                <div><h4 class="font-bold text-gray-900">Surveys</h4><p class="text-xs text-gray-500">Share your inputs on target enterprise queries</p></div>
-            </div>
-            <div data-aos="zoom-in" data-aos-delay="250" class="glass-card p-6 rounded-2xl flex items-center gap-4 border border-white/80">
-                <div class="p-4 bg-purple-100 text-purple-600 rounded-xl text-xl"><i class="fas fa-layer-group"></i></div>
-                <div><h4 class="font-bold text-gray-900">Offerwalls</h4><p class="text-xs text-gray-500">Download partnered titles or trial client services</p></div>
-            </div>
-        </div>
-    </section>
+  <!-- How It Works Section -->
+  <section id="how-it-works" class="py-24 bg-[#0B101A] border-y border-white/5 relative">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <h2 class="text-brand-green font-bold text-sm tracking-widest uppercase">Simple Process</h2>
+        <p class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Start Making Money in 3 Steps</p>
+      </div>
 
-    <!-- PAYMENT METHODS -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-y border-sky-100 bg-white/20">
-        <p class="text-center font-bold text-gray-400 uppercase tracking-widest text-xs mb-8">Supported Instant Payout Channels</p>
-        <div class="flex flex-wrap items-center justify-center gap-8 md:gap-16 opacity-70">
-            <span class="text-lg font-black tracking-tighter text-gray-600 flex items-center gap-2"><i class="fas fa-mobile-button text-pink-500"></i> bKash</span>
-            <span class="text-lg font-black tracking-tighter text-gray-600 flex items-center gap-2"><i class="fas fa-mobile-button text-orange-500"></i> Nagad</span>
-            <span class="text-lg font-black tracking-tighter text-gray-600 flex items-center gap-2"><i class="fas fa-mobile-button text-purple-600"></i> Rocket</span>
-            <span class="text-lg font-black tracking-tighter text-gray-600 flex items-center gap-2"><i class="fab fa-bitcoin text-amber-500"></i> Binance</span>
-            <span class="text-lg font-black tracking-tighter text-gray-600 flex items-center gap-2"><i class="fas fa-credit-card text-blue-500"></i> Payeer</span>
-            <span class="text-lg font-black tracking-tighter text-gray-600 flex items-center gap-2"><i class="fas fa-coins text-emerald-500"></i> USDT</span>
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Step 1 -->
+        <div class="glass-card p-8 rounded-3xl relative group hover:border-brand-green/40 transition">
+          <div class="w-14 h-14 rounded-2xl bg-brand-green/10 text-brand-green font-bold text-2xl flex items-center justify-center mb-6 group-hover:bg-brand-green group-hover:text-black transition">
+            01
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">Create Free Account</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            Register in under a minute with zero registration fees. Get instant access to your personalized dashboard.
+          </p>
         </div>
-    </section>
 
-    <!-- USER REVIEWS SECTION -->
-    <section id="reviews" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
-            <h2 class="text-3xl sm:text-4xl font-black text-gray-900">Feedback From Successful Earners</h2>
-            <p class="text-gray-600 mt-4 text-lg">Hear exactly how community members put in the effort to claim high-yielding reward sets monthly.</p>
+        <!-- Step 2 -->
+        <div class="glass-card p-8 rounded-3xl relative group hover:border-brand-green/40 transition">
+          <div class="w-14 h-14 rounded-2xl bg-brand-cyan/10 text-brand-cyan font-bold text-2xl flex items-center justify-center mb-6 group-hover:bg-brand-cyan group-hover:text-black transition">
+            02
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">Complete Tasks & Refer</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            Choose from daily offer walls, trading signals, or share your referral link to earn up to 20% passive commission.
+          </p>
         </div>
-        <div class="grid md:grid-cols-3 gap-8">
-            <!-- Review 1 -->
-            <div data-aos="fade-up" class="glass-card p-8 rounded-2xl shadow-sm relative border border-white/80">
-                <div class="flex text-amber-500 gap-1 text-sm mb-4"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <p class="text-gray-600 italic">"Effort to Earn is incredibly legit. My initial $15 withdrawal request settled into my Nagad wallet inside exactly 4 minutes flat."</p>
-                <div class="flex items-center gap-4 mt-6">
-                    <div class="w-11 h-11 rounded-full bg-sky-200 font-bold text-sky-700 flex items-center justify-center text-sm shadow-inner">AS</div>
-                    <div><h5 class="font-bold text-gray-900 text-sm">Asif Sheikh</h5><p class="text-xs text-gray-500">Active Member since Jan 2026</p></div>
-                </div>
-            </div>
-            <!-- Review 2 -->
-            <div data-aos="fade-up" data-aos-delay="100" class="glass-card p-8 rounded-2xl shadow-sm relative border border-white/80">
-                <div class="flex text-amber-500 gap-1 text-sm mb-4"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <p class="text-gray-600 italic">"The referral mechanics scale beautifully. I simply focus effort on sharing registration links with friends, and my balances adjust passively."</p>
-                <div class="flex items-center gap-4 mt-6">
-                    <div class="w-11 h-11 rounded-full bg-emerald-200 font-bold text-emerald-700 flex items-center justify-center text-sm shadow-inner">NM</div>
-                    <div><h5 class="font-bold text-gray-900 text-sm">Nadia Mahmud</h5><p class="text-xs text-gray-500">Student, UIU</p></div>
-                </div>
-            </div>
-            <!-- Review 3 -->
-            <div data-aos="fade-up" data-aos-delay="200" class="glass-card p-8 rounded-2xl shadow-sm relative border border-white/80">
-                <div class="flex text-amber-500 gap-1 text-sm mb-4"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <p class="text-gray-600 italic">"Withdrawing through USDT makes processing entirely friction-free. Effort to Earn is easily the fastest loading UI I have discovered this year."</p>
-                <div class="flex items-center gap-4 mt-6">
-                    <div class="w-11 h-11 rounded-full bg-purple-200 font-bold text-purple-700 flex items-center justify-center text-sm shadow-inner">ZK</div>
-                    <div><h5 class="font-bold text-gray-900 text-sm">Zayn Khan</h5><p class="text-xs text-gray-500">Freelancer</p></div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- AD SLOT 3 (AFTER REVIEWS) -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-10">
-        <a href="https://www.effectivecpmnetwork.com/pgdtigvst?key=9222eaaf8713f8dee74cfcc388f9842e" target="_blank" rel="noopener noreferrer" class="block group">
-            <div class="w-full py-5 px-6 rounded-2xl glass-card border-dashed border-2 border-emerald-400 text-center relative overflow-hidden transition-all duration-300 hover:scale-[1.01]">
-                <span class="absolute top-0 left-0 bg-emerald-500 text-[10px] text-white font-bold px-2 py-0.5 rounded-br-lg uppercase tracking-wider">High Payout Event</span>
-                <p class="text-sm font-bold text-emerald-700 flex items-center justify-center gap-2">
-                    <i class="fas fa-dollar-sign animate-bounce"></i> New High-Paying Financial Survey Tiers Released! Click to match user configurations instantly.
-                </p>
-            </div>
-        </a>
+        <!-- Step 3 -->
+        <div class="glass-card p-8 rounded-3xl relative group hover:border-brand-green/40 transition">
+          <div class="w-14 h-14 rounded-2xl bg-purple-500/10 text-purple-400 font-bold text-2xl flex items-center justify-center mb-6 group-hover:bg-purple-400 group-hover:text-black transition">
+            03
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">Instant Withdrawals</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            Request payment anytime. Funds hit your Bank, Mobile Wallet, or Crypto wallet within seconds.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Grid Section -->
+  <section id="features" class="py-24 max-w-7xl mx-auto px-6">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <h2 class="text-brand-cyan font-bold text-sm tracking-widest uppercase">Why Choose ApexEarn</h2>
+      <p class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Built for Maximum Yield & Trust</p>
     </div>
 
-    <!-- FAQ SECTION -->
-    <section id="faq" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div class="text-center mb-12" data-aos="fade-up">
-            <h2 class="text-3xl font-black text-gray-900">Frequently Asked Questions</h2>
-            <p class="text-gray-600 mt-2">Answers to your initial configuration inquiries.</p>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="glass-card p-8 rounded-3xl border border-white/5 hover:border-white/20 transition">
+        <div class="w-12 h-12 rounded-xl bg-brand-green/10 text-brand-green flex items-center justify-center text-xl mb-6">
+          <i class="fa-solid fa-bolt-lightning"></i>
         </div>
-        <div class="space-y-4">
-            <!-- FAQ 1 -->
-            <div class="glass-card rounded-2xl border border-white/80 overflow-hidden shadow-sm transition-all duration-300">
-                <button class="w-full px-6 py-5 text-left font-bold text-gray-900 flex justify-between items-center focus:outline-none faq-btn">
-                    <span>Is this website completely free to join?</span>
-                    <i class="fas fa-chevron-down text-xs transition-transform duration-300"></i>
-                </button>
-                <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-                    <p class="px-6 pb-5 text-sm leading-relaxed text-gray-600">Yes, entirely. Effort to Earn never mandates premium subscription deposits or onboarding packages. Your registration, analytical data sets, and earnings tracking are entirely free indefinitely.</p>
-                </div>
-            </div>
-            <!-- FAQ 2 -->
-            <div class="glass-card rounded-2xl border border-white/80 overflow-hidden shadow-sm transition-all duration-300">
-                <button class="w-full px-6 py-5 text-left font-bold text-gray-900 flex justify-between items-center focus:outline-none faq-btn">
-                    <span>What is the minimum withdrawal limit?</span>
-                    <i class="fas fa-chevron-down text-xs transition-transform duration-300"></i>
-                </button>
-                <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-                    <p class="px-6 pb-5 text-sm leading-relaxed text-gray-600">To preserve user convenience, our baseline payout requirement is configured at an accessible $2.00 limit, which can be reached inside your very first activity session.</p>
-                </div>
-            </div>
-            <!-- FAQ 3 -->
-            <div class="glass-card rounded-2xl border border-white/80 overflow-hidden shadow-sm transition-all duration-300">
-                <button class="w-full px-6 py-5 text-left font-bold text-gray-900 flex justify-between items-center focus:outline-none faq-btn">
-                    <span>Can I maintain multiple user profiles?</span>
-                    <i class="fas fa-chevron-down text-xs transition-transform duration-300"></i>
-                </button>
-                <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-                    <p class="px-6 pb-5 text-sm leading-relaxed text-gray-600">No. Our fraud prevention infrastructure blocks and freezes balances if multiple profiles are caught sharing matching hardware devices or local network routing strings.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        <h3 class="text-lg font-bold text-white mb-2">Automated Instant Payouts</h3>
+        <p class="text-gray-400 text-sm">No waiting days for approvals. Our automated payment engine runs 24 hours a day, 7 days a week.</p>
+      </div>
 
-    <!-- AD SLOT 4 (BEFORE FOOTER) -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-10">
-        <a href="https://www.effectivecpmnetwork.com/wj3j553q6?key=b35b60d35da02da124df70a7172a8f9c" target="_blank" rel="noopener noreferrer" class="block group">
-            <div class="w-full py-8 px-6 rounded-3xl bg-gradient-to-r from-sky-500 to-sky-400 text-center relative overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl">
-                <div class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                <span class="absolute top-2 right-4 text-[9px] text-white/80 font-bold uppercase tracking-widest">Sponsored Placement</span>
-                <h4 class="text-xl font-extrabold text-white mb-1">Looking for Elite Long-Term Investment Signals?</h4>
-                <p class="text-xs text-white/90 max-w-xl mx-auto">Explore verified macro-trading portfolios with our trusted industrial affiliates. Tap here to examine details.</p>
-            </div>
-        </a>
+      <div class="glass-card p-8 rounded-3xl border border-white/5 hover:border-white/20 transition">
+        <div class="w-12 h-12 rounded-xl bg-brand-cyan/10 text-brand-cyan flex items-center justify-center text-xl mb-6">
+          <i class="fa-solid fa-users-gear"></i>
+        </div>
+        <h3 class="text-lg font-bold text-white mb-2">Multi-Tier Referral System</h3>
+        <p class="text-gray-400 text-sm">Earn up to 3 levels deep from your network's activity. Build a sustainable passive income stream.</p>
+      </div>
+
+      <div class="glass-card p-8 rounded-3xl border border-white/5 hover:border-white/20 transition">
+        <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center text-xl mb-6">
+          <i class="fa-solid fa-lock"></i>
+        </div>
+        <h3 class="text-lg font-bold text-white mb-2">Bank-Grade Security</h3>
+        <p class="text-gray-400 text-sm">Protected by SSL encryption, 2FA, and DDOS mitigation to ensure your funds and data are always secure.</p>
+      </div>
+
+      <div class="glass-card p-8 rounded-3xl border border-white/5 hover:border-white/20 transition">
+        <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl mb-6">
+          <i class="fa-solid fa-chart-line"></i>
+        </div>
+        <h3 class="text-lg font-bold text-white mb-2">High Payout Rates</h3>
+        <p class="text-gray-400 text-sm">We partner directly with global advertisers to give our members the highest revenue share in the industry.</p>
+      </div>
+
+      <div class="glass-card p-8 rounded-3xl border border-white/5 hover:border-white/20 transition">
+        <div class="w-12 h-12 rounded-xl bg-rose-500/10 text-rose-400 flex items-center justify-center text-xl mb-6">
+          <i class="fa-solid fa-[#00FF87] fa-headset"></i>
+        </div>
+        <h3 class="text-lg font-bold text-white mb-2">24/7 Dedicated Support</h3>
+        <p class="text-gray-400 text-sm">Got a question? Our support team is available around the clock via live chat and Telegram.</p>
+      </div>
+
+      <div class="glass-card p-8 rounded-3xl border border-white/5 hover:border-white/20 transition">
+        <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-xl mb-6">
+          <i class="fa-solid fa-wallet"></i>
+        </div>
+        <h3 class="text-lg font-bold text-white mb-2">Multiple Payment Gateways</h3>
+        <p class="text-gray-400 text-sm">Withdraw via Crypto (USDT, BTC), Local Bank Transfer, Mobile Payments, and e-Wallets.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Earning Tiers / Packages -->
+  <section id="levels" class="py-24 bg-[#0B101A] border-y border-white/5">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <h2 class="text-brand-green font-bold text-sm tracking-widest uppercase">Membership Levels</h2>
+        <p class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Choose Your Earning Capacity</p>
+      </div>
+
+      <div class="grid lg:grid-cols-3 gap-8 items-center">
+        <!-- Starter Plan -->
+        <div class="glass-card p-8 rounded-3xl border border-white/10">
+          <h3 class="text-xl font-bold text-white">Free Starter</h3>
+          <p class="text-gray-400 text-sm mt-1">Perfect for getting started</p>
+          <div class="my-6">
+            <span class="text-4xl font-extrabold text-white">$0</span>
+            <span class="text-gray-400 text-sm">/ forever</span>
+          </div>
+          <ul class="space-y-4 text-sm text-gray-300 mb-8">
+            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-green"></i> Basic Offer Wall Access</li>
+            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-green"></i> 5% Referral Commission</li>
+            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-green"></i> $10 Minimum Cashout</li>
+            <li class="flex items-center gap-3 text-gray-600"><i class="fa-solid fa-xmark"></i> Priority Support</li>
+          </ul>
+          <a href="#register" class="block text-center w-full py-3 rounded-xl border border-white/20 text-white font-semibold hover:bg-white/10 transition">Join Free</a>
+        </div>
+
+        <!-- Pro Plan (Featured) -->
+        <div class="glass-card p-8 rounded-3xl border-2 border-brand-green relative glow-green scale-105 bg-[#0F1826]">
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-brand-green to-brand-cyan text-black font-extrabold text-xs uppercase tracking-wider">
+            Most Popular
+          </div>
+          <h3 class="text-xl font-bold text-white">Pro Earner</h3>
+          <p class="text-gray-400 text-sm mt-1">Accelerate your daily earnings</p>
+          <div class="my-6">
+            <span class="text-4xl font-extrabold text-white">$29</span>
+            <span class="text-gray-400 text-sm">/ month</span>
+          </div>
+          <ul class="space-y-4 text-sm text-gray-300 mb-8">
+            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-green"></i> 2x Task Rewards</li>
+            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-green"></i> 15% Multi-Tier Referral Bonus</li>
+            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-green"></i> Instant $1 Minimum Cashout</li>
+            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-green"></i> Priority VIP Support</li>
+          </ul>
+          <a href="#register" class="block text-center w-full py-3.5 rounded-xl bg-gradient-to-r from-brand-green to-brand-cyan text-black font-extrabold hover:opacity-90 transition shadow-lg shadow-brand-green/20">Upgrade to Pro</a>
+        </div>
+
+        <!-- VIP Plan -->
+        <div class="glass-card p-8 rounded-3xl border border-white/10">
+          <h3 class="text-xl font-bold text-white">VIP Elite</h3>
+          <p class="text-gray-400 text-sm mt-1">For maximum yield and managers</p>
+          <div class="my-6">
+            <span class="text-4xl font-extrabold text-white">$99</span>
+            <span class="text-gray-400 text-sm">/ month</span>
+          </div>
+          <ul class="space-y-4 text-sm text-gray-300 mb-8">
+            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-green"></i> 3.5x Premium Rewards</li>
+            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-green"></i> 25% Multi-Tier Referral Commission</li>
+            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-green"></i> Zero Cashout Fees</li>
+            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-green"></i> Dedicated Account Manager</li>
+          </ul>
+          <a href="#register" class="block text-center w-full py-3 rounded-xl border border-white/20 text-white font-semibold hover:bg-white/10 transition">Go Elite</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live Proof Table Section -->
+  <section id="payouts" class="py-24 max-w-5xl mx-auto px-6">
+    <div class="text-center mb-12">
+      <h2 class="text-brand-green font-bold text-sm tracking-widest uppercase">Transparency</h2>
+      <p class="text-3xl font-extrabold text-white mt-2">Recent Payment Proofs</p>
     </div>
 
-    <!-- FINAL CTA BANNER -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center" data-aos="zoom-in">
-        <div class="glass-card rounded-3xl p-10 md:p-16 relative overflow-hidden border border-white/90 shadow-xl">
-            <h2 class="text-3xl sm:text-4xl font-black text-gray-900 max-w-2xl mx-auto leading-tight">Ready to Cash In On Your Spare Effort?</h2>
-            <p class="text-gray-600 mt-4 max-w-md mx-auto">Create an account now to claim your initial registration bonus points pool instantly.</p>
-            <div class="mt-8">
-                <button class="px-10 py-4 text-lg font-bold text-white bg-sky-500 rounded-2xl glow-btn hover:bg-sky-600 transform hover:-translate-y-0.5 transition-all">
-                    Join Now For Free
-                </button>
-            </div>
+    <div class="glass-card rounded-2xl overflow-hidden border border-white/10">
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-sm text-gray-300">
+          <thead class="bg-white/5 text-gray-400 uppercase text-xs">
+            <tr>
+              <th class="p-4">User</th>
+              <th class="p-4">Method</th>
+              <th class="p-4">Amount</th>
+              <th class="p-4">Status</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-white/5">
+            <tr>
+              <td class="p-4 font-semibold text-white">Daniel S.</td>
+              <td class="p-4"><i class="fa-brands fa-bitcoin text-amber-400 mr-2"></i> USDT Crypto</td>
+              <td class="p-4 text-brand-green font-bold">$340.00</td>
+              <td class="p-4"><span class="px-2 py-1 rounded bg-brand-green/10 text-brand-green text-xs font-bold">Completed</span></td>
+            </tr>
+            <tr>
+              <td class="p-4 font-semibold text-white">Rina K.</td>
+              <td class="p-4"><i class="fa-solid fa-building-columns text-blue-400 mr-2"></i> Bank Wire</td>
+              <td class="p-4 text-brand-green font-bold">$125.50</td>
+              <td class="p-4"><span class="px-2 py-1 rounded bg-brand-green/10 text-brand-green text-xs font-bold">Completed</span></td>
+            </tr>
+            <tr>
+              <td class="p-4 font-semibold text-white">Mohammad R.</td>
+              <td class="p-4"><i class="fa-solid fa-mobile-screen text-purple-400 mr-2"></i> Mobile Wallet</td>
+              <td class="p-4 text-brand-green font-bold">$50.00</td>
+              <td class="p-4"><span class="px-2 py-1 rounded bg-brand-green/10 text-brand-green text-xs font-bold">Completed</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="py-24 bg-[#0B101A] border-t border-white/5">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-brand-cyan font-bold text-sm tracking-widest uppercase">FAQ</h2>
+        <p class="text-3xl font-extrabold text-white mt-2">Frequently Asked Questions</p>
+      </div>
+
+      <div class="space-y-4">
+        <div class="glass-card p-6 rounded-2xl border border-white/5">
+          <h3 class="text-lg font-bold text-white mb-2">How do I start earning?</h3>
+          <p class="text-gray-400 text-sm">Simply create a free account, log into your user dashboard, choose an active offer wall or task list, and begin earning immediately.</p>
         </div>
-    </section>
-
-    <!-- CONTACT SECTION -->
-    <section id="contact" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div class="grid md:grid-cols-2 gap-12 glass-card p-8 md:p-12 rounded-3xl border border-white/80 shadow-sm">
-            <div>
-                <h3 class="text-2xl font-black text-gray-900 mb-4">Get In Touch</h3>
-                <p class="text-gray-600 text-sm leading-relaxed mb-6">Have concerns regarding offer metrics or dynamic payment logs? Send our customer support desk a direct support request.</p>
-                <div class="space-y-4 text-sm font-semibold text-gray-700">
-                    <div class="flex items-center gap-3"><i class="fas fa-envelope text-sky-500 text-lg"></i> support@efforttoearn.com</div>
-                    <div class="flex items-center gap-3"><i class="fas fa-location-dot text-sky-500 text-lg"></i> Gulshan Avenue, Dhaka, Bangladesh</div>
-                </div>
-            </div>
-            <form class="space-y-4" onsubmit="event.preventDefault(); alert('Message sent successfully!');">
-                <div class="grid grid-cols-2 gap-4">
-                    <input type="text" placeholder="Your Name" required class="w-full px-4 py-3 rounded-xl bg-white/60 border border-gray-200 text-sm focus:outline-none focus:border-sky-500 transition-colors">
-                    <input type="email" placeholder="Your Email" required class="w-full px-4 py-3 rounded-xl bg-white/60 border border-gray-200 text-sm focus:outline-none focus:border-sky-500 transition-colors">
-                </div>
-                <input type="text" placeholder="Subject" required class="w-full px-4 py-3 rounded-xl bg-white/60 border border-gray-200 text-sm focus:outline-none focus:border-sky-500 transition-colors">
-                <textarea placeholder="Message Details..." rows="4" required class="w-full px-4 py-3 rounded-xl bg-white/60 border border-gray-200 text-sm focus:outline-none focus:border-sky-500 transition-colors"></textarea>
-                <button type="submit" class="w-full py-3 rounded-xl bg-gray-900 text-white font-bold hover:bg-sky-500 transition-colors shadow-sm">Send Message</button>
-            </form>
+        <div class="glass-card p-6 rounded-2xl border border-white/5">
+          <h3 class="text-lg font-bold text-white mb-2">What is the minimum withdrawal amount?</h3>
+          <p class="text-gray-400 text-sm">For Free members, the minimum payout is $10. Pro and VIP members can withdraw starting from just $1.00.</p>
         </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="bg-white/80 border-t border-gray-200 pt-16 pb-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
-            <div class="col-span-2 md:col-span-1">
-                <div class="flex items-center gap-2 mb-4">
-                    <div class="bg-sky-500 text-white p-1.5 rounded-lg"><i class="fas fa-wallet"></i></div>
-                    <span class="text-xl font-black tracking-tight text-gray-900">Effort<span class="text-sky-500">ToEarn</span></span>
-                </div>
-                <p class="text-xs text-gray-500 leading-relaxed">The premier web portal where user effort connects seamlessly with global advertiser rewards for secure side income.</p>
-            </div>
-            <div>
-                <h4 class="font-bold text-gray-900 text-sm mb-4">Navigation</h4>
-                <ul class="space-y-2 text-xs font-semibold text-gray-500">
-                    <li><a href="#" class="hover:text-sky-500 transition-colors">Home</a></li>
-                    <li><a href="#features" class="hover:text-sky-500 transition-colors">Features</a></li>
-                    <li><a href="#how-it-works" class="hover:text-sky-500 transition-colors">How It Works</a></li>
-                    <li><a href="#reviews" class="hover:text-sky-500 transition-colors">Reviews</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="font-bold text-gray-900 text-sm mb-4">Legal Framework</h4>
-                <ul class="space-y-2 text-xs font-semibold text-gray-500">
-                    <li><a href="#" class="hover:text-sky-500 transition-colors">Privacy Policy</a></li>
-                    <li><a href="#" class="hover:text-sky-500 transition-colors">Terms of Service</a></li>
-                    <li><a href="#" class="hover:text-sky-500 transition-colors">Cookie Policies</a></li>
-                    <li><a href="#" class="hover:text-sky-500 transition-colors">AML Guidelines</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="font-bold text-gray-900 text-sm mb-4">Connect With Us</h4>
-                <div class="flex gap-3 text-gray-400 text-lg mb-4">
-                    <a href="#" class="hover:text-sky-500 transition-colors"><i class="fab fa-facebook"></i></a>
-                    <a href="#" class="hover:text-sky-500 transition-colors"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="hover:text-sky-500 transition-colors"><i class="fab fa-telegram"></i></a>
-                    <a href="#" class="hover:text-sky-500 transition-colors"><i class="fab fa-youtube"></i></a>
-                </div>
-                <p class="text-[11px] text-gray-400">Official Compliance Registry Verified.</p>
-            </div>
+        <div class="glass-card p-6 rounded-2xl border border-white/5">
+          <h3 class="text-lg font-bold text-white mb-2">How fast are payments processed?</h3>
+          <p class="text-gray-400 text-sm">Most withdrawals are processed instantly via automated API gateways. Crypto and mobile wallets usually receive funds within seconds.</p>
         </div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-gray-100 pt-6 text-center text-xs font-medium text-gray-400">
-            &copy; 2026 Effort to Earn Ecosystem. All International Rights Reserved.
-        </div>
-    </footer>
+      </div>
+    </div>
+  </section>
 
-    <!-- AOS JS Library & Custom Functionality Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        // Initialize AOS animations
-        AOS.init({
-            once: true,
-            duration: 800
-        });
+  <!-- Final Call To Action Banner -->
+  <section id="register" class="py-20 max-w-5xl mx-auto px-6">
+    <div class="relative rounded-3xl p-10 sm:p-16 overflow-hidden bg-gradient-to-r from-brand-green/20 via-brand-cyan/20 to-purple-600/20 border border-brand-green/30 text-center glow-green">
+      <h2 class="text-3xl sm:text-5xl font-extrabold text-white mb-4">Ready to Earn Your First $100?</h2>
+      <p class="text-gray-300 max-w-xl mx-auto mb-8">Join over 150,000 members making daily income online. Registration takes less than a minute.</p>
+      
+      <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-3" onsubmit="event.preventDefault();">
+        <input type="email" placeholder="Enter your email address" class="w-full px-5 py-4 rounded-xl bg-black/60 border border-white/20 text-white focus:outline-none focus:border-brand-green text-sm">
+        <button type="submit" class="px-8 py-4 rounded-xl bg-gradient-to-r from-brand-green to-brand-cyan text-black font-extrabold text-sm hover:opacity-90 transition whitespace-nowrap">
+          Create Account
+        </button>
+      </form>
+    </div>
+  </section>
 
-        // Mobile Menu Toggle logic
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
+  <!-- Footer -->
+  <footer class="border-t border-white/5 py-12 bg-[#05070C] text-gray-500 text-sm">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-6">
+      <div class="flex items-center gap-3">
+        <span class="text-lg font-bold text-white">Apex<span class="gradient-text">Earn</span></span>
+        <span class="text-xs">© 2026 ApexEarn Inc. All rights reserved.</span>
+      </div>
+      <div class="flex gap-6">
+        <a href="#" class="hover:text-white transition">Privacy Policy</a>
+        <a href="#" class="hover:text-white transition">Terms of Service</a>
+        <a href="#" class="hover:text-white transition">Contact Us</a>
+      </div>
+    </div>
+  </footer>
 
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Close mobile menu when clicking layout link item
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
-        });
-
-        // Accordion functionality for FAQ Section
-        document.querySelectorAll('.faq-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const icon = btn.querySelector('i');
-                const content = btn.nextElementSibling;
-                
-                icon.classList.toggle('rotate-180');
-                
-                if (content.style.maxHeight && content.style.maxHeight !== '0px') {
-                    content.style.maxHeight = '0px';
-                } else {
-                    content.style.maxHeight = content.scrollHeight + 'px';
-                }
-            });
-        });
-    </script>
 </body>
 </html>

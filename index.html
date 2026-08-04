@@ -1,421 +1,603 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ApexEarn | Premium Online Earning Platform</title>
-  
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  
-  <!-- Google Fonts: Plus Jakarta Sans -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  
-  <!-- FontAwesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EliteEarn | Premier Remote Work & Digital Career Hub</title>
 
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Plus Jakarta Sans', 'sans-serif'],
-          },
-          colors: {
-            brand: {
-              green: '#00FF87',
-              cyan: '#60EFFF',
-              dark: '#080B11',
-              card: '#0F1622',
-            }
-          }
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <!-- Blogger Skin Requirement -->
+    <b:skin><![CDATA[
+    /* Blogger Template Skin Placeholder */
+    ]]></b:skin>
+
+    <style>
+        :root {
+            --primary: #0284c7;
+            --primary-dark: #0369a1;
+            --secondary: #7c3aed;
+            --accent-green: #10b981;
+            --bg-light: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --border: #e2e8f0;
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.08);
         }
-      }
-    }
-  </script>
 
-  <style>
-    .glow-green {
-      box-shadow: 0 0 50px -10px rgba(0, 255, 135, 0.3);
-    }
-    .glass-card {
-      background: rgba(15, 22, 34, 0.7);
-      backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-    }
-    .gradient-text {
-      background: linear-gradient(135deg, #00FF87 0%, #60EFFF 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .gradient-border {
-      background: linear-gradient(135deg, rgba(0, 255, 135, 0.5), rgba(96, 239, 255, 0.1));
-    }
-  </style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Navigation Bar */
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid var(--border);
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 15px;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 70px 0 50px;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-bottom: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #ffffff;
+            border: 1px solid var(--border);
+            padding: 6px 16px;
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+            margin-bottom: 16px;
+            color: #0c4a6e;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-muted);
+            max-width: 720px;
+            margin: 0 auto 30px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #ffffff;
+            box-shadow: 0 10px 20px -5px rgba(2, 132, 199, 0.4);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Stats Bar */
+        .stats-section {
+            padding: 40px 0;
+            background: #ffffff;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+
+        .stat-card h3 {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .stat-card p {
+            font-size: 14px;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        /* Information Guide Section */
+        .info-section {
+            padding: 70px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+            font-size: 16px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .info-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s;
+        }
+
+        .info-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            background: #e0f2fe;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+
+        .info-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .info-card p {
+            color: var(--text-muted);
+            font-size: 14.5px;
+            line-height: 1.6;
+        }
+
+        /* Offers Section */
+        .offers-section {
+            padding: 70px 0;
+            background: #ffffff;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .offer-card {
+            background: var(--bg-light);
+            border: 2px solid var(--border);
+            border-radius: 20px;
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .offer-card.highlight {
+            border-color: var(--primary);
+            background: #f0f9ff;
+        }
+
+        .pay-tag {
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--accent-green);
+            margin: 12px 0;
+        }
+
+        /* How it works steps */
+        .steps-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .step-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: var(--secondary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            margin: 0 auto 16px;
+        }
+
+        /* FAQ Accordion */
+        .faq-section {
+            padding: 70px 0;
+        }
+
+        .faq-item {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            margin-bottom: 16px;
+            padding: 20px 24px;
+        }
+
+        .faq-item h4 {
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text-main);
+        }
+
+        .faq-item p {
+            color: var(--text-muted);
+            font-size: 14.5px;
+        }
+
+        /* Footer */
+        footer {
+            background: #0f172a;
+            color: #94a3b8;
+            padding: 40px 0 20px;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        footer p {
+            margin-bottom: 12px;
+        }
+
+        @media(max-width: 768px) {
+            .hero h1 { font-size: 30px; }
+            .nav-links { display: none; }
+        }
+    </style>
 </head>
-<body class="bg-[#080B11] text-gray-100 font-sans antialiased selection:bg-brand-green selection:text-black overflow-x-hidden">
+<body>
 
-  <!-- Background Decorative Glows -->
-  <div class="fixed top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-brand-green/10 blur-[150px] pointer-events-none rounded-full z-0"></div>
-  <div class="fixed bottom-0 right-0 w-[600px] h-[600px] bg-brand-cyan/10 blur-[180px] pointer-events-none rounded-full z-0"></div>
-
-  <!-- Navigation -->
-  <header class="sticky top-0 z-50 backdrop-blur-xl bg-[#080B11]/80 border-b border-white/5">
-    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-green to-brand-cyan p-0.5 flex items-center justify-center shadow-lg shadow-brand-green/20">
-          <div class="w-full h-full bg-[#080B11] rounded-[10px] flex items-center justify-center">
-            <i class="fa-solid fa-bolt text-brand-green text-xl"></i>
-          </div>
+    <!-- Header -->
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-chart-line"></i> Elite<span>Earn</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#about">Why Remote Work</a></li>
+                <li><a href="#categories">Categories</a></li>
+                <li><a href="#offers">Available Listings</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
         </div>
-        <span class="text-2xl font-extrabold tracking-tight text-white">Apex<span class="gradient-text">Earn</span></span>
-      </div>
+    </header>
 
-      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-400">
-        <a href="#features" class="hover:text-brand-green transition">Features</a>
-        <a href="#how-it-works" class="hover:text-brand-green transition">How It Works</a>
-        <a href="#levels" class="hover:text-brand-green transition">Earning Tiers</a>
-        <a href="#payouts" class="hover:text-brand-green transition">Live Payouts</a>
-        <a href="#faq" class="hover:text-brand-green transition">FAQ</a>
-      </nav>
-
-      <div class="flex items-center gap-4">
-        <a href="#" class="hidden sm:inline-block text-sm font-semibold text-gray-300 hover:text-white px-4 py-2 transition">Sign In</a>
-        <a href="#register" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-brand-green to-brand-cyan text-black font-bold text-sm hover:opacity-90 transition transform hover:scale-[1.02] shadow-lg shadow-brand-green/20">
-          Get Started Free
-        </a>
-      </div>
-    </div>
-  </header>
-
-  <!-- Live Activity Bar -->
-  <div class="bg-brand-card/80 border-b border-white/5 py-2 overflow-hidden text-xs text-gray-400">
-    <div class="max-w-7xl mx-auto px-6 flex items-center gap-6 whitespace-nowrap animate-pulse">
-      <span class="flex items-center gap-2 text-brand-green font-semibold">
-        <span class="w-2 h-2 rounded-full bg-brand-green animate-ping"></span> LIVE PAYOUTS:
-      </span>
-      <span>User <strong class="text-white">@Alex_M</strong> just withdrew <strong class="text-brand-green">$250.00</strong> via Crypto</span>
-      <span class="text-gray-600">•</span>
-      <span>User <strong class="text-white">@Sarah_K</strong> earned <strong class="text-brand-green">$120.50</strong> on Referral Bonus</span>
-      <span class="text-gray-600">•</span>
-      <span>User <strong class="text-white">@Rifat_T</strong> withdrew <strong class="text-brand-green">$45.00</strong> via Bkash</span>
-    </div>
-  </div>
-
-  <!-- Hero Section -->
-  <section class="relative pt-20 pb-32 max-w-7xl mx-auto px-6 text-center z-10">
-    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border border-brand-green/30 text-brand-green text-xs font-bold tracking-wide uppercase mb-8 shadow-inner">
-      <i class="fa-solid fa-shield-halved"></i> Verified & Automated Payout Engine
-    </div>
-
-    <h1 class="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white max-w-5xl mx-auto leading-[1.15]">
-      Monetize Your Time with the World's Most <span class="gradient-text">Lucrative Earning Ecosystem</span>
-    </h1>
-
-    <p class="mt-6 text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto font-normal leading-relaxed">
-      Complete high-yield tasks, leverage automated affiliate rewards, and participate in daily profit distributions. Withdraw your earnings instantly 24/7.
-    </p>
-
-    <!-- CTAs -->
-    <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-      <a href="#register" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-brand-green to-brand-cyan text-black font-extrabold text-base hover:opacity-90 transition transform hover:-translate-y-0.5 shadow-xl shadow-brand-green/25 flex items-center justify-center gap-3">
-        <span>Start Earning Today</span>
-        <i class="fa-solid fa-arrow-right"></i>
-      </a>
-      <a href="#how-it-works" class="w-full sm:w-auto px-8 py-4 rounded-xl glass-card text-white font-semibold text-base hover:bg-white/10 transition border border-white/10 flex items-center justify-center gap-2">
-        <i class="fa-regular fa-circle-play text-brand-cyan"></i> Watch Demo
-      </a>
-    </div>
-
-    <!-- Trust Stats Grid -->
-    <div class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
-      <div class="glass-card p-6 rounded-2xl border border-white/5">
-        <h3 class="text-3xl font-extrabold text-white gradient-text">$2.4M+</h3>
-        <p class="text-xs text-gray-400 mt-1 uppercase font-semibold">Total Paid Out</p>
-      </div>
-      <div class="glass-card p-6 rounded-2xl border border-white/5">
-        <h3 class="text-3xl font-extrabold text-white">150K+</h3>
-        <p class="text-xs text-gray-400 mt-1 uppercase font-semibold">Active Members</p>
-      </div>
-      <div class="glass-card p-6 rounded-2xl border border-white/5">
-        <h3 class="text-3xl font-extrabold text-white gradient-text">&lt; 60s</h3>
-        <p class="text-xs text-gray-400 mt-1 uppercase font-semibold">Instant Cashout</p>
-      </div>
-      <div class="glass-card p-6 rounded-2xl border border-white/5">
-        <h3 class="text-3xl font-extrabold text-white">4.9/5</h3>
-        <p class="text-xs text-gray-400 mt-1 uppercase font-semibold">User Rating</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- How It Works Section -->
-  <section id="how-it-works" class="py-24 bg-[#0B101A] border-y border-white/5 relative">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="text-center max-w-2xl mx-auto mb-16">
-        <h2 class="text-brand-green font-bold text-sm tracking-widest uppercase">Simple Process</h2>
-        <p class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Start Making Money in 3 Steps</p>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-8">
-        <!-- Step 1 -->
-        <div class="glass-card p-8 rounded-3xl relative group hover:border-brand-green/40 transition">
-          <div class="w-14 h-14 rounded-2xl bg-brand-green/10 text-brand-green font-bold text-2xl flex items-center justify-center mb-6 group-hover:bg-brand-green group-hover:text-black transition">
-            01
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">Create Free Account</h3>
-          <p class="text-gray-400 text-sm leading-relaxed">
-            Register in under a minute with zero registration fees. Get instant access to your personalized dashboard.
-          </p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="badge">
+                <i class="fa-solid fa-shield-halved"></i> Verified Digital Opportunity Portal
+            </div>
+            <h1>Your Gateway to High-Paying Remote Careers</h1>
+            <p>Discover entry-level remote positions, AI evaluation tasks, and flexible digital work allocations. Learn how thousands of candidates transition into flexible online income streams.</p>
+            <a href="#offers" class="btn btn-primary">
+                Explore Available Positions <i class="fa-solid fa-arrow-down"></i>
+            </a>
         </div>
+    </section>
 
-        <!-- Step 2 -->
-        <div class="glass-card p-8 rounded-3xl relative group hover:border-brand-green/40 transition">
-          <div class="w-14 h-14 rounded-2xl bg-brand-cyan/10 text-brand-cyan font-bold text-2xl flex items-center justify-center mb-6 group-hover:bg-brand-cyan group-hover:text-black transition">
-            02
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">Complete Tasks & Refer</h3>
-          <p class="text-gray-400 text-sm leading-relaxed">
-            Choose from daily offer walls, trading signals, or share your referral link to earn up to 20% passive commission.
-          </p>
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>$22.50</h3>
+                    <p>Average Hourly Rate</p>
+                </div>
+                <div class="stat-card">
+                    <h3>100%</h3>
+                    <p>Work-from-Home Jobs</p>
+                </div>
+                <div class="stat-card">
+                    <h3>14,000+</h3>
+                    <p>Active Applicants</p>
+                </div>
+                <div class="stat-card">
+                    <h3>24/7</h3>
+                    <p>Flexible Allocation</p>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <!-- Step 3 -->
-        <div class="glass-card p-8 rounded-3xl relative group hover:border-brand-green/40 transition">
-          <div class="w-14 h-14 rounded-2xl bg-purple-500/10 text-purple-400 font-bold text-2xl flex items-center justify-center mb-6 group-hover:bg-purple-400 group-hover:text-black transition">
-            03
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">Instant Withdrawals</h3>
-          <p class="text-gray-400 text-sm leading-relaxed">
-            Request payment anytime. Funds hit your Bank, Mobile Wallet, or Crypto wallet within seconds.
-          </p>
+    <!-- Informative Content Section: Why Choose Remote Work -->
+    <section class="info-section" id="about">
+        <div class="container">
+            <div class="section-header section-title">
+                <h2>Why Modern Professionals Choose Digital Jobs</h2>
+                <p>The global workforce is shifting toward flexibility, better work-life balance, and geographic freedom.</p>
+            </div>
+
+            <div class="grid-3">
+                <div class="info-card">
+                    <div class="card-icon"><i class="fa-solid fa-house-laptop"></i></div>
+                    <h3>Complete Schedule Control</h3>
+                    <p>Remote positions allow you to set your own daily working hours. Whether you are balancing family, studies, or personal projects, digital tasks fit seamlessly into your lifestyle.</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="card-icon"><i class="fa-solid fa-wallet"></i></div>
+                    <h3>Competitive Hourly Earnings</h3>
+                    <p>Digital task networks and global employers offer competitive hourly rates starting from $15 to over $35/hr, accompanied by direct weekly or bi-weekly payouts.</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="card-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <h3>No Prior Experience Needed</h3>
+                    <p>Many remote micro-tasks, data entry assignments, and AI data tagging roles provide step-by-step onboarding, making them ideal for entry-level applicants.</p>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Features Grid Section -->
-  <section id="features" class="py-24 max-w-7xl mx-auto px-6">
-    <div class="text-center max-w-2xl mx-auto mb-16">
-      <h2 class="text-brand-cyan font-bold text-sm tracking-widest uppercase">Why Choose ApexEarn</h2>
-      <p class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Built for Maximum Yield & Trust</p>
-    </div>
+    <!-- Informative Content Section: Job Categories Explained -->
+    <section class="info-section" style="background: #ffffff; border-top: 1px solid var(--border);" id="categories">
+        <div class="container">
+            <div class="section-title">
+                <h2>Understanding Remote Categories</h2>
+                <p>Select the work profile that aligns with your skills and preferred daily schedule.</p>
+            </div>
 
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-      <div class="glass-card p-8 rounded-3xl border border-white/5 hover:border-white/20 transition">
-        <div class="w-12 h-12 rounded-xl bg-brand-green/10 text-brand-green flex items-center justify-center text-xl mb-6">
-          <i class="fa-solid fa-bolt-lightning"></i>
+            <div class="grid-3">
+                <div class="info-card">
+                    <div class="card-icon" style="background:#f3e8ff; color:#a855f7;"><i class="fa-solid fa-microchip"></i></div>
+                    <h3>AI Data & Prompt Evaluation</h3>
+                    <p>Assist next-gen artificial intelligence platforms. Review generated answers, tag text datasets, and rate output accuracy. High growth area for remote workers.</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="card-icon" style="background:#eff6ff; color:#2563eb;"><i class="fa-solid fa-keyboard"></i></div>
+                    <h3>Data Entry & Documentation</h3>
+                    <p>Manage digital spreadsheets, verify online records, and assist corporate teams with routine record organization. Requires basic typing and internet access.</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="card-icon" style="background:#ecfdf5; color:#10b981;"><i class="fa-solid fa-headset"></i></div>
+                    <h3>Customer Support & Chat Support</h3>
+                    <p>Help e-commerce businesses manage client inquiries via live chat and email ticketing. Excellent option for individuals with strong communication skills.</p>
+                </div>
+            </div>
         </div>
-        <h3 class="text-lg font-bold text-white mb-2">Automated Instant Payouts</h3>
-        <p class="text-gray-400 text-sm">No waiting days for approvals. Our automated payment engine runs 24 hours a day, 7 days a week.</p>
-      </div>
+    </section>
 
-      <div class="glass-card p-8 rounded-3xl border border-white/5 hover:border-white/20 transition">
-        <div class="w-12 h-12 rounded-xl bg-brand-cyan/10 text-brand-cyan flex items-center justify-center text-xl mb-6">
-          <i class="fa-solid fa-users-gear"></i>
+    <!-- How It Works Section -->
+    <section class="info-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>How To Start Application</h2>
+                <p>Get matched with available openings in three easy steps.</p>
+            </div>
+
+            <div class="steps-wrapper">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <h4>Choose a Category</h4>
+                    <p style="font-size: 13.5px; color: var(--text-muted); margin-top:6px;">Select the job field that matches your interest from the available listings below.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <h4>Confirm Details</h4>
+                    <p style="font-size: 13.5px; color: var(--text-muted); margin-top:6px;">Fill out a short application evaluation questionnaire to verify your country and availability.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <h4>Access Dashboard</h4>
+                    <p style="font-size: 13.5px; color: var(--text-muted); margin-top:6px;">Complete onboarding and access your task management portal to start working.</p>
+                </div>
+            </div>
         </div>
-        <h3 class="text-lg font-bold text-white mb-2">Multi-Tier Referral System</h3>
-        <p class="text-gray-400 text-sm">Earn up to 3 levels deep from your network's activity. Build a sustainable passive income stream.</p>
-      </div>
+    </section>
 
-      <div class="glass-card p-8 rounded-3xl border border-white/5 hover:border-white/20 transition">
-        <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center text-xl mb-6">
-          <i class="fa-solid fa-lock"></i>
+    <!-- Offer Listing Section (Place your links here) -->
+    <section class="offers-section" id="offers">
+        <div class="container">
+            <div class="section-title">
+                <h2>Active Remote Openings</h2>
+                <p>Click on your preferred category below to review requirements and begin onboarding.</p>
+            </div>
+
+            <div class="grid-3">
+
+                <!-- Offer Card 1: AI Evaluation Jobs -->
+                <div class="offer-card highlight">
+                    <div>
+                        <h3>Remote AI Data Evaluator</h3>
+                        <div class="pay-tag">$18.00 – $36.00 / hr</div>
+                        <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 20px;">
+                            Review AI model text queries, verify search engine response quality, and organize online data. Flexible daily hours.
+                        </p>
+                    </div>
+                    <!-- Put your AI offer link in href -->
+                    <a href="https://www.af9m8trk.com/KMS1126M/PSF12152/" target="_blank" class="btn btn-primary" style="width: 100%;">
+                        Apply For AI Jobs <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Offer Card 2: Data Entry Positions -->
+                <div class="offer-card">
+                    <div>
+                        <h3>Data Entry & Admin Assistant</h3>
+                        <div class="pay-tag">$16.00 – $32.00 / hr</div>
+                        <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 20px;">
+                            Input company records, structure online documents, and handle entry-level data processing. No previous experience necessary.
+                        </p>
+                    </div>
+                    <!-- Put your Data Entry offer link in href -->
+                    <a href="https://www.af9m8trk.com/KMS1126M/NB9123XG/" target="_blank" class="btn btn-primary" style="width: 100%;">
+                        Apply For Data Entry <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Offer Card 3: Support Specialist -->
+                <div class="offer-card">
+                    <div>
+                        <h3>Remote Support Specialist</h3>
+                        <div class="pay-tag">$15.00 – $28.00 / hr</div>
+                        <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 20px;">
+                            Provide user support through digital chat channels and ticket processing. Comprehensive online guidance provided.
+                        </p>
+                    </div>
+                    <!-- Put your Support offer link in href -->
+                    <a href="https://www.af9m8trk.com/KMS1126M/4GY127EA/" target="_blank" class="btn btn-primary" style="width: 100%;">
+                        Apply For Support <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+            </div>
         </div>
-        <h3 class="text-lg font-bold text-white mb-2">Bank-Grade Security</h3>
-        <p class="text-gray-400 text-sm">Protected by SSL encryption, 2FA, and DDOS mitigation to ensure your funds and data are always secure.</p>
-      </div>
+    </section>
 
-      <div class="glass-card p-8 rounded-3xl border border-white/5 hover:border-white/20 transition">
-        <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl mb-6">
-          <i class="fa-solid fa-chart-line"></i>
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div class="faq-item">
+                    <h4>Do I need special equipment to start working?</h4>
+                    <p>Most tasks only require a standard smartphone, laptop, or desktop computer with a stable internet connection.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Is there any initial registration fee?</h4>
+                    <p>No, EliteEarn partner applications and evaluation tasks are 100% free to join.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>How are payouts handled?</h4>
+                    <p>Earnings are issued through supported digital payment gateways, direct bank transfer, or electronic gift cards upon task completion.</p>
+                </div>
+            </div>
         </div>
-        <h3 class="text-lg font-bold text-white mb-2">High Payout Rates</h3>
-        <p class="text-gray-400 text-sm">We partner directly with global advertisers to give our members the highest revenue share in the industry.</p>
-      </div>
+    </section>
 
-      <div class="glass-card p-8 rounded-3xl border border-white/5 hover:border-white/20 transition">
-        <div class="w-12 h-12 rounded-xl bg-rose-500/10 text-rose-400 flex items-center justify-center text-xl mb-6">
-          <i class="fa-solid fa-[#00FF87] fa-headset"></i>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p><strong>EliteEarn Portal</strong> — Connecting candidates with verified remote work allocations worldwide.</p>
+            <p style="font-size: 12px; color: #64748b;">
+                Disclaimer: EliteEarn is an informational job discovery portal. All product names, logos, and trademarks mentioned belong to their respective owners.
+            </p>
+            <p>© 2026 EliteEarn. All Rights Reserved.</p>
         </div>
-        <h3 class="text-lg font-bold text-white mb-2">24/7 Dedicated Support</h3>
-        <p class="text-gray-400 text-sm">Got a question? Our support team is available around the clock via live chat and Telegram.</p>
-      </div>
-
-      <div class="glass-card p-8 rounded-3xl border border-white/5 hover:border-white/20 transition">
-        <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-xl mb-6">
-          <i class="fa-solid fa-wallet"></i>
-        </div>
-        <h3 class="text-lg font-bold text-white mb-2">Multiple Payment Gateways</h3>
-        <p class="text-gray-400 text-sm">Withdraw via Crypto (USDT, BTC), Local Bank Transfer, Mobile Payments, and e-Wallets.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Earning Tiers / Packages -->
-  <section id="levels" class="py-24 bg-[#0B101A] border-y border-white/5">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="text-center max-w-2xl mx-auto mb-16">
-        <h2 class="text-brand-green font-bold text-sm tracking-widest uppercase">Membership Levels</h2>
-        <p class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Choose Your Earning Capacity</p>
-      </div>
-
-      <div class="grid lg:grid-cols-3 gap-8 items-center">
-        <!-- Starter Plan -->
-        <div class="glass-card p-8 rounded-3xl border border-white/10">
-          <h3 class="text-xl font-bold text-white">Free Starter</h3>
-          <p class="text-gray-400 text-sm mt-1">Perfect for getting started</p>
-          <div class="my-6">
-            <span class="text-4xl font-extrabold text-white">$0</span>
-            <span class="text-gray-400 text-sm">/ forever</span>
-          </div>
-          <ul class="space-y-4 text-sm text-gray-300 mb-8">
-            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-green"></i> Basic Offer Wall Access</li>
-            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-green"></i> 5% Referral Commission</li>
-            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-green"></i> $10 Minimum Cashout</li>
-            <li class="flex items-center gap-3 text-gray-600"><i class="fa-solid fa-xmark"></i> Priority Support</li>
-          </ul>
-          <a href="#register" class="block text-center w-full py-3 rounded-xl border border-white/20 text-white font-semibold hover:bg-white/10 transition">Join Free</a>
-        </div>
-
-        <!-- Pro Plan (Featured) -->
-        <div class="glass-card p-8 rounded-3xl border-2 border-brand-green relative glow-green scale-105 bg-[#0F1826]">
-          <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-brand-green to-brand-cyan text-black font-extrabold text-xs uppercase tracking-wider">
-            Most Popular
-          </div>
-          <h3 class="text-xl font-bold text-white">Pro Earner</h3>
-          <p class="text-gray-400 text-sm mt-1">Accelerate your daily earnings</p>
-          <div class="my-6">
-            <span class="text-4xl font-extrabold text-white">$29</span>
-            <span class="text-gray-400 text-sm">/ month</span>
-          </div>
-          <ul class="space-y-4 text-sm text-gray-300 mb-8">
-            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-green"></i> 2x Task Rewards</li>
-            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-green"></i> 15% Multi-Tier Referral Bonus</li>
-            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-green"></i> Instant $1 Minimum Cashout</li>
-            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-green"></i> Priority VIP Support</li>
-          </ul>
-          <a href="#register" class="block text-center w-full py-3.5 rounded-xl bg-gradient-to-r from-brand-green to-brand-cyan text-black font-extrabold hover:opacity-90 transition shadow-lg shadow-brand-green/20">Upgrade to Pro</a>
-        </div>
-
-        <!-- VIP Plan -->
-        <div class="glass-card p-8 rounded-3xl border border-white/10">
-          <h3 class="text-xl font-bold text-white">VIP Elite</h3>
-          <p class="text-gray-400 text-sm mt-1">For maximum yield and managers</p>
-          <div class="my-6">
-            <span class="text-4xl font-extrabold text-white">$99</span>
-            <span class="text-gray-400 text-sm">/ month</span>
-          </div>
-          <ul class="space-y-4 text-sm text-gray-300 mb-8">
-            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-green"></i> 3.5x Premium Rewards</li>
-            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-green"></i> 25% Multi-Tier Referral Commission</li>
-            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-green"></i> Zero Cashout Fees</li>
-            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-green"></i> Dedicated Account Manager</li>
-          </ul>
-          <a href="#register" class="block text-center w-full py-3 rounded-xl border border-white/20 text-white font-semibold hover:bg-white/10 transition">Go Elite</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Live Proof Table Section -->
-  <section id="payouts" class="py-24 max-w-5xl mx-auto px-6">
-    <div class="text-center mb-12">
-      <h2 class="text-brand-green font-bold text-sm tracking-widest uppercase">Transparency</h2>
-      <p class="text-3xl font-extrabold text-white mt-2">Recent Payment Proofs</p>
-    </div>
-
-    <div class="glass-card rounded-2xl overflow-hidden border border-white/10">
-      <div class="overflow-x-auto">
-        <table class="w-full text-left text-sm text-gray-300">
-          <thead class="bg-white/5 text-gray-400 uppercase text-xs">
-            <tr>
-              <th class="p-4">User</th>
-              <th class="p-4">Method</th>
-              <th class="p-4">Amount</th>
-              <th class="p-4">Status</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-white/5">
-            <tr>
-              <td class="p-4 font-semibold text-white">Daniel S.</td>
-              <td class="p-4"><i class="fa-brands fa-bitcoin text-amber-400 mr-2"></i> USDT Crypto</td>
-              <td class="p-4 text-brand-green font-bold">$340.00</td>
-              <td class="p-4"><span class="px-2 py-1 rounded bg-brand-green/10 text-brand-green text-xs font-bold">Completed</span></td>
-            </tr>
-            <tr>
-              <td class="p-4 font-semibold text-white">Rina K.</td>
-              <td class="p-4"><i class="fa-solid fa-building-columns text-blue-400 mr-2"></i> Bank Wire</td>
-              <td class="p-4 text-brand-green font-bold">$125.50</td>
-              <td class="p-4"><span class="px-2 py-1 rounded bg-brand-green/10 text-brand-green text-xs font-bold">Completed</span></td>
-            </tr>
-            <tr>
-              <td class="p-4 font-semibold text-white">Mohammad R.</td>
-              <td class="p-4"><i class="fa-solid fa-mobile-screen text-purple-400 mr-2"></i> Mobile Wallet</td>
-              <td class="p-4 text-brand-green font-bold">$50.00</td>
-              <td class="p-4"><span class="px-2 py-1 rounded bg-brand-green/10 text-brand-green text-xs font-bold">Completed</span></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ Section -->
-  <section id="faq" class="py-24 bg-[#0B101A] border-t border-white/5">
-    <div class="max-w-4xl mx-auto px-6">
-      <div class="text-center mb-16">
-        <h2 class="text-brand-cyan font-bold text-sm tracking-widest uppercase">FAQ</h2>
-        <p class="text-3xl font-extrabold text-white mt-2">Frequently Asked Questions</p>
-      </div>
-
-      <div class="space-y-4">
-        <div class="glass-card p-6 rounded-2xl border border-white/5">
-          <h3 class="text-lg font-bold text-white mb-2">How do I start earning?</h3>
-          <p class="text-gray-400 text-sm">Simply create a free account, log into your user dashboard, choose an active offer wall or task list, and begin earning immediately.</p>
-        </div>
-        <div class="glass-card p-6 rounded-2xl border border-white/5">
-          <h3 class="text-lg font-bold text-white mb-2">What is the minimum withdrawal amount?</h3>
-          <p class="text-gray-400 text-sm">For Free members, the minimum payout is $10. Pro and VIP members can withdraw starting from just $1.00.</p>
-        </div>
-        <div class="glass-card p-6 rounded-2xl border border-white/5">
-          <h3 class="text-lg font-bold text-white mb-2">How fast are payments processed?</h3>
-          <p class="text-gray-400 text-sm">Most withdrawals are processed instantly via automated API gateways. Crypto and mobile wallets usually receive funds within seconds.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Final Call To Action Banner -->
-  <section id="register" class="py-20 max-w-5xl mx-auto px-6">
-    <div class="relative rounded-3xl p-10 sm:p-16 overflow-hidden bg-gradient-to-r from-brand-green/20 via-brand-cyan/20 to-purple-600/20 border border-brand-green/30 text-center glow-green">
-      <h2 class="text-3xl sm:text-5xl font-extrabold text-white mb-4">Ready to Earn Your First $100?</h2>
-      <p class="text-gray-300 max-w-xl mx-auto mb-8">Join over 150,000 members making daily income online. Registration takes less than a minute.</p>
-      
-      <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-3" onsubmit="event.preventDefault();">
-        <input type="email" placeholder="Enter your email address" class="w-full px-5 py-4 rounded-xl bg-black/60 border border-white/20 text-white focus:outline-none focus:border-brand-green text-sm">
-        <button type="submit" class="px-8 py-4 rounded-xl bg-gradient-to-r from-brand-green to-brand-cyan text-black font-extrabold text-sm hover:opacity-90 transition whitespace-nowrap">
-          Create Account
-        </button>
-      </form>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="border-t border-white/5 py-12 bg-[#05070C] text-gray-500 text-sm">
-    <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-6">
-      <div class="flex items-center gap-3">
-        <span class="text-lg font-bold text-white">Apex<span class="gradient-text">Earn</span></span>
-        <span class="text-xs">© 2026 ApexEarn Inc. All rights reserved.</span>
-      </div>
-      <div class="flex gap-6">
-        <a href="#" class="hover:text-white transition">Privacy Policy</a>
-        <a href="#" class="hover:text-white transition">Terms of Service</a>
-        <a href="#" class="hover:text-white transition">Contact Us</a>
-      </div>
-    </div>
-  </footer>
+    </footer>
 
 </body>
 </html>

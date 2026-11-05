@@ -1,1511 +1,1301 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="bn">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CINVERSE - Premium Movie Discovery & Cinematic Universe</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome 6 CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts: Inter & Montserrat for high-end cinematic typography -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CineVerse — Stream & Download 4K HD Movies & Web Series</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23dc2626'/><polygon points='12,9 23,16 12,23' fill='%23ffffff'/></svg>" />
+  <meta name="description" content="Watch and download the latest 4K HD Movies, Bengali Dubbed Cinema, Web Series, and TV Shows on CineVerse." />
 
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        cinDeep: '#05070D',
-                        cinNavy: '#10192C',
-                        cinCard: '#0A1020',
-                        cinBorder: '#1E293B',
-                        cinRed: '#EF2529',
-                        cinRedHover: '#D91E22',
-                        cinOrange: '#FF5722',
-                        cinGold: '#FFB800',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        heading: ['Montserrat', 'sans-serif'],
-                    },
-                    boxShadow: {
-                        'glow-red': '0 0 25px -3px rgba(239, 37, 41, 0.45)',
-                        'glow-orange': '0 0 25px -3px rgba(255, 87, 34, 0.45)',
-                        'glow-card': '0 10px 30px -10px rgba(0, 0, 0, 0.8)',
-                    }
-                }
-            }
-        }
-    </script>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- FontAwesome Icons CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
-    <style>
-        /* Custom scrollbar styling */
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #05070D;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #1E293B;
-            border-radius: 9999px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #EF2529;
-        }
-        .hero-gradient-overlay {
-            background: radial-gradient(circle at 75% 40%, rgba(16, 25, 44, 0.25) 0%, rgba(5, 7, 13, 0.85) 65%, #05070D 100%),
-                        linear-gradient(to top, #05070D 5%, transparent 60%);
-        }
-        .text-shadow-hero {
-            text-shadow: 0 4px 15px rgba(0,0,0,0.85);
-        }
-        .glass-panel {
-            background: rgba(16, 25, 44, 0.7);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-    </style>
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #05070a; color: #f1f5f9; }
+    h1, h2, h3, h4, .font-heading { font-family: 'Outfit', sans-serif; }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #05070a; }
+    ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #dc2626; }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
 </head>
-<body class="bg-cinDeep text-slate-100 font-sans antialiased selection:bg-cinRed selection:text-white min-h-screen flex flex-col">
+<body class="bg-[#05070a] text-slate-100 min-h-screen flex flex-col antialiased selection:bg-red-600 selection:text-white">
 
-    <!-- 1. TOP ANNOUNCEMENT SPONSORED BANNER -->
-    <aside aria-label="Advertisement" class="relative z-50 bg-gradient-to-r from-[#120808] via-[#210c0e] to-[#120808] border-b border-cinRed/20 text-xs sm:text-sm py-2 px-3 sm:px-6">
-        <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2.5">
-            <div class="flex items-center gap-2.5 flex-wrap">
-                <span class="bg-cinOrange text-white text-[11px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider shadow-sm flex items-center gap-1">
-                    <i class="fa-solid fa-bolt text-[10px]"></i> FAST 4K MIRROR
-                </span>
-                <span class="text-slate-300 font-medium">
-                    Blazing-fast cloud servers with instant stream speeds & zero buffer.
-                </span>
-                <span class="text-[10px] uppercase font-bold tracking-widest text-slate-400 bg-black/40 px-1.5 py-0.5 rounded border border-white/10">Sponsored</span>
+  <!-- 1. 🟠 TOP BANNER (Manual High-Speed Cloud Strip) -->
+  <aside aria-label="Sponsored Fast Mirror Banner" class="w-full bg-gradient-to-r from-slate-950 via-red-950/40 to-slate-950 border-b border-red-500/30 py-2 sm:py-2.5 shadow-md relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+      <a href="https://auctionr.org/4/6eaba00e91534cecf00d758022d736d9" target="_blank" rel="noopener noreferrer" class="group block w-full bg-slate-900/90 hover:bg-slate-900 border border-red-500/40 hover:border-amber-400/80 rounded-xl p-2.5 sm:p-3 transition-all duration-300 shadow-lg hover:shadow-red-500/10">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-3">
+          <div class="flex items-center gap-3 w-full md:w-auto justify-between md:justify-start">
+            <div class="flex items-center gap-2">
+              <span class="bg-gradient-to-r from-amber-500 to-red-600 text-slate-950 font-black text-[10px] sm:text-xs px-2.5 py-1 rounded-md uppercase tracking-wider flex items-center gap-1 shadow animate-pulse">
+                <i class="fa-solid fa-fire"></i> FAST 4K MIRROR
+              </span>
+              <span class="hidden sm:inline-flex items-center gap-1 bg-emerald-950/80 text-emerald-400 border border-emerald-800/80 text-[10px] font-semibold px-2 py-0.5 rounded">
+                <i class="fa-solid fa-shield-check"></i> 100MB/s Direct
+              </span>
             </div>
-            <div class="flex items-center gap-2 ml-auto">
-                <a href="https://auctionr.org/4/fa93ed40bc9be029e745479ee5ecf812" target="_blank" rel="noopener noreferrer" 
-                   class="bg-gradient-to-r from-cinOrange to-cinRed hover:from-orange-500 hover:to-red-600 text-white font-semibold text-xs px-3.5 py-1.5 rounded-full transition-all duration-200 transform hover:scale-105 shadow-glow-orange flex items-center gap-1.5">
-                    <span>Connect High-Speed Mirror</span>
-                    <i class="fa-solid fa-arrow-up-right-from-square text-[11px]"></i>
-                </a>
-            </div>
+            <span class="text-[10px] text-amber-400/90 font-mono font-semibold md:hidden">1-Click Direct &rarr;</span>
+          </div>
+          <div class="text-center md:text-left flex-1 px-1">
+            <p class="text-xs sm:text-sm font-bold text-slate-100 group-hover:text-amber-300 transition-colors flex items-center justify-center md:justify-start gap-1.5 flex-wrap">
+              <i class="fa-solid fa-bolt text-amber-400"></i> Ultra High-Speed Cloud Server: Watch & Download 4K Movies Instantly
+            </p>
+            <p class="text-[10px] sm:text-[11px] text-slate-400 hidden sm:block mt-0.5">
+              No Waiting • Resumable 10Gbps Links • Dual Audio (Bangla + English) • Zero Buffering
+            </p>
+          </div>
+          <div class="w-full md:w-auto flex justify-center md:justify-end shrink-0">
+            <span class="w-full md:w-auto bg-gradient-to-r from-red-600 to-amber-500 group-hover:from-red-500 group-hover:to-amber-400 text-white font-extrabold text-xs px-4 py-2 rounded-lg flex items-center justify-center gap-1.5 shadow-md shadow-red-600/30 group-hover:scale-105 transition-all">
+              <i class="fa-solid fa-download"></i> Direct Fast Link <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+            </span>
+          </div>
         </div>
+      </a>
+    </div>
+  </aside>
+
+  <!-- 2. NAVBAR -->
+  <header class="sticky top-0 z-40 bg-slate-950/90 backdrop-blur-md border-b border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+      <a href="#" class="flex items-center gap-2 text-xl font-black text-white tracking-wider">
+        <div class="w-9 h-9 rounded-lg bg-red-600 flex items-center justify-center text-white shadow-lg shadow-red-600/30">
+          <i class="fa-solid fa-play"></i>
+        </div>
+        <span>CINE<span class="text-red-500">VERSE</span></span>
+      </a>
+
+      <!-- Search Input & Autocomplete Dropdown -->
+      <div class="flex-1 max-w-md hidden md:block relative">
+        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+        <input id="searchInput" type="text" placeholder="Search movies, web series, Bengali dub..." oninput="handleSearchInput()" class="w-full bg-slate-900 border border-slate-800 rounded-full pl-9 pr-4 py-1.5 text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:border-red-500 transition-colors" />
+        
+        <!-- Search Autocomplete Dropdown -->
+        <div id="searchDropdown" class="absolute top-full left-0 right-0 mt-2 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl overflow-hidden hidden z-50 max-h-80 overflow-y-auto">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center gap-3">
+        <button onclick="openRequestModal()" class="text-xs font-semibold text-slate-300 hover:text-white bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-full flex items-center gap-1.5 transition-colors">
+          <i class="fa-solid fa-paper-plane text-red-500"></i> Request Movie
+        </button>
+        <button onclick="openWatchlistModal()" class="text-xs font-semibold text-slate-200 bg-red-600 hover:bg-red-500 px-3.5 py-1.5 rounded-full flex items-center gap-1.5 transition-colors shadow">
+          <i class="fa-solid fa-bookmark"></i> Saved (<span id="watchlistCount">2</span>)
+        </button>
+      </div>
+    </div>
+
+    <!-- Category Pills Navigation -->
+    <div class="border-t border-slate-800/50 bg-slate-950/50 py-2">
+      <div class="max-w-7xl mx-auto px-4 flex items-center gap-2 overflow-x-auto no-scrollbar text-xs font-medium" id="genreContainer">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-1">
+    <!-- 3. HERO FEATURED CAROUSEL SECTION -->
+    <section class="relative w-full min-h-[460px] bg-slate-900 overflow-hidden flex items-center">
+      <img id="heroBackdrop" src="" class="absolute inset-0 w-full h-full object-cover opacity-25 filter blur-sm scale-105 transition-all duration-700" alt="Hero Backdrop" />
+      <div class="absolute inset-0 bg-gradient-to-t from-[#05070a] via-[#05070a]/70 to-transparent"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-[#05070a] via-[#05070a]/80 to-transparent"></div>
+
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full grid md:grid-cols-3 gap-8 items-center z-10">
+        <div class="md:col-span-2 space-y-4">
+          <div class="flex items-center gap-2">
+            <span class="bg-red-600 text-white font-bold text-[10px] px-2 py-0.5 rounded uppercase tracking-wider shadow">★ FEATURED MOVIE</span>
+            <span id="heroQualityTag" class="bg-amber-500 text-slate-950 font-black text-[10px] px-2 py-0.5 rounded uppercase">4K UHD</span>
+            <span id="heroBengaliTag" class="bg-emerald-600 text-white font-bold text-[10px] px-2 py-0.5 rounded">বাংলা ডাবড</span>
+          </div>
+
+          <h1 id="heroTitle" class="text-3xl sm:text-5xl font-black text-white tracking-tight drop-shadow-lg">Dune: Part Two</h1>
+          <p id="heroTagline" class="text-xs text-amber-400 font-semibold italic">"Long live the fighters."</p>
+
+          <p id="heroDesc" class="text-xs sm:text-sm text-slate-300 max-w-2xl line-clamp-3 leading-relaxed">
+            Paul Atreides unites with Chani and the Fremen while seeking revenge against the conspirators who destroyed his family.
+          </p>
+
+          <div class="flex items-center gap-4 text-xs text-slate-400 pt-1 font-medium">
+            <span>Year: <strong id="heroYear" class="text-white">2024</strong></span>
+            <span>Duration: <strong id="heroDuration" class="text-white">2h 46m</strong></span>
+            <span class="text-amber-400 font-bold"><i class="fa-solid fa-star"></i> <span id="heroRating">8.7</span> (<span id="heroVotes">480K</span>)</span>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-3 pt-3">
+            <button onclick="playHeroMovie()" class="bg-red-600 hover:bg-red-500 text-white font-bold text-xs px-5 py-2.5 rounded-xl flex items-center gap-2 shadow-lg shadow-red-600/40 transition-all">
+              <i class="fa-solid fa-play"></i> Watch Now & Download
+            </button>
+            <button onclick="playHeroTrailer()" class="bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-xs px-4 py-2.5 rounded-xl border border-slate-700 flex items-center gap-2 transition-all">
+              <i class="fa-solid fa-film"></i> Watch Trailer
+            </button>
+            <button id="heroBookmarkBtn" onclick="toggleHeroBookmark()" class="p-2.5 bg-slate-800/80 hover:bg-slate-700 text-slate-200 rounded-xl border border-slate-700">
+              <i class="fa-solid fa-bookmark"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Hero Poster & Carousel Nav -->
+        <div class="hidden md:flex flex-col items-center gap-3">
+          <img id="heroPoster" src="" alt="Hero Poster" class="w-56 h-80 object-cover rounded-2xl border border-slate-700 shadow-2xl hover:scale-105 transition-transform duration-300" />
+          
+          <!-- Next / Prev Controls -->
+          <div class="flex items-center gap-3 bg-slate-950/80 border border-slate-800 px-3 py-1.5 rounded-full backdrop-blur">
+            <button onclick="prevHeroSlide()" class="text-slate-400 hover:text-white px-2 py-1"><i class="fa-solid fa-chevron-left"></i></button>
+            <span class="text-[11px] font-bold text-slate-300 font-mono"><span id="heroIndex">1</span> / <span id="heroTotal">3</span></span>
+            <button onclick="nextHeroSlide()" class="text-slate-400 hover:text-white px-2 py-1"><i class="fa-solid fa-chevron-right"></i></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. 🟢 NATIVE BANNER (Manual Sponsored Fast Cloud Mirror) -->
+    <aside aria-label="Sponsored VIP Server Link" class="w-full my-6 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <a href="https://www.effectivecpmnetwork.com/r6rna14d?key=d0bc6c975bfefb9077bd7612138c2b09" target="_blank" rel="noopener noreferrer" class="group relative block bg-gradient-to-r from-slate-900 via-slate-900/90 to-amber-950/40 border border-amber-500/40 hover:border-amber-400 rounded-2xl p-4 sm:p-6 shadow-xl transition-all duration-300 hover:shadow-amber-500/10 overflow-hidden">
+        <div class="relative z-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-5">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-tr from-amber-500 to-red-600 flex items-center justify-center text-slate-950 shrink-0 shadow-lg shadow-amber-500/20 group-hover:scale-105 transition-transform">
+              <i class="fa-solid fa-server text-xl sm:text-2xl font-black"></i>
+            </div>
+            <div class="space-y-1.5">
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="bg-amber-500 text-slate-950 font-black text-[9px] sm:text-[10px] px-2 py-0.5 rounded uppercase tracking-wider shadow">★ SPONSORED FAST CLOUD</span>
+                <span class="bg-red-950 text-red-400 border border-red-800 text-[10px] font-semibold px-2 py-0.5 rounded flex items-center gap-1"><i class="fa-solid fa-sparkles"></i> VIP Cinema Mirror</span>
+                <span class="text-[10px] text-emerald-400 flex items-center gap-0.5"><i class="fa-solid fa-shield-check"></i> Verified Fast 10Gbps</span>
+              </div>
+              <h3 class="text-base sm:text-lg font-black text-white group-hover:text-amber-300 transition-colors">
+                High Speed 10Gbps Direct Download & Stream Mirror (No Waiting)
+              </h3>
+              <p class="text-xs text-slate-300 max-w-2xl leading-relaxed">
+                Click here for instant access to 4K Ultra HD & 1080p Full Movie Single-Click Download Servers, Web Series Zips, and Bangla Subtitle packs.
+              </p>
+              <div class="pt-1 flex flex-wrap items-center gap-3 text-[11px] text-slate-400">
+                <span class="flex items-center gap-1 text-slate-300"><i class="fa-solid fa-circle-check text-emerald-400"></i> Resumable Cloud FTP</span>
+                <span class="flex items-center gap-1 text-slate-300"><i class="fa-solid fa-circle-check text-emerald-400"></i> Google Drive / Mega Mirrors</span>
+                <span class="flex items-center gap-1 text-slate-300"><i class="fa-solid fa-circle-check text-emerald-400"></i> Full Dual Audio (Bangla + Hindi)</span>
+              </div>
+            </div>
+          </div>
+          <div class="w-full lg:w-auto flex justify-end shrink-0 pt-2 lg:pt-0">
+            <span class="w-full lg:w-auto bg-gradient-to-r from-amber-500 to-red-600 group-hover:from-amber-400 group-hover:to-red-500 text-slate-950 font-black text-xs sm:text-sm px-6 py-3 rounded-xl flex items-center justify-center gap-2 shadow-xl shadow-amber-500/20 group-hover:scale-105 transition-all">
+              <i class="fa-solid fa-download"></i> ACCESS DIRECT MIRROR <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+            </span>
+          </div>
+        </div>
+      </a>
     </aside>
 
-    <!-- 2. STICKY NAVIGATION HEADER -->
-    <header class="sticky top-0 z-40 glass-panel border-b border-cinNavy/80 transition-all duration-300 shadow-md">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20 gap-4">
-                
-                <!-- Brand Logo -->
-                <a href="#" class="flex items-center gap-2.5 group flex-shrink-0" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
-                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cinRed to-cinOrange flex items-center justify-center text-white shadow-glow-red group-hover:scale-105 transition-transform">
-                        <i class="fa-solid fa-play text-sm ml-0.5"></i>
-                    </div>
-                    <div class="flex flex-col">
-                        <span class="font-heading font-black text-2xl tracking-wider text-white">CIN<span class="text-cinRed">VERSE</span></span>
-                        <span class="text-[9px] uppercase tracking-[0.25em] text-slate-400 font-semibold -mt-1">ULTRA STREAM</span>
-                    </div>
-                </a>
-
-                <!-- Search Bar -->
-                <div class="flex-1 max-w-xl hidden md:block relative">
-                    <div class="relative">
-                        <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
-                        <input type="text" id="searchInput" placeholder="Search movies, actors, directors, genres..." 
-                               class="w-full bg-cinNavy/90 border border-cinBorder focus:border-cinRed focus:outline-none focus:ring-1 focus:ring-cinRed rounded-full pl-11 pr-10 py-2.5 text-sm text-white placeholder-slate-400 transition-all">
-                        <button id="clearSearchBtn" class="hidden absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white">
-                            <i class="fa-solid fa-xmark text-sm"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Right Navigation Actions -->
-                <div class="flex items-center gap-3">
-                    <!-- Request Movie Button -->
-                    <button id="requestMovieBtn" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full border border-slate-700 hover:border-cinRed/60 bg-cinNavy/60 hover:bg-cinNavy text-slate-200 hover:text-white text-xs font-semibold tracking-wide transition-all duration-200">
-                        <i class="fa-solid fa-film text-cinRed"></i>
-                        <span>Request Movie</span>
-                    </button>
-
-                    <!-- Saved Favorites Button -->
-                    <button id="favoritesDrawerBtn" class="relative inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cinNavy border border-cinBorder hover:border-cinRed text-slate-200 hover:text-white text-xs font-semibold tracking-wide transition-all shadow-sm">
-                        <i class="fa-solid fa-heart text-cinRed"></i>
-                        <span class="hidden sm:inline">Watchlist</span>
-                        <span id="favCounterBadge" class="bg-cinRed text-white text-[11px] font-bold w-5 h-5 rounded-full flex items-center justify-center -mr-1">0</span>
-                    </button>
-
-                    <!-- Mobile Search Toggle -->
-                    <button id="mobileSearchToggle" class="md:hidden p-2 text-slate-300 hover:text-white rounded-lg bg-cinNavy/80 border border-cinBorder">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Mobile Search Bar (Collapsible) -->
-            <div id="mobileSearchContainer" class="hidden md:hidden pb-4 pt-1">
-                <div class="relative">
-                    <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
-                    <input type="text" id="mobileSearchInput" placeholder="Search title, genre, director..." 
-                           class="w-full bg-cinNavy border border-cinBorder focus:border-cinRed focus:outline-none rounded-full pl-11 pr-4 py-2 text-sm text-white placeholder-slate-400">
-                </div>
-            </div>
-
-            <!-- Category Pills Filter Bar -->
-            <div class="py-3 border-t border-slate-800/80 overflow-x-auto no-scrollbar flex items-center gap-2">
-                <button class="cat-pill active flex-shrink-0 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all bg-cinRed text-white shadow-glow-red" data-category="All">
-                    All
-                </button>
-                <button class="cat-pill flex-shrink-0 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all bg-cinNavy/80 hover:bg-cinNavy text-slate-300 hover:text-white border border-cinBorder/60" data-category="Bengali">
-                    Bengali
-                </button>
-                <button class="cat-pill flex-shrink-0 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all bg-cinNavy/80 hover:bg-cinNavy text-slate-300 hover:text-white border border-cinBorder/60" data-category="Action">
-                    Action
-                </button>
-                <button class="cat-pill flex-shrink-0 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all bg-cinNavy/80 hover:bg-cinNavy text-slate-300 hover:text-white border border-cinBorder/60" data-category="Sci-Fi">
-                    Sci-Fi
-                </button>
-                <button class="cat-pill flex-shrink-0 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all bg-cinNavy/80 hover:bg-cinNavy text-slate-300 hover:text-white border border-cinBorder/60" data-category="Horror">
-                    Horror
-                </button>
-                <button class="cat-pill flex-shrink-0 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all bg-cinNavy/80 hover:bg-cinNavy text-slate-300 hover:text-white border border-cinBorder/60" data-category="Comedy">
-                    Comedy
-                </button>
-                <button class="cat-pill flex-shrink-0 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all bg-cinNavy/80 hover:bg-cinNavy text-slate-300 hover:text-white border border-cinBorder/60" data-category="Drama">
-                    Drama
-                </button>
-                <button class="cat-pill flex-shrink-0 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all bg-cinNavy/80 hover:bg-cinNavy text-slate-300 hover:text-white border border-cinBorder/60" data-category="Thriller">
-                    Thriller
-                </button>
-                <button class="cat-pill flex-shrink-0 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all bg-cinNavy/80 hover:bg-cinNavy text-slate-300 hover:text-white border border-cinBorder/60" data-category="Adventure">
-                    Adventure
-                </button>
-            </div>
+    <!-- 5. TRENDING MOVIES GRID -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6" id="trending-movies-section">
+      <div class="flex items-center justify-between mb-6 pb-2 border-b border-slate-800">
+        <div>
+          <h2 class="text-xl font-bold text-white flex items-center gap-2">
+            <i class="fa-solid fa-fire text-red-500"></i> Trending & Latest Releases
+          </h2>
+          <p class="text-xs text-slate-400">High speed 4K, 1080p & Bengali Dubbed Direct FTP Mirrors</p>
         </div>
-    </header>
+      </div>
 
-    <!-- MAIN CONTENT CONTAINER -->
-    <main class="flex-grow">
-        
-        <!-- 3. FEATURED HERO SECTION / DYNAMIC SLIDER -->
-        <section id="heroSliderSection" class="relative w-full min-h-[580px] lg:min-h-[660px] bg-cinDeep flex items-center overflow-hidden border-b border-cinBorder/40">
-            <!-- Background Image Container -->
-            <div id="heroBgImage" class="absolute inset-0 bg-cover bg-center transition-all duration-700 ease-out transform scale-105"
-                 style="background-image: url('https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=1920&auto=format&fit=crop');">
-            </div>
+      <!-- Movie Grid -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4" id="movieGrid">
+        <!-- Rendered by JS -->
+      </div>
+    </section>
 
-            <!-- Gradient & Vignette Layer -->
-            <div class="absolute inset-0 hero-gradient-overlay pointer-events-none"></div>
-
-            <!-- Content Area -->
-            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full z-10 flex flex-col justify-end lg:justify-center">
-                <div class="max-w-2xl">
-                    <!-- Badges Row -->
-                    <div class="flex flex-wrap items-center gap-2.5 mb-4">
-                        <span class="px-3 py-1 bg-cinRed text-white text-xs font-bold uppercase rounded-md tracking-wider shadow-glow-red flex items-center gap-1.5">
-                            <i class="fa-solid fa-star text-[10px]"></i> Featured Movie
-                        </span>
-                        <span class="px-2.5 py-0.5 bg-cinNavy/90 border border-slate-700 text-slate-300 text-xs font-semibold rounded-md" id="heroQuality">
-                            4K Ultra HD
-                        </span>
-                        <span class="px-2.5 py-0.5 bg-amber-500/20 border border-amber-500/40 text-amber-300 text-xs font-bold rounded-md flex items-center gap-1">
-                            <i class="fa-solid fa-star text-amber-400"></i> <span id="heroRating">8.8</span>
-                        </span>
-                        <span class="px-2.5 py-0.5 bg-cinNavy/90 border border-slate-700 text-slate-300 text-xs font-semibold rounded-md" id="heroLang">
-                            English / Multi
-                        </span>
-                        <span class="text-xs text-slate-400" id="heroYearDuration">2024 • 2h 46m</span>
-                    </div>
-
-                    <!-- Title -->
-                    <h1 id="heroTitle" class="text-4xl sm:text-5xl lg:text-6xl font-black font-heading tracking-tight text-white mb-4 text-shadow-hero leading-tight">
-                        Dune: Part Two
-                    </h1>
-
-                    <!-- Storyline -->
-                    <p id="heroOverview" class="text-slate-300 text-sm sm:text-base leading-relaxed line-clamp-3 mb-6 font-normal max-w-xl">
-                        Paul Atreides unites with Chani and the Fremen while seeking revenge against the conspirators who destroyed his family, facing a choice between love and the fate of the known universe.
-                    </p>
-
-                    <!-- Hero Call to Actions -->
-                    <div class="flex flex-wrap items-center gap-3.5">
-                        <button id="heroTrailerBtn" class="px-6 py-3 rounded-full bg-gradient-to-r from-cinRed to-red-600 hover:from-red-600 hover:to-cinRed text-white font-bold text-sm tracking-wide shadow-glow-red transition-all transform hover:-translate-y-0.5 flex items-center gap-2">
-                            <i class="fa-solid fa-play"></i>
-                            <span>Watch Trailer</span>
-                        </button>
-                        <button id="heroDetailsBtn" class="px-6 py-3 rounded-full bg-cinNavy/90 hover:bg-slate-800 border border-slate-600 text-white font-semibold text-sm tracking-wide transition-all flex items-center gap-2">
-                            <i class="fa-solid fa-circle-info"></i>
-                            <span>Movie Details</span>
-                        </button>
-                        <button id="heroFavBtn" class="p-3 w-11 h-11 rounded-full bg-cinNavy/90 hover:bg-cinNavy border border-slate-600 text-slate-300 hover:text-cinRed transition-colors flex items-center justify-center" title="Save to Watchlist">
-                            <i class="fa-regular fa-heart text-base"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Slider Controls & Indicators -->
-                <div class="mt-8 lg:mt-12 flex items-center justify-between border-t border-white/10 pt-4">
-                    <div class="flex items-center gap-2" id="heroSliderDots">
-                        <!-- Filled by JS -->
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <button id="heroPrevBtn" aria-label="Previous Slide" class="w-10 h-10 rounded-full bg-cinNavy/80 hover:bg-cinRed border border-slate-700 hover:border-cinRed text-white flex items-center justify-center transition-all">
-                            <i class="fa-solid fa-chevron-left text-xs"></i>
-                        </button>
-                        <button id="heroNextBtn" aria-label="Next Slide" class="w-10 h-10 rounded-full bg-cinNavy/80 hover:bg-cinRed border border-slate-700 hover:border-cinRed text-white flex items-center justify-center transition-all">
-                            <i class="fa-solid fa-chevron-right text-xs"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 4. ADVERTISEMENT PLACEMENT 1 (BELOW HERO) -->
-        <section aria-label="Sponsored Advertisement" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6 relative z-20">
-            <div class="rounded-2xl p-0.5 bg-gradient-to-r from-cinOrange via-cinRed to-amber-500 shadow-glow-orange">
-                <div class="bg-gradient-to-r from-[#0C1424] via-[#0E1A33] to-[#0A0F1D] rounded-[15px] p-4 sm:p-6 flex flex-col md:flex-row items-center justify-between gap-4">
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-cinOrange to-cinRed flex-shrink-0 flex items-center justify-center text-white text-xl shadow-md">
-                            <i class="fa-solid fa-server"></i>
-                        </div>
-                        <div>
-                            <div class="flex items-center gap-2 mb-1">
-                                <span class="bg-cinOrange/20 border border-cinOrange/40 text-cinOrange text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded">
-                                    Sponsored Advertisement
-                                </span>
-                                <span class="text-xs text-slate-400 font-medium">Ultra High Speed Mirror</span>
-                            </div>
-                            <h3 class="text-base sm:text-lg font-bold text-white tracking-tight">
-                                High Speed Cloud Server — Instant 4K Playback
-                            </h3>
-                            <p class="text-xs sm:text-sm text-slate-300">
-                                Switch to our ultra-redundant CDN mirrors for instantaneous loading with zero throttling or buffering.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="flex-shrink-0 w-full md:w-auto text-center">
-                        <a href="https://auctionr.org/4/fa93ed40bc9be029e745479ee5ecf812" target="_blank" rel="noopener noreferrer" 
-                           class="inline-block w-full md:w-auto px-7 py-3 rounded-xl bg-gradient-to-r from-cinOrange to-cinRed hover:from-orange-500 hover:to-red-600 text-white font-bold text-sm tracking-wide shadow-glow-orange transition-all duration-200 transform hover:scale-[1.02]">
-                            <span>Launch Server Mirror</span>
-                            <i class="fa-solid fa-arrow-up-right-from-square ml-2 text-xs"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 5. MOVIE BROWSE & EXPLORATION CATALOG -->
-        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-            
-            <!-- Section Header & Controls -->
-            <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
-                <div>
-                    <div class="flex items-center gap-2 text-cinRed font-bold text-xs uppercase tracking-widest mb-1">
-                        <span class="w-2.5 h-2.5 rounded-full bg-cinRed animate-pulse"></span>
-                        EXPLORE ENTERTAINMENT
-                    </div>
-                    <h2 class="text-2xl sm:text-3xl font-heading font-black text-white tracking-tight">
-                        <span id="catalogCategoryTitle">All</span> Movies & Series
-                    </h2>
-                </div>
-
-                <!-- Sort & Filter Dropdown -->
-                <div class="flex items-center gap-3">
-                    <span class="text-xs text-slate-400 hidden sm:inline">Sort by:</span>
-                    <select id="sortSelect" class="bg-cinNavy border border-cinBorder text-slate-200 text-xs rounded-lg px-3 py-2 focus:ring-1 focus:ring-cinRed focus:outline-none">
-                        <option value="featured">Featured / Popular</option>
-                        <option value="rating">Highest IMDb Rating</option>
-                        <option value="year">Newest Release</option>
-                        <option value="title">Title (A-Z)</option>
-                    </select>
-                </div>
-            </div>
-
-            <!-- Active Search Notification Strip -->
-            <div id="searchQueryBadge" class="hidden mb-6 p-3 rounded-xl bg-cinNavy/80 border border-cinBorder flex items-center justify-between">
-                <span class="text-xs text-slate-300">
-                    Showing search results for: <strong id="searchQueryText" class="text-cinRed"></strong>
-                </span>
-                <button id="resetSearchBtn" class="text-xs text-slate-400 hover:text-white underline">
-                    Clear Search
-                </button>
-            </div>
-
-            <!-- Movies Grid -->
-            <div id="movieGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6">
-                <!-- Movie cards injected dynamically via JS -->
-            </div>
-
-            <!-- No Results State -->
-            <div id="noResultsState" class="hidden py-16 text-center">
-                <div class="w-16 h-16 rounded-full bg-cinNavy border border-cinBorder flex items-center justify-center text-slate-500 mx-auto mb-4 text-2xl">
-                    <i class="fa-solid fa-video-slash"></i>
-                </div>
-                <h3 class="text-lg font-bold text-white mb-1">No movies found</h3>
-                <p class="text-sm text-slate-400 mb-4 max-w-sm mx-auto">We couldn't find any movie matching your current criteria or search query.</p>
-                <button id="resetFiltersBtn" class="px-5 py-2 rounded-full bg-cinRed hover:bg-cinRedHover text-white text-xs font-semibold">
-                    Reset All Filters
-                </button>
-            </div>
-
-            <!-- Load More / Pagination -->
-            <div class="mt-12 text-center" id="loadMoreContainer">
-                <button id="loadMoreBtn" class="px-8 py-3 rounded-full bg-cinNavy hover:bg-slate-800 border border-slate-700 text-white font-semibold text-xs tracking-wider uppercase transition-all duration-200 inline-flex items-center gap-2 shadow-sm">
-                    <span>Load More Movies</span>
-                    <i class="fa-solid fa-angle-down"></i>
-                </button>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- 6. FOOTER -->
-    <footer class="bg-black/80 border-t border-slate-800/80 mt-12 py-12 text-xs text-slate-400">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
-                <div class="space-y-3">
-                    <div class="flex items-center gap-2">
-                        <div class="w-7 h-7 rounded-lg bg-cinRed flex items-center justify-center text-white text-xs shadow-glow-red">
-                            <i class="fa-solid fa-play ml-0.5"></i>
-                        </div>
-                        <span class="font-heading font-black text-lg text-white">CIN<span class="text-cinRed">VERSE</span></span>
-                    </div>
-                    <p class="text-slate-400 text-xs leading-relaxed">
-                        CINVERSE is a premier cinematic discovery platform providing rich movie metadata, official trailers, curated regional cinema, and authorized platform redirection.
-                    </p>
-                </div>
-                <div>
-                    <h4 class="text-white font-bold text-xs uppercase tracking-wider mb-3">Popular Genres</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="hover:text-cinRed transition-colors" onclick="filterByCategory('Action'); return false;">Action Blockbusters</a></li>
-                        <li><a href="#" class="hover:text-cinRed transition-colors" onclick="filterByCategory('Sci-Fi'); return false;">Sci-Fi & Fantasy</a></li>
-                        <li><a href="#" class="hover:text-cinRed transition-colors" onclick="filterByCategory('Bengali'); return false;">Bengali Regional Cinema</a></li>
-                        <li><a href="#" class="hover:text-cinRed transition-colors" onclick="filterByCategory('Thriller'); return false;">Psychological Thrillers</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-white font-bold text-xs uppercase tracking-wider mb-3">Community & Features</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" id="footerRequestBtn" class="hover:text-cinRed transition-colors">Request a Title</a></li>
-                        <li><a href="#" id="footerWatchlistBtn" class="hover:text-cinRed transition-colors">My Watchlist</a></li>
-                        <li><a href="https://auctionr.org/4/fa93ed40bc9be029e745479ee5ecf812" target="_blank" rel="noopener noreferrer" class="text-cinOrange hover:underline">High Speed 4K Servers (Ad)</a></li>
-                        <li><a href="#" class="hover:text-cinRed transition-colors">Editorial Guidelines</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-white font-bold text-xs uppercase tracking-wider mb-3">Advertisement Disclosure</h4>
-                    <p class="text-[11px] leading-relaxed text-slate-500">
-                        This platform contains sponsored promotional placements. All promotional links redirect to verified third-party cloud mirrors. We respect legal rights and encourage users to stream content through authorized sources.
-                    </p>
-                </div>
-            </div>
-            <div class="border-t border-slate-800/80 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-                <p>&copy; 2026 CINVERSE Media Group. All rights reserved.</p>
-                <div class="flex items-center gap-4 text-slate-400">
-                    <span class="hover:text-white cursor-pointer"><i class="fa-brands fa-twitter text-base"></i></span>
-                    <span class="hover:text-white cursor-pointer"><i class="fa-brands fa-discord text-base"></i></span>
-                    <span class="hover:text-white cursor-pointer"><i class="fa-brands fa-telegram text-base"></i></span>
-                    <span class="hover:text-white cursor-pointer"><i class="fa-brands fa-youtube text-base"></i></span>
-                </div>
-            </div>
+    <!-- 6. WEB SERIES & LIVE SHOWS SECTION -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-5 shadow-xl relative overflow-hidden">
+        <div class="flex items-center justify-between mb-4 pb-2 border-b border-white/5">
+          <h2 class="text-lg font-bold text-white flex items-center gap-2">
+            <span class="w-1 h-5 bg-purple-600 rounded-full inline-block"></span>
+            Web Series & Live TV Shows
+          </h2>
+          <span class="text-[11px] font-semibold text-slate-400 flex items-center gap-1">
+            <i class="fa-solid fa-wand-magic-sparkles text-amber-400"></i> Full Season HD Packs
+          </span>
         </div>
-    </footer>
 
-    <!-- 7. MOVIE DETAILS MODAL -->
-    <div id="movieDetailsModal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-black/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 transition-all duration-300">
-        <div class="relative w-full max-w-4xl bg-cinNavy rounded-2xl border border-cinBorder overflow-hidden shadow-2xl my-auto">
-            
-            <!-- Close Modal Button -->
-            <button id="closeModalBtn" class="absolute top-4 right-4 z-30 w-10 h-10 rounded-full bg-black/60 hover:bg-cinRed text-white flex items-center justify-center transition-all duration-200 border border-white/20">
-                <i class="fa-solid fa-xmark text-lg"></i>
-            </button>
-
-            <!-- Modal Header Banner with Background Backdrop -->
-            <div class="relative h-64 sm:h-80 w-full overflow-hidden">
-                <div id="modalBackdropImg" class="w-full h-full bg-cover bg-center"></div>
-                <div class="absolute inset-0 bg-gradient-to-t from-cinNavy via-cinNavy/60 to-transparent"></div>
-                
-                <!-- Play Trailer Circular Overlay Button -->
-                <button id="modalPlayTrailerBtn" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-cinRed hover:bg-cinRedHover text-white flex items-center justify-center shadow-glow-red transition-transform transform hover:scale-110 group">
-                    <i class="fa-solid fa-play text-xl sm:text-2xl ml-1 group-hover:scale-110 transition-transform"></i>
-                </button>
-            </div>
-
-            <!-- Modal Body Content -->
-            <div class="p-6 sm:p-8 -mt-16 sm:-mt-20 relative z-10 max-h-[70vh] overflow-y-auto">
-                <div class="flex flex-col sm:flex-row gap-6">
-                    <!-- Movie Poster Thumbnail -->
-                    <div class="w-32 sm:w-44 flex-shrink-0 mx-auto sm:mx-0">
-                        <img id="modalPosterImg" src="" alt="Poster" class="w-full rounded-xl shadow-glow-card border-2 border-slate-700/60 object-cover aspect-[2/3]">
-                    </div>
-
-                    <!-- Movie Core Meta -->
-                    <div class="flex-1">
-                        <div class="flex flex-wrap items-center gap-2 mb-2">
-                            <span id="modalQuality" class="bg-cinRed/20 text-cinRed border border-cinRed/40 text-[10px] font-bold px-2 py-0.5 rounded">4K Ultra HD</span>
-                            <span id="modalRating" class="bg-amber-500/20 text-amber-300 border border-amber-500/40 text-[10px] font-bold px-2 py-0.5 rounded flex items-center gap-1">
-                                <i class="fa-solid fa-star text-[9px] text-amber-400"></i> 8.5
-                            </span>
-                            <span id="modalYear" class="text-xs text-slate-300">2024</span>
-                            <span class="text-xs text-slate-500">•</span>
-                            <span id="modalDuration" class="text-xs text-slate-300">2h 15m</span>
-                            <span class="text-xs text-slate-500">•</span>
-                            <span id="modalLanguage" class="text-xs text-slate-300">English</span>
-                        </div>
-
-                        <h2 id="modalTitle" class="text-2xl sm:text-3xl font-heading font-black text-white mb-2">Movie Title</h2>
-
-                        <!-- Genre Tags -->
-                        <div id="modalGenres" class="flex flex-wrap gap-1.5 mb-4">
-                            <!-- Populated via JS -->
-                        </div>
-
-                        <!-- Synopsis -->
-                        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Storyline</h4>
-                        <p id="modalOverview" class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-4">
-                            Movie storyline description goes here.
-                        </p>
-
-                        <!-- Extra Details Grid -->
-                        <div class="grid grid-cols-2 gap-3 text-xs border-t border-slate-800 pt-3">
-                            <div>
-                                <span class="text-slate-500 block">Director:</span>
-                                <span id="modalDirector" class="text-white font-medium">Christopher Nolan</span>
-                            </div>
-                            <div>
-                                <span class="text-slate-500 block">Country:</span>
-                                <span id="modalCountry" class="text-white font-medium">United States</span>
-                            </div>
-                        </div>
-
-                        <!-- Modal Action Buttons -->
-                        <div class="flex flex-wrap items-center gap-3 mt-5">
-                            <button id="modalActionTrailerBtn" class="px-5 py-2.5 rounded-full bg-cinRed hover:bg-cinRedHover text-white text-xs font-bold shadow-glow-red flex items-center gap-2">
-                                <i class="fa-solid fa-play"></i> Watch Trailer
-                            </button>
-                            <button id="modalFavToggleBtn" class="px-5 py-2.5 rounded-full bg-cinNavy hover:bg-slate-800 border border-slate-700 text-white text-xs font-semibold flex items-center gap-2">
-                                <i class="fa-regular fa-heart"></i> <span>Add to Watchlist</span>
-                            </button>
-                            <a id="modalOfficialSourceBtn" href="https://www.netflix.com" target="_blank" rel="noopener noreferrer" 
-                               class="px-5 py-2.5 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold flex items-center gap-2 border border-slate-600">
-                                <i class="fa-solid fa-arrow-up-right-from-square text-slate-400"></i>
-                                <span>Official Streaming</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- MODAL SPONSORED ADVERTISEMENT BANNER -->
-                <div class="mt-8 rounded-xl p-4 bg-gradient-to-r from-[#170a0b] via-[#210d10] to-[#120708] border border-cinRed/30 shadow-lg">
-                    <div class="flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
-                        <div>
-                            <div class="flex items-center justify-center sm:justify-start gap-2 mb-1">
-                                <span class="bg-cinOrange text-white text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded">
-                                    Sponsored Advertisement
-                                </span>
-                                <span class="text-xs font-bold text-white">Ultra-Speed Direct CDN Mirror</span>
-                            </div>
-                            <p class="text-xs text-slate-400">
-                                Tired of slow buffers? Experience direct multi-threaded downloads & high-bandwidth cloud servers.
-                            </p>
-                        </div>
-                        <a href="https://auctionr.org/4/fa93ed40bc9be029e745479ee5ecf812" target="_blank" rel="noopener noreferrer" 
-                           class="flex-shrink-0 px-5 py-2 rounded-lg bg-gradient-to-r from-cinOrange to-cinRed hover:from-orange-500 hover:to-red-600 text-white font-bold text-xs tracking-wide shadow-glow-orange transition-all">
-                            Connect Mirror
-                        </a>
-                    </div>
-                </div>
-
-            </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="seriesGrid">
+          <!-- Rendered by JS -->
         </div>
-    </div>
+      </div>
+    </section>
 
-    <!-- 8. VIDEO TRAILER PLAYER MODAL -->
-    <div id="trailerModal" class="fixed inset-0 z-50 hidden bg-black/95 backdrop-blur-lg flex items-center justify-center p-3 sm:p-6">
-        <div class="relative w-full max-w-4xl aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border border-cinBorder">
-            <button id="closeTrailerBtn" class="absolute top-3 right-3 z-30 w-9 h-9 rounded-full bg-black/80 hover:bg-cinRed text-white flex items-center justify-center border border-white/20 transition-colors">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-            <div id="trailerIframeContainer" class="w-full h-full flex items-center justify-center">
-                <!-- YouTube iframe inserted dynamically -->
-            </div>
+    <!-- 7. COMING SOON SECTION -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <div class="flex items-center justify-between mb-4 pb-2 border-b border-white/5">
+        <h2 class="text-lg font-bold text-white flex items-center gap-2">
+          <span class="w-1 h-5 bg-amber-500 rounded-full inline-block"></span>
+          Coming Soon to CineVerse
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4" id="comingSoonGrid">
+        <!-- Rendered by JS -->
+      </div>
+    </section>
+
+    <!-- 8. FEATURED MOVIE COLLECTIONS GALLERY -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <div class="flex items-center justify-between mb-4 pb-2 border-b border-white/5">
+        <h2 class="text-lg font-bold text-white flex items-center gap-2">
+          <span class="w-1 h-5 bg-red-600 rounded-full inline-block"></span>
+          Featured Movie Collections
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4" id="collectionsGrid">
+        <!-- Rendered by JS -->
+      </div>
+    </section>
+
+    <!-- 9. ABOUT SECTION -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <div class="bg-slate-900/60 border border-slate-800 rounded-xl p-5 shadow">
+        <div class="mb-6 pb-2 border-b border-white/5 flex items-center gap-2">
+          <span class="w-1 h-5 bg-red-600 rounded-full inline-block"></span>
+          <h2 class="text-lg font-bold text-white">Why Choose CineVerse</h2>
         </div>
-    </div>
 
-    <!-- 9. REQUEST MOVIE MODAL -->
-    <div id="requestModal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-sm flex items-center justify-center p-4">
-        <div class="relative w-full max-w-md bg-cinNavy border border-cinBorder rounded-2xl p-6 shadow-2xl">
-            <button id="closeRequestModalBtn" class="absolute top-4 right-4 text-slate-400 hover:text-white">
-                <i class="fa-solid fa-xmark text-lg"></i>
-            </button>
-            <div class="flex items-center gap-2 mb-2 text-cinRed text-sm font-bold">
-                <i class="fa-solid fa-paper-plane"></i>
-                <span>REQUEST A TITLE</span>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="bg-slate-950 border border-slate-800 p-4 rounded-xl hover:border-red-500/50 transition-colors">
+            <div class="w-8 h-8 rounded bg-red-600/20 border border-red-500/40 flex items-center justify-center mb-2">
+              <i class="fa-solid fa-bolt text-red-500"></i>
             </div>
-            <h3 class="text-xl font-bold text-white mb-2">Can't find a movie or show?</h3>
-            <p class="text-xs text-slate-400 mb-5">Let us know what movie, series, or Bengali regional cinema you'd like us to index next.</p>
-            
-            <form id="requestMovieForm" class="space-y-4">
-                <div>
-                    <label class="block text-xs font-semibold text-slate-300 mb-1">Movie / Series Title *</label>
-                    <input type="text" id="requestTitleInput" required placeholder="e.g. Hawa (2022) or Interstellar" class="w-full bg-cinDeep border border-cinBorder rounded-lg px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-cinRed">
-                </div>
-                <div>
-                    <label class="block text-xs font-semibold text-slate-300 mb-1">Release Year or Language (Optional)</label>
-                    <input type="text" id="requestYearInput" placeholder="e.g. 2023, Bengali, English" class="w-full bg-cinDeep border border-cinBorder rounded-lg px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-cinRed">
-                </div>
-                <div>
-                    <label class="block text-xs font-semibold text-slate-300 mb-1">Your Email (Optional for updates)</label>
-                    <input type="email" id="requestEmailInput" placeholder="your@email.com" class="w-full bg-cinDeep border border-cinBorder rounded-lg px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-cinRed">
-                </div>
-                <button type="submit" class="w-full py-3 rounded-lg bg-gradient-to-r from-cinRed to-red-600 hover:from-red-600 hover:to-cinRed text-white text-xs font-bold tracking-wider uppercase shadow-glow-red transition-all">
-                    Submit Title Request
-                </button>
+            <h3 class="text-xs font-bold text-white">Ultra Fast Streaming</h3>
+            <p class="text-[11px] text-slate-400 mt-1">Adaptive bitrate streaming supporting 720p, 1080p, and 4K Ultra HD.</p>
+          </div>
+
+          <div class="bg-slate-950 border border-slate-800 p-4 rounded-xl hover:border-amber-500/50 transition-colors">
+            <div class="w-8 h-8 rounded bg-amber-600/20 border border-amber-500/40 flex items-center justify-center mb-2">
+              <i class="fa-solid fa-download text-amber-500"></i>
+            </div>
+            <h3 class="text-xs font-bold text-white">Direct Download Mirrors</h3>
+            <p class="text-[11px] text-slate-400 mt-1">Multiple download mirrors including Google Drive, Direct Cloud & Telegram.</p>
+          </div>
+
+          <div class="bg-slate-950 border border-slate-800 p-4 rounded-xl hover:border-emerald-500/50 transition-colors">
+            <div class="w-8 h-8 rounded bg-emerald-600/20 border border-emerald-500/40 flex items-center justify-center mb-2">
+              <i class="fa-solid fa-globe text-emerald-500"></i>
+            </div>
+            <h3 class="text-xs font-bold text-white">Dual Audio & Bangla Subs</h3>
+            <p class="text-[11px] text-slate-400 mt-1">Enjoy movies in original audio with Bengali and Hindi dubbed audio.</p>
+          </div>
+
+          <div class="bg-slate-950 border border-slate-800 p-4 rounded-xl hover:border-blue-500/50 transition-colors">
+            <div class="w-8 h-8 rounded bg-blue-600/20 border border-blue-500/40 flex items-center justify-center mb-2">
+              <i class="fa-solid fa-shield-halved text-blue-500"></i>
+            </div>
+            <h3 class="text-xs font-bold text-white">100% Safe & Clean Files</h3>
+            <p class="text-[11px] text-slate-400 mt-1">Every media file is thoroughly scanned for safety with zero malicious code.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. DMCA & CONTACT SECTION -->
+    <section id="contact" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <div class="bg-slate-900/60 border border-slate-800 rounded-xl p-5 shadow">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+          <div>
+            <div class="flex items-center gap-2 mb-2">
+              <span class="w-1 h-5 bg-red-600 rounded-full inline-block"></span>
+              <h2 class="text-lg font-bold text-white">DMCA & Legal Notice</h2>
+            </div>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              CineVerse respects intellectual property rights. If you believe your copyrighted content is listed without authorization, submit a removal request below.
+            </p>
+
+            <div class="mt-4 space-y-2 text-xs text-slate-400">
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-envelope text-red-500"></i>
+                <span>Support Email: dmca@cineverse-movies.com</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-triangle-exclamation text-amber-500"></i>
+                <span>Takedown Response Time: Within 12-24 Hours</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-slate-950 border border-slate-800 p-4 rounded-xl" id="contactFormContainer">
+            <form onsubmit="handleContactSubmit(event)" class="space-y-3">
+              <div>
+                <label class="block text-[10px] font-bold text-slate-300 uppercase mb-1">Your Name</label>
+                <input type="text" id="contactName" required placeholder="John Doe" class="w-full bg-slate-900 border border-slate-800 rounded px-2.5 py-1.5 text-xs text-white focus:outline-none focus:border-red-500" />
+              </div>
+
+              <div>
+                <label class="block text-[10px] font-bold text-slate-300 uppercase mb-1">Email Address *</label>
+                <input type="email" id="contactEmail" required placeholder="you@example.com" class="w-full bg-slate-900 border border-slate-800 rounded px-2.5 py-1.5 text-xs text-white focus:outline-none focus:border-red-500" />
+              </div>
+
+              <div>
+                <label class="block text-[10px] font-bold text-slate-300 uppercase mb-1">Subject</label>
+                <select id="contactSubject" class="w-full bg-slate-900 border border-slate-800 rounded px-2.5 py-1.5 text-xs text-white focus:outline-none focus:border-red-500">
+                  <option value="DMCA Takedown Request">DMCA Takedown Request</option>
+                  <option value="Report Broken Link">Report Broken Download Link</option>
+                  <option value="Sponsorship Inquiry">Ad Network / Sponsorship Inquiry</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-[10px] font-bold text-slate-300 uppercase mb-1">Message *</label>
+                <textarea id="contactMessage" required rows="3" placeholder="Include movie URL or details..." class="w-full bg-slate-900 border border-slate-800 rounded px-2.5 py-1.5 text-xs text-white focus:outline-none focus:border-red-500"></textarea>
+              </div>
+
+              <button type="submit" class="w-full bg-red-600 hover:bg-red-500 text-white font-bold py-2 rounded-lg text-xs flex items-center justify-center gap-2 shadow">
+                <i class="fa-solid fa-paper-plane"></i> Send Message
+              </button>
             </form>
+          </div>
         </div>
-    </div>
+      </div>
+    </section>
 
-    <!-- 10. WATCHLIST / FAVORITES DRAWER -->
-    <div id="watchlistDrawer" class="fixed inset-y-0 right-0 z-50 w-full sm:w-96 bg-cinDeep border-l border-cinBorder shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col">
-        <div class="p-5 border-b border-cinBorder flex items-center justify-between">
-            <div class="flex items-center gap-2">
-                <i class="fa-solid fa-heart text-cinRed"></i>
-                <h3 class="font-bold text-white text-base">Your Watchlist</h3>
-                <span id="drawerCountBadge" class="bg-cinNavy text-slate-300 border border-cinBorder text-xs px-2 py-0.5 rounded-full font-semibold">0</span>
+    <!-- 11. 🟡 FOOTER LEADERBOARD (Manual VIP Cinema Pass) -->
+    <aside aria-label="Sponsored VIP Cinema Server" class="w-full my-6 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <a href="https://www.effectivecpmnetwork.com/r6rna14d?key=d0bc6c975bfefb9077bd7612138c2b09" target="_blank" rel="noopener noreferrer" class="group block bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 border border-slate-800 hover:border-red-500/60 rounded-2xl p-4 sm:p-5 shadow-xl transition-all duration-300 relative overflow-hidden">
+        <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-4">
+          <div class="flex items-center gap-3.5 text-center md:text-left">
+            <div class="w-11 h-11 rounded-xl bg-red-600/20 border border-red-500/30 flex items-center justify-center text-red-400 shrink-0 group-hover:scale-110 transition-transform">
+              <i class="fa-solid fa-film text-xl"></i>
             </div>
-            <button id="closeDrawerBtn" class="text-slate-400 hover:text-white p-1">
-                <i class="fa-solid fa-xmark text-lg"></i>
-            </button>
+            <div>
+              <div class="flex items-center justify-center md:justify-start gap-2 mb-1">
+                <span class="bg-red-600 text-white text-[9px] font-black px-2 py-0.5 rounded uppercase tracking-wider">★ VIP CINEMA PASS</span>
+                <span class="text-[10px] text-emerald-400 font-semibold flex items-center gap-1"><i class="fa-solid fa-shield-check"></i> 100% Free Access</span>
+              </div>
+              <h4 class="text-sm sm:text-base font-bold text-white group-hover:text-red-400 transition-colors">
+                Unlock Unlimited 4K Movie & Series Fast Downloads
+              </h4>
+              <p class="text-[11px] text-slate-400">
+                Direct Cloud Storage • High Speed 100MB/s Mirrors • Zero Popups on Direct Link
+              </p>
+            </div>
+          </div>
+          <div class="shrink-0 w-full md:w-auto flex justify-center md:justify-end">
+            <span class="w-full md:w-auto bg-gradient-to-r from-red-600 to-amber-500 group-hover:from-red-500 group-hover:to-amber-400 text-white font-bold text-xs px-5 py-2.5 rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-red-600/20 group-hover:scale-105 transition-all">
+              <i class="fa-solid fa-download"></i> Get Direct Link <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+            </span>
+          </div>
         </div>
+      </a>
+    </aside>
+  </main>
 
-        <div id="drawerListContainer" class="flex-1 overflow-y-auto p-4 space-y-3">
-            <!-- Populated via JS -->
+  <!-- 12. FOOTER -->
+  <footer class="bg-slate-950 border-t border-slate-800 py-8 text-xs text-slate-400">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2 text-white font-bold text-base">
+        <div class="w-6 h-6 rounded bg-red-600 flex items-center justify-center text-white text-xs">
+          <i class="fa-solid fa-play"></i>
         </div>
-
-        <div class="p-4 border-t border-cinBorder bg-cinNavy/40">
-            <button id="clearAllFavBtn" class="w-full py-2 rounded-lg bg-slate-800 hover:bg-cinRed text-slate-300 hover:text-white text-xs font-semibold transition-colors">
-                Clear Entire Watchlist
-            </button>
-        </div>
+        <span>CINEVERSE</span>
+      </div>
+      <p class="text-center md:text-left text-slate-500">
+        © 2026 CineVerse. All movies hosted on high speed 3rd party cloud FTP mirrors.
+      </p>
+      <div class="flex items-center gap-4 text-slate-400">
+        <a href="#trending-movies-section" class="hover:text-white">Home</a>
+        <a href="#" onclick="openRequestModal()" class="hover:text-white">Request Movie</a>
+        <a href="#contact" class="hover:text-white">DMCA</a>
+        <a href="https://www.effectivecpmnetwork.com/r6rna14d?key=d0bc6c975bfefb9077bd7612138c2b09" target="_blank" rel="noopener noreferrer" class="hover:text-red-400">Sponsored Link</a>
+      </div>
     </div>
-    <!-- Watchlist Backdrop -->
-    <div id="drawerBackdrop" class="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm hidden"></div>
+  </footer>
 
-    <!-- 11. TOAST NOTIFICATION CONTAINER -->
-    <div id="toastContainer" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
+  <!-- MODAL 1: MOVIE DETAIL & DOWNLOAD MODAL -->
+  <div id="movieModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
+    <div class="bg-slate-900 border border-slate-800 rounded-3xl max-w-4xl w-full relative text-slate-200 shadow-2xl my-auto overflow-hidden flex flex-col max-h-[92vh]">
+      <button onclick="closeMovieModal()" class="absolute top-4 right-4 z-30 w-9 h-9 rounded-full bg-slate-950/80 hover:bg-red-600 text-white flex items-center justify-center text-base transition-colors border border-slate-700 shadow-lg">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
 
-    <!-- JAVASCRIPT APPLICATION LOGIC -->
-    <script>
-        /**
-         * CINVERSE MOVIE DATABASE (Comprehensive Sample Catalog)
-         * Easily extendable for new releases, regional cinema, and ratings.
-         */
-        const MOVIE_DATABASE = [
-            {
-                id: 1,
-                title: "Dune: Part Two",
-                year: 2024,
-                duration: "2h 46m",
-                rating: 8.6,
-                quality: "4K Ultra HD",
-                language: "English",
-                genres: ["Sci-Fi", "Adventure", "Action"],
-                country: "United States",
-                director: "Denis Villeneuve",
-                poster: "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=800&auto=format&fit=crop",
-                backdrop: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?q=80&w=1920&auto=format&fit=crop",
-                overview: "Paul Atreides unites with Chani and the Fremen while seeking revenge against the conspirators who destroyed his family. Facing a choice between the love of his life and the fate of the known universe, he endeavors to prevent a terrible future only he can foresee.",
-                trailerYoutubeId: "Way9Dexny3w",
-                officialLink: "https://www.max.com",
-                isFeatured: true
-            },
-            {
-                id: 2,
-                title: "Hawa",
-                year: 2022,
-                duration: "2h 11m",
-                rating: 8.0,
-                quality: "1080p FHD",
-                language: "Bengali",
-                genres: ["Bengali", "Mystery", "Drama", "Thriller"],
-                country: "Bangladesh",
-                director: "Mejbaur Rahman Sumon",
-                poster: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=800&auto=format&fit=crop",
-                backdrop: "https://images.unsplash.com/photo-1505118380757-91f5f5632de0?q=80&w=1920&auto=format&fit=crop",
-                overview: "A group of deep-sea fishermen in the Bay of Bengal catch a mysterious, ethereal young woman in their fishing net, triggering supernatural occurrences, suspicion, and chaos among the crew.",
-                trailerYoutubeId: "uL0X16U_jW4",
-                officialLink: "https://www.sonyliv.com",
-                isFeatured: true
-            },
-            {
-                id: 3,
-                title: "Oppenheimer",
-                year: 2023,
-                duration: "3h 00m",
-                rating: 8.9,
-                quality: "4K Ultra HD",
-                language: "English",
-                genres: ["Drama", "Biography"],
-                country: "United States",
-                director: "Christopher Nolan",
-                poster: "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=800&auto=format&fit=crop",
-                backdrop: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1920&auto=format&fit=crop",
-                overview: "The story of American scientist J. Robert Oppenheimer and his role in the development of the atomic bomb during the Manhattan Project, unraveling moral dilemmas and geopolitical fallout.",
-                trailerYoutubeId: "uYPbbksJxIg",
-                officialLink: "https://www.peacocktv.com",
-                isFeatured: true
-            },
-            {
-                id: 4,
-                title: "Mujib: The Making of a Nation",
-                year: 2023,
-                duration: "2h 58m",
-                rating: 7.9,
-                quality: "4K Ultra HD",
-                language: "Bengali",
-                genres: ["Bengali", "Drama", "History"],
-                country: "Bangladesh / India",
-                director: "Shyam Benegal",
-                poster: "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?q=80&w=800&auto=format&fit=crop",
-                backdrop: "https://images.unsplash.com/photo-1533227268428-f9ed0900fb3b?q=80&w=1920&auto=format&fit=crop",
-                overview: "A sweeping biographical drama detailing the life, revolutionary struggle, and leadership of Sheikh Mujibur Rahman, the founding father of Bangladesh.",
-                trailerYoutubeId: "5f3WzL3e75Q",
-                officialLink: "https://www.zee5.com",
-                isFeatured: true
-            },
-            {
-                id: 5,
-                title: "Spider-Man: Across the Spider-Verse",
-                year: 2023,
-                duration: "2h 20m",
-                rating: 8.7,
-                quality: "4K Ultra HD",
-                language: "English",
-                genres: ["Action", "Sci-Fi", "Adventure"],
-                country: "United States",
-                director: "Joaquim Dos Santos",
-                poster: "https://images.unsplash.com/photo-1635805737707-575885ab0820?q=80&w=800&auto=format&fit=crop",
-                backdrop: "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?q=80&w=1920&auto=format&fit=crop",
-                overview: "Miles Morales catapults across the Multiverse, where he encounters a team of Spider-People charged with protecting its very existence. When the heroes clash on handling a new threat, Miles must redefine heroism.",
-                trailerYoutubeId: "cqGjhVJWtEg",
-                officialLink: "https://www.netflix.com",
-                isFeatured: false
-            },
-            {
-                id: 6,
-                title: "Alien: Romulus",
-                year: 2024,
-                duration: "1h 59m",
-                rating: 7.3,
-                quality: "4K Ultra HD",
-                language: "English",
-                genres: ["Horror", "Sci-Fi", "Thriller"],
-                country: "United States",
-                director: "Fede Álvarez",
-                poster: "https://images.unsplash.com/photo-1509281373149-e957c6296406?q=80&w=800&auto=format&fit=crop",
-                backdrop: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1920&auto=format&fit=crop",
-                overview: "While scavenging the deep ends of a derelict space station, a group of young space colonizers come face to face with the most terrifying life form in the universe.",
-                trailerYoutubeId: "x0XDEhP4MQs",
-                officialLink: "https://www.hulu.com",
-                isFeatured: false
-            },
-            {
-                id: 7,
-                title: "Deadpool & Wolverine",
-                year: 2024,
-                duration: "2h 08m",
-                rating: 7.8,
-                quality: "4K Ultra HD",
-                language: "English",
-                genres: ["Action", "Comedy", "Sci-Fi"],
-                country: "United States",
-                director: "Shawn Levy",
-                poster: "https://images.unsplash.com/photo-1608889825205-eebdb9fc5806?q=80&w=800&auto=format&fit=crop",
-                backdrop: "https://images.unsplash.com/photo-1563089145-599997674d42?q=80&w=1920&auto=format&fit=crop",
-                overview: "Wolverine is recovering from his injuries when he crosses paths with the loudmouth Deadpool. They team up to defeat a common enemy in a universe-altering romp.",
-                trailerYoutubeId: "73_1biulkYk",
-                officialLink: "https://www.disneyplus.com",
-                isFeatured: false
-            },
-            {
-                id: 8,
-                title: "Poddapuran",
-                year: 2021,
-                duration: "2h 15m",
-                rating: 7.6,
-                quality: "1080p FHD",
-                language: "Bengali",
-                genres: ["Bengali", "Drama", "Thriller"],
-                country: "Bangladesh",
-                director: "Rashid Palash",
-                poster: "https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?q=80&w=800&auto=format&fit=crop",
-                backdrop: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1920&auto=format&fit=crop",
-                overview: "A gripping tale following the lives of marginal people whose survival, love, and heartbreaks are intimately linked to the powerful currents of the Padma river.",
-                trailerYoutubeId: "Way9Dexny3w",
-                officialLink: "https://www.chorki.com",
-                isFeatured: false
-            },
-            {
-                id: 9,
-                title: "The Batman",
-                year: 2022,
-                duration: "2h 56m",
-                rating: 7.8,
-                quality: "4K Ultra HD",
-                language: "English",
-                genres: ["Action", "Thriller", "Drama"],
-                country: "United States",
-                director: "Matt Reeves",
-                poster: "https://images.unsplash.com/photo-1509248961158-e54f6934749c?q=80&w=800&auto=format&fit=crop",
-                backdrop: "https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?q=80&w=1920&auto=format&fit=crop",
-                overview: "When a sadistic serial killer begins murdering key political figures in Gotham, Batman is forced to investigate the city's hidden corruption and question his family's involvement.",
-                trailerYoutubeId: "mqqft2x_Aa4",
-                officialLink: "https://www.max.com",
-                isFeatured: false
-            },
-            {
-                id: 10,
-                title: "A Quiet Place: Day One",
-                year: 2024,
-                duration: "1h 39m",
-                rating: 6.4,
-                quality: "4K Ultra HD",
-                language: "English",
-                genres: ["Horror", "Sci-Fi", "Drama"],
-                country: "United States",
-                director: "Michael Sarnoski",
-                poster: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=800&auto=format&fit=crop",
-                backdrop: "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=1920&auto=format&fit=crop",
-                overview: "A young woman named Sam finds herself trapped in New York City during the terrifying initial invasion by blind extraterrestrial creatures with hypersensitive hearing.",
-                trailerYoutubeId: "YPY7J-flzE8",
-                officialLink: "https://www.paramountplus.com",
-                isFeatured: false
-            },
-            {
-                id: 11,
-                title: "Surongo",
-                year: 2023,
-                duration: "2h 30m",
-                rating: 7.8,
-                quality: "1080p FHD",
-                language: "Bengali",
-                genres: ["Bengali", "Thriller", "Action"],
-                country: "Bangladesh",
-                director: "Raihan Rafi",
-                poster: "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=800&auto=format&fit=crop",
-                backdrop: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?q=80&w=1920&auto=format&fit=crop",
-                overview: "Driven by love and betrayal, Masud orchestrates an audacious underground bank tunnel robbery, spiraling into a deadly game of cat and mouse with relentless detectives.",
-                trailerYoutubeId: "0oO24U3Gj-8",
-                officialLink: "https://www.chorki.com",
-                isFeatured: false
-            },
-            {
-                id: 12,
-                title: "Interstellar",
-                year: 2014,
-                duration: "2h 49m",
-                rating: 8.7,
-                quality: "4K Ultra HD",
-                language: "English",
-                genres: ["Sci-Fi", "Adventure", "Drama"],
-                country: "United States",
-                director: "Christopher Nolan",
-                poster: "https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?q=80&w=800&auto=format&fit=crop",
-                backdrop: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1920&auto=format&fit=crop",
-                overview: "When Earth becomes uninhabitable in the future, a farmer and ex-NASA pilot, Joseph Cooper, is tasked to pilot a spacecraft along with a team of researchers through a newly discovered wormhole.",
-                trailerYoutubeId: "zSWdZVtXT7E",
-                officialLink: "https://www.paramountplus.com",
-                isFeatured: false
-            }
-        ];
+      <!-- Video Player or Header Backdrop -->
+      <div class="relative w-full bg-slate-950 shrink-0">
+        <div id="videoContainer" class="hidden relative aspect-video w-full bg-black">
+          <iframe id="movieVideoFrame" class="w-full h-full border-0" src="" allowfullscreen></iframe>
+        </div>
+        
+        <div id="backdropContainer" class="relative h-64 sm:h-80 w-full overflow-hidden">
+          <img id="modalBackdropImg" src="" class="w-full h-full object-cover" alt="Backdrop" />
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent"></div>
+          <div class="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/80 to-transparent"></div>
 
-        // Global State
-        const STATE = {
-            currentCategory: 'All',
-            searchQuery: '',
-            sortBy: 'featured',
-            displayedCount: 10,
-            featuredMovies: MOVIE_DATABASE.filter(m => m.isFeatured),
-            currentHeroIndex: 0,
-            favorites: JSON.parse(localStorage.getItem('cinverse_favorites') || '[]'),
-            heroInterval: null
-        };
+          <div class="absolute inset-0 flex items-center justify-center">
+            <button onclick="startModalVideo()" class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-red-600 hover:bg-red-500 text-white flex items-center justify-center shadow-2xl shadow-red-600/50 hover:scale-110 transition-transform">
+              <i class="fa-solid fa-play text-2xl ml-1"></i>
+            </button>
+          </div>
 
-        // DOM Elements
-        const elements = {
-            movieGrid: document.getElementById('movieGrid'),
-            searchInput: document.getElementById('searchInput'),
-            mobileSearchInput: document.getElementById('mobileSearchInput'),
-            clearSearchBtn: document.getElementById('clearSearchBtn'),
-            mobileSearchToggle: document.getElementById('mobileSearchToggle'),
-            mobileSearchContainer: document.getElementById('mobileSearchContainer'),
-            categoryPills: document.querySelectorAll('.cat-pill'),
-            sortSelect: document.getElementById('sortSelect'),
-            noResultsState: document.getElementById('noResultsState'),
-            loadMoreBtn: document.getElementById('loadMoreBtn'),
-            loadMoreContainer: document.getElementById('loadMoreContainer'),
-            searchQueryBadge: document.getElementById('searchQueryBadge'),
-            searchQueryText: document.getElementById('searchQueryText'),
-            resetSearchBtn: document.getElementById('resetSearchBtn'),
-            resetFiltersBtn: document.getElementById('resetFiltersBtn'),
-            catalogCategoryTitle: document.getElementById('catalogCategoryTitle'),
-            favCounterBadge: document.getElementById('favCounterBadge'),
-            watchlistDrawer: document.getElementById('watchlistDrawer'),
-            drawerBackdrop: document.getElementById('drawerBackdrop'),
-            favoritesDrawerBtn: document.getElementById('favoritesDrawerBtn'),
-            closeDrawerBtn: document.getElementById('closeDrawerBtn'),
-            drawerListContainer: document.getElementById('drawerListContainer'),
-            drawerCountBadge: document.getElementById('drawerCountBadge'),
-            clearAllFavBtn: document.getElementById('clearAllFavBtn'),
-            footerWatchlistBtn: document.getElementById('footerWatchlistBtn'),
-            
-            // Hero elements
-            heroBgImage: document.getElementById('heroBgImage'),
-            heroTitle: document.getElementById('heroTitle'),
-            heroOverview: document.getElementById('heroOverview'),
-            heroRating: document.getElementById('heroRating'),
-            heroQuality: document.getElementById('heroQuality'),
-            heroLang: document.getElementById('heroLang'),
-            heroYearDuration: document.getElementById('heroYearDuration'),
-            heroTrailerBtn: document.getElementById('heroTrailerBtn'),
-            heroDetailsBtn: document.getElementById('heroDetailsBtn'),
-            heroFavBtn: document.getElementById('heroFavBtn'),
-            heroSliderDots: document.getElementById('heroSliderDots'),
-            heroPrevBtn: document.getElementById('heroPrevBtn'),
-            heroNextBtn: document.getElementById('heroNextBtn'),
+          <div class="absolute bottom-4 left-4 sm:left-6 right-4 flex items-end justify-between">
+            <div>
+              <span id="modalQuality" class="bg-red-600 text-white font-bold text-[10px] uppercase px-2 py-0.5 rounded tracking-wider shadow">4K</span>
+              <h2 id="modalTitle" class="text-2xl sm:text-4xl font-black text-white mt-1 drop-shadow-md">Movie Title</h2>
+              <p class="text-xs sm:text-sm text-slate-300 flex items-center gap-2 mt-1">
+                <span id="modalYear">2024</span> • <span id="modalDuration">2h 46m</span> • 
+                <span class="text-amber-400 font-bold"><i class="fa-solid fa-star"></i> <span id="modalRating">8.7</span></span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
 
-            // Modals
-            movieDetailsModal: document.getElementById('movieDetailsModal'),
-            closeModalBtn: document.getElementById('closeModalBtn'),
-            trailerModal: document.getElementById('trailerModal'),
-            closeTrailerBtn: document.getElementById('closeTrailerBtn'),
-            trailerIframeContainer: document.getElementById('trailerIframeContainer'),
-            requestModal: document.getElementById('requestModal'),
-            requestMovieBtn: document.getElementById('requestMovieBtn'),
-            footerRequestBtn: document.getElementById('footerRequestBtn'),
-            closeRequestModalBtn: document.getElementById('closeRequestModalBtn'),
-            requestMovieForm: document.getElementById('requestMovieForm'),
-            toastContainer: document.getElementById('toastContainer')
-        };
+      <!-- Scrollable Modal Content -->
+      <div class="p-4 sm:p-6 overflow-y-auto space-y-6 flex-1">
+        
+        <!-- Specs Bar -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-slate-950 border border-slate-800 p-3.5 rounded-2xl">
+          <div>
+            <span class="text-[10px] text-slate-400 font-bold uppercase tracking-wider block">Language</span>
+            <span id="modalLanguage" class="text-xs font-semibold text-slate-200">English (Dual Audio)</span>
+          </div>
+          <div>
+            <span class="text-[10px] text-slate-400 font-bold uppercase tracking-wider block">Genres</span>
+            <span id="modalGenres" class="text-xs font-semibold text-slate-200">Action, Sci-Fi</span>
+          </div>
+          <div>
+            <span class="text-[10px] text-slate-400 font-bold uppercase tracking-wider block">Country</span>
+            <span id="modalCountry" class="text-xs font-semibold text-slate-200">USA</span>
+          </div>
+          <div>
+            <span class="text-[10px] text-slate-400 font-bold uppercase tracking-wider block">Director</span>
+            <span id="modalDirector" class="text-xs font-semibold text-slate-200">Denis Villeneuve</span>
+          </div>
+        </div>
 
-        /**
-         * Initialize App
-         */
-        window.addEventListener('DOMContentLoaded', () => {
-            initHeroSlider();
-            renderMovies();
-            updateFavoritesCounter();
-            setupEventListeners();
-        });
+        <!-- Storyline -->
+        <div>
+          <h3 class="text-xs font-bold text-slate-200 uppercase tracking-wider mb-1 flex items-center gap-2">
+            <i class="fa-solid fa-film text-red-500"></i> Storyline & Synopsis
+          </h3>
+          <p id="modalStoryline" class="text-xs text-slate-300 leading-relaxed">Movie storyline...</p>
+        </div>
 
-        /**
-         * Event Listeners Registration
-         */
-        function setupEventListeners() {
-            // Category filtering
-            elements.categoryPills.forEach(pill => {
-                pill.addEventListener('click', () => {
-                    const category = pill.getAttribute('data-category');
-                    filterByCategory(category);
-                });
-            });
-
-            // Search handling
-            const handleSearch = (query) => {
-                STATE.searchQuery = query.trim().toLowerCase();
-                if (STATE.searchQuery) {
-                    elements.clearSearchBtn.classList.remove('hidden');
-                    elements.searchQueryBadge.classList.remove('hidden');
-                    elements.searchQueryText.textContent = `"${query}"`;
-                } else {
-                    elements.clearSearchBtn.classList.add('hidden');
-                    elements.searchQueryBadge.classList.add('hidden');
-                }
-                STATE.displayedCount = 10;
-                renderMovies();
-            };
-
-            elements.searchInput.addEventListener('input', (e) => handleSearch(e.target.value));
-            elements.mobileSearchInput.addEventListener('input', (e) => handleSearch(e.target.value));
-
-            elements.clearSearchBtn.addEventListener('click', () => {
-                elements.searchInput.value = '';
-                elements.mobileSearchInput.value = '';
-                handleSearch('');
-            });
-
-            elements.resetSearchBtn.addEventListener('click', () => {
-                elements.searchInput.value = '';
-                elements.mobileSearchInput.value = '';
-                handleSearch('');
-            });
-
-            elements.resetFiltersBtn.addEventListener('click', () => {
-                filterByCategory('All');
-                elements.searchInput.value = '';
-                elements.mobileSearchInput.value = '';
-                handleSearch('');
-            });
-
-            elements.mobileSearchToggle.addEventListener('click', () => {
-                elements.mobileSearchContainer.classList.toggle('hidden');
-            });
-
-            // Sorting
-            elements.sortSelect.addEventListener('change', (e) => {
-                STATE.sortBy = e.target.value;
-                renderMovies();
-            });
-
-            // Pagination
-            elements.loadMoreBtn.addEventListener('click', () => {
-                STATE.displayedCount += 6;
-                renderMovies();
-            });
-
-            // Watchlist Drawer
-            const toggleDrawer = (open) => {
-                if (open) {
-                    renderWatchlistDrawer();
-                    elements.watchlistDrawer.classList.remove('translate-x-full');
-                    elements.drawerBackdrop.classList.remove('hidden');
-                    document.body.classList.add('overflow-hidden');
-                } else {
-                    elements.watchlistDrawer.classList.add('translate-x-full');
-                    elements.drawerBackdrop.classList.add('hidden');
-                    document.body.classList.remove('overflow-hidden');
-                }
-            };
-
-            elements.favoritesDrawerBtn.addEventListener('click', () => toggleDrawer(true));
-            elements.footerWatchlistBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                toggleDrawer(true);
-            });
-            elements.closeDrawerBtn.addEventListener('click', () => toggleDrawer(false));
-            elements.drawerBackdrop.addEventListener('click', () => toggleDrawer(false));
-
-            elements.clearAllFavBtn.addEventListener('click', () => {
-                STATE.favorites = [];
-                saveFavorites();
-                renderWatchlistDrawer();
-                renderMovies();
-                updateHeroFavButtonState();
-                showToast("Watchlist cleared", "info");
-            });
-
-            // Request Movie Modal
-            const toggleRequestModal = (show) => {
-                if (show) {
-                    elements.requestModal.classList.remove('hidden');
-                    document.body.classList.add('overflow-hidden');
-                } else {
-                    elements.requestModal.classList.add('hidden');
-                    document.body.classList.remove('overflow-hidden');
-                }
-            };
-
-            elements.requestMovieBtn.addEventListener('click', () => toggleRequestModal(true));
-            elements.footerRequestBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                toggleRequestModal(true);
-            });
-            elements.closeRequestModalBtn.addEventListener('click', () => toggleRequestModal(false));
-            elements.requestModal.addEventListener('click', (e) => {
-                if (e.target === elements.requestModal) toggleRequestModal(false);
-            });
-
-            elements.requestMovieForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                const title = document.getElementById('requestTitleInput').value;
-                toggleRequestModal(false);
-                elements.requestMovieForm.reset();
-                showToast(`Request for "${title}" has been submitted!`, 'success');
-            });
-
-            // Movie Details & Trailer Modals Close
-            elements.closeModalBtn.addEventListener('click', closeMovieDetails);
-            elements.movieDetailsModal.addEventListener('click', (e) => {
-                if (e.target === elements.movieDetailsModal) closeMovieDetails();
-            });
-
-            elements.closeTrailerBtn.addEventListener('click', closeTrailerModal);
-            elements.trailerModal.addEventListener('click', (e) => {
-                if (e.target === elements.trailerModal) closeTrailerModal();
-            });
-
-            // Hero Slider Buttons
-            elements.heroPrevBtn.addEventListener('click', prevHeroSlide);
-            elements.heroNextBtn.addEventListener('click', nextHeroSlide);
-
-            // Escape key handler
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape') {
-                    closeMovieDetails();
-                    closeTrailerModal();
-                    toggleRequestModal(false);
-                    toggleDrawer(false);
-                }
-            });
-        }
-
-        /**
-         * Category Filter Execution
-         */
-        function filterByCategory(category) {
-            STATE.currentCategory = category;
-            elements.catalogCategoryTitle.textContent = category;
-
-            // Highlight button
-            elements.categoryPills.forEach(pill => {
-                if (pill.getAttribute('data-category') === category) {
-                    pill.className = "cat-pill active flex-shrink-0 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all bg-cinRed text-white shadow-glow-red";
-                } else {
-                    pill.className = "cat-pill flex-shrink-0 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all bg-cinNavy/80 hover:bg-cinNavy text-slate-300 hover:text-white border border-cinBorder/60";
-                }
-            });
-
-            STATE.displayedCount = 10;
-            renderMovies();
-        }
-
-        /**
-         * Hero Carousel Logic
-         */
-        function initHeroSlider() {
-            if (!STATE.featuredMovies.length) return;
-            
-            // Build indicators
-            elements.heroSliderDots.innerHTML = '';
-            STATE.featuredMovies.forEach((_, idx) => {
-                const dot = document.createElement('button');
-                dot.className = `h-1.5 rounded-full transition-all duration-300 ${idx === 0 ? 'w-8 bg-cinRed' : 'w-2 bg-slate-600 hover:bg-slate-400'}`;
-                dot.setAttribute('aria-label', `Go to slide ${idx + 1}`);
-                dot.addEventListener('click', () => setHeroSlide(idx));
-                elements.heroSliderDots.appendChild(dot);
-            });
-
-            updateHeroSlide(0);
-            startHeroAutoPlay();
-        }
-
-        function startHeroAutoPlay() {
-            clearInterval(STATE.heroInterval);
-            STATE.heroInterval = setInterval(() => {
-                nextHeroSlide();
-            }, 7500);
-        }
-
-        function setHeroSlide(index) {
-            STATE.currentHeroIndex = index;
-            updateHeroSlide(index);
-            startHeroAutoPlay();
-        }
-
-        function nextHeroSlide() {
-            STATE.currentHeroIndex = (STATE.currentHeroIndex + 1) % STATE.featuredMovies.length;
-            updateHeroSlide(STATE.currentHeroIndex);
-        }
-
-        function prevHeroSlide() {
-            STATE.currentHeroIndex = (STATE.currentHeroIndex - 1 + STATE.featuredMovies.length) % STATE.featuredMovies.length;
-            updateHeroSlide(STATE.currentHeroIndex);
-        }
-
-        function updateHeroSlide(index) {
-            const movie = STATE.featuredMovies[index];
-            if (!movie) return;
-
-            // Animate transition
-            elements.heroBgImage.style.opacity = '0.3';
-            setTimeout(() => {
-                elements.heroBgImage.style.backgroundImage = `url('${movie.backdrop || movie.poster}')`;
-                elements.heroBgImage.style.opacity = '1';
-            }, 250);
-
-            elements.heroTitle.textContent = movie.title;
-            elements.heroOverview.textContent = movie.overview;
-            elements.heroRating.textContent = movie.rating.toFixed(1);
-            elements.heroQuality.textContent = movie.quality;
-            elements.heroLang.textContent = movie.language;
-            elements.heroYearDuration.textContent = `${movie.year} • ${movie.duration}`;
-
-            // Buttons
-            elements.heroTrailerBtn.onclick = () => openTrailerModal(movie.trailerYoutubeId, movie.title);
-            elements.heroDetailsBtn.onclick = () => openMovieDetails(movie.id);
-
-            updateHeroFavButtonState();
-
-            elements.heroFavBtn.onclick = () => {
-                toggleFavorite(movie.id);
-                updateHeroFavButtonState();
-            };
-
-            // Update dots
-            const dots = elements.heroSliderDots.querySelectorAll('button');
-            dots.forEach((dot, i) => {
-                if (i === index) {
-                    dot.className = 'h-1.5 rounded-full transition-all duration-300 w-8 bg-cinRed';
-                } else {
-                    dot.className = 'h-1.5 rounded-full transition-all duration-300 w-2 bg-slate-600 hover:bg-slate-400';
-                }
-            });
-        }
-
-        function updateHeroFavButtonState() {
-            const currentMovie = STATE.featuredMovies[STATE.currentHeroIndex];
-            if (!currentMovie) return;
-            const isFav = STATE.favorites.includes(currentMovie.id);
-            elements.heroFavBtn.innerHTML = isFav 
-                ? '<i class="fa-solid fa-heart text-cinRed text-base"></i>' 
-                : '<i class="fa-regular fa-heart text-base"></i>';
-        }
-
-        /**
-         * Movies Querying, Filtering, and Rendering
-         */
-        function getFilteredMovies() {
-            return MOVIE_DATABASE.filter(movie => {
-                // Category Filter
-                const matchesCategory = (STATE.currentCategory === 'All') || 
-                    movie.genres.includes(STATE.currentCategory) || 
-                    (STATE.currentCategory === 'Bengali' && movie.language.toLowerCase() === 'bengali');
-
-                // Search Filter
-                const query = STATE.searchQuery;
-                const matchesSearch = !query || 
-                    movie.title.toLowerCase().includes(query) ||
-                    movie.director.toLowerCase().includes(query) ||
-                    movie.language.toLowerCase().includes(query) ||
-                    movie.genres.some(g => g.toLowerCase().includes(query));
-
-                return matchesCategory && matchesSearch;
-            }).sort((a, b) => {
-                if (STATE.sortBy === 'rating') return b.rating - a.rating;
-                if (STATE.sortBy === 'year') return b.year - a.year;
-                if (STATE.sortBy === 'title') return a.title.localeCompare(b.title);
-                return (b.isFeatured ? 1 : 0) - (a.isFeatured ? 1 : 0);
-            });
-        }
-
-        function renderMovies() {
-            const filtered = getFilteredMovies();
-            elements.movieGrid.innerHTML = '';
-
-            if (filtered.length === 0) {
-                elements.noResultsState.classList.remove('hidden');
-                elements.loadMoreContainer.classList.add('hidden');
-                return;
-            } else {
-                elements.noResultsState.classList.add('hidden');
-            }
-
-            const visibleMovies = filtered.slice(0, STATE.displayedCount);
-
-            visibleMovies.forEach((movie, index) => {
-                // Insert a native Sponsored Card into the listing grid for natural monetization
-                if (index === 4) {
-                    elements.movieGrid.appendChild(createInGridSponsoredCard());
-                }
-                const card = createMovieCard(movie);
-                elements.movieGrid.appendChild(card);
-            });
-
-            // Handle Load More visibility
-            if (visibleMovies.length < filtered.length) {
-                elements.loadMoreContainer.classList.remove('hidden');
-            } else {
-                elements.loadMoreContainer.classList.add('hidden');
-            }
-        }
-
-        /**
-         * Create Single Movie Card Element
-         */
-        function createMovieCard(movie) {
-            const card = document.createElement('div');
-            card.className = "group relative bg-cinCard rounded-xl overflow-hidden border border-cinBorder hover:border-cinRed/60 transition-all duration-300 transform hover:-translate-y-1.5 shadow-md hover:shadow-glow-card flex flex-col";
-
-            const isFav = STATE.favorites.includes(movie.id);
-
-            card.innerHTML = `
-                <!-- Poster Image Area -->
-                <div class="relative aspect-[2/3] w-full overflow-hidden bg-slate-900 cursor-pointer" onclick="openMovieDetails(${movie.id})">
-                    <img src="${movie.poster}" alt="${movie.title}" loading="lazy" 
-                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                         onerror="this.src='https://placehold.co/400x600/10192c/ffffff?text=${encodeURIComponent(movie.title)}'">
-                    
-                    <!-- Dark Gradient Overlay -->
-                    <div class="absolute inset-0 bg-gradient-to-t from-cinDeep via-transparent to-transparent opacity-80 group-hover:opacity-40 transition-opacity"></div>
-
-                    <!-- Top Badges -->
-                    <div class="absolute top-2.5 left-2.5 flex items-center gap-1.5">
-                        <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-black/70 backdrop-blur-md text-white border border-white/10">
-                            ${movie.quality.includes('4K') ? '4K' : 'HD'}
-                        </span>
-                        <span class="px-1.5 py-0.5 rounded text-[10px] font-bold bg-cinNavy/80 backdrop-blur-md text-slate-300 border border-white/10">
-                            ${movie.language}
-                        </span>
-                    </div>
-
-                    <!-- Bookmark Heart Button -->
-                    <button class="fav-toggle-btn absolute top-2.5 right-2.5 w-8 h-8 rounded-full bg-black/70 backdrop-blur-md text-slate-300 hover:text-cinRed border border-white/10 flex items-center justify-center transition-transform active:scale-90"
-                            title="Save to Watchlist" onclick="event.stopPropagation(); toggleFavorite(${movie.id});">
-                        <i class="${isFav ? 'fa-solid text-cinRed' : 'fa-regular'} fa-heart text-xs"></i>
-                    </button>
-
-                    <!-- Hover Play Quick Action -->
-                    <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40 backdrop-blur-[2px]">
-                        <span class="w-12 h-12 rounded-full bg-cinRed text-white flex items-center justify-center shadow-glow-red transform scale-75 group-hover:scale-100 transition-transform">
-                            <i class="fa-solid fa-play text-sm ml-0.5"></i>
-                        </span>
-                    </div>
+        <!-- Download Mirrors Section -->
+        <div class="bg-slate-950/80 border border-red-900/40 rounded-2xl p-4 sm:p-5">
+          <!-- In-Modal Sponsor Ad -->
+          <div class="mb-4 bg-gradient-to-r from-slate-900 via-slate-900 to-amber-950/40 border border-amber-500/40 rounded-xl p-3.5 flex flex-col sm:flex-row items-center justify-between gap-3 shadow-lg">
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-lg bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-400 shrink-0">
+                <i class="fa-solid fa-bolt text-base"></i>
+              </div>
+              <div>
+                <div class="flex items-center gap-2">
+                  <span class="bg-amber-500 text-slate-950 text-[9px] font-black px-1.5 py-0.5 rounded uppercase">⚡ VIP CLOUD SERVER</span>
+                  <span class="text-[10px] text-emerald-400 font-semibold"><i class="fa-solid fa-shield-check"></i> 10Gbps Instant</span>
                 </div>
+                <h4 class="text-xs font-bold text-slate-100 mt-0.5">High Speed Direct VIP Cloud Server (No Waiting)</h4>
+                <p class="text-[10px] text-slate-400">Direct 1-Click Fast Mirror link for 4K & 1080p single-click downloads</p>
+              </div>
+            </div>
+            <a href="https://www.effectivecpmnetwork.com/r6rna14d?key=d0bc6c975bfefb9077bd7612138c2b09" target="_blank" rel="noopener noreferrer" class="bg-gradient-to-r from-amber-500 to-red-600 hover:from-amber-400 hover:to-red-500 text-slate-950 font-black text-xs px-4 py-2 rounded-lg flex items-center gap-1.5 transition-all shrink-0 shadow">
+              <i class="fa-solid fa-download"></i> Fast Mirror AD &rarr;
+            </a>
+          </div>
 
-                <!-- Info Meta Area -->
-                <div class="p-3 sm:p-4 flex flex-col flex-1 justify-between">
-                    <div>
-                        <div class="flex items-center justify-between text-[11px] text-slate-400 mb-1">
-                            <span>${movie.year}</span>
-                            <span class="flex items-center gap-1 text-amber-400 font-bold">
-                                <i class="fa-solid fa-star text-[10px]"></i> ${movie.rating.toFixed(1)}
-                            </span>
-                        </div>
-                        <h3 class="text-sm font-bold text-white group-hover:text-cinRed transition-colors line-clamp-1 mb-1" title="${movie.title}">
-                            ${movie.title}
-                        </h3>
-                        <p class="text-[11px] text-slate-400 line-clamp-1 mb-3">
-                            ${movie.genres.join(', ')}
-                        </p>
-                    </div>
+          <h4 class="text-xs font-bold text-white mb-3 flex items-center gap-2">
+            <i class="fa-solid fa-server text-red-500"></i> Direct High Speed Download Mirrors
+          </h4>
 
-                    <button onclick="openMovieDetails(${movie.id})" 
-                            class="w-full py-1.5 px-3 rounded-lg bg-cinNavy hover:bg-cinRed text-slate-200 hover:text-white font-semibold text-xs tracking-wide transition-all border border-cinBorder hover:border-cinRed flex items-center justify-center gap-1.5">
-                        <span>Details</span>
-                        <i class="fa-solid fa-angle-right text-[10px]"></i>
-                    </button>
+          <div class="space-y-2.5" id="modalDownloadServers">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+
+        <!-- Cast -->
+        <div id="castSection">
+          <h3 class="text-xs font-bold text-slate-200 uppercase tracking-wider mb-2">Starring Cast</h3>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5" id="modalCastList">
+            <!-- Cast populated by JS -->
+          </div>
+        </div>
+
+        <!-- Comments & Audience Reviews -->
+        <div class="border-t border-slate-800 pt-5">
+          <h3 class="text-xs font-bold text-slate-200 uppercase tracking-wider mb-3 flex items-center gap-2">
+            <i class="fa-solid fa-comments text-amber-400"></i> Audience Reviews & Discussion
+          </h3>
+
+          <form onsubmit="handleAddComment(event)" class="mb-4 bg-slate-950 border border-slate-800 p-3 rounded-xl flex gap-2">
+            <input type="text" id="commentInput" placeholder="Write a review about quality or storyline..." required class="flex-1 bg-slate-900 border border-slate-800 rounded-lg px-3 py-1.5 text-xs text-white focus:outline-none focus:border-red-500" />
+            <button type="submit" class="bg-red-600 hover:bg-red-500 text-white font-bold text-xs px-4 py-1.5 rounded-lg shadow">Post</button>
+          </form>
+
+          <div class="space-y-2" id="modalReviewsList">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 2: TRAILER MODAL -->
+  <div id="trailerModal" class="fixed inset-0 z-50 bg-black/90 hidden flex items-center justify-center p-4">
+    <div class="max-w-4xl w-full bg-slate-900 rounded-2xl overflow-hidden border border-slate-800 shadow-2xl relative">
+      <div class="p-3.5 flex items-center justify-between border-b border-slate-800">
+        <h3 id="trailerTitle" class="text-xs font-bold text-white">Trailer</h3>
+        <button onclick="closeTrailerModal()" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+      </div>
+      <div class="aspect-video bg-black">
+        <iframe id="trailerFrame" class="w-full h-full" src="" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 3: WATCHLIST MODAL -->
+  <div id="watchlistModal" class="fixed inset-0 z-50 bg-black/80 hidden flex items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-lg w-full p-6 relative max-h-[80vh] flex flex-col">
+      <button onclick="closeWatchlistModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
+      <h3 class="text-base font-bold text-white mb-1"><i class="fa-solid fa-bookmark text-red-500"></i> Saved Watchlist</h3>
+      <p class="text-xs text-slate-400 mb-4">Your bookmarked movies for quick viewing.</p>
+      
+      <div class="space-y-2 overflow-y-auto flex-1" id="watchlistItems">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 4: REQUEST MOVIE MODAL -->
+  <div id="requestModal" class="fixed inset-0 z-50 bg-black/80 hidden flex items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-md w-full p-6 relative">
+      <button onclick="closeRequestModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
+      <h3 class="text-lg font-bold text-white mb-1"><i class="fa-solid fa-paper-plane text-red-500"></i> Request A Movie / Series</h3>
+      <p class="text-xs text-slate-400 mb-4">Tell us what movie or Bengali dubbed series you want us to add!</p>
+      
+      <form onsubmit="handleRequestSubmit(event)" class="space-y-3">
+        <input type="text" required placeholder="Movie / Web Series Title" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-red-500" />
+        <select class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-slate-300 focus:outline-none focus:border-red-500">
+          <option>Prefer 1080p Dual Audio / Bengali</option>
+          <option>Prefer 4K Ultra HD</option>
+          <option>Prefer 720p HD</option>
+        </select>
+        <textarea placeholder="Additional notes (Release year, Director...)" rows="3" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-red-500"></textarea>
+        <button type="submit" class="w-full bg-red-600 hover:bg-red-500 text-white font-bold text-xs py-2.5 rounded-lg shadow">Submit Request</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT APP STATE & FUNCTIONS -->
+  <script>
+    const MASTER_DIRECT_LINK = 'https://www.effectivecpmnetwork.com/r6rna14d?key=d0bc6c975bfefb9077bd7612138c2b09';
+
+    const MOVIES = [
+      {
+        id: 'dune-2',
+        title: 'Dune: Part Two',
+        tagline: 'Long live the fighters.',
+        description: 'Paul Atreides unites with Chani and the Fremen while seeking revenge against the conspirators who destroyed his family.',
+        poster: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=800&auto=format&fit=crop',
+        backdrop: 'https://images.unsplash.com/photo-1509198397868-475647b2a1e5?q=80&w=1600&auto=format&fit=crop',
+        trailerUrl: 'https://www.youtube.com/embed/Way9Dexny3w',
+        videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4',
+        releaseYear: 2024,
+        rating: 8.7,
+        imdbVotes: '480K',
+        duration: '2h 46m',
+        language: 'English (Dual Audio Hindi)',
+        country: 'USA',
+        genres: ['Action', 'Sci-Fi', 'Adventure'],
+        quality: '4K',
+        isTrending: true,
+        isFeatured: true,
+        isBengali: true,
+        director: 'Denis Villeneuve',
+        storyline: 'A boy becomes the Messiah of Arrakis on a desert planet that has giant worms that protect the Commodity called Spice.',
+        cast: [
+          { name: 'Timothée Chalamet', role: 'Paul Atreides', avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200' },
+          { name: 'Zendaya', role: 'Chani', avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200' },
+          { name: 'Rebecca Ferguson', role: 'Lady Jessica', avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200' }
+        ],
+        downloadServers: [
+          { name: 'Server 1 - Direct High Speed', quality: '4K Ultra HD', size: '14.2 GB', speed: '100 MB/s', url: MASTER_DIRECT_LINK },
+          { name: 'Server 2 - Google Drive Cloud', quality: '1080p', size: '3.8 GB', speed: '50 MB/s', url: MASTER_DIRECT_LINK },
+          { name: 'Server 3 - Telegram Movie Bot', quality: '720p', size: '1.4 GB', speed: 'Fast', url: MASTER_DIRECT_LINK }
+        ],
+        reviews: [
+          { userName: 'Rahim Chowdhury', rating: 5, comment: 'Visual masterpiece! Sound design was breathtaking on 4K stream.', date: '2 days ago' },
+          { userName: 'Anik Hasan', rating: 5, comment: 'Best sci-fi epic since Interstellar. Dual audio sync was perfect!', date: '1 week ago' }
+        ]
+      },
+      {
+        id: 'oppenheimer',
+        title: 'Oppenheimer',
+        tagline: 'The world forever changes.',
+        description: 'The story of American scientist J. Robert Oppenheimer and his role in the development of the atomic bomb.',
+        poster: 'https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=800&auto=format&fit=crop',
+        backdrop: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1600&auto=format&fit=crop',
+        trailerUrl: 'https://www.youtube.com/embed/uYPbbksJxIg',
+        videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4',
+        releaseYear: 2023,
+        rating: 8.9,
+        imdbVotes: '720K',
+        duration: '3h 00m',
+        language: 'English (Dual Audio)',
+        country: 'USA',
+        genres: ['Drama', 'History'],
+        quality: '4K',
+        isTrending: true,
+        isFeatured: true,
+        director: 'Christopher Nolan',
+        storyline: 'During WWII, Lt. Gen. Leslie Groves appoints physicist J. Robert Oppenheimer to work on the top-secret Manhattan Project.',
+        cast: [
+          { name: 'Cillian Murphy', role: 'J. Robert Oppenheimer', avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200' },
+          { name: 'Emily Blunt', role: 'Katherine Oppenheimer', avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=200' }
+        ],
+        downloadServers: [
+          { name: 'CineDrive 4K UHD Server', quality: '4K Ultra HD', size: '18.5 GB', speed: '120 MB/s', url: MASTER_DIRECT_LINK }
+        ],
+        reviews: [
+          { userName: 'Tanvir Ahmed', rating: 5, comment: 'Cillian Murphy deserved every Oscar! Flawless audio.', date: '3 days ago' }
+        ]
+      },
+      {
+        id: 'toofan-bengali',
+        title: 'Toofan (তুফান)',
+        tagline: 'The storm arrives.',
+        description: 'A notorious mobster in 1990s Bangladesh attempts to build an empire while taking on rival syndicates.',
+        poster: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=800&auto=format&fit=crop',
+        backdrop: 'https://images.unsplash.com/photo-1514533450685-4493e01d1fdc?q=80&w=1600&auto=format&fit=crop',
+        trailerUrl: 'https://www.youtube.com/embed/Way9Dexny3w',
+        videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+        releaseYear: 2024,
+        rating: 8.4,
+        imdbVotes: '120K',
+        duration: '2h 25m',
+        language: 'Bengali (বাংলা)',
+        country: 'Bangladesh',
+        genres: ['Action', 'Bengali'],
+        quality: '1080p',
+        isTrending: true,
+        isFeatured: true,
+        isBengali: true,
+        director: 'Raihan Rafi',
+        storyline: 'Ghalib, a ruthless underworld figure known as Toofan, rises through the Dhaka syndicate ranks.',
+        cast: [
+          { name: 'Shakib Khan', role: 'Toofan / Ghalib', avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200' },
+          { name: 'Chanchal Chowdhury', role: 'CID Officer Akram', avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=200' }
+        ],
+        downloadServers: [
+          { name: 'BD FTP Fast Server', quality: '1080p', size: '2.4 GB', speed: '100 MB/s', url: MASTER_DIRECT_LINK }
+        ],
+        reviews: [
+          { userName: 'Sajid Islam', rating: 5, comment: 'Shakib Khan and Chanchal Chowdhury combo is legendary!', date: 'Yesterday' }
+        ]
+      },
+      {
+        id: 'stranger-things-5',
+        title: 'Stranger Things S4',
+        tagline: 'Every ending has a beginning.',
+        description: 'When a young boy vanishes, a small town uncovers a mystery involving secret experiments and terrifying forces.',
+        poster: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop',
+        backdrop: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1600&auto=format&fit=crop',
+        trailerUrl: 'https://www.youtube.com/embed/b9EkMc79ZSU',
+        releaseYear: 2023,
+        rating: 8.7,
+        imdbVotes: '1.2M',
+        duration: '9 Episodes',
+        language: 'English (Hindi Dubbed)',
+        country: 'USA',
+        genres: ['Sci-Fi', 'Horror'],
+        quality: '1080p',
+        isSeries: true,
+        isTrending: true,
+        seasonsCount: 4,
+        episodesCount: 9,
+        director: 'The Duffer Brothers',
+        storyline: 'In Hawkins, Indiana, a group of friends faces dark forces leaking from the Upside Down realm.',
+        cast: [
+          { name: 'Millie Bobby Brown', role: 'Eleven', avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200' }
+        ],
+        downloadServers: [
+          { name: 'Season 4 Zip Single Link', quality: '1080p', size: '8.4 GB', speed: '80 MB/s', url: MASTER_DIRECT_LINK }
+        ],
+        reviews: []
+      },
+      {
+        id: 'karagar-bengali-series',
+        title: 'Karagar (কারাগার)',
+        tagline: 'Cell No. 14 mystery.',
+        description: 'A mystery prisoner suddenly appears in Cell No. 14 of Chittagong Central Jail, which has been locked for 50 years.',
+        poster: 'https://images.unsplash.com/photo-1509198397868-475647b2a1e5?q=80&w=800&auto=format&fit=crop',
+        backdrop: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1600&auto=format&fit=crop',
+        trailerUrl: 'https://www.youtube.com/embed/Way9Dexny3w',
+        releaseYear: 2023,
+        rating: 8.8,
+        imdbVotes: '45K',
+        duration: '2 Seasons',
+        language: 'Bengali (বাংলা)',
+        country: 'Bangladesh',
+        genres: ['Bengali', 'Drama'],
+        quality: '1080p',
+        isSeries: true,
+        isBengali: true,
+        seasonsCount: 2,
+        episodesCount: 12,
+        director: 'Syed Ahmed Shawki',
+        storyline: 'The mute prisoner claims to be Mir Jafar’s executioner from the Battle of Plassey (1757).',
+        cast: [
+          { name: 'Chanchal Chowdhury', role: 'The Mystery Prisoner', avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=200' }
+        ],
+        downloadServers: [
+          { name: 'Hoichoi WebDL 1080p', quality: '1080p', size: '3.2 GB', speed: '60 MB/s', url: MASTER_DIRECT_LINK }
+        ],
+        reviews: []
+      },
+      {
+        id: 'deadpool-wolverine',
+        title: 'Deadpool & Wolverine',
+        tagline: 'Come together.',
+        description: 'Deadpool joins forces with a reluctant Wolverine to defeat a dangerous multiversal threat.',
+        poster: 'https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?q=80&w=800&auto=format&fit=crop',
+        backdrop: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=1600&auto=format&fit=crop',
+        trailerUrl: 'https://www.youtube.com/embed/73_1biulk6s',
+        releaseYear: 2024,
+        rating: 8.1,
+        imdbVotes: '340K',
+        duration: '2h 08m',
+        language: 'English (Dual Audio Hindi)',
+        country: 'USA',
+        genres: ['Action', 'Comedy'],
+        quality: '4K',
+        isTrending: true,
+        director: 'Shawn Levy',
+        storyline: 'The Time Variance Authority pulls Deadpool from his quiet life and sets him on a mission alongside a variant Wolverine.',
+        cast: [
+          { name: 'Ryan Reynolds', role: 'Deadpool', avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200' }
+        ],
+        downloadServers: [
+          { name: 'Server 1 - 4K REMUX', quality: '4K Ultra HD', size: '16.0 GB', speed: '110 MB/s', url: MASTER_DIRECT_LINK }
+        ],
+        reviews: []
+      }
+    ];
+
+    const COMING_SOON = [
+      {
+        id: 'cs-1',
+        title: 'Avatar 3: Fire and Ash',
+        backdrop: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop',
+        releaseDate: 'December 19, 2025',
+        genres: ['Action', 'Sci-Fi'],
+        expectedQuality: '4K IMAX 3D',
+        trailerUrl: 'https://www.youtube.com/embed/d9MyW72ELq0',
+        notifiedCount: 14890
+      },
+      {
+        id: 'cs-2',
+        title: 'Avengers: Secret Wars',
+        backdrop: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=1200&auto=format&fit=crop',
+        releaseDate: 'May 7, 2027',
+        genres: ['Action', 'Fantasy'],
+        expectedQuality: '4K Ultra HD',
+        trailerUrl: 'https://www.youtube.com/embed/73_1biulk6s',
+        notifiedCount: 32410
+      },
+      {
+        id: 'cs-3',
+        title: 'Toofan 2 (তুফান ২)',
+        backdrop: 'https://images.unsplash.com/photo-1514533450685-4493e01d1fdc?q=80&w=1200&auto=format&fit=crop',
+        releaseDate: 'Eid-ul-Adha 2026',
+        genres: ['Crime', 'Action'],
+        expectedQuality: '1080p FHD',
+        trailerUrl: 'https://www.youtube.com/embed/Way9Dexny3w',
+        notifiedCount: 22100
+      }
+    ];
+
+    const COLLECTIONS = [
+      {
+        id: 'col-1',
+        title: 'IMDb Top 250 Cinema',
+        subtitle: 'The highest critically acclaimed movies of all time in 4K',
+        badge: 'MUST WATCH',
+        moviesCount: 250,
+        bannerImage: 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=800',
+        genre: 'Drama'
+      },
+      {
+        id: 'col-2',
+        title: 'Bengali Masterpieces (বাংলা সিনেমা)',
+        subtitle: 'Blockbuster Dhallywood & Tollywood thrillers with dual subtitles',
+        badge: 'BANGLA SPECIAL',
+        moviesCount: 140,
+        bannerImage: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=800',
+        genre: 'Bengali'
+      },
+      {
+        id: 'col-3',
+        title: 'Marvel Cinematic Multiverse',
+        subtitle: 'Complete chronological order from Iron Man to Deadpool & Wolverine',
+        badge: 'MCU COLLECTION',
+        moviesCount: 34,
+        bannerImage: 'https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?q=80&w=800',
+        genre: 'Action'
+      }
+    ];
+
+    const GENRES = ['All', 'Bengali', 'Action', 'Sci-Fi', 'Horror', 'Comedy', 'Drama'];
+    let selectedGenre = 'All';
+    let watchlist = ['dune-2', 'toofan-bengali'];
+    let currentHeroIndex = 0;
+    const featuredList = MOVIES.filter(m => m.isFeatured);
+    let activeMovie = null;
+
+    // --- GENRE FILTER & NAV ---
+    function renderGenres() {
+      const container = document.getElementById('genreContainer');
+      container.innerHTML = GENRES.map(g => `
+        <button onclick="selectGenre('${g}')" class="px-3.5 py-1.5 rounded-full whitespace-nowrap transition-colors ${selectedGenre === g ? 'bg-red-600 text-white font-bold shadow' : 'bg-slate-900 hover:bg-slate-800 text-slate-300'}">
+          ${g}
+        </button>
+      `).join('');
+    }
+
+    function selectGenre(g) {
+      selectedGenre = g;
+      renderGenres();
+      renderMovies();
+      const el = document.getElementById('trending-movies-section');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // --- HERO CAROUSEL ---
+    function updateHeroUI() {
+      const m = featuredList[currentHeroIndex];
+      if (!m) return;
+      document.getElementById('heroBackdrop').src = m.backdrop;
+      document.getElementById('heroPoster').src = m.poster;
+      document.getElementById('heroTitle').innerText = m.title;
+      document.getElementById('heroTagline').innerText = `"${m.tagline}"`;
+      document.getElementById('heroDesc').innerText = m.description;
+      document.getElementById('heroYear').innerText = m.releaseYear;
+      document.getElementById('heroDuration').innerText = m.duration;
+      document.getElementById('heroRating').innerText = m.rating;
+      document.getElementById('heroVotes').innerText = m.imdbVotes || '300K';
+      document.getElementById('heroQualityTag').innerText = m.quality;
+      document.getElementById('heroBengaliTag').style.display = m.isBengali ? 'inline-block' : 'none';
+      document.getElementById('heroIndex').innerText = currentHeroIndex + 1;
+      document.getElementById('heroTotal').innerText = featuredList.length;
+
+      const isSaved = watchlist.includes(m.id);
+      document.getElementById('heroBookmarkBtn').className = `p-2.5 rounded-xl border ${isSaved ? 'bg-emerald-600 border-emerald-500 text-white' : 'bg-slate-800/80 border-slate-700 text-slate-200'}`;
+    }
+
+    function nextHeroSlide() {
+      currentHeroIndex = (currentHeroIndex + 1) % featuredList.length;
+      updateHeroUI();
+    }
+
+    function prevHeroSlide() {
+      currentHeroIndex = (currentHeroIndex - 1 + featuredList.length) % featuredList.length;
+      updateHeroUI();
+    }
+
+    function playHeroMovie() {
+      openMovieModal(featuredList[currentHeroIndex].id);
+    }
+
+    function playHeroTrailer() {
+      openTrailerModal(featuredList[currentHeroIndex].trailerUrl, featuredList[currentHeroIndex].title);
+    }
+
+    function toggleHeroBookmark() {
+      toggleWatchlist(featuredList[currentHeroIndex].id);
+      updateHeroUI();
+    }
+
+    // --- SEARCH AUTOCOMPLETE ---
+    function handleSearchInput() {
+      const q = document.getElementById('searchInput').value.toLowerCase().trim();
+      const dropdown = document.getElementById('searchDropdown');
+      
+      if (!q) {
+        dropdown.classList.add('hidden');
+        renderMovies();
+        return;
+      }
+
+      const matches = MOVIES.filter(m => m.title.toLowerCase().includes(q) || m.genres.some(g => g.toLowerCase().includes(q)));
+      
+      if (matches.length > 0) {
+        dropdown.innerHTML = matches.map(m => `
+          <div onclick="openMovieModal('${m.id}'); document.getElementById('searchDropdown').classList.add('hidden');" class="p-2.5 flex items-center gap-3 hover:bg-slate-800 cursor-pointer border-b border-slate-800/60 last:border-0">
+            <img src="${m.poster}" class="w-8 h-11 object-cover rounded" />
+            <div>
+              <p class="text-xs font-bold text-white">${m.title}</p>
+              <p class="text-[10px] text-slate-400">${m.releaseYear} • ${m.genres.join(', ')}</p>
+            </div>
+          </div>
+        `).join('');
+        dropdown.classList.remove('hidden');
+      } else {
+        dropdown.innerHTML = `<p class="text-xs text-slate-400 p-3 text-center">No movies found</p>`;
+        dropdown.classList.remove('hidden');
+      }
+
+      renderMovies();
+    }
+
+    // --- RENDER MOVIES GRID ---
+    function renderMovies() {
+      const grid = document.getElementById('movieGrid');
+      const search = document.getElementById('searchInput').value.toLowerCase().trim();
+
+      const filtered = MOVIES.filter(m => {
+        const matchesGenre = selectedGenre === 'All' || m.genres.includes(selectedGenre) || (selectedGenre === 'Bengali' && m.isBengali);
+        const matchesSearch = !search || m.title.toLowerCase().includes(search) || m.genres.some(g => g.toLowerCase().includes(search));
+        return matchesGenre && matchesSearch;
+      });
+
+      let html = '';
+      filtered.forEach((m, idx) => {
+        // Native Sponsor Card inserted at index 2
+        if (idx === 2) {
+          html += `
+            <a href="${MASTER_DIRECT_LINK}" target="_blank" rel="noopener noreferrer" class="flex flex-col gap-1.5 group cursor-pointer">
+              <div class="relative aspect-[2/3] w-full bg-gradient-to-b from-amber-950/40 via-slate-900 to-slate-950 rounded-lg border border-amber-500/50 hover:scale-105 transition-all overflow-hidden flex flex-col justify-between p-3 text-center shadow-lg">
+                <span class="self-center bg-amber-500 text-slate-950 font-bold text-[8px] px-1.5 py-0.5 rounded uppercase">★ SPONSORED AD</span>
+                <div class="my-auto">
+                  <i class="fa-solid fa-bolt text-amber-400 text-2xl mb-1"></i>
+                  <h4 class="text-xs font-bold text-white group-hover:text-amber-400">100MB/s Fast Download</h4>
+                  <p class="text-[10px] text-slate-400 mt-1">High Speed Cloud Mirror</p>
                 </div>
-            `;
-            return card;
+                <span class="bg-amber-500 text-slate-950 text-[10px] font-bold py-1 px-2 rounded uppercase">Download AD</span>
+              </div>
+              <span class="text-xs font-bold text-amber-400 truncate">⚡ Sponsored Fast Link</span>
+            </a>
+          `;
         }
 
-        /**
-         * Create In-Grid Sponsored Advertisement Card
-         */
-        function createInGridSponsoredCard() {
-            const adCard = document.createElement('div');
-            adCard.className = "relative bg-gradient-to-b from-[#180A0B] to-[#0A1020] rounded-xl overflow-hidden border-2 border-cinOrange/50 shadow-glow-orange flex flex-col justify-between p-4 text-center";
-            adCard.innerHTML = `
-                <div class="space-y-2">
-                    <span class="inline-block bg-cinOrange text-white text-[9px] font-black uppercase tracking-widest px-2.5 py-0.5 rounded-full">
-                        Sponsored
-                    </span>
-                    <div class="w-12 h-12 rounded-xl bg-cinOrange/20 border border-cinOrange/40 text-cinOrange mx-auto flex items-center justify-center text-xl mt-2">
-                        <i class="fa-solid fa-cloud-arrow-down"></i>
-                    </div>
-                    <h4 class="text-sm font-bold text-white tracking-tight">4K Cloud Server Mirror</h4>
-                    <p class="text-[11px] text-slate-300 leading-snug">
-                        Zero wait time. Unlock 10 Gbps unthrottled streaming mirror links.
-                    </p>
+        const isSaved = watchlist.includes(m.id);
+        html += `
+          <div onclick="openMovieModal('${m.id}')" class="flex flex-col gap-1.5 group cursor-pointer">
+            <div class="relative aspect-[2/3] w-full bg-slate-800 rounded-xl border border-slate-700/50 hover:scale-105 hover:border-red-500/50 transition-all overflow-hidden shadow-lg">
+              <img src="${m.poster}" alt="${m.title}" class="w-full h-full object-cover" />
+              <div class="absolute top-1.5 left-1.5 flex flex-col gap-1 z-10">
+                <span class="bg-red-600 text-white text-[9px] font-bold px-1.5 py-0.2 rounded-sm uppercase">${m.quality}</span>
+                ${m.isBengali ? '<span class="bg-emerald-600 text-white text-[8px] font-bold px-1 py-0.2 rounded-sm">বাংলা</span>' : ''}
+              </div>
+              <button onclick="event.stopPropagation(); toggleWatchlist('${m.id}')" class="absolute top-1.5 right-1.5 p-1.5 rounded-md z-10 ${isSaved ? 'bg-emerald-600 text-white' : 'bg-black/70 text-slate-300 hover:text-white'}">
+                <i class="fa-solid ${isSaved ? 'fa-check' : 'fa-bookmark'} text-xs"></i>
+              </button>
+              <div class="absolute bottom-1.5 left-1.5 bg-black/80 text-amber-400 font-bold text-[10px] px-1.5 py-0.2 rounded-sm flex items-center gap-0.5 z-10">
+                <i class="fa-solid fa-star text-[10px]"></i> ${m.rating}
+              </div>
+            </div>
+            <span class="text-xs font-bold text-slate-100 group-hover:text-red-400 transition-colors truncate">${m.title}</span>
+            <span class="text-[10px] text-slate-500 -mt-1">${m.genres[0]} • ${m.releaseYear}</span>
+          </div>
+        `;
+      });
+
+      grid.innerHTML = html;
+    }
+
+    // --- WEB SERIES RENDER ---
+    function renderSeries() {
+      const grid = document.getElementById('seriesGrid');
+      const seriesList = MOVIES.filter(m => m.isSeries);
+      
+      grid.innerHTML = seriesList.map(show => `
+        <div onclick="openMovieModal('${show.id}')" class="bg-slate-950/80 hover:bg-slate-900 border border-slate-800 hover:border-purple-500/50 rounded-xl p-3 flex flex-col sm:flex-row gap-3 transition-all cursor-pointer group shadow">
+          <img src="${show.poster}" class="w-full sm:w-28 h-36 object-cover rounded-lg border border-slate-700/80 shrink-0 group-hover:scale-105 transition-transform" />
+          <div class="flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-1.5 mb-1">
+                <span class="text-[9px] bg-purple-950 text-purple-300 border border-purple-800/80 px-1.5 py-0.2 rounded font-bold uppercase">${show.seasonsCount} Seasons</span>
+                <span class="text-[10px] text-amber-400 font-bold"><i class="fa-solid fa-star"></i> ${show.rating}</span>
+              </div>
+              <h3 class="text-sm font-bold text-white group-hover:text-purple-300">${show.title}</h3>
+              <p class="text-xs text-slate-400 line-clamp-2 mt-1">${show.description}</p>
+            </div>
+            <div class="mt-3 pt-2 border-t border-slate-800/80 flex items-center justify-between">
+              <span class="text-[11px] text-slate-400">${show.episodesCount} Episodes</span>
+              <span class="bg-purple-600 group-hover:bg-purple-500 text-white text-[11px] font-bold px-2.5 py-1 rounded flex items-center gap-1 shadow">
+                <i class="fa-solid fa-play text-[10px]"></i> Watch All
+              </span>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // --- COMING SOON RENDER ---
+    function renderComingSoon() {
+      const grid = document.getElementById('comingSoonGrid');
+      grid.innerHTML = COMING_SOON.map(item => `
+        <div class="bg-slate-900/60 border border-slate-800 hover:border-amber-500/50 rounded-xl overflow-hidden shadow transition-all flex flex-col group">
+          <div class="relative h-40 overflow-hidden bg-slate-950">
+            <img src="${item.backdrop}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80" />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
+            <button onclick="openTrailerModal('${item.trailerUrl}', '${item.title}')" class="absolute inset-0 flex items-center justify-center bg-black/40 hover:bg-black/20">
+              <div class="w-10 h-10 rounded-full bg-red-600 text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-play ml-0.5"></i>
+              </div>
+            </button>
+            <div class="absolute bottom-2 left-2 bg-black/80 text-amber-300 text-[10px] font-bold px-2 py-0.5 rounded border border-amber-500/30">
+              <i class="fa-regular fa-calendar"></i> ${item.releaseDate}
+            </div>
+          </div>
+          <div class="p-3 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="text-sm font-bold text-white group-hover:text-amber-400">${item.title}</h3>
+              <div class="flex flex-wrap gap-1 mt-1.5">
+                ${item.genres.map(g => `<span class="text-[9px] bg-slate-800 text-slate-400 px-1.5 py-0.2 rounded">${g}</span>`).join('')}
+                <span class="text-[9px] bg-red-950 text-red-300 border border-red-800/80 px-1.5 py-0.2 rounded font-bold">${item.expectedQuality}</span>
+              </div>
+            </div>
+            <div class="mt-3 pt-2 border-t border-slate-800/80 flex items-center justify-between">
+              <span class="text-[11px] text-slate-500">🔔 ${item.notifiedCount.toLocaleString()} waiting</span>
+              <button onclick="alert('Subscribed! We will notify you when released.')" class="text-[11px] font-bold px-2.5 py-1 rounded bg-amber-500 hover:bg-amber-400 text-slate-950 shadow">
+                <i class="fa-regular fa-bell"></i> Remind Me
+              </button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // --- COLLECTIONS RENDER ---
+    function renderCollections() {
+      const grid = document.getElementById('collectionsGrid');
+      grid.innerHTML = COLLECTIONS.map(col => `
+        <div onclick="selectGenre('${col.genre}')" class="relative rounded-xl overflow-hidden border border-slate-800 hover:border-slate-700 bg-slate-950 p-5 shadow group cursor-pointer transition-all hover:scale-[1.02]">
+          <div class="relative z-10 flex flex-col justify-between h-44">
+            <div>
+              <span class="bg-black/80 text-amber-400 border border-amber-500/40 text-[9px] font-bold px-2 py-0.5 rounded uppercase">${col.badge}</span>
+              <h3 class="text-base font-black text-white mt-2 group-hover:text-red-400">${col.title}</h3>
+              <p class="text-xs text-slate-400 mt-1">${col.subtitle}</p>
+            </div>
+            <div class="pt-3 border-t border-slate-800/80 flex items-center justify-between">
+              <span class="text-[11px] text-slate-400 font-mono"><i class="fa-solid fa-film text-red-400"></i> ${col.moviesCount}+ Titles</span>
+              <span class="text-xs font-bold text-white group-hover:text-red-400">Explore &rarr;</span>
+            </div>
+          </div>
+          <div class="absolute right-0 bottom-0 w-1/2 h-full opacity-30 group-hover:opacity-40 transition-opacity">
+            <img src="${col.bannerImage}" class="w-full h-full object-cover rounded-l-xl" />
+            <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/70 to-transparent"></div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // --- WATCHLIST STATE ---
+    function toggleWatchlist(id) {
+      if (watchlist.includes(id)) {
+        watchlist = watchlist.filter(item => item !== id);
+      } else {
+        watchlist.push(id);
+      }
+      document.getElementById('watchlistCount').innerText = watchlist.length;
+      renderMovies();
+    }
+
+    function openWatchlistModal() {
+      const container = document.getElementById('watchlistItems');
+      if (watchlist.length === 0) {
+        container.innerHTML = `<p class="text-xs text-slate-400 text-center py-6">Your watchlist is currently empty.</p>`;
+      } else {
+        container.innerHTML = watchlist.map(id => {
+          const m = MOVIES.find(x => x.id === id);
+          if (!m) return '';
+          return `
+            <div class="bg-slate-950 border border-slate-800 p-2.5 rounded-xl flex items-center justify-between gap-3">
+              <div class="flex items-center gap-3">
+                <img src="${m.poster}" class="w-10 h-14 object-cover rounded border border-slate-800" />
+                <div>
+                  <h4 class="text-xs font-bold text-white">${m.title}</h4>
+                  <p class="text-[10px] text-slate-400">${m.releaseYear} • ${m.quality}</p>
                 </div>
-                <div class="mt-4 pt-2">
-                    <a href="https://auctionr.org/4/fa93ed40bc9be029e745479ee5ecf812" target="_blank" rel="noopener noreferrer"
-                       class="inline-block w-full py-2 px-3 rounded-lg bg-gradient-to-r from-cinOrange to-cinRed text-white font-bold text-xs shadow-md hover:scale-105 transition-transform">
-                        Launch Mirror <i class="fa-solid fa-external-link text-[10px] ml-1"></i>
-                    </a>
-                </div>
-            `;
-            return adCard;
-        }
+              </div>
+              <div class="flex items-center gap-2">
+                <button onclick="openMovieModal('${m.id}'); closeWatchlistModal();" class="bg-red-600 text-white text-[10px] font-bold px-2.5 py-1 rounded">View</button>
+                <button onclick="toggleWatchlist('${m.id}'); openWatchlistModal();" class="text-slate-500 hover:text-red-400 p-1"><i class="fa-solid fa-trash-can"></i></button>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+      document.getElementById('watchlistModal').classList.remove('hidden');
+    }
 
-        /**
-         * Open Detailed Movie Modal
-         */
-        function openMovieDetails(movieId) {
-            const movie = MOVIE_DATABASE.find(m => m.id === movieId);
-            if (!movie) return;
+    function closeWatchlistModal() {
+      document.getElementById('watchlistModal').classList.add('hidden');
+    }
 
-            // Set Meta
-            document.getElementById('modalBackdropImg').style.backgroundImage = `url('${movie.backdrop || movie.poster}')`;
-            document.getElementById('modalPosterImg').src = movie.poster;
-            document.getElementById('modalTitle').textContent = movie.title;
-            document.getElementById('modalOverview').textContent = movie.overview;
-            document.getElementById('modalQuality').textContent = movie.quality;
-            document.getElementById('modalRating').innerHTML = `<i class="fa-solid fa-star text-[9px] text-amber-400"></i> ${movie.rating.toFixed(1)}`;
-            document.getElementById('modalYear').textContent = movie.year;
-            document.getElementById('modalDuration').textContent = movie.duration;
-            document.getElementById('modalLanguage').textContent = movie.language;
-            document.getElementById('modalDirector').textContent = movie.director;
-            document.getElementById('modalCountry').textContent = movie.country;
+    // --- MOVIE DETAIL MODAL ---
+    function openMovieModal(id) {
+      const m = MOVIES.find(x => x.id === id);
+      if (!m) return;
+      activeMovie = m;
 
-            // Genres
-            const genresContainer = document.getElementById('modalGenres');
-            genresContainer.innerHTML = '';
-            movie.genres.forEach(g => {
-                const tag = document.createElement('span');
-                tag.className = "px-2.5 py-0.5 rounded-full text-[11px] font-medium bg-cinBorder/60 text-slate-300";
-                tag.textContent = g;
-                genresContainer.appendChild(tag);
-            });
+      document.getElementById('modalTitle').innerText = m.title;
+      document.getElementById('modalBackdropImg').src = m.backdrop;
+      document.getElementById('modalQuality').innerText = m.quality;
+      document.getElementById('modalRating').innerText = m.rating;
+      document.getElementById('modalYear').innerText = m.releaseYear;
+      document.getElementById('modalDuration').innerText = m.duration;
+      document.getElementById('modalLanguage').innerText = m.language;
+      document.getElementById('modalGenres').innerText = m.genres.join(', ');
+      document.getElementById('modalCountry').innerText = m.country || 'USA';
+      document.getElementById('modalDirector').innerText = m.director || 'Denis Villeneuve';
+      document.getElementById('modalStoryline').innerText = m.storyline || m.description;
 
-            // Watch Trailer Buttons
-            document.getElementById('modalPlayTrailerBtn').onclick = () => {
-                openTrailerModal(movie.trailerYoutubeId, movie.title);
-            };
-            document.getElementById('modalActionTrailerBtn').onclick = () => {
-                openTrailerModal(movie.trailerYoutubeId, movie.title);
-            };
+      // Hide Video Player initially
+      document.getElementById('videoContainer').classList.add('hidden');
+      document.getElementById('backdropContainer').classList.remove('hidden');
+      document.getElementById('movieVideoFrame').src = '';
 
-            // Watchlist Button
-            const modalFavBtn = document.getElementById('modalFavToggleBtn');
-            const updateModalFavBtn = () => {
-                const isFav = STATE.favorites.includes(movie.id);
-                modalFavBtn.innerHTML = isFav 
-                    ? '<i class="fa-solid fa-heart text-cinRed"></i> <span>In Watchlist</span>'
-                    : '<i class="fa-regular fa-heart"></i> <span>Add to Watchlist</span>';
-            };
-            updateModalFavBtn();
-            modalFavBtn.onclick = () => {
-                toggleFavorite(movie.id);
-                updateModalFavBtn();
-            };
+      // Populate Download Servers
+      const serversContainer = document.getElementById('modalDownloadServers');
+      serversContainer.innerHTML = m.downloadServers.map(srv => `
+        <div class="bg-slate-900 border border-slate-800 rounded-xl p-3 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-xs font-bold text-white">${srv.name}</span>
+              <span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded font-mono font-bold">${srv.quality}</span>
+              <span class="text-[10px] bg-red-950 text-red-300 border border-red-800 px-1.5 py-0.5 rounded font-mono">${srv.size}</span>
+            </div>
+            <p class="text-[11px] text-slate-400 mt-0.5">Speed: ${srv.speed}</p>
+          </div>
+          <a href="${srv.url}" target="_blank" class="w-full sm:w-auto bg-red-600 hover:bg-red-500 text-white text-xs font-bold px-4 py-2 rounded-lg flex items-center justify-center gap-2 shadow transition-all">
+            <i class="fa-solid fa-download"></i> Download File
+          </a>
+        </div>
+      `).join('');
 
-            // Legitimate Streaming Source Button
-            document.getElementById('modalOfficialSourceBtn').href = movie.officialLink || 'https://www.google.com/search?q=' + encodeURIComponent(movie.title + ' watch online streaming');
+      // Populate Cast
+      const castContainer = document.getElementById('modalCastList');
+      if (m.cast && m.cast.length > 0) {
+        castContainer.innerHTML = m.cast.map(c => `
+          <div class="flex items-center gap-2.5 bg-slate-950 border border-slate-800 p-2 rounded-xl">
+            <img src="${c.avatar}" class="w-9 h-9 rounded-full object-cover border border-slate-700" />
+            <div class="min-w-0">
+              <p class="text-xs font-bold text-slate-200 truncate">${c.name}</p>
+              <p class="text-[10px] text-slate-400 truncate">${c.role}</p>
+            </div>
+          </div>
+        `).join('');
+        document.getElementById('castSection').classList.remove('hidden');
+      } else {
+        document.getElementById('castSection').classList.add('hidden');
+      }
 
-            // Open Modal
-            elements.movieDetailsModal.classList.remove('hidden');
-            document.body.classList.add('overflow-hidden');
-        }
+      // Populate Reviews
+      renderModalReviews();
 
-        function closeMovieDetails() {
-            elements.movieDetailsModal.classList.add('hidden');
-            document.body.classList.remove('overflow-hidden');
-        }
+      document.getElementById('movieModal').classList.remove('hidden');
+    }
 
-        /**
-         * Open Trailer Modal with YouTube Embed
-         */
-        function openTrailerModal(youtubeId, title) {
-            elements.trailerIframeContainer.innerHTML = `
-                <iframe class="w-full h-full" 
-                        src="https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=1&rel=0&modestbranding=1" 
-                        title="${title} Official Trailer" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        allowfullscreen>
-                </iframe>
-            `;
-            elements.trailerModal.classList.remove('hidden');
-            document.body.classList.add('overflow-hidden');
-        }
+    function startModalVideo() {
+      if (!activeMovie) return;
+      document.getElementById('backdropContainer').classList.add('hidden');
+      document.getElementById('videoContainer').classList.remove('hidden');
+      
+      if (activeMovie.videoUrl) {
+        document.getElementById('movieVideoFrame').src = activeMovie.videoUrl;
+      } else {
+        document.getElementById('movieVideoFrame').src = activeMovie.trailerUrl;
+      }
+    }
 
-        function closeTrailerModal() {
-            elements.trailerIframeContainer.innerHTML = '';
-            elements.trailerModal.classList.add('hidden');
-            if (elements.movieDetailsModal.classList.contains('hidden')) {
-                document.body.classList.remove('overflow-hidden');
-            }
-        }
+    function closeMovieModal() {
+      document.getElementById('movieModal').classList.add('hidden');
+      document.getElementById('movieVideoFrame').src = '';
+      activeMovie = null;
+    }
 
-        /**
-         * Favorites / Watchlist System (localStorage)
-         */
-        function toggleFavorite(movieId) {
-            const index = STATE.favorites.indexOf(movieId);
-            const movie = MOVIE_DATABASE.find(m => m.id === movieId);
-            const title = movie ? movie.title : 'Movie';
+    function renderModalReviews() {
+      const container = document.getElementById('modalReviewsList');
+      if (!activeMovie || !activeMovie.reviews || activeMovie.reviews.length === 0) {
+        container.innerHTML = `<p class="text-[11px] text-slate-500 italic">No reviews posted yet. Be the first!</p>`;
+        return;
+      }
 
-            if (index > -1) {
-                STATE.favorites.splice(index, 1);
-                showToast(`Removed "${title}" from Watchlist`, 'info');
-            } else {
-                STATE.favorites.push(movieId);
-                showToast(`Saved "${title}" to Watchlist!`, 'success');
-            }
+      container.innerHTML = activeMovie.reviews.map(r => `
+        <div class="bg-slate-950 border border-slate-800 p-3 rounded-xl">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-bold text-slate-200">${r.userName}</span>
+            <span class="text-[10px] text-amber-400 font-bold"><i class="fa-solid fa-star"></i> ${r.rating}/5</span>
+          </div>
+          <p class="text-xs text-slate-300">${r.comment}</p>
+        </div>
+      `).join('');
+    }
 
-            saveFavorites();
-            updateFavoritesCounter();
-            renderMovies();
-            updateHeroFavButtonState();
-            if (!elements.watchlistDrawer.classList.contains('translate-x-full')) {
-                renderWatchlistDrawer();
-            }
-        }
+    function handleAddComment(e) {
+      e.preventDefault();
+      const input = document.getElementById('commentInput');
+      if (!input.value.trim() || !activeMovie) return;
 
-        function saveFavorites() {
-            localStorage.setItem('cinverse_favorites', JSON.stringify(STATE.favorites));
-        }
+      activeMovie.reviews.unshift({
+        userName: 'Current Viewer',
+        rating: 5,
+        comment: input.value.trim(),
+        date: 'Just now'
+      });
 
-        function updateFavoritesCounter() {
-            const count = STATE.favorites.length;
-            elements.favCounterBadge.textContent = count;
-            elements.drawerCountBadge.textContent = count;
-        }
+      input.value = '';
+      renderModalReviews();
+    }
 
-        function renderWatchlistDrawer() {
-            elements.drawerListContainer.innerHTML = '';
-            const favMovies = MOVIE_DATABASE.filter(m => STATE.favorites.includes(m.id));
+    // --- TRAILER MODAL ---
+    function openTrailerModal(url, title) {
+      document.getElementById('trailerTitle').innerText = title;
+      document.getElementById('trailerFrame').src = url;
+      document.getElementById('trailerModal').classList.remove('hidden');
+    }
 
-            if (favMovies.length === 0) {
-                elements.drawerListContainer.innerHTML = `
-                    <div class="text-center py-16 text-slate-500">
-                        <i class="fa-regular fa-heart text-4xl mb-3 text-slate-600"></i>
-                        <p class="text-sm font-semibold text-slate-400">Your watchlist is empty</p>
-                        <p class="text-xs text-slate-500 mt-1">Tap the heart icon on any movie to save it here for later.</p>
-                    </div>
-                `;
-                return;
-            }
+    function closeTrailerModal() {
+      document.getElementById('trailerModal').classList.add('hidden');
+      document.getElementById('trailerFrame').src = '';
+    }
 
-            favMovies.forEach(movie => {
-                const item = document.createElement('div');
-                item.className = "flex items-center gap-3 p-2.5 rounded-xl bg-cinNavy/70 border border-cinBorder hover:border-cinRed/50 transition-colors";
-                item.innerHTML = `
-                    <img src="${movie.poster}" alt="${movie.title}" class="w-12 h-16 object-cover rounded-lg flex-shrink-0 cursor-pointer" onclick="openMovieDetails(${movie.id})">
-                    <div class="flex-1 min-w-0 cursor-pointer" onclick="openMovieDetails(${movie.id})">
-                        <h4 class="text-xs font-bold text-white truncate hover:text-cinRed">${movie.title}</h4>
-                        <div class="flex items-center gap-2 text-[10px] text-slate-400 mt-0.5">
-                            <span>${movie.year}</span>
-                            <span>•</span>
-                            <span class="text-amber-400"><i class="fa-solid fa-star text-[9px]"></i> ${movie.rating}</span>
-                        </div>
-                    </div>
-                    <button class="p-2 text-slate-400 hover:text-cinRed transition-colors" title="Remove" onclick="toggleFavorite(${movie.id})">
-                        <i class="fa-solid fa-trash-can text-xs"></i>
-                    </button>
-                `;
-                elements.drawerListContainer.appendChild(item);
-            });
-        }
+    // --- REQUEST MODAL ---
+    function openRequestModal() {
+      document.getElementById('requestModal').classList.remove('hidden');
+    }
 
-        /**
-         * Notification Toast Helper
-         */
-        function showToast(message, type = 'info') {
-            const toast = document.createElement('div');
-            const bgClass = type === 'success' ? 'border-cinRed bg-cinNavy text-white' : 'border-slate-700 bg-cinDeep text-slate-200';
-            const icon = type === 'success' ? '<i class="fa-solid fa-check text-cinRed"></i>' : '<i class="fa-solid fa-info text-amber-400"></i>';
+    function closeRequestModal() {
+      document.getElementById('requestModal').classList.add('hidden');
+    }
 
-            toast.className = `flex items-center gap-3 px-4 py-3 rounded-xl border ${bgClass} shadow-glow-card text-xs font-medium transition-all duration-300 transform translate-y-3 opacity-0`;
-            toast.innerHTML = `${icon} <span>${message}</span>`;
+    function handleRequestSubmit(e) {
+      e.preventDefault();
+      alert('Movie request submitted successfully! We will upload it shortly.');
+      closeRequestModal();
+    }
 
-            elements.toastContainer.appendChild(toast);
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      document.getElementById('contactFormContainer').innerHTML = `
+        <div class="text-center py-8 space-y-2">
+          <i class="fa-solid fa-circle-check text-4xl text-emerald-400"></i>
+          <h4 class="text-sm font-bold text-white">Message Dispatched!</h4>
+          <p class="text-xs text-slate-400">Thank you. Our compliance team will review your DMCA request immediately.</p>
+        </div>
+      `;
+    }
 
-            setTimeout(() => {
-                toast.classList.remove('translate-y-3', 'opacity-0');
-            }, 10);
-
-            setTimeout(() => {
-                toast.classList.add('translate-y-3', 'opacity-0');
-                setTimeout(() => toast.remove(), 300);
-            }, 3000);
-        }
-    </script>
+    // Initializations
+    renderGenres();
+    updateHeroUI();
+    renderMovies();
+    renderSeries();
+    renderComingSoon();
+    renderCollections();
+  </script>
 </body>
 </html>

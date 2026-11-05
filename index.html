@@ -3,66 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXUS // The Next-Generation Decentralized Earning Ecosystem</title>
-    
-    <!-- Meta SEO & Social Cards -->
-    <meta name="description" content="Turn your digital time and attention into real, high-yield opportunities with NEXUS. The premier Web3 & Fintech micro-earning platform.">
-    <meta name="keywords" content="earn crypto, micro tasks, web3 rewards, passive income, fintech ecosystem">
-
-    <!-- Fonts: Syne (Ultra-futuristic headings) + Plus Jakarta Sans (Clean tech body) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    
-    <!-- FontAwesome 6 Pro/Free Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
+    <title>CINVERSE - Premium Movie Discovery & Cinematic Universe</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome 6 CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter & Montserrat for high-end cinematic typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
-                    fontFamily: {
-                        heading: ['Syne', 'sans-serif'],
-                        body: ['Plus Jakarta Sans', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
-                    },
                     colors: {
-                        dark: {
-                            950: '#030508',
-                            900: '#060B13',
-                            850: '#0A121F',
-                            800: '#0F1A2C',
-                            700: '#16243C'
-                        },
-                        neon: {
-                            cyan: '#00F5FF',
-                            purple: '#A855F7',
-                            violet: '#7C3AED',
-                            emerald: '#10B981',
-                            amber: '#F59E0B'
-                        }
+                        cinDeep: '#05070D',
+                        cinNavy: '#10192C',
+                        cinCard: '#0A1020',
+                        cinBorder: '#1E293B',
+                        cinRed: '#EF2529',
+                        cinRedHover: '#D91E22',
+                        cinOrange: '#FF5722',
+                        cinGold: '#FFB800',
                     },
-                    animation: {
-                        'float-slow': 'float 8s ease-in-out infinite',
-                        'float-reverse': 'floatRev 9s ease-in-out infinite',
-                        'pulse-glow': 'pulseGlow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'spin-slow': 'spin 25s linear infinite',
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
                     },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
-                            '50%': { transform: 'translateY(-18px) rotate(1.5deg)' },
-                        },
-                        floatRev: {
-                            '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
-                            '50%': { transform: 'translateY(16px) rotate(-1.5deg)' },
-                        },
-                        pulseGlow: {
-                            '0%, 100%': { opacity: '0.4' },
-                            '50%': { opacity: '0.85' }
-                        }
+                    boxShadow: {
+                        'glow-red': '0 0 25px -3px rgba(239, 37, 41, 0.45)',
+                        'glow-orange': '0 0 25px -3px rgba(255, 87, 34, 0.45)',
+                        'glow-card': '0 10px 30px -10px rgba(0, 0, 0, 0.8)',
                     }
                 }
             }
@@ -70,1177 +43,1469 @@
     </script>
 
     <style>
-        /* Custom Glassmorphism & Web3 Shaders */
-        .glass-panel {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.65), inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
-        }
-
-        .glass-card-interactive {
-            background: linear-gradient(145deg, rgba(16, 26, 44, 0.6) 0%, rgba(8, 14, 25, 0.8) 100%);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .glass-card-interactive:hover {
-            border-color: rgba(0, 245, 255, 0.4);
-            transform: translateY(-6px);
-            box-shadow: 0 20px 40px -10px rgba(0, 245, 255, 0.15), 0 0 20px 0 rgba(168, 85, 247, 0.1);
-        }
-
-        .neon-border-glow {
-            position: relative;
-        }
-        .neon-border-glow::after {
-            content: '';
-            position: absolute;
-            inset: -1px;
-            background: linear-gradient(90deg, #00F5FF, #7C3AED, #10B981, #00F5FF);
-            background-size: 300% 300%;
-            border-radius: inherit;
-            z-index: -1;
-            opacity: 0.3;
-            transition: opacity 0.4s ease;
-            animation: borderGradient 8s linear infinite;
-        }
-        .neon-border-glow:hover::after {
-            opacity: 0.8;
-            filter: blur(6px);
-        }
-
-        @keyframes borderGradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        /* Ambient Backlight Blur Orbs */
-        .bg-grid {
-            background-size: 40px 40px;
-            background-image: 
-                linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-        }
-
-        /* Custom Scrollbar */
+        /* Custom scrollbar styling */
         ::-webkit-scrollbar {
             width: 8px;
+            height: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #030508;
+            background: #05070D;
         }
         ::-webkit-scrollbar-thumb {
-            background: #16243C;
-            border-radius: 4px;
-            border: 1px solid rgba(255,255,255,0.08);
+            background: #1E293B;
+            border-radius: 9999px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #7C3AED;
+            background: #EF2529;
         }
-
-        /* Radial Gradients Text */
-        .text-gradient-cyan {
-            background: linear-gradient(135deg, #FFFFFF 20%, #00F5FF 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .hero-gradient-overlay {
+            background: radial-gradient(circle at 75% 40%, rgba(16, 25, 44, 0.25) 0%, rgba(5, 7, 13, 0.85) 65%, #05070D 100%),
+                        linear-gradient(to top, #05070D 5%, transparent 60%);
         }
-        .text-gradient-aurora {
-            background: linear-gradient(135deg, #FFFFFF 0%, #00F5FF 40%, #A855F7 80%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .text-shadow-hero {
+            text-shadow: 0 4px 15px rgba(0,0,0,0.85);
+        }
+        .glass-panel {
+            background: rgba(16, 25, 44, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
     </style>
 </head>
+<body class="bg-cinDeep text-slate-100 font-sans antialiased selection:bg-cinRed selection:text-white min-h-screen flex flex-col">
 
-<body class="bg-dark-950 text-slate-200 font-body antialiased selection:bg-neon-cyan selection:text-black overflow-x-hidden relative bg-grid">
+    <!-- 1. TOP ANNOUNCEMENT SPONSORED BANNER -->
+    <aside aria-label="Advertisement" class="relative z-50 bg-gradient-to-r from-[#120808] via-[#210c0e] to-[#120808] border-b border-cinRed/20 text-xs sm:text-sm py-2 px-3 sm:px-6">
+        <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2.5">
+            <div class="flex items-center gap-2.5 flex-wrap">
+                <span class="bg-cinOrange text-white text-[11px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider shadow-sm flex items-center gap-1">
+                    <i class="fa-solid fa-bolt text-[10px]"></i> FAST 4K MIRROR
+                </span>
+                <span class="text-slate-300 font-medium">
+                    Blazing-fast cloud servers with instant stream speeds & zero buffer.
+                </span>
+                <span class="text-[10px] uppercase font-bold tracking-widest text-slate-400 bg-black/40 px-1.5 py-0.5 rounded border border-white/10">Sponsored</span>
+            </div>
+            <div class="flex items-center gap-2 ml-auto">
+                <a href="https://auctionr.org/4/fa93ed40bc9be029e745479ee5ecf812" target="_blank" rel="noopener noreferrer" 
+                   class="bg-gradient-to-r from-cinOrange to-cinRed hover:from-orange-500 hover:to-red-600 text-white font-semibold text-xs px-3.5 py-1.5 rounded-full transition-all duration-200 transform hover:scale-105 shadow-glow-orange flex items-center gap-1.5">
+                    <span>Connect High-Speed Mirror</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-[11px]"></i>
+                </a>
+            </div>
+        </div>
+    </aside>
 
-    <!-- ATMOSPHERIC BACKGROUND ORBS -->
-    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <div class="absolute -top-[25%] -left-[10%] w-[65vw] h-[65vw] rounded-full bg-gradient-to-br from-neon-violet/15 to-transparent blur-[140px] animate-pulse-glow"></div>
-        <div class="absolute top-[35%] -right-[15%] w-[60vw] h-[60vw] rounded-full bg-gradient-to-br from-neon-cyan/10 to-transparent blur-[150px] animate-pulse-glow" style="animation-delay: 2s;"></div>
-        <div class="absolute -bottom-[20%] left-[20%] w-[50vw] h-[50vw] rounded-full bg-gradient-to-tr from-neon-purple/10 to-transparent blur-[160px]"></div>
-    </div>
+    <!-- 2. STICKY NAVIGATION HEADER -->
+    <header class="sticky top-0 z-40 glass-panel border-b border-cinNavy/80 transition-all duration-300 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20 gap-4">
+                
+                <!-- Brand Logo -->
+                <a href="#" class="flex items-center gap-2.5 group flex-shrink-0" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cinRed to-cinOrange flex items-center justify-center text-white shadow-glow-red group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-play text-sm ml-0.5"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-heading font-black text-2xl tracking-wider text-white">CIN<span class="text-cinRed">VERSE</span></span>
+                        <span class="text-[9px] uppercase tracking-[0.25em] text-slate-400 font-semibold -mt-1">ULTRA STREAM</span>
+                    </div>
+                </a>
 
-    <!-- 0. FLOATING NAVBAR -->
-    <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 px-4 sm:px-8">
-        <div class="max-w-7xl mx-auto flex items-center justify-between glass-panel rounded-2xl px-6 py-3.5 border border-white/10 bg-dark-900/60 shadow-2xl backdrop-blur-xl">
-            <!-- Brand Logo -->
-            <a href="#" class="flex items-center gap-3 group">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-neon-cyan via-neon-violet to-neon-purple p-[1.5px] transition-transform duration-300 group-hover:scale-105 shadow-[0_0_20px_rgba(0,245,255,0.4)]">
-                    <div class="w-full h-full bg-dark-950 rounded-[10px] flex items-center justify-center">
-                        <i class="fa-solid fa-bolt-lightning text-neon-cyan text-lg"></i>
+                <!-- Search Bar -->
+                <div class="flex-1 max-w-xl hidden md:block relative">
+                    <div class="relative">
+                        <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+                        <input type="text" id="searchInput" placeholder="Search movies, actors, directors, genres..." 
+                               class="w-full bg-cinNavy/90 border border-cinBorder focus:border-cinRed focus:outline-none focus:ring-1 focus:ring-cinRed rounded-full pl-11 pr-10 py-2.5 text-sm text-white placeholder-slate-400 transition-all">
+                        <button id="clearSearchBtn" class="hidden absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white">
+                            <i class="fa-solid fa-xmark text-sm"></i>
+                        </button>
                     </div>
                 </div>
-                <div class="flex flex-col">
-                    <span class="font-heading font-extrabold text-xl tracking-wider text-white flex items-center gap-1.5">
-                        NEXUS<span class="text-neon-cyan font-mono text-sm px-1.5 py-0.5 rounded bg-neon-cyan/10 border border-neon-cyan/30">PRO</span>
-                    </span>
+
+                <!-- Right Navigation Actions -->
+                <div class="flex items-center gap-3">
+                    <!-- Request Movie Button -->
+                    <button id="requestMovieBtn" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full border border-slate-700 hover:border-cinRed/60 bg-cinNavy/60 hover:bg-cinNavy text-slate-200 hover:text-white text-xs font-semibold tracking-wide transition-all duration-200">
+                        <i class="fa-solid fa-film text-cinRed"></i>
+                        <span>Request Movie</span>
+                    </button>
+
+                    <!-- Saved Favorites Button -->
+                    <button id="favoritesDrawerBtn" class="relative inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cinNavy border border-cinBorder hover:border-cinRed text-slate-200 hover:text-white text-xs font-semibold tracking-wide transition-all shadow-sm">
+                        <i class="fa-solid fa-heart text-cinRed"></i>
+                        <span class="hidden sm:inline">Watchlist</span>
+                        <span id="favCounterBadge" class="bg-cinRed text-white text-[11px] font-bold w-5 h-5 rounded-full flex items-center justify-center -mr-1">0</span>
+                    </button>
+
+                    <!-- Mobile Search Toggle -->
+                    <button id="mobileSearchToggle" class="md:hidden p-2 text-slate-300 hover:text-white rounded-lg bg-cinNavy/80 border border-cinBorder">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
                 </div>
-            </a>
+            </div>
 
-            <!-- Desktop Nav Links -->
-            <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-slate-300">
-                <a href="#opportunities" class="hover:text-neon-cyan transition-colors">Opportunities</a>
-                <a href="#live-feed" class="hover:text-neon-cyan transition-colors flex items-center gap-2">
-                    <span class="w-2 h-2 rounded-full bg-neon-emerald animate-ping"></span> Live Feed
-                </a>
-                <a href="#how-it-works" class="hover:text-neon-cyan transition-colors">Ecosystem</a>
-                <a href="#dashboard" class="hover:text-neon-cyan transition-colors">Dashboard</a>
-                <a href="#referrals" class="hover:text-neon-cyan transition-colors">Network</a>
-                <a href="#faq" class="hover:text-neon-cyan transition-colors">FAQ</a>
-            </nav>
+            <!-- Mobile Search Bar (Collapsible) -->
+            <div id="mobileSearchContainer" class="hidden md:hidden pb-4 pt-1">
+                <div class="relative">
+                    <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+                    <input type="text" id="mobileSearchInput" placeholder="Search title, genre, director..." 
+                           class="w-full bg-cinNavy border border-cinBorder focus:border-cinRed focus:outline-none rounded-full pl-11 pr-4 py-2 text-sm text-white placeholder-slate-400">
+                </div>
+            </div>
 
-            <!-- Action CTAs -->
-            <div class="flex items-center gap-3">
-                <button class="hidden sm:inline-flex px-4 py-2 text-sm font-semibold text-slate-300 hover:text-white transition-colors">
-                    Log In
+            <!-- Category Pills Filter Bar -->
+            <div class="py-3 border-t border-slate-800/80 overflow-x-auto no-scrollbar flex items-center gap-2">
+                <button class="cat-pill active flex-shrink-0 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all bg-cinRed text-white shadow-glow-red" data-category="All">
+                    All
                 </button>
-                <a href="#opportunities" class="relative group inline-flex items-center gap-2.5 px-5 py-2.5 rounded-xl font-heading font-bold text-sm bg-gradient-to-r from-neon-cyan via-neon-violet to-neon-purple text-dark-950 hover:text-white transition-all duration-300 shadow-[0_0_30px_rgba(0,245,255,0.3)] hover:shadow-[0_0_35px_rgba(124,58,237,0.5)] overflow-hidden">
-                    <span class="relative z-10 flex items-center gap-2">
-                        Get Started <i class="fa-solid fa-arrow-right text-xs transition-transform group-hover:translate-x-1"></i>
-                    </span>
-                    <div class="absolute inset-0 bg-dark-950 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"></div>
-                </a>
+                <button class="cat-pill flex-shrink-0 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all bg-cinNavy/80 hover:bg-cinNavy text-slate-300 hover:text-white border border-cinBorder/60" data-category="Bengali">
+                    Bengali
+                </button>
+                <button class="cat-pill flex-shrink-0 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all bg-cinNavy/80 hover:bg-cinNavy text-slate-300 hover:text-white border border-cinBorder/60" data-category="Action">
+                    Action
+                </button>
+                <button class="cat-pill flex-shrink-0 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all bg-cinNavy/80 hover:bg-cinNavy text-slate-300 hover:text-white border border-cinBorder/60" data-category="Sci-Fi">
+                    Sci-Fi
+                </button>
+                <button class="cat-pill flex-shrink-0 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all bg-cinNavy/80 hover:bg-cinNavy text-slate-300 hover:text-white border border-cinBorder/60" data-category="Horror">
+                    Horror
+                </button>
+                <button class="cat-pill flex-shrink-0 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all bg-cinNavy/80 hover:bg-cinNavy text-slate-300 hover:text-white border border-cinBorder/60" data-category="Comedy">
+                    Comedy
+                </button>
+                <button class="cat-pill flex-shrink-0 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all bg-cinNavy/80 hover:bg-cinNavy text-slate-300 hover:text-white border border-cinBorder/60" data-category="Drama">
+                    Drama
+                </button>
+                <button class="cat-pill flex-shrink-0 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all bg-cinNavy/80 hover:bg-cinNavy text-slate-300 hover:text-white border border-cinBorder/60" data-category="Thriller">
+                    Thriller
+                </button>
+                <button class="cat-pill flex-shrink-0 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all bg-cinNavy/80 hover:bg-cinNavy text-slate-300 hover:text-white border border-cinBorder/60" data-category="Adventure">
+                    Adventure
+                </button>
             </div>
         </div>
     </header>
 
-    <main class="relative z-10 pt-28">
+    <!-- MAIN CONTENT CONTAINER -->
+    <main class="flex-grow">
+        
+        <!-- 3. FEATURED HERO SECTION / DYNAMIC SLIDER -->
+        <section id="heroSliderSection" class="relative w-full min-h-[580px] lg:min-h-[660px] bg-cinDeep flex items-center overflow-hidden border-b border-cinBorder/40">
+            <!-- Background Image Container -->
+            <div id="heroBgImage" class="absolute inset-0 bg-cover bg-center transition-all duration-700 ease-out transform scale-105"
+                 style="background-image: url('https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=1920&auto=format&fit=crop');">
+            </div>
 
-        <!-- 1. HERO SECTION -->
-        <section class="min-h-screen relative flex items-center justify-center px-4 sm:px-6 lg:px-8 py-16 overflow-hidden">
-            <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-                
-                <!-- Left Hero Copy -->
-                <div class="lg:col-span-7 space-y-8 text-center lg:text-left pt-6">
-                    <!-- Protocol Live Pill -->
-                    <div class="inline-flex items-center gap-3 px-4 py-1.5 rounded-full glass-panel border border-neon-cyan/20 bg-neon-cyan/5">
-                        <span class="relative flex h-2 w-2">
-                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-neon-cyan opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-2 w-2 bg-neon-cyan"></span>
+            <!-- Gradient & Vignette Layer -->
+            <div class="absolute inset-0 hero-gradient-overlay pointer-events-none"></div>
+
+            <!-- Content Area -->
+            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full z-10 flex flex-col justify-end lg:justify-center">
+                <div class="max-w-2xl">
+                    <!-- Badges Row -->
+                    <div class="flex flex-wrap items-center gap-2.5 mb-4">
+                        <span class="px-3 py-1 bg-cinRed text-white text-xs font-bold uppercase rounded-md tracking-wider shadow-glow-red flex items-center gap-1.5">
+                            <i class="fa-solid fa-star text-[10px]"></i> Featured Movie
                         </span>
-                        <span class="text-xs uppercase font-mono tracking-widest text-neon-cyan font-bold">NEXUS v4.9 Kernel Active</span>
-                        <span class="text-slate-600">|</span>
-                        <span class="text-xs text-slate-400">Yield Pool: $4.2M Distributed</span>
+                        <span class="px-2.5 py-0.5 bg-cinNavy/90 border border-slate-700 text-slate-300 text-xs font-semibold rounded-md" id="heroQuality">
+                            4K Ultra HD
+                        </span>
+                        <span class="px-2.5 py-0.5 bg-amber-500/20 border border-amber-500/40 text-amber-300 text-xs font-bold rounded-md flex items-center gap-1">
+                            <i class="fa-solid fa-star text-amber-400"></i> <span id="heroRating">8.8</span>
+                        </span>
+                        <span class="px-2.5 py-0.5 bg-cinNavy/90 border border-slate-700 text-slate-300 text-xs font-semibold rounded-md" id="heroLang">
+                            English / Multi
+                        </span>
+                        <span class="text-xs text-slate-400" id="heroYearDuration">2024 • 2h 46m</span>
                     </div>
 
-                    <!-- Main Massive Headline -->
-                    <h1 class="font-heading font-extrabold text-4xl sm:text-6xl xl:text-7xl leading-[1.08] tracking-tight">
-                        Turn Your Time <br class="hidden sm:block">
-                        Into <span class="text-gradient-aurora">Real Wealth</span> <br class="hidden sm:block">
-                        Opportunities.
+                    <!-- Title -->
+                    <h1 id="heroTitle" class="text-4xl sm:text-5xl lg:text-6xl font-black font-heading tracking-tight text-white mb-4 text-shadow-hero leading-tight">
+                        Dune: Part Two
                     </h1>
 
-                    <!-- Supporting Subhead -->
-                    <p class="text-slate-400 text-lg sm:text-xl max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
-                        Step inside the world’s most advanced Web3 micro-income protocol. Execute high-yield intelligence tasks, participate in verified research trials, and stream instant rewards straight to your non-custodial wallet.
+                    <!-- Storyline -->
+                    <p id="heroOverview" class="text-slate-300 text-sm sm:text-base leading-relaxed line-clamp-3 mb-6 font-normal max-w-xl">
+                        Paul Atreides unites with Chani and the Fremen while seeking revenge against the conspirators who destroyed his family, facing a choice between love and the fate of the known universe.
                     </p>
 
-                    <!-- CTA Actions -->
-                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
-                        <a href="#opportunities" class="w-full sm:w-auto px-8 py-4 rounded-xl font-heading font-bold text-base text-dark-950 bg-gradient-to-r from-neon-cyan via-white to-neon-cyan bg-[length:200%_auto] hover:bg-right transition-all duration-500 shadow-[0_10px_35px_rgba(0,245,255,0.4)] flex items-center justify-center gap-3 group">
-                            <span>Start Earning Now</span>
-                            <i class="fa-solid fa-arrow-right-long text-dark-950 transition-transform group-hover:translate-x-1.5"></i>
-                        </a>
-                        <a href="#how-it-works" class="w-full sm:w-auto px-7 py-4 rounded-xl font-heading font-semibold text-base text-white glass-panel hover:bg-white/10 border border-white/10 transition-all flex items-center justify-center gap-3">
-                            <i class="fa-solid fa-circle-play text-neon-cyan"></i>
-                            <span>Explore Opportunities</span>
-                        </a>
-                    </div>
-
-                    <!-- Platform Trust Metric Tickers -->
-                    <div class="pt-8 border-t border-white/10 grid grid-cols-3 gap-4 max-w-lg mx-auto lg:mx-0">
-                        <div>
-                            <div class="font-heading text-2xl sm:text-3xl font-extrabold text-white flex items-center justify-center lg:justify-start">
-                                <span class="counter" data-target="380">0</span>K+
-                            </div>
-                            <p class="text-xs text-slate-500 uppercase tracking-wider font-mono mt-0.5">Active Earners</p>
-                        </div>
-                        <div>
-                            <div class="font-heading text-2xl sm:text-3xl font-extrabold text-white flex items-center justify-center lg:justify-start">
-                                $<span class="counter" data-target="14">0</span>.8M+
-                            </div>
-                            <p class="text-xs text-slate-500 uppercase tracking-wider font-mono mt-0.5">Rewards Settled</p>
-                        </div>
-                        <div>
-                            <div class="font-heading text-2xl sm:text-3xl font-extrabold text-white flex items-center justify-center lg:justify-start">
-                                <span class="counter" data-target="99">0</span>.99%
-                            </div>
-                            <p class="text-xs text-slate-500 uppercase tracking-wider font-mono mt-0.5">Instant Payouts</p>
-                        </div>
+                    <!-- Hero Call to Actions -->
+                    <div class="flex flex-wrap items-center gap-3.5">
+                        <button id="heroTrailerBtn" class="px-6 py-3 rounded-full bg-gradient-to-r from-cinRed to-red-600 hover:from-red-600 hover:to-cinRed text-white font-bold text-sm tracking-wide shadow-glow-red transition-all transform hover:-translate-y-0.5 flex items-center gap-2">
+                            <i class="fa-solid fa-play"></i>
+                            <span>Watch Trailer</span>
+                        </button>
+                        <button id="heroDetailsBtn" class="px-6 py-3 rounded-full bg-cinNavy/90 hover:bg-slate-800 border border-slate-600 text-white font-semibold text-sm tracking-wide transition-all flex items-center gap-2">
+                            <i class="fa-solid fa-circle-info"></i>
+                            <span>Movie Details</span>
+                        </button>
+                        <button id="heroFavBtn" class="p-3 w-11 h-11 rounded-full bg-cinNavy/90 hover:bg-cinNavy border border-slate-600 text-slate-300 hover:text-cinRed transition-colors flex items-center justify-center" title="Save to Watchlist">
+                            <i class="fa-regular fa-heart text-base"></i>
+                        </button>
                     </div>
                 </div>
 
-                <!-- Right Hero Floating 3D Dashboard Mockup -->
-                <div class="lg:col-span-5 relative">
-                    <!-- Background ambient glow -->
-                    <div class="absolute -inset-4 bg-gradient-to-r from-neon-cyan/20 to-neon-violet/30 rounded-3xl blur-2xl opacity-60"></div>
-                    
-                    <!-- Main Glass Floating Container -->
-                    <div class="relative glass-panel rounded-3xl p-6 border border-white/15 bg-dark-900/80 shadow-[0_30px_90px_rgba(0,0,0,0.8)] animate-float-slow">
-                        
-                        <!-- Top Header Bar -->
-                        <div class="flex items-center justify-between pb-5 border-b border-white/10">
-                            <div class="flex items-center gap-3">
-                                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-neon-purple to-neon-cyan p-[1px]">
-                                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Avatar" class="w-full h-full object-cover rounded-full">
-                                </div>
-                                <div>
-                                    <div class="flex items-center gap-1.5">
-                                        <h4 class="font-heading text-sm font-bold text-white">Alex Vanguard</h4>
-                                        <i class="fa-solid fa-circle-check text-neon-cyan text-xs"></i>
-                                    </div>
-                                    <p class="text-xs text-slate-400 font-mono">Tier-IV Vanguard Node</p>
-                                </div>
-                            </div>
-                            <div class="px-3 py-1 rounded-full bg-neon-emerald/10 border border-neon-emerald/30 text-neon-emerald text-xs font-mono font-bold flex items-center gap-1.5">
-                                <span class="w-1.5 h-1.5 rounded-full bg-neon-emerald animate-pulse"></span> Streaming +24.8%
-                            </div>
-                        </div>
-
-                        <!-- Current Balance Stat Block -->
-                        <div class="my-6 p-5 rounded-2xl bg-gradient-to-b from-white/[0.04] to-transparent border border-white/5 relative overflow-hidden">
-                            <div class="flex items-center justify-between text-xs text-slate-400 uppercase tracking-widest font-mono">
-                                <span>Total Harvested Balance</span>
-                                <i class="fa-solid fa-wallet text-slate-500"></i>
-                            </div>
-                            <div class="flex items-baseline gap-2 mt-2">
-                                <span class="font-heading font-black text-4xl text-white tracking-tight">$8,942.50</span>
-                                <span class="text-xs font-bold text-neon-cyan font-mono">+ $184.20 Today</span>
-                            </div>
-                            
-                            <!-- Visual Progress Bar -->
-                            <div class="w-full bg-dark-950 h-2 rounded-full mt-4 overflow-hidden p-[1px]">
-                                <div class="bg-gradient-to-r from-neon-cyan via-neon-violet to-neon-purple h-full rounded-full" style="width: 78%;"></div>
-                            </div>
-                            <div class="flex justify-between items-center text-[10px] text-slate-500 font-mono mt-2">
-                                <span>Weekly Target: $10,000</span>
-                                <span>78% Met</span>
-                            </div>
-                        </div>
-
-                        <!-- Mini Live Stream List -->
-                        <div class="space-y-3">
-                            <p class="text-xs uppercase tracking-wider text-slate-400 font-mono font-semibold">Active Income Streams</p>
-                            
-                            <div class="flex items-center justify-between p-3 rounded-xl bg-dark-950/60 border border-white/5 hover:border-neon-cyan/30 transition-all">
-                                <div class="flex items-center gap-3">
-                                    <div class="w-8 h-8 rounded-lg bg-neon-cyan/10 border border-neon-cyan/20 flex items-center justify-center text-neon-cyan text-sm">
-                                        <i class="fa-solid fa-microchip"></i>
-                                    </div>
-                                    <div>
-                                        <p class="text-xs font-bold text-white">AI Dataset Feedback</p>
-                                        <p class="text-[10px] text-slate-400">Completed 4 min ago</p>
-                                    </div>
-                                </div>
-                                <span class="text-xs font-bold font-mono text-neon-emerald">+$42.50</span>
-                            </div>
-
-                            <div class="flex items-center justify-between p-3 rounded-xl bg-dark-950/60 border border-white/5 hover:border-neon-purple/30 transition-all">
-                                <div class="flex items-center gap-3">
-                                    <div class="w-8 h-8 rounded-lg bg-neon-purple/10 border border-neon-purple/20 flex items-center justify-center text-neon-purple text-sm">
-                                        <i class="fa-solid fa-diagram-project"></i>
-                                    </div>
-                                    <div>
-                                        <p class="text-xs font-bold text-white">Tier-2 Node Referral</p>
-                                        <p class="text-[10px] text-slate-400">Recurring royalty</p>
-                                    </div>
-                                </div>
-                                <span class="text-xs font-bold font-mono text-neon-emerald">+$112.00</span>
-                            </div>
-                        </div>
-
+                <!-- Slider Controls & Indicators -->
+                <div class="mt-8 lg:mt-12 flex items-center justify-between border-t border-white/10 pt-4">
+                    <div class="flex items-center gap-2" id="heroSliderDots">
+                        <!-- Filled by JS -->
                     </div>
-
-                    <!-- Floating Satellite Badge 1 -->
-                    <div class="absolute -top-6 -right-6 glass-panel p-3.5 rounded-2xl border border-neon-cyan/30 bg-dark-900/90 shadow-2xl flex items-center gap-3 animate-float-reverse">
-                        <div class="w-10 h-10 rounded-xl bg-neon-cyan/20 flex items-center justify-center text-neon-cyan text-base">
-                            <i class="fa-solid fa-arrow-trend-up"></i>
-                        </div>
-                        <div>
-                            <p class="text-[10px] uppercase font-mono text-slate-400">Global APY</p>
-                            <p class="text-sm font-bold text-white font-mono">31.4% Avg Yield</p>
-                        </div>
+                    <div class="flex items-center gap-3">
+                        <button id="heroPrevBtn" aria-label="Previous Slide" class="w-10 h-10 rounded-full bg-cinNavy/80 hover:bg-cinRed border border-slate-700 hover:border-cinRed text-white flex items-center justify-center transition-all">
+                            <i class="fa-solid fa-chevron-left text-xs"></i>
+                        </button>
+                        <button id="heroNextBtn" aria-label="Next Slide" class="w-10 h-10 rounded-full bg-cinNavy/80 hover:bg-cinRed border border-slate-700 hover:border-cinRed text-white flex items-center justify-center transition-all">
+                            <i class="fa-solid fa-chevron-right text-xs"></i>
+                        </button>
                     </div>
-
-                    <!-- Floating Satellite Badge 2 -->
-                    <div class="absolute -bottom-6 -left-6 glass-panel p-3.5 rounded-2xl border border-neon-emerald/30 bg-dark-900/90 shadow-2xl flex items-center gap-3 animate-float-slow" style="animation-delay: -3s;">
-                        <div class="w-9 h-9 rounded-full bg-neon-emerald/20 flex items-center justify-center text-neon-emerald">
-                            <i class="fa-solid fa-shield-halved"></i>
-                        </div>
-                        <div>
-                            <p class="text-[10px] text-slate-400 font-mono uppercase">Instant Liquidity</p>
-                            <p class="text-xs font-bold text-white">Zero Gas Overhead</p>
-                        </div>
-                    </div>
-
                 </div>
-
             </div>
         </section>
 
-        <!-- 2. REAL-TIME ACTIVITY & LIVE EARNING TICKER -->
-        <section id="live-feed" class="py-12 border-y border-white/5 bg-dark-900/50 backdrop-blur-md relative overflow-hidden">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <!-- 4. ADVERTISEMENT PLACEMENT 1 (BELOW HERO) -->
+        <section aria-label="Sponsored Advertisement" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6 relative z-20">
+            <div class="rounded-2xl p-0.5 bg-gradient-to-r from-cinOrange via-cinRed to-amber-500 shadow-glow-orange">
+                <div class="bg-gradient-to-r from-[#0C1424] via-[#0E1A33] to-[#0A0F1D] rounded-[15px] p-4 sm:p-6 flex flex-col md:flex-row items-center justify-between gap-4">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-cinOrange to-cinRed flex-shrink-0 flex items-center justify-center text-white text-xl shadow-md">
+                            <i class="fa-solid fa-server"></i>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-2 mb-1">
+                                <span class="bg-cinOrange/20 border border-cinOrange/40 text-cinOrange text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded">
+                                    Sponsored Advertisement
+                                </span>
+                                <span class="text-xs text-slate-400 font-medium">Ultra High Speed Mirror</span>
+                            </div>
+                            <h3 class="text-base sm:text-lg font-bold text-white tracking-tight">
+                                High Speed Cloud Server — Instant 4K Playback
+                            </h3>
+                            <p class="text-xs sm:text-sm text-slate-300">
+                                Switch to our ultra-redundant CDN mirrors for instantaneous loading with zero throttling or buffering.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex-shrink-0 w-full md:w-auto text-center">
+                        <a href="https://auctionr.org/4/fa93ed40bc9be029e745479ee5ecf812" target="_blank" rel="noopener noreferrer" 
+                           class="inline-block w-full md:w-auto px-7 py-3 rounded-xl bg-gradient-to-r from-cinOrange to-cinRed hover:from-orange-500 hover:to-red-600 text-white font-bold text-sm tracking-wide shadow-glow-orange transition-all duration-200 transform hover:scale-[1.02]">
+                            <span>Launch Server Mirror</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square ml-2 text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. MOVIE BROWSE & EXPLORATION CATALOG -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+            
+            <!-- Section Header & Controls -->
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+                <div>
+                    <div class="flex items-center gap-2 text-cinRed font-bold text-xs uppercase tracking-widest mb-1">
+                        <span class="w-2.5 h-2.5 rounded-full bg-cinRed animate-pulse"></span>
+                        EXPLORE ENTERTAINMENT
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-heading font-black text-white tracking-tight">
+                        <span id="catalogCategoryTitle">All</span> Movies & Series
+                    </h2>
+                </div>
+
+                <!-- Sort & Filter Dropdown -->
                 <div class="flex items-center gap-3">
-                    <div class="w-3 h-3 rounded-full bg-neon-emerald animate-ping"></div>
-                    <h3 class="font-heading font-bold text-lg text-white">Real-Time Global Settlement Stream</h3>
-                </div>
-                <div class="text-xs font-mono text-slate-400 flex items-center gap-4">
-                    <span>Block Height: #19,482,109</span>
-                    <span class="text-neon-cyan">2.4ms Transaction Speed</span>
+                    <span class="text-xs text-slate-400 hidden sm:inline">Sort by:</span>
+                    <select id="sortSelect" class="bg-cinNavy border border-cinBorder text-slate-200 text-xs rounded-lg px-3 py-2 focus:ring-1 focus:ring-cinRed focus:outline-none">
+                        <option value="featured">Featured / Popular</option>
+                        <option value="rating">Highest IMDb Rating</option>
+                        <option value="year">Newest Release</option>
+                        <option value="title">Title (A-Z)</option>
+                    </select>
                 </div>
             </div>
 
-            <!-- Horizontal Infinite Activity Scroller -->
-            <div class="relative w-full overflow-hidden">
-                <div class="flex gap-4 animate-[marquee_30s_linear_infinite] whitespace-nowrap will-change-transform">
-                    
-                    <!-- Stream Item 1 -->
-                    <div class="inline-flex items-center gap-3 px-5 py-3 rounded-xl glass-panel border border-white/10 bg-dark-850/80">
-                        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=60&auto=format&fit=crop&q=80" class="w-7 h-7 rounded-full object-cover border border-neon-cyan">
-                        <div class="text-xs">
-                            <span class="font-bold text-white">Elena_R (Munich)</span> withdrew 
-                            <span class="font-mono font-bold text-neon-emerald">$340.00 USDC</span>
-                        </div>
-                        <span class="text-[10px] text-slate-500 font-mono">12s ago</span>
-                    </div>
+            <!-- Active Search Notification Strip -->
+            <div id="searchQueryBadge" class="hidden mb-6 p-3 rounded-xl bg-cinNavy/80 border border-cinBorder flex items-center justify-between">
+                <span class="text-xs text-slate-300">
+                    Showing search results for: <strong id="searchQueryText" class="text-cinRed"></strong>
+                </span>
+                <button id="resetSearchBtn" class="text-xs text-slate-400 hover:text-white underline">
+                    Clear Search
+                </button>
+            </div>
 
-                    <!-- Stream Item 2 -->
-                    <div class="inline-flex items-center gap-3 px-5 py-3 rounded-xl glass-panel border border-white/10 bg-dark-850/80">
-                        <div class="w-7 h-7 rounded-full bg-neon-purple/20 flex items-center justify-center text-neon-purple text-xs font-bold">
-                            <i class="fa-solid fa-code-compare"></i>
-                        </div>
-                        <div class="text-xs">
-                            <span class="font-bold text-white">DevTask_482</span> rewarded 
-                            <span class="font-mono font-bold text-neon-cyan">$85.20 SOL</span> to <span class="text-slate-300">0x9F...2B</span>
-                        </div>
-                        <span class="text-[10px] text-slate-500 font-mono">31s ago</span>
-                    </div>
+            <!-- Movies Grid -->
+            <div id="movieGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6">
+                <!-- Movie cards injected dynamically via JS -->
+            </div>
 
-                    <!-- Stream Item 3 -->
-                    <div class="inline-flex items-center gap-3 px-5 py-3 rounded-xl glass-panel border border-white/10 bg-dark-850/80">
-                        <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=60&auto=format&fit=crop&q=80" class="w-7 h-7 rounded-full object-cover border border-neon-violet">
-                        <div class="text-xs">
-                            <span class="font-bold text-white">Tariq.eth</span> completed <span class="text-neon-cyan">AI Model Alignment</span>
-                            <span class="font-mono font-bold text-neon-emerald">+$155.00</span>
-                        </div>
-                        <span class="text-[10px] text-slate-500 font-mono">48s ago</span>
-                    </div>
-
-                    <!-- Stream Item 4 -->
-                    <div class="inline-flex items-center gap-3 px-5 py-3 rounded-xl glass-panel border border-white/10 bg-dark-850/80">
-                        <div class="w-7 h-7 rounded-full bg-neon-emerald/20 flex items-center justify-center text-neon-emerald text-xs font-bold">
-                            <i class="fa-solid fa-arrows-rotate"></i>
-                        </div>
-                        <div class="text-xs">
-                            <span class="font-bold text-white">Daily Streak Reward #28</span> unlocked 
-                            <span class="font-mono font-bold text-neon-emerald">+$50.00</span>
-                        </div>
-                        <span class="text-[10px] text-slate-500 font-mono">1m ago</span>
-                    </div>
-
-                    <!-- Stream Item 5 -->
-                    <div class="inline-flex items-center gap-3 px-5 py-3 rounded-xl glass-panel border border-white/10 bg-dark-850/80">
-                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=60&auto=format&fit=crop&q=80" class="w-7 h-7 rounded-full object-cover border border-neon-amber">
-                        <div class="text-xs">
-                            <span class="font-bold text-white">Sarah_K</span> harvested affiliate yield 
-                            <span class="font-mono font-bold text-neon-emerald">+$420.50 USDT</span>
-                        </div>
-                        <span class="text-[10px] text-slate-500 font-mono">2m ago</span>
-                    </div>
-
+            <!-- No Results State -->
+            <div id="noResultsState" class="hidden py-16 text-center">
+                <div class="w-16 h-16 rounded-full bg-cinNavy border border-cinBorder flex items-center justify-center text-slate-500 mx-auto mb-4 text-2xl">
+                    <i class="fa-solid fa-video-slash"></i>
                 </div>
+                <h3 class="text-lg font-bold text-white mb-1">No movies found</h3>
+                <p class="text-sm text-slate-400 mb-4 max-w-sm mx-auto">We couldn't find any movie matching your current criteria or search query.</p>
+                <button id="resetFiltersBtn" class="px-5 py-2 rounded-full bg-cinRed hover:bg-cinRedHover text-white text-xs font-semibold">
+                    Reset All Filters
+                </button>
+            </div>
+
+            <!-- Load More / Pagination -->
+            <div class="mt-12 text-center" id="loadMoreContainer">
+                <button id="loadMoreBtn" class="px-8 py-3 rounded-full bg-cinNavy hover:bg-slate-800 border border-slate-700 text-white font-semibold text-xs tracking-wider uppercase transition-all duration-200 inline-flex items-center gap-2 shadow-sm">
+                    <span>Load More Movies</span>
+                    <i class="fa-solid fa-angle-down"></i>
+                </button>
             </div>
         </section>
 
-        <!-- 3. EXPLORE EARNING OPPORTUNITIES (8 ADVANCED MODULES) -->
-        <section id="opportunities" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative">
-            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-neon-violet/10 border border-neon-violet/30 text-neon-violet text-xs font-mono font-bold uppercase">
-                    Ecosystem Modules
+    </main>
+
+    <!-- 6. FOOTER -->
+    <footer class="bg-black/80 border-t border-slate-800/80 mt-12 py-12 text-xs text-slate-400">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
+                <div class="space-y-3">
+                    <div class="flex items-center gap-2">
+                        <div class="w-7 h-7 rounded-lg bg-cinRed flex items-center justify-center text-white text-xs shadow-glow-red">
+                            <i class="fa-solid fa-play ml-0.5"></i>
+                        </div>
+                        <span class="font-heading font-black text-lg text-white">CIN<span class="text-cinRed">VERSE</span></span>
+                    </div>
+                    <p class="text-slate-400 text-xs leading-relaxed">
+                        CINVERSE is a premier cinematic discovery platform providing rich movie metadata, official trailers, curated regional cinema, and authorized platform redirection.
+                    </p>
                 </div>
-                <h2 class="font-heading font-extrabold text-3xl sm:text-5xl text-white tracking-tight">
-                    Eight Sovereign Paths To <span class="text-gradient-cyan">Compound Yield</span>
-                </h2>
-                <p class="text-slate-400 text-base sm:text-lg">
-                    Select your preferred methodology. Whether you contribute computational feedback, analytical micro-evaluations, or network power, our algorithmic pools distribute real rewards.
-                </p>
+                <div>
+                    <h4 class="text-white font-bold text-xs uppercase tracking-wider mb-3">Popular Genres</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-cinRed transition-colors" onclick="filterByCategory('Action'); return false;">Action Blockbusters</a></li>
+                        <li><a href="#" class="hover:text-cinRed transition-colors" onclick="filterByCategory('Sci-Fi'); return false;">Sci-Fi & Fantasy</a></li>
+                        <li><a href="#" class="hover:text-cinRed transition-colors" onclick="filterByCategory('Bengali'); return false;">Bengali Regional Cinema</a></li>
+                        <li><a href="#" class="hover:text-cinRed transition-colors" onclick="filterByCategory('Thriller'); return false;">Psychological Thrillers</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold text-xs uppercase tracking-wider mb-3">Community & Features</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" id="footerRequestBtn" class="hover:text-cinRed transition-colors">Request a Title</a></li>
+                        <li><a href="#" id="footerWatchlistBtn" class="hover:text-cinRed transition-colors">My Watchlist</a></li>
+                        <li><a href="https://auctionr.org/4/fa93ed40bc9be029e745479ee5ecf812" target="_blank" rel="noopener noreferrer" class="text-cinOrange hover:underline">High Speed 4K Servers (Ad)</a></li>
+                        <li><a href="#" class="hover:text-cinRed transition-colors">Editorial Guidelines</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold text-xs uppercase tracking-wider mb-3">Advertisement Disclosure</h4>
+                    <p class="text-[11px] leading-relaxed text-slate-500">
+                        This platform contains sponsored promotional placements. All promotional links redirect to verified third-party cloud mirrors. We respect legal rights and encourage users to stream content through authorized sources.
+                    </p>
+                </div>
             </div>
-
-            <!-- Grid of 8 High-Impact Earning Cards -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-
-                <!-- Opportunity 1: Micro-Tasks -->
-                <div class="glass-card-interactive rounded-2xl p-6 flex flex-col justify-between group relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-neon-cyan/5 rounded-full blur-2xl group-hover:bg-neon-cyan/15 transition-all"></div>
-                    <div>
-                        <div class="w-12 h-12 rounded-xl bg-neon-cyan/10 border border-neon-cyan/20 flex items-center justify-center text-neon-cyan text-xl mb-5 group-hover:scale-110 transition-transform">
-                            <i class="fa-solid fa-list-check"></i>
-                        </div>
-                        <div class="flex items-center justify-between mb-2">
-                            <h3 class="font-heading font-bold text-lg text-white">Complete Tasks</h3>
-                            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-white/5 border border-white/10 text-neon-cyan">Fast Yield</span>
-                        </div>
-                        <p class="text-slate-400 text-xs leading-relaxed mb-6">
-                            Categorize visual training sets, verify localized merchant information, and evaluate AI response fidelity.
-                        </p>
-                    </div>
-                    <div>
-                        <div class="flex items-center justify-between text-xs font-mono py-3 border-t border-white/10 text-slate-400">
-                            <span>Avg. Earning</span>
-                            <span class="text-white font-bold">$18 – $45 / hr</span>
-                        </div>
-                        <button class="w-full mt-2 py-2.5 rounded-lg font-heading text-xs font-bold text-white bg-white/5 hover:bg-neon-cyan hover:text-dark-950 border border-white/10 hover:border-neon-cyan transition-all flex items-center justify-center gap-2">
-                            Explore Now <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                        </button>
-                    </div>
+            <div class="border-t border-slate-800/80 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <p>&copy; 2026 CINVERSE Media Group. All rights reserved.</p>
+                <div class="flex items-center gap-4 text-slate-400">
+                    <span class="hover:text-white cursor-pointer"><i class="fa-brands fa-twitter text-base"></i></span>
+                    <span class="hover:text-white cursor-pointer"><i class="fa-brands fa-discord text-base"></i></span>
+                    <span class="hover:text-white cursor-pointer"><i class="fa-brands fa-telegram text-base"></i></span>
+                    <span class="hover:text-white cursor-pointer"><i class="fa-brands fa-youtube text-base"></i></span>
                 </div>
-
-                <!-- Opportunity 2: Surveys & Research -->
-                <div class="glass-card-interactive rounded-2xl p-6 flex flex-col justify-between group relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-neon-purple/5 rounded-full blur-2xl group-hover:bg-neon-purple/15 transition-all"></div>
-                    <div>
-                        <div class="w-12 h-12 rounded-xl bg-neon-purple/10 border border-neon-purple/20 flex items-center justify-center text-neon-purple text-xl mb-5 group-hover:scale-110 transition-transform">
-                            <i class="fa-solid fa-chart-pie"></i>
-                        </div>
-                        <div class="flex items-center justify-between mb-2">
-                            <h3 class="font-heading font-bold text-lg text-white">Surveys &amp; Science</h3>
-                            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-white/5 border border-white/10 text-neon-purple">High APY</span>
-                        </div>
-                        <p class="text-slate-400 text-xs leading-relaxed mb-6">
-                            Participate in accredited consumer research, fintech feasibility tests, and scientific opinion pools.
-                        </p>
-                    </div>
-                    <div>
-                        <div class="flex items-center justify-between text-xs font-mono py-3 border-t border-white/10 text-slate-400">
-                            <span>Per Study</span>
-                            <span class="text-white font-bold">$12 – $90 / test</span>
-                        </div>
-                        <button class="w-full mt-2 py-2.5 rounded-lg font-heading text-xs font-bold text-white bg-white/5 hover:bg-neon-purple hover:text-white border border-white/10 hover:border-neon-purple transition-all flex items-center justify-center gap-2">
-                            Explore Now <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Opportunity 3: Affiliate Rewards -->
-                <div class="glass-card-interactive rounded-2xl p-6 flex flex-col justify-between group relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-neon-emerald/5 rounded-full blur-2xl group-hover:bg-neon-emerald/15 transition-all"></div>
-                    <div>
-                        <div class="w-12 h-12 rounded-xl bg-neon-emerald/10 border border-neon-emerald/20 flex items-center justify-center text-neon-emerald text-xl mb-5 group-hover:scale-110 transition-transform">
-                            <i class="fa-solid fa-handshake-angle"></i>
-                        </div>
-                        <div class="flex items-center justify-between mb-2">
-                            <h3 class="font-heading font-bold text-lg text-white">Affiliate Nodes</h3>
-                            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-white/5 border border-white/10 text-neon-emerald">Perpetual</span>
-                        </div>
-                        <p class="text-slate-400 text-xs leading-relaxed mb-6">
-                            Promote curated digital solutions, software products, and fintech tools with recurring tier-1 commissions.
-                        </p>
-                    </div>
-                    <div>
-                        <div class="flex items-center justify-between text-xs font-mono py-3 border-t border-white/10 text-slate-400">
-                            <span>Commission</span>
-                            <span class="text-white font-bold">Up to 45% RevShare</span>
-                        </div>
-                        <button class="w-full mt-2 py-2.5 rounded-lg font-heading text-xs font-bold text-white bg-white/5 hover:bg-neon-emerald hover:text-dark-950 border border-white/10 hover:border-neon-emerald transition-all flex items-center justify-center gap-2">
-                            Explore Now <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Opportunity 4: Referral Bonuses -->
-                <div class="glass-card-interactive rounded-2xl p-6 flex flex-col justify-between group relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-neon-cyan/5 rounded-full blur-2xl group-hover:bg-neon-cyan/15 transition-all"></div>
-                    <div>
-                        <div class="w-12 h-12 rounded-xl bg-neon-cyan/10 border border-neon-cyan/20 flex items-center justify-center text-neon-cyan text-xl mb-5 group-hover:scale-110 transition-transform">
-                            <i class="fa-solid fa-users-rays"></i>
-                        </div>
-                        <div class="flex items-center justify-between mb-2">
-                            <h3 class="font-heading font-bold text-lg text-white">Network Staking</h3>
-                            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-white/5 border border-white/10 text-neon-cyan">Passive</span>
-                        </div>
-                        <p class="text-slate-400 text-xs leading-relaxed mb-6">
-                            Build an autonomous downline. Collect algorithmic overrides on every completed task in your personal tree.
-                        </p>
-                    </div>
-                    <div>
-                        <div class="flex items-center justify-between text-xs font-mono py-3 border-t border-white/10 text-slate-400">
-                            <span>Bonus Tier</span>
-                            <span class="text-white font-bold">15% Multi-Tier</span>
-                        </div>
-                        <button class="w-full mt-2 py-2.5 rounded-lg font-heading text-xs font-bold text-white bg-white/5 hover:bg-neon-cyan hover:text-dark-950 border border-white/10 hover:border-neon-cyan transition-all flex items-center justify-center gap-2">
-                            Explore Now <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Opportunity 5: Freelance Gigs -->
-                <div class="glass-card-interactive rounded-2xl p-6 flex flex-col justify-between group relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-neon-violet/5 rounded-full blur-2xl group-hover:bg-neon-violet/15 transition-all"></div>
-                    <div>
-                        <div class="w-12 h-12 rounded-xl bg-neon-violet/10 border border-neon-violet/20 flex items-center justify-center text-neon-violet text-xl mb-5 group-hover:scale-110 transition-transform">
-                            <i class="fa-solid fa-terminal"></i>
-                        </div>
-                        <div class="flex items-center justify-between mb-2">
-                            <h3 class="font-heading font-bold text-lg text-white">Freelance Escrow</h3>
-                            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-white/5 border border-white/10 text-neon-violet">High Value</span>
-                        </div>
-                        <p class="text-slate-400 text-xs leading-relaxed mb-6">
-                            Deploy writing, prompt engineering, code auditing, and translation talents under smart-contract safety.
-                        </p>
-                    </div>
-                    <div>
-                        <div class="flex items-center justify-between text-xs font-mono py-3 border-t border-white/10 text-slate-400">
-                            <span>Contract Cap</span>
-                            <span class="text-white font-bold">$250 – $3,500</span>
-                        </div>
-                        <button class="w-full mt-2 py-2.5 rounded-lg font-heading text-xs font-bold text-white bg-white/5 hover:bg-neon-violet hover:text-white border border-white/10 hover:border-neon-violet transition-all flex items-center justify-center gap-2">
-                            Explore Now <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Opportunity 6: Watch & Discover -->
-                <div class="glass-card-interactive rounded-2xl p-6 flex flex-col justify-between group relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-neon-amber/5 rounded-full blur-2xl group-hover:bg-neon-amber/15 transition-all"></div>
-                    <div>
-                        <div class="w-12 h-12 rounded-xl bg-neon-amber/10 border border-neon-amber/20 flex items-center justify-center text-neon-amber text-xl mb-5 group-hover:scale-110 transition-transform">
-                            <i class="fa-solid fa-eye"></i>
-                        </div>
-                        <div class="flex items-center justify-between mb-2">
-                            <h3 class="font-heading font-bold text-lg text-white">Watch &amp; Discover</h3>
-                            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-white/5 border border-white/10 text-neon-amber">Micro-Task</span>
-                        </div>
-                        <p class="text-slate-400 text-xs leading-relaxed mb-6">
-                            Review brand announcements, test interactive game demos, and audit educational video materials.
-                        </p>
-                    </div>
-                    <div>
-                        <div class="flex items-center justify-between text-xs font-mono py-3 border-t border-white/10 text-slate-400">
-                            <span>Per Engagement</span>
-                            <span class="text-white font-bold">$2.50 – $15.00</span>
-                        </div>
-                        <button class="w-full mt-2 py-2.5 rounded-lg font-heading text-xs font-bold text-white bg-white/5 hover:bg-neon-amber hover:text-dark-950 border border-white/10 hover:border-neon-amber transition-all flex items-center justify-center gap-2">
-                            Explore Now <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Opportunity 7: Daily Challenges -->
-                <div class="glass-card-interactive rounded-2xl p-6 flex flex-col justify-between group relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-neon-cyan/5 rounded-full blur-2xl group-hover:bg-neon-cyan/15 transition-all"></div>
-                    <div>
-                        <div class="w-12 h-12 rounded-xl bg-neon-cyan/10 border border-neon-cyan/20 flex items-center justify-center text-neon-cyan text-xl mb-5 group-hover:scale-110 transition-transform">
-                            <i class="fa-solid fa-trophy"></i>
-                        </div>
-                        <div class="flex items-center justify-between mb-2">
-                            <h3 class="font-heading font-bold text-lg text-white">Daily Gauntlets</h3>
-                            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-white/5 border border-white/10 text-neon-cyan">Milestone</span>
-                        </div>
-                        <p class="text-slate-400 text-xs leading-relaxed mb-6">
-                            Maintain 7-day active streaks, finish bonus speed milestones, and claim VIP community mystery crates.
-                        </p>
-                    </div>
-                    <div>
-                        <div class="flex items-center justify-between text-xs font-mono py-3 border-t border-white/10 text-slate-400">
-                            <span>Streak Pool</span>
-                            <span class="text-white font-bold">+$120.00 Boost</span>
-                        </div>
-                        <button class="w-full mt-2 py-2.5 rounded-lg font-heading text-xs font-bold text-white bg-white/5 hover:bg-neon-cyan hover:text-dark-950 border border-white/10 hover:border-neon-cyan transition-all flex items-center justify-center gap-2">
-                            Explore Now <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Opportunity 8: Special Campaigns -->
-                <div class="glass-card-interactive rounded-2xl p-6 flex flex-col justify-between group relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-neon-purple/5 rounded-full blur-2xl group-hover:bg-neon-purple/15 transition-all"></div>
-                    <div>
-                        <div class="w-12 h-12 rounded-xl bg-neon-purple/10 border border-neon-purple/20 flex items-center justify-center text-neon-purple text-xl mb-5 group-hover:scale-110 transition-transform">
-                            <i class="fa-solid fa-wand-magic-sparkles"></i>
-                        </div>
-                        <div class="flex items-center justify-between mb-2">
-                            <h3 class="font-heading font-bold text-lg text-white">Launch Drops</h3>
-                            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-white/5 border border-white/10 text-neon-purple">Exclusive</span>
-                        </div>
-                        <p class="text-slate-400 text-xs leading-relaxed mb-6">
-                            Early access testbeds for newly deployed Web3 protocols, dApps, and decentralized storage solutions.
-                        </p>
-                    </div>
-                    <div>
-                        <div class="flex items-center justify-between text-xs font-mono py-3 border-t border-white/10 text-slate-400">
-                            <span>Allocation</span>
-                            <span class="text-white font-bold">$100 – $1,200</span>
-                        </div>
-                        <button class="w-full mt-2 py-2.5 rounded-lg font-heading text-xs font-bold text-white bg-white/5 hover:bg-neon-purple hover:text-white border border-white/10 hover:border-neon-purple transition-all flex items-center justify-center gap-2">
-                            Explore Now <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                        </button>
-                    </div>
-                </div>
-
             </div>
-        </section>
+        </div>
+    </footer>
 
-        <!-- 4. HOW IT WORKS: 4-STEP VISUAL PROGRESSION -->
-        <section id="how-it-works" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-white/5 relative">
-            <div class="text-center max-w-3xl mx-auto mb-20 space-y-4">
-                <span class="text-xs uppercase font-mono tracking-widest text-neon-cyan font-bold">Frictionless Architecture</span>
-                <h2 class="font-heading font-extrabold text-3xl sm:text-5xl text-white">
-                    Four Steps To <span class="text-gradient-aurora">Financial Autonomy</span>
-                </h2>
-                <p class="text-slate-400">
-                    No complex paperwork. No 30-day payout holding periods. A transparent pathway designed for high execution speed.
-                </p>
-            </div>
+    <!-- 7. MOVIE DETAILS MODAL -->
+    <div id="movieDetailsModal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-black/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 transition-all duration-300">
+        <div class="relative w-full max-w-4xl bg-cinNavy rounded-2xl border border-cinBorder overflow-hidden shadow-2xl my-auto">
+            
+            <!-- Close Modal Button -->
+            <button id="closeModalBtn" class="absolute top-4 right-4 z-30 w-10 h-10 rounded-full bg-black/60 hover:bg-cinRed text-white flex items-center justify-center transition-all duration-200 border border-white/20">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
 
-            <!-- Steps Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
+            <!-- Modal Header Banner with Background Backdrop -->
+            <div class="relative h-64 sm:h-80 w-full overflow-hidden">
+                <div id="modalBackdropImg" class="w-full h-full bg-cover bg-center"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-cinNavy via-cinNavy/60 to-transparent"></div>
                 
-                <!-- Connector Line on Desktop -->
-                <div class="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-neon-cyan via-neon-violet to-neon-emerald -translate-y-12 z-0 opacity-20"></div>
-
-                <!-- Step 1 -->
-                <div class="glass-panel p-8 rounded-2xl relative z-10 border border-white/10 hover:border-neon-cyan/40 transition-all flex flex-col justify-between">
-                    <div>
-                        <div class="w-14 h-14 rounded-2xl bg-dark-950 border border-neon-cyan/40 text-neon-cyan flex items-center justify-center font-heading font-black text-xl mb-6 shadow-[0_0_20px_rgba(0,245,255,0.2)]">
-                            01
-                        </div>
-                        <h4 class="font-heading font-bold text-xl text-white mb-3">Initialize Identity</h4>
-                        <p class="text-slate-400 text-sm leading-relaxed">
-                            Create your cryptographic profile in under 45 seconds using Web3 wallets or verified biometric single sign-on.
-                        </p>
-                    </div>
-                    <div class="mt-6 pt-4 border-t border-white/5 text-[11px] font-mono text-neon-cyan">
-                        Instant KYC Validation
-                    </div>
-                </div>
-
-                <!-- Step 2 -->
-                <div class="glass-panel p-8 rounded-2xl relative z-10 border border-white/10 hover:border-neon-purple/40 transition-all flex flex-col justify-between">
-                    <div>
-                        <div class="w-14 h-14 rounded-2xl bg-dark-950 border border-neon-purple/40 text-neon-purple flex items-center justify-center font-heading font-black text-xl mb-6 shadow-[0_0_20px_rgba(168,85,247,0.2)]">
-                            02
-                        </div>
-                        <h4 class="font-heading font-bold text-xl text-white mb-3">Select Yield Path</h4>
-                        <p class="text-slate-400 text-sm leading-relaxed">
-                            Filter through thousands of active campaigns dynamically matched to your regional verification level and interests.
-                        </p>
-                    </div>
-                    <div class="mt-6 pt-4 border-t border-white/5 text-[11px] font-mono text-neon-purple">
-                        Algorithmic Matchmaker
-                    </div>
-                </div>
-
-                <!-- Step 3 -->
-                <div class="glass-panel p-8 rounded-2xl relative z-10 border border-white/10 hover:border-neon-violet/40 transition-all flex flex-col justify-between">
-                    <div>
-                        <div class="w-14 h-14 rounded-2xl bg-dark-950 border border-neon-violet/40 text-neon-violet flex items-center justify-center font-heading font-black text-xl mb-6 shadow-[0_0_20px_rgba(124,58,237,0.2)]">
-                            03
-                        </div>
-                        <h4 class="font-heading font-bold text-xl text-white mb-3">Execute &amp; Verify</h4>
-                        <p class="text-slate-400 text-sm leading-relaxed">
-                            Submit micro-task proof logs. Tasks are evaluated instantly through real-time machine learning validation layers.
-                        </p>
-                    </div>
-                    <div class="mt-6 pt-4 border-t border-white/5 text-[11px] font-mono text-neon-violet">
-                        Zero Manual Friction
-                    </div>
-                </div>
-
-                <!-- Step 4 -->
-                <div class="glass-panel p-8 rounded-2xl relative z-10 border border-white/10 hover:border-neon-emerald/40 transition-all flex flex-col justify-between">
-                    <div>
-                        <div class="w-14 h-14 rounded-2xl bg-dark-950 border border-neon-emerald/40 text-neon-emerald flex items-center justify-center font-heading font-black text-xl mb-6 shadow-[0_0_20px_rgba(16,185,129,0.2)]">
-                            04
-                        </div>
-                        <h4 class="font-heading font-bold text-xl text-white mb-3">Harvest Rewards</h4>
-                        <p class="text-slate-400 text-sm leading-relaxed">
-                            Withdraw instantly via Crypto (USDT, BTC, SOL), PayPal, SEPA Bank Transfer, or Global Digital Prepaid Cards.
-                        </p>
-                    </div>
-                    <div class="mt-6 pt-4 border-t border-white/5 text-[11px] font-mono text-neon-emerald">
-                        Sub-Second Settlements
-                    </div>
-                </div>
-
+                <!-- Play Trailer Circular Overlay Button -->
+                <button id="modalPlayTrailerBtn" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-cinRed hover:bg-cinRedHover text-white flex items-center justify-center shadow-glow-red transition-transform transform hover:scale-110 group">
+                    <i class="fa-solid fa-play text-xl sm:text-2xl ml-1 group-hover:scale-110 transition-transform"></i>
+                </button>
             </div>
-        </section>
 
-        <!-- 5. ADVANCED FINTECH DASHBOARD PREVIEW -->
-        <section id="dashboard" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-            <div class="glass-panel rounded-3xl p-8 sm:p-12 border border-white/15 bg-dark-900/90 shadow-[0_40px_100px_rgba(0,0,0,0.9)] relative overflow-hidden">
-                
-                <div class="absolute -top-32 -right-32 w-96 h-96 bg-neon-cyan/10 rounded-full blur-3xl pointer-events-none"></div>
-                <div class="absolute -bottom-32 -left-32 w-96 h-96 bg-neon-purple/10 rounded-full blur-3xl pointer-events-none"></div>
-
-                <!-- Dashboard Shell Header -->
-                <div class="flex flex-col md:flex-row md:items-center justify-between pb-8 border-b border-white/10 gap-6">
-                    <div>
-                        <span class="text-xs font-mono uppercase tracking-widest text-neon-cyan">Fintech Control Center</span>
-                        <h3 class="font-heading font-extrabold text-2xl sm:text-4xl text-white mt-1">Enterprise Analytics Terminal</h3>
-                    </div>
-                    <div class="flex flex-wrap items-center gap-3">
-                        <span class="px-4 py-2 rounded-xl bg-dark-950 border border-white/10 text-xs font-mono text-slate-300">
-                            Auto-Sweep: <strong class="text-neon-emerald">ACTIVE</strong>
-                        </span>
-                        <button class="px-5 py-2 rounded-xl text-xs font-heading font-bold bg-gradient-to-r from-neon-cyan to-neon-violet text-dark-950 hover:opacity-90 transition-opacity">
-                            Withdraw Funds
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Primary Metrics 4-Col Grid -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 my-8">
-                    
-                    <div class="p-6 rounded-2xl bg-dark-950/60 border border-white/5">
-                        <div class="flex items-center justify-between text-xs text-slate-400 font-mono">
-                            <span>TOTAL EARNINGS</span>
-                            <i class="fa-solid fa-coins text-neon-cyan"></i>
-                        </div>
-                        <div class="font-heading font-black text-3xl text-white mt-2">$24,912.80</div>
-                        <div class="flex items-center gap-1.5 text-xs text-neon-emerald font-mono mt-2">
-                            <i class="fa-solid fa-arrow-up"></i> +32.4% vs last cycle
-                        </div>
+            <!-- Modal Body Content -->
+            <div class="p-6 sm:p-8 -mt-16 sm:-mt-20 relative z-10 max-h-[70vh] overflow-y-auto">
+                <div class="flex flex-col sm:flex-row gap-6">
+                    <!-- Movie Poster Thumbnail -->
+                    <div class="w-32 sm:w-44 flex-shrink-0 mx-auto sm:mx-0">
+                        <img id="modalPosterImg" src="" alt="Poster" class="w-full rounded-xl shadow-glow-card border-2 border-slate-700/60 object-cover aspect-[2/3]">
                     </div>
 
-                    <div class="p-6 rounded-2xl bg-dark-950/60 border border-white/5">
-                        <div class="flex items-center justify-between text-xs text-slate-400 font-mono">
-                            <span>AVAILABLE LIQUIDITY</span>
-                            <i class="fa-solid fa-bolt text-neon-emerald"></i>
+                    <!-- Movie Core Meta -->
+                    <div class="flex-1">
+                        <div class="flex flex-wrap items-center gap-2 mb-2">
+                            <span id="modalQuality" class="bg-cinRed/20 text-cinRed border border-cinRed/40 text-[10px] font-bold px-2 py-0.5 rounded">4K Ultra HD</span>
+                            <span id="modalRating" class="bg-amber-500/20 text-amber-300 border border-amber-500/40 text-[10px] font-bold px-2 py-0.5 rounded flex items-center gap-1">
+                                <i class="fa-solid fa-star text-[9px] text-amber-400"></i> 8.5
+                            </span>
+                            <span id="modalYear" class="text-xs text-slate-300">2024</span>
+                            <span class="text-xs text-slate-500">•</span>
+                            <span id="modalDuration" class="text-xs text-slate-300">2h 15m</span>
+                            <span class="text-xs text-slate-500">•</span>
+                            <span id="modalLanguage" class="text-xs text-slate-300">English</span>
                         </div>
-                        <div class="font-heading font-black text-3xl text-white mt-2">$4,180.25</div>
-                        <div class="flex items-center gap-1.5 text-xs text-slate-400 font-mono mt-2">
-                            Ready for zero-fee transfer
-                        </div>
-                    </div>
 
-                    <div class="p-6 rounded-2xl bg-dark-950/60 border border-white/5">
-                        <div class="flex items-center justify-between text-xs text-slate-400 font-mono">
-                            <span>PENDING VALIDATIONS</span>
-                            <i class="fa-solid fa-clock-rotate-left text-neon-amber"></i>
-                        </div>
-                        <div class="font-heading font-black text-3xl text-white mt-2">$740.00</div>
-                        <div class="flex items-center gap-1.5 text-xs text-neon-amber font-mono mt-2">
-                            12 tasks settling in &lt;2h
-                        </div>
-                    </div>
+                        <h2 id="modalTitle" class="text-2xl sm:text-3xl font-heading font-black text-white mb-2">Movie Title</h2>
 
-                    <div class="p-6 rounded-2xl bg-dark-950/60 border border-white/5">
-                        <div class="flex items-center justify-between text-xs text-slate-400 font-mono">
-                            <span>NETWORK MULTIPLIER</span>
-                            <i class="fa-solid fa-chart-line text-neon-purple"></i>
+                        <!-- Genre Tags -->
+                        <div id="modalGenres" class="flex flex-wrap gap-1.5 mb-4">
+                            <!-- Populated via JS -->
                         </div>
-                        <div class="font-heading font-black text-3xl text-white mt-2">2.45x</div>
-                        <div class="flex items-center gap-1.5 text-xs text-neon-purple font-mono mt-2">
-                            Diamond rank active
-                        </div>
-                    </div>
 
-                </div>
+                        <!-- Synopsis -->
+                        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Storyline</h4>
+                        <p id="modalOverview" class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-4">
+                            Movie storyline description goes here.
+                        </p>
 
-                <!-- Graphical Simulated Section & Activity History -->
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                    
-                    <!-- Simulated Canvas/Chart Panel -->
-                    <div class="lg:col-span-8 p-6 rounded-2xl bg-dark-950/70 border border-white/5 flex flex-col justify-between">
-                        <div class="flex items-center justify-between mb-4">
+                        <!-- Extra Details Grid -->
+                        <div class="grid grid-cols-2 gap-3 text-xs border-t border-slate-800 pt-3">
                             <div>
-                                <h4 class="font-heading font-bold text-white text-base">Weekly Yield Momentum</h4>
-                                <p class="text-xs text-slate-400 font-mono">Automated aggregated task velocity</p>
+                                <span class="text-slate-500 block">Director:</span>
+                                <span id="modalDirector" class="text-white font-medium">Christopher Nolan</span>
                             </div>
-                            <div class="flex items-center gap-2">
-                                <span class="px-2.5 py-1 rounded-md bg-white/5 text-[11px] font-mono text-neon-cyan border border-white/10">7D</span>
-                                <span class="px-2.5 py-1 rounded-md text-[11px] font-mono text-slate-400 hover:text-white cursor-pointer">30D</span>
-                                <span class="px-2.5 py-1 rounded-md text-[11px] font-mono text-slate-400 hover:text-white cursor-pointer">All Time</span>
-                            </div>
-                        </div>
-
-                        <!-- Stylized SVG Futuristic Line Chart -->
-                        <div class="w-full h-52 relative mt-4">
-                            <svg class="w-full h-full overflow-visible" viewBox="0 0 500 150" preserveAspectRatio="none">
-                                <defs>
-                                    <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="1">
-                                        <stop offset="0%" stop-color="#00F5FF" stop-opacity="0.35"/>
-                                        <stop offset="100%" stop-color="#7C3AED" stop-opacity="0"/>
-                                    </linearGradient>
-                                </defs>
-                                <!-- Area Fill -->
-                                <path d="M0,130 Q70,90 140,110 T280,60 T420,30 T500,10 L500,150 L0,150 Z" fill="url(#chartGradient)"></path>
-                                <!-- Stroke Line -->
-                                <path d="M0,130 Q70,90 140,110 T280,60 T420,30 T500,10" fill="none" stroke="#00F5FF" stroke-width="3" stroke-linecap="round"></path>
-                                <!-- Pulsing Active Peak Dot -->
-                                <circle cx="500" cy="10" r="5" fill="#00F5FF" class="animate-ping"></circle>
-                                <circle cx="500" cy="10" r="4" fill="#FFFFFF"></circle>
-                            </svg>
-                        </div>
-
-                        <!-- Days of Week Tickers -->
-                        <div class="flex justify-between items-center text-xs font-mono text-slate-500 pt-4 border-t border-white/5 mt-2">
-                            <span>MON</span>
-                            <span>TUE</span>
-                            <span>WED</span>
-                            <span>THU</span>
-                            <span>FRI</span>
-                            <span>SAT</span>
-                            <span class="text-neon-cyan font-bold">SUN (TODAY)</span>
-                        </div>
-                    </div>
-
-                    <!-- Right Live Activity Audit Log -->
-                    <div class="lg:col-span-4 p-6 rounded-2xl bg-dark-950/70 border border-white/5 flex flex-col justify-between">
-                        <div>
-                            <div class="flex items-center justify-between mb-4">
-                                <h4 class="font-heading font-bold text-white text-base">Settlement Log</h4>
-                                <span class="text-[10px] text-neon-emerald font-mono">Synced</span>
-                            </div>
-                            
-                            <div class="space-y-4">
-                                <div class="flex items-center justify-between text-xs pb-3 border-b border-white/5">
-                                    <div>
-                                        <p class="font-bold text-white">Solana Fast Pay</p>
-                                        <p class="text-[10px] text-slate-400">Direct wallet payout</p>
-                                    </div>
-                                    <div class="text-right">
-                                        <p class="font-mono font-bold text-neon-emerald">+$450.00</p>
-                                        <p class="text-[10px] text-slate-500">Confirmed</p>
-                                    </div>
-                                </div>
-
-                                <div class="flex items-center justify-between text-xs pb-3 border-b border-white/5">
-                                    <div>
-                                        <p class="font-bold text-white">AI Fine-Tuning Batch</p>
-                                        <p class="text-[10px] text-slate-400">DeepSeek Prompt Audit</p>
-                                    </div>
-                                    <div class="text-right">
-                                        <p class="font-mono font-bold text-neon-emerald">+$88.40</p>
-                                        <p class="text-[10px] text-slate-500">Confirmed</p>
-                                    </div>
-                                </div>
-
-                                <div class="flex items-center justify-between text-xs">
-                                    <div>
-                                        <p class="font-bold text-white">Tier-3 Downline Royalty</p>
-                                        <p class="text-[10px] text-slate-400">14 active earners</p>
-                                    </div>
-                                    <div class="text-right">
-                                        <p class="font-mono font-bold text-neon-emerald">+$112.50</p>
-                                        <p class="text-[10px] text-slate-500">Confirmed</p>
-                                    </div>
-                                </div>
+                            <div>
+                                <span class="text-slate-500 block">Country:</span>
+                                <span id="modalCountry" class="text-white font-medium">United States</span>
                             </div>
                         </div>
 
-                        <button class="w-full mt-6 py-2.5 rounded-xl font-heading text-xs font-semibold text-slate-300 hover:text-white glass-panel border border-white/10 transition-colors">
-                            Download Complete Tax CSV
-                        </button>
-                    </div>
-
-                </div>
-
-            </div>
-        </section>
-
-        <!-- 6. WHY CHOOSE OUR PLATFORM (VALUE PROPOSITION) -->
-        <section class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-white/5">
-            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-                <span class="text-xs uppercase font-mono tracking-widest text-neon-emerald font-bold">Unrivaled Infrastructure</span>
-                <h2 class="font-heading font-extrabold text-3xl sm:text-5xl text-white">
-                    Engineered For <span class="text-gradient-cyan">Maximum Transparency</span>
-                </h2>
-                <p class="text-slate-400">
-                    Traditional gig platforms charge exorbitant commissions and withhold payments. NEXUS runs on autonomous code to protect your yield.
-                </p>
-            </div>
-
-            <!-- Features 4x2 Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                
-                <div class="p-6 rounded-2xl glass-card-interactive">
-                    <div class="w-10 h-10 rounded-xl bg-neon-cyan/10 border border-neon-cyan/30 flex items-center justify-center text-neon-cyan text-lg mb-4">
-                        <i class="fa-solid fa-shield-halved"></i>
-                    </div>
-                    <h4 class="font-heading font-bold text-white text-base mb-2">Cryptographic Escrow</h4>
-                    <p class="text-slate-400 text-xs leading-relaxed">
-                        Task budgets are locked into smart contract escrows before you begin. You are guaranteed payment upon verifiable completion.
-                    </p>
-                </div>
-
-                <div class="p-6 rounded-2xl glass-card-interactive">
-                    <div class="w-10 h-10 rounded-xl bg-neon-purple/10 border border-neon-purple/30 flex items-center justify-center text-neon-purple text-lg mb-4">
-                        <i class="fa-solid fa-gauge-high"></i>
-                    </div>
-                    <h4 class="font-heading font-bold text-white text-base mb-2">Zero Payment Lag</h4>
-                    <p class="text-slate-400 text-xs leading-relaxed">
-                        Forget 30-day corporate settlement terms. Request instant withdrawals 24/7/365 with automated chain verification.
-                    </p>
-                </div>
-
-                <div class="p-6 rounded-2xl glass-card-interactive">
-                    <div class="w-10 h-10 rounded-xl bg-neon-emerald/10 border border-neon-emerald/30 flex items-center justify-center text-neon-emerald text-lg mb-4">
-                        <i class="fa-solid fa-earth-americas"></i>
-                    </div>
-                    <h4 class="font-heading font-bold text-white text-base mb-2">Global Borderless Access</h4>
-                    <p class="text-slate-400 text-xs leading-relaxed">
-                        Earn from anywhere on Earth. We support 180+ jurisdictions without geographical payment discrimination or banking limits.
-                    </p>
-                </div>
-
-                <div class="p-6 rounded-2xl glass-card-interactive">
-                    <div class="w-10 h-10 rounded-xl bg-neon-violet/10 border border-neon-violet/30 flex items-center justify-center text-neon-violet text-lg mb-4">
-                        <i class="fa-solid fa-scale-balanced"></i>
-                    </div>
-                    <h4 class="font-heading font-bold text-white text-base mb-2">Zero Middleman Squeeze</h4>
-                    <p class="text-slate-400 text-xs leading-relaxed">
-                        Unlike legacy freelance portals taking 20%, our protocol operates on an ultra-lean 2.5% decentralized liquidity fee.
-                    </p>
-                </div>
-
-                <div class="p-6 rounded-2xl glass-card-interactive">
-                    <div class="w-10 h-10 rounded-xl bg-neon-cyan/10 border border-neon-cyan/30 flex items-center justify-center text-neon-cyan text-lg mb-4">
-                        <i class="fa-solid fa-fingerprint"></i>
-                    </div>
-                    <h4 class="font-heading font-bold text-white text-base mb-2">Private &amp; Non-Custodial</h4>
-                    <p class="text-slate-400 text-xs leading-relaxed">
-                        Retain complete control over your earnings and data profile. Withdraw directly to self-custody cold wallets anytime.
-                    </p>
-                </div>
-
-                <div class="p-6 rounded-2xl glass-card-interactive">
-                    <div class="w-10 h-10 rounded-xl bg-neon-amber/10 border border-neon-amber/30 flex items-center justify-center text-neon-amber text-lg mb-4">
-                        <i class="fa-solid fa-layer-group"></i>
-                    </div>
-                    <h4 class="font-heading font-bold text-white text-base mb-2">Stackable Income Models</h4>
-                    <p class="text-slate-400 text-xs leading-relaxed">
-                        Combine automated node streaming with interactive survey rewards and active freelance bounties simultaneously.
-                    </p>
-                </div>
-
-                <div class="p-6 rounded-2xl glass-card-interactive">
-                    <div class="w-10 h-10 rounded-xl bg-neon-emerald/10 border border-neon-emerald/30 flex items-center justify-center text-neon-emerald text-lg mb-4">
-                        <i class="fa-solid fa-chart-line"></i>
-                    </div>
-                    <h4 class="font-heading font-bold text-white text-base mb-2">Yield Auto-Compounder</h4>
-                    <p class="text-slate-400 text-xs leading-relaxed">
-                        Opt-in to automatically deposit your earnings into insured DeFi liquidity vaults generating up to 8.5% passive APY.
-                    </p>
-                </div>
-
-                <div class="p-6 rounded-2xl glass-card-interactive">
-                    <div class="w-10 h-10 rounded-xl bg-neon-purple/10 border border-neon-purple/30 flex items-center justify-center text-neon-purple text-lg mb-4">
-                        <i class="fa-solid fa-headset"></i>
-                    </div>
-                    <h4 class="font-heading font-bold text-white text-base mb-2">24/7 Arbitrator Support</h4>
-                    <p class="text-slate-400 text-xs leading-relaxed">
-                        Decentralized juror tribunals resolve any client disputes fairly within hours, shielding your work and reputation.
-                    </p>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- 7. REFERRAL & COMMUNITY VIRAL BANNER -->
-        <section id="referrals" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-            <div class="relative rounded-3xl p-8 sm:p-14 overflow-hidden border border-neon-purple/30 bg-gradient-to-br from-dark-900 via-dark-850 to-neon-violet/20 shadow-[0_30px_90px_rgba(124,58,237,0.25)]">
-                
-                <!-- Background visual mesh -->
-                <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-neon-cyan/20 rounded-full blur-3xl pointer-events-none"></div>
-
-                <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-                    
-                    <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
-                        <span class="px-3.5 py-1.5 rounded-full bg-neon-purple/20 border border-neon-purple/40 text-neon-purple text-xs font-mono font-bold uppercase">
-                            Viral Network Multiplier
-                        </span>
-                        
-                        <h2 class="font-heading font-black text-3xl sm:text-5xl text-white tracking-tight">
-                            Your Network. <br>
-                            Your Opportunity. <br>
-                            <span class="text-gradient-aurora">Your Perpetual Rewards.</span>
-                        </h2>
-
-                        <p class="text-slate-300 text-base max-w-xl mx-auto lg:mx-0">
-                            Invite fellow digital earners, builders, and researchers. Receive an automated 15% lifetime protocol override on all rewards processed by your direct connections.
-                        </p>
-
-                        <!-- Copyable Referral Link Box -->
-                        <div class="p-2 rounded-2xl glass-panel border border-white/15 bg-dark-950/80 flex flex-col sm:flex-row items-center gap-3 max-w-lg mx-auto lg:mx-0">
-                            <div class="flex-1 px-4 py-2 font-mono text-xs text-neon-cyan truncate w-full sm:w-auto">
-                                https://nexus.earn/invite?ref=vanguard_alpha
-                            </div>
-                            <button onclick="navigator.clipboard.writeText('https://nexus.earn/invite?ref=vanguard_alpha'); alert('Referral link copied to clipboard!');" class="w-full sm:w-auto px-6 py-3 rounded-xl font-heading font-bold text-xs text-dark-950 bg-neon-cyan hover:bg-white transition-colors flex items-center justify-center gap-2">
-                                <i class="fa-regular fa-copy"></i>
-                                <span>Copy Link</span>
+                        <!-- Modal Action Buttons -->
+                        <div class="flex flex-wrap items-center gap-3 mt-5">
+                            <button id="modalActionTrailerBtn" class="px-5 py-2.5 rounded-full bg-cinRed hover:bg-cinRedHover text-white text-xs font-bold shadow-glow-red flex items-center gap-2">
+                                <i class="fa-solid fa-play"></i> Watch Trailer
                             </button>
+                            <button id="modalFavToggleBtn" class="px-5 py-2.5 rounded-full bg-cinNavy hover:bg-slate-800 border border-slate-700 text-white text-xs font-semibold flex items-center gap-2">
+                                <i class="fa-regular fa-heart"></i> <span>Add to Watchlist</span>
+                            </button>
+                            <a id="modalOfficialSourceBtn" href="https://www.netflix.com" target="_blank" rel="noopener noreferrer" 
+                               class="px-5 py-2.5 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold flex items-center gap-2 border border-slate-600">
+                                <i class="fa-solid fa-arrow-up-right-from-square text-slate-400"></i>
+                                <span>Official Streaming</span>
+                            </a>
                         </div>
                     </div>
-
-                    <!-- Right Stats Graphic -->
-                    <div class="lg:col-span-5 grid grid-cols-2 gap-4">
-                        <div class="glass-panel p-6 rounded-2xl border border-white/10 text-center">
-                            <div class="text-3xl font-heading font-black text-white font-mono">15%</div>
-                            <p class="text-xs text-slate-400 font-mono mt-1">Tier 1 Override</p>
-                        </div>
-                        <div class="glass-panel p-6 rounded-2xl border border-white/10 text-center">
-                            <div class="text-3xl font-heading font-black text-neon-cyan font-mono">5%</div>
-                            <p class="text-xs text-slate-400 font-mono mt-1">Tier 2 Network</p>
-                        </div>
-                        <div class="glass-panel p-6 rounded-2xl border border-white/10 text-center col-span-2">
-                            <div class="text-xs text-slate-400 font-mono uppercase mb-1">Total Community Referral Pool</div>
-                            <div class="text-3xl font-heading font-black text-neon-emerald font-mono">$1,842,910.00</div>
-                            <p class="text-[10px] text-slate-500 mt-1">Fully distributed through automated smart contracts</p>
-                        </div>
-                    </div>
-
                 </div>
 
-            </div>
-        </section>
-
-        <!-- 8. TESTIMONIALS & VERIFIED SOCIAL PROOF -->
-        <section class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-white/5">
-            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-                <span class="text-xs uppercase font-mono tracking-widest text-neon-cyan font-bold">Verified Member Experience</span>
-                <h2 class="font-heading font-extrabold text-3xl sm:text-5xl text-white">
-                    Backed By Over <span class="text-gradient-aurora">380,000 Earners</span>
-                </h2>
-                <p class="text-slate-400">
-                    Real community members scaling reliable remote income streams around the globe.
-                </p>
-            </div>
-
-            <!-- Testimonial Cards Carousel Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                
-                <!-- Review 1 -->
-                <div class="glass-panel p-8 rounded-2xl border border-white/10 relative flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center gap-1 text-neon-amber text-xs mb-5">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                        </div>
-                        <p class="text-slate-300 text-sm leading-relaxed mb-6 italic">
-                            "NEXUS replaced my secondary job within 3 months. The AI evaluation micro-tasks are straightforward, payout verification happens in minutes, and withdrawing directly in USDC saves me hundreds on bank wire costs."
-                        </p>
-                    </div>
-                    <div class="flex items-center gap-4 pt-4 border-t border-white/10">
-                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=80" class="w-10 h-10 rounded-full object-cover border border-neon-cyan">
+                <!-- MODAL SPONSORED ADVERTISEMENT BANNER -->
+                <div class="mt-8 rounded-xl p-4 bg-gradient-to-r from-[#170a0b] via-[#210d10] to-[#120708] border border-cinRed/30 shadow-lg">
+                    <div class="flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
                         <div>
-                            <h5 class="font-heading font-bold text-white text-sm">Clara Montagu</h5>
-                            <p class="text-[11px] text-slate-400 font-mono">Senior Data Evaluator • Spain</p>
+                            <div class="flex items-center justify-center sm:justify-start gap-2 mb-1">
+                                <span class="bg-cinOrange text-white text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded">
+                                    Sponsored Advertisement
+                                </span>
+                                <span class="text-xs font-bold text-white">Ultra-Speed Direct CDN Mirror</span>
+                            </div>
+                            <p class="text-xs text-slate-400">
+                                Tired of slow buffers? Experience direct multi-threaded downloads & high-bandwidth cloud servers.
+                            </p>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Review 2 -->
-                <div class="glass-panel p-8 rounded-2xl border border-white/10 relative flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center gap-1 text-neon-amber text-xs mb-5">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                        </div>
-                        <p class="text-slate-300 text-sm leading-relaxed mb-6 italic">
-                            "The network override system is legitimately game-changing. I onboarded a team of 30 university developers who complete bug bounties, and my referral royalties now generate passive cash weekly."
-                        </p>
-                    </div>
-                    <div class="flex items-center gap-4 pt-4 border-t border-white/10">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80" class="w-10 h-10 rounded-full object-cover border border-neon-purple">
-                        <div>
-                            <h5 class="font-heading font-bold text-white text-sm">Marcus Sterling</h5>
-                            <p class="text-[11px] text-slate-400 font-mono">Guild Lead • Canada</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Review 3 -->
-                <div class="glass-panel p-8 rounded-2xl border border-white/10 relative flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center gap-1 text-neon-amber text-xs mb-5">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                        </div>
-                        <p class="text-slate-300 text-sm leading-relaxed mb-6 italic">
-                            "What stands out is platform integrity. Unlike old survey portals that disqualify you after 20 minutes, NEXUS reserves your slot before you even answer the first prompt. It respects user time."
-                        </p>
-                    </div>
-                    <div class="flex items-center gap-4 pt-4 border-t border-white/10">
-                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&auto=format&fit=crop&q=80" class="w-10 h-10 rounded-full object-cover border border-neon-emerald">
-                        <div>
-                            <h5 class="font-heading font-bold text-white text-sm">Devon Vance</h5>
-                            <p class="text-[11px] text-slate-400 font-mono">Independent Researcher • UK</p>
-                        </div>
+                        <a href="https://auctionr.org/4/fa93ed40bc9be029e745479ee5ecf812" target="_blank" rel="noopener noreferrer" 
+                           class="flex-shrink-0 px-5 py-2 rounded-lg bg-gradient-to-r from-cinOrange to-cinRed hover:from-orange-500 hover:to-red-600 text-white font-bold text-xs tracking-wide shadow-glow-orange transition-all">
+                            Connect Mirror
+                        </a>
                     </div>
                 </div>
 
             </div>
-        </section>
+        </div>
+    </div>
 
-        <!-- 9. INTERACTIVE FAQ ACCORDION -->
-        <section id="faq" class="py-24 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto border-t border-white/5">
-            <div class="text-center mb-16 space-y-4">
-                <span class="text-xs uppercase font-mono tracking-widest text-neon-violet font-bold">Frequently Asked Queries</span>
-                <h2 class="font-heading font-extrabold text-3xl sm:text-5xl text-white">
-                    Clear Answers For <span class="text-gradient-cyan">Smart Earners</span>
-                </h2>
-                <p class="text-slate-400 text-sm sm:text-base">
-                    Everything you need to know about payouts, security, and onboarding.
-                </p>
+    <!-- 8. VIDEO TRAILER PLAYER MODAL -->
+    <div id="trailerModal" class="fixed inset-0 z-50 hidden bg-black/95 backdrop-blur-lg flex items-center justify-center p-3 sm:p-6">
+        <div class="relative w-full max-w-4xl aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border border-cinBorder">
+            <button id="closeTrailerBtn" class="absolute top-3 right-3 z-30 w-9 h-9 rounded-full bg-black/80 hover:bg-cinRed text-white flex items-center justify-center border border-white/20 transition-colors">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div id="trailerIframeContainer" class="w-full h-full flex items-center justify-center">
+                <!-- YouTube iframe inserted dynamically -->
             </div>
+        </div>
+    </div>
 
-            <!-- Accordion List -->
-            <div class="space-y-4">
-                
-                <!-- FAQ 1 -->
-                <div class="glass-panel rounded-2xl border border-white/10 overflow-hidden">
-                    <button class="w-full p-6 text-left font-heading font-bold text-base sm:text-lg text-white flex items-center justify-between gap-4 transition-colors hover:text-neon-cyan focus:outline-none" onclick="toggleFaq(this)">
-                        <span>How does the NEXUS platform generate liquidity to pay earners?</span>
-                        <i class="fa-solid fa-chevron-down text-sm transition-transform duration-300 text-slate-400"></i>
+    <!-- 9. REQUEST MOVIE MODAL -->
+    <div id="requestModal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="relative w-full max-w-md bg-cinNavy border border-cinBorder rounded-2xl p-6 shadow-2xl">
+            <button id="closeRequestModalBtn" class="absolute top-4 right-4 text-slate-400 hover:text-white">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <div class="flex items-center gap-2 mb-2 text-cinRed text-sm font-bold">
+                <i class="fa-solid fa-paper-plane"></i>
+                <span>REQUEST A TITLE</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Can't find a movie or show?</h3>
+            <p class="text-xs text-slate-400 mb-5">Let us know what movie, series, or Bengali regional cinema you'd like us to index next.</p>
+            
+            <form id="requestMovieForm" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-1">Movie / Series Title *</label>
+                    <input type="text" id="requestTitleInput" required placeholder="e.g. Hawa (2022) or Interstellar" class="w-full bg-cinDeep border border-cinBorder rounded-lg px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-cinRed">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-1">Release Year or Language (Optional)</label>
+                    <input type="text" id="requestYearInput" placeholder="e.g. 2023, Bengali, English" class="w-full bg-cinDeep border border-cinBorder rounded-lg px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-cinRed">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-1">Your Email (Optional for updates)</label>
+                    <input type="email" id="requestEmailInput" placeholder="your@email.com" class="w-full bg-cinDeep border border-cinBorder rounded-lg px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-cinRed">
+                </div>
+                <button type="submit" class="w-full py-3 rounded-lg bg-gradient-to-r from-cinRed to-red-600 hover:from-red-600 hover:to-cinRed text-white text-xs font-bold tracking-wider uppercase shadow-glow-red transition-all">
+                    Submit Title Request
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 10. WATCHLIST / FAVORITES DRAWER -->
+    <div id="watchlistDrawer" class="fixed inset-y-0 right-0 z-50 w-full sm:w-96 bg-cinDeep border-l border-cinBorder shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col">
+        <div class="p-5 border-b border-cinBorder flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-heart text-cinRed"></i>
+                <h3 class="font-bold text-white text-base">Your Watchlist</h3>
+                <span id="drawerCountBadge" class="bg-cinNavy text-slate-300 border border-cinBorder text-xs px-2 py-0.5 rounded-full font-semibold">0</span>
+            </div>
+            <button id="closeDrawerBtn" class="text-slate-400 hover:text-white p-1">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+        </div>
+
+        <div id="drawerListContainer" class="flex-1 overflow-y-auto p-4 space-y-3">
+            <!-- Populated via JS -->
+        </div>
+
+        <div class="p-4 border-t border-cinBorder bg-cinNavy/40">
+            <button id="clearAllFavBtn" class="w-full py-2 rounded-lg bg-slate-800 hover:bg-cinRed text-slate-300 hover:text-white text-xs font-semibold transition-colors">
+                Clear Entire Watchlist
+            </button>
+        </div>
+    </div>
+    <!-- Watchlist Backdrop -->
+    <div id="drawerBackdrop" class="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm hidden"></div>
+
+    <!-- 11. TOAST NOTIFICATION CONTAINER -->
+    <div id="toastContainer" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+    <!-- JAVASCRIPT APPLICATION LOGIC -->
+    <script>
+        /**
+         * CINVERSE MOVIE DATABASE (Comprehensive Sample Catalog)
+         * Easily extendable for new releases, regional cinema, and ratings.
+         */
+        const MOVIE_DATABASE = [
+            {
+                id: 1,
+                title: "Dune: Part Two",
+                year: 2024,
+                duration: "2h 46m",
+                rating: 8.6,
+                quality: "4K Ultra HD",
+                language: "English",
+                genres: ["Sci-Fi", "Adventure", "Action"],
+                country: "United States",
+                director: "Denis Villeneuve",
+                poster: "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=800&auto=format&fit=crop",
+                backdrop: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?q=80&w=1920&auto=format&fit=crop",
+                overview: "Paul Atreides unites with Chani and the Fremen while seeking revenge against the conspirators who destroyed his family. Facing a choice between the love of his life and the fate of the known universe, he endeavors to prevent a terrible future only he can foresee.",
+                trailerYoutubeId: "Way9Dexny3w",
+                officialLink: "https://www.max.com",
+                isFeatured: true
+            },
+            {
+                id: 2,
+                title: "Hawa",
+                year: 2022,
+                duration: "2h 11m",
+                rating: 8.0,
+                quality: "1080p FHD",
+                language: "Bengali",
+                genres: ["Bengali", "Mystery", "Drama", "Thriller"],
+                country: "Bangladesh",
+                director: "Mejbaur Rahman Sumon",
+                poster: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=800&auto=format&fit=crop",
+                backdrop: "https://images.unsplash.com/photo-1505118380757-91f5f5632de0?q=80&w=1920&auto=format&fit=crop",
+                overview: "A group of deep-sea fishermen in the Bay of Bengal catch a mysterious, ethereal young woman in their fishing net, triggering supernatural occurrences, suspicion, and chaos among the crew.",
+                trailerYoutubeId: "uL0X16U_jW4",
+                officialLink: "https://www.sonyliv.com",
+                isFeatured: true
+            },
+            {
+                id: 3,
+                title: "Oppenheimer",
+                year: 2023,
+                duration: "3h 00m",
+                rating: 8.9,
+                quality: "4K Ultra HD",
+                language: "English",
+                genres: ["Drama", "Biography"],
+                country: "United States",
+                director: "Christopher Nolan",
+                poster: "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=800&auto=format&fit=crop",
+                backdrop: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1920&auto=format&fit=crop",
+                overview: "The story of American scientist J. Robert Oppenheimer and his role in the development of the atomic bomb during the Manhattan Project, unraveling moral dilemmas and geopolitical fallout.",
+                trailerYoutubeId: "uYPbbksJxIg",
+                officialLink: "https://www.peacocktv.com",
+                isFeatured: true
+            },
+            {
+                id: 4,
+                title: "Mujib: The Making of a Nation",
+                year: 2023,
+                duration: "2h 58m",
+                rating: 7.9,
+                quality: "4K Ultra HD",
+                language: "Bengali",
+                genres: ["Bengali", "Drama", "History"],
+                country: "Bangladesh / India",
+                director: "Shyam Benegal",
+                poster: "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?q=80&w=800&auto=format&fit=crop",
+                backdrop: "https://images.unsplash.com/photo-1533227268428-f9ed0900fb3b?q=80&w=1920&auto=format&fit=crop",
+                overview: "A sweeping biographical drama detailing the life, revolutionary struggle, and leadership of Sheikh Mujibur Rahman, the founding father of Bangladesh.",
+                trailerYoutubeId: "5f3WzL3e75Q",
+                officialLink: "https://www.zee5.com",
+                isFeatured: true
+            },
+            {
+                id: 5,
+                title: "Spider-Man: Across the Spider-Verse",
+                year: 2023,
+                duration: "2h 20m",
+                rating: 8.7,
+                quality: "4K Ultra HD",
+                language: "English",
+                genres: ["Action", "Sci-Fi", "Adventure"],
+                country: "United States",
+                director: "Joaquim Dos Santos",
+                poster: "https://images.unsplash.com/photo-1635805737707-575885ab0820?q=80&w=800&auto=format&fit=crop",
+                backdrop: "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?q=80&w=1920&auto=format&fit=crop",
+                overview: "Miles Morales catapults across the Multiverse, where he encounters a team of Spider-People charged with protecting its very existence. When the heroes clash on handling a new threat, Miles must redefine heroism.",
+                trailerYoutubeId: "cqGjhVJWtEg",
+                officialLink: "https://www.netflix.com",
+                isFeatured: false
+            },
+            {
+                id: 6,
+                title: "Alien: Romulus",
+                year: 2024,
+                duration: "1h 59m",
+                rating: 7.3,
+                quality: "4K Ultra HD",
+                language: "English",
+                genres: ["Horror", "Sci-Fi", "Thriller"],
+                country: "United States",
+                director: "Fede Álvarez",
+                poster: "https://images.unsplash.com/photo-1509281373149-e957c6296406?q=80&w=800&auto=format&fit=crop",
+                backdrop: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1920&auto=format&fit=crop",
+                overview: "While scavenging the deep ends of a derelict space station, a group of young space colonizers come face to face with the most terrifying life form in the universe.",
+                trailerYoutubeId: "x0XDEhP4MQs",
+                officialLink: "https://www.hulu.com",
+                isFeatured: false
+            },
+            {
+                id: 7,
+                title: "Deadpool & Wolverine",
+                year: 2024,
+                duration: "2h 08m",
+                rating: 7.8,
+                quality: "4K Ultra HD",
+                language: "English",
+                genres: ["Action", "Comedy", "Sci-Fi"],
+                country: "United States",
+                director: "Shawn Levy",
+                poster: "https://images.unsplash.com/photo-1608889825205-eebdb9fc5806?q=80&w=800&auto=format&fit=crop",
+                backdrop: "https://images.unsplash.com/photo-1563089145-599997674d42?q=80&w=1920&auto=format&fit=crop",
+                overview: "Wolverine is recovering from his injuries when he crosses paths with the loudmouth Deadpool. They team up to defeat a common enemy in a universe-altering romp.",
+                trailerYoutubeId: "73_1biulkYk",
+                officialLink: "https://www.disneyplus.com",
+                isFeatured: false
+            },
+            {
+                id: 8,
+                title: "Poddapuran",
+                year: 2021,
+                duration: "2h 15m",
+                rating: 7.6,
+                quality: "1080p FHD",
+                language: "Bengali",
+                genres: ["Bengali", "Drama", "Thriller"],
+                country: "Bangladesh",
+                director: "Rashid Palash",
+                poster: "https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?q=80&w=800&auto=format&fit=crop",
+                backdrop: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1920&auto=format&fit=crop",
+                overview: "A gripping tale following the lives of marginal people whose survival, love, and heartbreaks are intimately linked to the powerful currents of the Padma river.",
+                trailerYoutubeId: "Way9Dexny3w",
+                officialLink: "https://www.chorki.com",
+                isFeatured: false
+            },
+            {
+                id: 9,
+                title: "The Batman",
+                year: 2022,
+                duration: "2h 56m",
+                rating: 7.8,
+                quality: "4K Ultra HD",
+                language: "English",
+                genres: ["Action", "Thriller", "Drama"],
+                country: "United States",
+                director: "Matt Reeves",
+                poster: "https://images.unsplash.com/photo-1509248961158-e54f6934749c?q=80&w=800&auto=format&fit=crop",
+                backdrop: "https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?q=80&w=1920&auto=format&fit=crop",
+                overview: "When a sadistic serial killer begins murdering key political figures in Gotham, Batman is forced to investigate the city's hidden corruption and question his family's involvement.",
+                trailerYoutubeId: "mqqft2x_Aa4",
+                officialLink: "https://www.max.com",
+                isFeatured: false
+            },
+            {
+                id: 10,
+                title: "A Quiet Place: Day One",
+                year: 2024,
+                duration: "1h 39m",
+                rating: 6.4,
+                quality: "4K Ultra HD",
+                language: "English",
+                genres: ["Horror", "Sci-Fi", "Drama"],
+                country: "United States",
+                director: "Michael Sarnoski",
+                poster: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=800&auto=format&fit=crop",
+                backdrop: "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=1920&auto=format&fit=crop",
+                overview: "A young woman named Sam finds herself trapped in New York City during the terrifying initial invasion by blind extraterrestrial creatures with hypersensitive hearing.",
+                trailerYoutubeId: "YPY7J-flzE8",
+                officialLink: "https://www.paramountplus.com",
+                isFeatured: false
+            },
+            {
+                id: 11,
+                title: "Surongo",
+                year: 2023,
+                duration: "2h 30m",
+                rating: 7.8,
+                quality: "1080p FHD",
+                language: "Bengali",
+                genres: ["Bengali", "Thriller", "Action"],
+                country: "Bangladesh",
+                director: "Raihan Rafi",
+                poster: "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=800&auto=format&fit=crop",
+                backdrop: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?q=80&w=1920&auto=format&fit=crop",
+                overview: "Driven by love and betrayal, Masud orchestrates an audacious underground bank tunnel robbery, spiraling into a deadly game of cat and mouse with relentless detectives.",
+                trailerYoutubeId: "0oO24U3Gj-8",
+                officialLink: "https://www.chorki.com",
+                isFeatured: false
+            },
+            {
+                id: 12,
+                title: "Interstellar",
+                year: 2014,
+                duration: "2h 49m",
+                rating: 8.7,
+                quality: "4K Ultra HD",
+                language: "English",
+                genres: ["Sci-Fi", "Adventure", "Drama"],
+                country: "United States",
+                director: "Christopher Nolan",
+                poster: "https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?q=80&w=800&auto=format&fit=crop",
+                backdrop: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1920&auto=format&fit=crop",
+                overview: "When Earth becomes uninhabitable in the future, a farmer and ex-NASA pilot, Joseph Cooper, is tasked to pilot a spacecraft along with a team of researchers through a newly discovered wormhole.",
+                trailerYoutubeId: "zSWdZVtXT7E",
+                officialLink: "https://www.paramountplus.com",
+                isFeatured: false
+            }
+        ];
+
+        // Global State
+        const STATE = {
+            currentCategory: 'All',
+            searchQuery: '',
+            sortBy: 'featured',
+            displayedCount: 10,
+            featuredMovies: MOVIE_DATABASE.filter(m => m.isFeatured),
+            currentHeroIndex: 0,
+            favorites: JSON.parse(localStorage.getItem('cinverse_favorites') || '[]'),
+            heroInterval: null
+        };
+
+        // DOM Elements
+        const elements = {
+            movieGrid: document.getElementById('movieGrid'),
+            searchInput: document.getElementById('searchInput'),
+            mobileSearchInput: document.getElementById('mobileSearchInput'),
+            clearSearchBtn: document.getElementById('clearSearchBtn'),
+            mobileSearchToggle: document.getElementById('mobileSearchToggle'),
+            mobileSearchContainer: document.getElementById('mobileSearchContainer'),
+            categoryPills: document.querySelectorAll('.cat-pill'),
+            sortSelect: document.getElementById('sortSelect'),
+            noResultsState: document.getElementById('noResultsState'),
+            loadMoreBtn: document.getElementById('loadMoreBtn'),
+            loadMoreContainer: document.getElementById('loadMoreContainer'),
+            searchQueryBadge: document.getElementById('searchQueryBadge'),
+            searchQueryText: document.getElementById('searchQueryText'),
+            resetSearchBtn: document.getElementById('resetSearchBtn'),
+            resetFiltersBtn: document.getElementById('resetFiltersBtn'),
+            catalogCategoryTitle: document.getElementById('catalogCategoryTitle'),
+            favCounterBadge: document.getElementById('favCounterBadge'),
+            watchlistDrawer: document.getElementById('watchlistDrawer'),
+            drawerBackdrop: document.getElementById('drawerBackdrop'),
+            favoritesDrawerBtn: document.getElementById('favoritesDrawerBtn'),
+            closeDrawerBtn: document.getElementById('closeDrawerBtn'),
+            drawerListContainer: document.getElementById('drawerListContainer'),
+            drawerCountBadge: document.getElementById('drawerCountBadge'),
+            clearAllFavBtn: document.getElementById('clearAllFavBtn'),
+            footerWatchlistBtn: document.getElementById('footerWatchlistBtn'),
+            
+            // Hero elements
+            heroBgImage: document.getElementById('heroBgImage'),
+            heroTitle: document.getElementById('heroTitle'),
+            heroOverview: document.getElementById('heroOverview'),
+            heroRating: document.getElementById('heroRating'),
+            heroQuality: document.getElementById('heroQuality'),
+            heroLang: document.getElementById('heroLang'),
+            heroYearDuration: document.getElementById('heroYearDuration'),
+            heroTrailerBtn: document.getElementById('heroTrailerBtn'),
+            heroDetailsBtn: document.getElementById('heroDetailsBtn'),
+            heroFavBtn: document.getElementById('heroFavBtn'),
+            heroSliderDots: document.getElementById('heroSliderDots'),
+            heroPrevBtn: document.getElementById('heroPrevBtn'),
+            heroNextBtn: document.getElementById('heroNextBtn'),
+
+            // Modals
+            movieDetailsModal: document.getElementById('movieDetailsModal'),
+            closeModalBtn: document.getElementById('closeModalBtn'),
+            trailerModal: document.getElementById('trailerModal'),
+            closeTrailerBtn: document.getElementById('closeTrailerBtn'),
+            trailerIframeContainer: document.getElementById('trailerIframeContainer'),
+            requestModal: document.getElementById('requestModal'),
+            requestMovieBtn: document.getElementById('requestMovieBtn'),
+            footerRequestBtn: document.getElementById('footerRequestBtn'),
+            closeRequestModalBtn: document.getElementById('closeRequestModalBtn'),
+            requestMovieForm: document.getElementById('requestMovieForm'),
+            toastContainer: document.getElementById('toastContainer')
+        };
+
+        /**
+         * Initialize App
+         */
+        window.addEventListener('DOMContentLoaded', () => {
+            initHeroSlider();
+            renderMovies();
+            updateFavoritesCounter();
+            setupEventListeners();
+        });
+
+        /**
+         * Event Listeners Registration
+         */
+        function setupEventListeners() {
+            // Category filtering
+            elements.categoryPills.forEach(pill => {
+                pill.addEventListener('click', () => {
+                    const category = pill.getAttribute('data-category');
+                    filterByCategory(category);
+                });
+            });
+
+            // Search handling
+            const handleSearch = (query) => {
+                STATE.searchQuery = query.trim().toLowerCase();
+                if (STATE.searchQuery) {
+                    elements.clearSearchBtn.classList.remove('hidden');
+                    elements.searchQueryBadge.classList.remove('hidden');
+                    elements.searchQueryText.textContent = `"${query}"`;
+                } else {
+                    elements.clearSearchBtn.classList.add('hidden');
+                    elements.searchQueryBadge.classList.add('hidden');
+                }
+                STATE.displayedCount = 10;
+                renderMovies();
+            };
+
+            elements.searchInput.addEventListener('input', (e) => handleSearch(e.target.value));
+            elements.mobileSearchInput.addEventListener('input', (e) => handleSearch(e.target.value));
+
+            elements.clearSearchBtn.addEventListener('click', () => {
+                elements.searchInput.value = '';
+                elements.mobileSearchInput.value = '';
+                handleSearch('');
+            });
+
+            elements.resetSearchBtn.addEventListener('click', () => {
+                elements.searchInput.value = '';
+                elements.mobileSearchInput.value = '';
+                handleSearch('');
+            });
+
+            elements.resetFiltersBtn.addEventListener('click', () => {
+                filterByCategory('All');
+                elements.searchInput.value = '';
+                elements.mobileSearchInput.value = '';
+                handleSearch('');
+            });
+
+            elements.mobileSearchToggle.addEventListener('click', () => {
+                elements.mobileSearchContainer.classList.toggle('hidden');
+            });
+
+            // Sorting
+            elements.sortSelect.addEventListener('change', (e) => {
+                STATE.sortBy = e.target.value;
+                renderMovies();
+            });
+
+            // Pagination
+            elements.loadMoreBtn.addEventListener('click', () => {
+                STATE.displayedCount += 6;
+                renderMovies();
+            });
+
+            // Watchlist Drawer
+            const toggleDrawer = (open) => {
+                if (open) {
+                    renderWatchlistDrawer();
+                    elements.watchlistDrawer.classList.remove('translate-x-full');
+                    elements.drawerBackdrop.classList.remove('hidden');
+                    document.body.classList.add('overflow-hidden');
+                } else {
+                    elements.watchlistDrawer.classList.add('translate-x-full');
+                    elements.drawerBackdrop.classList.add('hidden');
+                    document.body.classList.remove('overflow-hidden');
+                }
+            };
+
+            elements.favoritesDrawerBtn.addEventListener('click', () => toggleDrawer(true));
+            elements.footerWatchlistBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                toggleDrawer(true);
+            });
+            elements.closeDrawerBtn.addEventListener('click', () => toggleDrawer(false));
+            elements.drawerBackdrop.addEventListener('click', () => toggleDrawer(false));
+
+            elements.clearAllFavBtn.addEventListener('click', () => {
+                STATE.favorites = [];
+                saveFavorites();
+                renderWatchlistDrawer();
+                renderMovies();
+                updateHeroFavButtonState();
+                showToast("Watchlist cleared", "info");
+            });
+
+            // Request Movie Modal
+            const toggleRequestModal = (show) => {
+                if (show) {
+                    elements.requestModal.classList.remove('hidden');
+                    document.body.classList.add('overflow-hidden');
+                } else {
+                    elements.requestModal.classList.add('hidden');
+                    document.body.classList.remove('overflow-hidden');
+                }
+            };
+
+            elements.requestMovieBtn.addEventListener('click', () => toggleRequestModal(true));
+            elements.footerRequestBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                toggleRequestModal(true);
+            });
+            elements.closeRequestModalBtn.addEventListener('click', () => toggleRequestModal(false));
+            elements.requestModal.addEventListener('click', (e) => {
+                if (e.target === elements.requestModal) toggleRequestModal(false);
+            });
+
+            elements.requestMovieForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const title = document.getElementById('requestTitleInput').value;
+                toggleRequestModal(false);
+                elements.requestMovieForm.reset();
+                showToast(`Request for "${title}" has been submitted!`, 'success');
+            });
+
+            // Movie Details & Trailer Modals Close
+            elements.closeModalBtn.addEventListener('click', closeMovieDetails);
+            elements.movieDetailsModal.addEventListener('click', (e) => {
+                if (e.target === elements.movieDetailsModal) closeMovieDetails();
+            });
+
+            elements.closeTrailerBtn.addEventListener('click', closeTrailerModal);
+            elements.trailerModal.addEventListener('click', (e) => {
+                if (e.target === elements.trailerModal) closeTrailerModal();
+            });
+
+            // Hero Slider Buttons
+            elements.heroPrevBtn.addEventListener('click', prevHeroSlide);
+            elements.heroNextBtn.addEventListener('click', nextHeroSlide);
+
+            // Escape key handler
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    closeMovieDetails();
+                    closeTrailerModal();
+                    toggleRequestModal(false);
+                    toggleDrawer(false);
+                }
+            });
+        }
+
+        /**
+         * Category Filter Execution
+         */
+        function filterByCategory(category) {
+            STATE.currentCategory = category;
+            elements.catalogCategoryTitle.textContent = category;
+
+            // Highlight button
+            elements.categoryPills.forEach(pill => {
+                if (pill.getAttribute('data-category') === category) {
+                    pill.className = "cat-pill active flex-shrink-0 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all bg-cinRed text-white shadow-glow-red";
+                } else {
+                    pill.className = "cat-pill flex-shrink-0 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all bg-cinNavy/80 hover:bg-cinNavy text-slate-300 hover:text-white border border-cinBorder/60";
+                }
+            });
+
+            STATE.displayedCount = 10;
+            renderMovies();
+        }
+
+        /**
+         * Hero Carousel Logic
+         */
+        function initHeroSlider() {
+            if (!STATE.featuredMovies.length) return;
+            
+            // Build indicators
+            elements.heroSliderDots.innerHTML = '';
+            STATE.featuredMovies.forEach((_, idx) => {
+                const dot = document.createElement('button');
+                dot.className = `h-1.5 rounded-full transition-all duration-300 ${idx === 0 ? 'w-8 bg-cinRed' : 'w-2 bg-slate-600 hover:bg-slate-400'}`;
+                dot.setAttribute('aria-label', `Go to slide ${idx + 1}`);
+                dot.addEventListener('click', () => setHeroSlide(idx));
+                elements.heroSliderDots.appendChild(dot);
+            });
+
+            updateHeroSlide(0);
+            startHeroAutoPlay();
+        }
+
+        function startHeroAutoPlay() {
+            clearInterval(STATE.heroInterval);
+            STATE.heroInterval = setInterval(() => {
+                nextHeroSlide();
+            }, 7500);
+        }
+
+        function setHeroSlide(index) {
+            STATE.currentHeroIndex = index;
+            updateHeroSlide(index);
+            startHeroAutoPlay();
+        }
+
+        function nextHeroSlide() {
+            STATE.currentHeroIndex = (STATE.currentHeroIndex + 1) % STATE.featuredMovies.length;
+            updateHeroSlide(STATE.currentHeroIndex);
+        }
+
+        function prevHeroSlide() {
+            STATE.currentHeroIndex = (STATE.currentHeroIndex - 1 + STATE.featuredMovies.length) % STATE.featuredMovies.length;
+            updateHeroSlide(STATE.currentHeroIndex);
+        }
+
+        function updateHeroSlide(index) {
+            const movie = STATE.featuredMovies[index];
+            if (!movie) return;
+
+            // Animate transition
+            elements.heroBgImage.style.opacity = '0.3';
+            setTimeout(() => {
+                elements.heroBgImage.style.backgroundImage = `url('${movie.backdrop || movie.poster}')`;
+                elements.heroBgImage.style.opacity = '1';
+            }, 250);
+
+            elements.heroTitle.textContent = movie.title;
+            elements.heroOverview.textContent = movie.overview;
+            elements.heroRating.textContent = movie.rating.toFixed(1);
+            elements.heroQuality.textContent = movie.quality;
+            elements.heroLang.textContent = movie.language;
+            elements.heroYearDuration.textContent = `${movie.year} • ${movie.duration}`;
+
+            // Buttons
+            elements.heroTrailerBtn.onclick = () => openTrailerModal(movie.trailerYoutubeId, movie.title);
+            elements.heroDetailsBtn.onclick = () => openMovieDetails(movie.id);
+
+            updateHeroFavButtonState();
+
+            elements.heroFavBtn.onclick = () => {
+                toggleFavorite(movie.id);
+                updateHeroFavButtonState();
+            };
+
+            // Update dots
+            const dots = elements.heroSliderDots.querySelectorAll('button');
+            dots.forEach((dot, i) => {
+                if (i === index) {
+                    dot.className = 'h-1.5 rounded-full transition-all duration-300 w-8 bg-cinRed';
+                } else {
+                    dot.className = 'h-1.5 rounded-full transition-all duration-300 w-2 bg-slate-600 hover:bg-slate-400';
+                }
+            });
+        }
+
+        function updateHeroFavButtonState() {
+            const currentMovie = STATE.featuredMovies[STATE.currentHeroIndex];
+            if (!currentMovie) return;
+            const isFav = STATE.favorites.includes(currentMovie.id);
+            elements.heroFavBtn.innerHTML = isFav 
+                ? '<i class="fa-solid fa-heart text-cinRed text-base"></i>' 
+                : '<i class="fa-regular fa-heart text-base"></i>';
+        }
+
+        /**
+         * Movies Querying, Filtering, and Rendering
+         */
+        function getFilteredMovies() {
+            return MOVIE_DATABASE.filter(movie => {
+                // Category Filter
+                const matchesCategory = (STATE.currentCategory === 'All') || 
+                    movie.genres.includes(STATE.currentCategory) || 
+                    (STATE.currentCategory === 'Bengali' && movie.language.toLowerCase() === 'bengali');
+
+                // Search Filter
+                const query = STATE.searchQuery;
+                const matchesSearch = !query || 
+                    movie.title.toLowerCase().includes(query) ||
+                    movie.director.toLowerCase().includes(query) ||
+                    movie.language.toLowerCase().includes(query) ||
+                    movie.genres.some(g => g.toLowerCase().includes(query));
+
+                return matchesCategory && matchesSearch;
+            }).sort((a, b) => {
+                if (STATE.sortBy === 'rating') return b.rating - a.rating;
+                if (STATE.sortBy === 'year') return b.year - a.year;
+                if (STATE.sortBy === 'title') return a.title.localeCompare(b.title);
+                return (b.isFeatured ? 1 : 0) - (a.isFeatured ? 1 : 0);
+            });
+        }
+
+        function renderMovies() {
+            const filtered = getFilteredMovies();
+            elements.movieGrid.innerHTML = '';
+
+            if (filtered.length === 0) {
+                elements.noResultsState.classList.remove('hidden');
+                elements.loadMoreContainer.classList.add('hidden');
+                return;
+            } else {
+                elements.noResultsState.classList.add('hidden');
+            }
+
+            const visibleMovies = filtered.slice(0, STATE.displayedCount);
+
+            visibleMovies.forEach((movie, index) => {
+                // Insert a native Sponsored Card into the listing grid for natural monetization
+                if (index === 4) {
+                    elements.movieGrid.appendChild(createInGridSponsoredCard());
+                }
+                const card = createMovieCard(movie);
+                elements.movieGrid.appendChild(card);
+            });
+
+            // Handle Load More visibility
+            if (visibleMovies.length < filtered.length) {
+                elements.loadMoreContainer.classList.remove('hidden');
+            } else {
+                elements.loadMoreContainer.classList.add('hidden');
+            }
+        }
+
+        /**
+         * Create Single Movie Card Element
+         */
+        function createMovieCard(movie) {
+            const card = document.createElement('div');
+            card.className = "group relative bg-cinCard rounded-xl overflow-hidden border border-cinBorder hover:border-cinRed/60 transition-all duration-300 transform hover:-translate-y-1.5 shadow-md hover:shadow-glow-card flex flex-col";
+
+            const isFav = STATE.favorites.includes(movie.id);
+
+            card.innerHTML = `
+                <!-- Poster Image Area -->
+                <div class="relative aspect-[2/3] w-full overflow-hidden bg-slate-900 cursor-pointer" onclick="openMovieDetails(${movie.id})">
+                    <img src="${movie.poster}" alt="${movie.title}" loading="lazy" 
+                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                         onerror="this.src='https://placehold.co/400x600/10192c/ffffff?text=${encodeURIComponent(movie.title)}'">
+                    
+                    <!-- Dark Gradient Overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-cinDeep via-transparent to-transparent opacity-80 group-hover:opacity-40 transition-opacity"></div>
+
+                    <!-- Top Badges -->
+                    <div class="absolute top-2.5 left-2.5 flex items-center gap-1.5">
+                        <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-black/70 backdrop-blur-md text-white border border-white/10">
+                            ${movie.quality.includes('4K') ? '4K' : 'HD'}
+                        </span>
+                        <span class="px-1.5 py-0.5 rounded text-[10px] font-bold bg-cinNavy/80 backdrop-blur-md text-slate-300 border border-white/10">
+                            ${movie.language}
+                        </span>
+                    </div>
+
+                    <!-- Bookmark Heart Button -->
+                    <button class="fav-toggle-btn absolute top-2.5 right-2.5 w-8 h-8 rounded-full bg-black/70 backdrop-blur-md text-slate-300 hover:text-cinRed border border-white/10 flex items-center justify-center transition-transform active:scale-90"
+                            title="Save to Watchlist" onclick="event.stopPropagation(); toggleFavorite(${movie.id});">
+                        <i class="${isFav ? 'fa-solid text-cinRed' : 'fa-regular'} fa-heart text-xs"></i>
                     </button>
-                    <div class="max-h-0 overflow-hidden transition-all duration-300 px-6 text-slate-400 text-sm leading-relaxed border-t border-transparent">
-                        <p class="pb-6 pt-2">
-                            Global artificial intelligence companies, enterprise market research groups, and protocol developers fund bounties directly through escrow accounts on our platform to crowdsource human verification, data annotation, and security testing.
-                        </p>
+
+                    <!-- Hover Play Quick Action -->
+                    <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40 backdrop-blur-[2px]">
+                        <span class="w-12 h-12 rounded-full bg-cinRed text-white flex items-center justify-center shadow-glow-red transform scale-75 group-hover:scale-100 transition-transform">
+                            <i class="fa-solid fa-play text-sm ml-0.5"></i>
+                        </span>
                     </div>
                 </div>
 
-                <!-- FAQ 2 -->
-                <div class="glass-panel rounded-2xl border border-white/10 overflow-hidden">
-                    <button class="w-full p-6 text-left font-heading font-bold text-base sm:text-lg text-white flex items-center justify-between gap-4 transition-colors hover:text-neon-cyan focus:outline-none" onclick="toggleFaq(this)">
-                        <span>Are there any initial sign-up or registration fees?</span>
-                        <i class="fa-solid fa-chevron-down text-sm transition-transform duration-300 text-slate-400"></i>
-                    </button>
-                    <div class="max-h-0 overflow-hidden transition-all duration-300 px-6 text-slate-400 text-sm leading-relaxed border-t border-transparent">
-                        <p class="pb-6 pt-2">
-                            No. Creating an account, testing dApps, and participating in earning pools is 100% free. We never charge subscription fees or ask for payments to unlock task lists.
+                <!-- Info Meta Area -->
+                <div class="p-3 sm:p-4 flex flex-col flex-1 justify-between">
+                    <div>
+                        <div class="flex items-center justify-between text-[11px] text-slate-400 mb-1">
+                            <span>${movie.year}</span>
+                            <span class="flex items-center gap-1 text-amber-400 font-bold">
+                                <i class="fa-solid fa-star text-[10px]"></i> ${movie.rating.toFixed(1)}
+                            </span>
+                        </div>
+                        <h3 class="text-sm font-bold text-white group-hover:text-cinRed transition-colors line-clamp-1 mb-1" title="${movie.title}">
+                            ${movie.title}
+                        </h3>
+                        <p class="text-[11px] text-slate-400 line-clamp-1 mb-3">
+                            ${movie.genres.join(', ')}
                         </p>
                     </div>
-                </div>
 
-                <!-- FAQ 3 -->
-                <div class="glass-panel rounded-2xl border border-white/10 overflow-hidden">
-                    <button class="w-full p-6 text-left font-heading font-bold text-base sm:text-lg text-white flex items-center justify-between gap-4 transition-colors hover:text-neon-cyan focus:outline-none" onclick="toggleFaq(this)">
-                        <span>Which withdrawal and settlement methods are supported?</span>
-                        <i class="fa-solid fa-chevron-down text-sm transition-transform duration-300 text-slate-400"></i>
+                    <button onclick="openMovieDetails(${movie.id})" 
+                            class="w-full py-1.5 px-3 rounded-lg bg-cinNavy hover:bg-cinRed text-slate-200 hover:text-white font-semibold text-xs tracking-wide transition-all border border-cinBorder hover:border-cinRed flex items-center justify-center gap-1.5">
+                        <span>Details</span>
+                        <i class="fa-solid fa-angle-right text-[10px]"></i>
                     </button>
-                    <div class="max-h-0 overflow-hidden transition-all duration-300 px-6 text-slate-400 text-sm leading-relaxed border-t border-transparent">
-                        <p class="pb-6 pt-2">
-                            You can settle rewards instantly using multiple channels: Web3 stablecoins (USDT, USDC on Polygon/Solana/Ethereum), Bitcoin, PayPal, SEPA bank transfers, and global digital cards (Amazon, Apple, Visa).
-                        </p>
-                    </div>
                 </div>
+            `;
+            return card;
+        }
 
-                <!-- FAQ 4 -->
-                <div class="glass-panel rounded-2xl border border
+        /**
+         * Create In-Grid Sponsored Advertisement Card
+         */
+        function createInGridSponsoredCard() {
+            const adCard = document.createElement('div');
+            adCard.className = "relative bg-gradient-to-b from-[#180A0B] to-[#0A1020] rounded-xl overflow-hidden border-2 border-cinOrange/50 shadow-glow-orange flex flex-col justify-between p-4 text-center";
+            adCard.innerHTML = `
+                <div class="space-y-2">
+                    <span class="inline-block bg-cinOrange text-white text-[9px] font-black uppercase tracking-widest px-2.5 py-0.5 rounded-full">
+                        Sponsored
+                    </span>
+                    <div class="w-12 h-12 rounded-xl bg-cinOrange/20 border border-cinOrange/40 text-cinOrange mx-auto flex items-center justify-center text-xl mt-2">
+                        <i class="fa-solid fa-cloud-arrow-down"></i>
+                    </div>
+                    <h4 class="text-sm font-bold text-white tracking-tight">4K Cloud Server Mirror</h4>
+                    <p class="text-[11px] text-slate-300 leading-snug">
+                        Zero wait time. Unlock 10 Gbps unthrottled streaming mirror links.
+                    </p>
+                </div>
+                <div class="mt-4 pt-2">
+                    <a href="https://auctionr.org/4/fa93ed40bc9be029e745479ee5ecf812" target="_blank" rel="noopener noreferrer"
+                       class="inline-block w-full py-2 px-3 rounded-lg bg-gradient-to-r from-cinOrange to-cinRed text-white font-bold text-xs shadow-md hover:scale-105 transition-transform">
+                        Launch Mirror <i class="fa-solid fa-external-link text-[10px] ml-1"></i>
+                    </a>
+                </div>
+            `;
+            return adCard;
+        }
+
+        /**
+         * Open Detailed Movie Modal
+         */
+        function openMovieDetails(movieId) {
+            const movie = MOVIE_DATABASE.find(m => m.id === movieId);
+            if (!movie) return;
+
+            // Set Meta
+            document.getElementById('modalBackdropImg').style.backgroundImage = `url('${movie.backdrop || movie.poster}')`;
+            document.getElementById('modalPosterImg').src = movie.poster;
+            document.getElementById('modalTitle').textContent = movie.title;
+            document.getElementById('modalOverview').textContent = movie.overview;
+            document.getElementById('modalQuality').textContent = movie.quality;
+            document.getElementById('modalRating').innerHTML = `<i class="fa-solid fa-star text-[9px] text-amber-400"></i> ${movie.rating.toFixed(1)}`;
+            document.getElementById('modalYear').textContent = movie.year;
+            document.getElementById('modalDuration').textContent = movie.duration;
+            document.getElementById('modalLanguage').textContent = movie.language;
+            document.getElementById('modalDirector').textContent = movie.director;
+            document.getElementById('modalCountry').textContent = movie.country;
+
+            // Genres
+            const genresContainer = document.getElementById('modalGenres');
+            genresContainer.innerHTML = '';
+            movie.genres.forEach(g => {
+                const tag = document.createElement('span');
+                tag.className = "px-2.5 py-0.5 rounded-full text-[11px] font-medium bg-cinBorder/60 text-slate-300";
+                tag.textContent = g;
+                genresContainer.appendChild(tag);
+            });
+
+            // Watch Trailer Buttons
+            document.getElementById('modalPlayTrailerBtn').onclick = () => {
+                openTrailerModal(movie.trailerYoutubeId, movie.title);
+            };
+            document.getElementById('modalActionTrailerBtn').onclick = () => {
+                openTrailerModal(movie.trailerYoutubeId, movie.title);
+            };
+
+            // Watchlist Button
+            const modalFavBtn = document.getElementById('modalFavToggleBtn');
+            const updateModalFavBtn = () => {
+                const isFav = STATE.favorites.includes(movie.id);
+                modalFavBtn.innerHTML = isFav 
+                    ? '<i class="fa-solid fa-heart text-cinRed"></i> <span>In Watchlist</span>'
+                    : '<i class="fa-regular fa-heart"></i> <span>Add to Watchlist</span>';
+            };
+            updateModalFavBtn();
+            modalFavBtn.onclick = () => {
+                toggleFavorite(movie.id);
+                updateModalFavBtn();
+            };
+
+            // Legitimate Streaming Source Button
+            document.getElementById('modalOfficialSourceBtn').href = movie.officialLink || 'https://www.google.com/search?q=' + encodeURIComponent(movie.title + ' watch online streaming');
+
+            // Open Modal
+            elements.movieDetailsModal.classList.remove('hidden');
+            document.body.classList.add('overflow-hidden');
+        }
+
+        function closeMovieDetails() {
+            elements.movieDetailsModal.classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        /**
+         * Open Trailer Modal with YouTube Embed
+         */
+        function openTrailerModal(youtubeId, title) {
+            elements.trailerIframeContainer.innerHTML = `
+                <iframe class="w-full h-full" 
+                        src="https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=1&rel=0&modestbranding=1" 
+                        title="${title} Official Trailer" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen>
+                </iframe>
+            `;
+            elements.trailerModal.classList.remove('hidden');
+            document.body.classList.add('overflow-hidden');
+        }
+
+        function closeTrailerModal() {
+            elements.trailerIframeContainer.innerHTML = '';
+            elements.trailerModal.classList.add('hidden');
+            if (elements.movieDetailsModal.classList.contains('hidden')) {
+                document.body.classList.remove('overflow-hidden');
+            }
+        }
+
+        /**
+         * Favorites / Watchlist System (localStorage)
+         */
+        function toggleFavorite(movieId) {
+            const index = STATE.favorites.indexOf(movieId);
+            const movie = MOVIE_DATABASE.find(m => m.id === movieId);
+            const title = movie ? movie.title : 'Movie';
+
+            if (index > -1) {
+                STATE.favorites.splice(index, 1);
+                showToast(`Removed "${title}" from Watchlist`, 'info');
+            } else {
+                STATE.favorites.push(movieId);
+                showToast(`Saved "${title}" to Watchlist!`, 'success');
+            }
+
+            saveFavorites();
+            updateFavoritesCounter();
+            renderMovies();
+            updateHeroFavButtonState();
+            if (!elements.watchlistDrawer.classList.contains('translate-x-full')) {
+                renderWatchlistDrawer();
+            }
+        }
+
+        function saveFavorites() {
+            localStorage.setItem('cinverse_favorites', JSON.stringify(STATE.favorites));
+        }
+
+        function updateFavoritesCounter() {
+            const count = STATE.favorites.length;
+            elements.favCounterBadge.textContent = count;
+            elements.drawerCountBadge.textContent = count;
+        }
+
+        function renderWatchlistDrawer() {
+            elements.drawerListContainer.innerHTML = '';
+            const favMovies = MOVIE_DATABASE.filter(m => STATE.favorites.includes(m.id));
+
+            if (favMovies.length === 0) {
+                elements.drawerListContainer.innerHTML = `
+                    <div class="text-center py-16 text-slate-500">
+                        <i class="fa-regular fa-heart text-4xl mb-3 text-slate-600"></i>
+                        <p class="text-sm font-semibold text-slate-400">Your watchlist is empty</p>
+                        <p class="text-xs text-slate-500 mt-1">Tap the heart icon on any movie to save it here for later.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            favMovies.forEach(movie => {
+                const item = document.createElement('div');
+                item.className = "flex items-center gap-3 p-2.5 rounded-xl bg-cinNavy/70 border border-cinBorder hover:border-cinRed/50 transition-colors";
+                item.innerHTML = `
+                    <img src="${movie.poster}" alt="${movie.title}" class="w-12 h-16 object-cover rounded-lg flex-shrink-0 cursor-pointer" onclick="openMovieDetails(${movie.id})">
+                    <div class="flex-1 min-w-0 cursor-pointer" onclick="openMovieDetails(${movie.id})">
+                        <h4 class="text-xs font-bold text-white truncate hover:text-cinRed">${movie.title}</h4>
+                        <div class="flex items-center gap-2 text-[10px] text-slate-400 mt-0.5">
+                            <span>${movie.year}</span>
+                            <span>•</span>
+                            <span class="text-amber-400"><i class="fa-solid fa-star text-[9px]"></i> ${movie.rating}</span>
+                        </div>
+                    </div>
+                    <button class="p-2 text-slate-400 hover:text-cinRed transition-colors" title="Remove" onclick="toggleFavorite(${movie.id})">
+                        <i class="fa-solid fa-trash-can text-xs"></i>
+                    </button>
+                `;
+                elements.drawerListContainer.appendChild(item);
+            });
+        }
+
+        /**
+         * Notification Toast Helper
+         */
+        function showToast(message, type = 'info') {
+            const toast = document.createElement('div');
+            const bgClass = type === 'success' ? 'border-cinRed bg-cinNavy text-white' : 'border-slate-700 bg-cinDeep text-slate-200';
+            const icon = type === 'success' ? '<i class="fa-solid fa-check text-cinRed"></i>' : '<i class="fa-solid fa-info text-amber-400"></i>';
+
+            toast.className = `flex items-center gap-3 px-4 py-3 rounded-xl border ${bgClass} shadow-glow-card text-xs font-medium transition-all duration-300 transform translate-y-3 opacity-0`;
+            toast.innerHTML = `${icon} <span>${message}</span>`;
+
+            elements.toastContainer.appendChild(toast);
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-3', 'opacity-0');
+            }, 10);
+
+            setTimeout(() => {
+                toast.classList.add('translate-y-3', 'opacity-0');
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
